@@ -2,6 +2,7 @@ package eu.ansquare.starr.items;
 
 import eu.ansquare.starr.StarR;
 import eu.ansquare.starr.items.testing.GetSuperTypeTesterItem;
+import eu.ansquare.starr.items.testing.ResetSuperTypeTesterItem;
 import eu.ansquare.starr.items.testing.SetSuperTypeTesterItem;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.item.*;
@@ -41,5 +42,6 @@ public class ModItems {
     public static final Item LO_BOOTS = createItem("lo_boots", new ArmorItem(LO, ArmorItem.ArmorSlot.BOOTS, new QuiltItemSettings().maxCount(1)), ItemGroups.COMBAT);
     public static final Item SUPER_TYPE_SET_TEST = createItem("super_type_set_test", new SetSuperTypeTesterItem(new QuiltItemSettings()), ItemGroups.COMBAT);
     public static final Item SUPER_TYPE_GET_TEST = createItem("super_type_get_test", new GetSuperTypeTesterItem(new QuiltItemSettings()), ItemGroups.COMBAT);
+    public static final Item RESET_TESTER = createItem("reset_tester", new ResetSuperTypeTesterItem(new QuiltItemSettings()), ItemGroups.COMBAT);
 
 }

@@ -11,18 +11,15 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
 
-public class GetSuperTypeTesterItem extends Item {
-	public GetSuperTypeTesterItem(Settings settings) {
+public class ResetSuperTypeTesterItem extends Item {
+	public ResetSuperTypeTesterItem(Settings settings) {
 		super(settings);
 	}
 	@Override
+
 	public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand){
 		if(!world.isClient()){
-			SuperDude type = SuperdudeDataManager.get((IDataSaver) user);
-			if(type != null){
-				user.sendMessage(Text.literal(type.queryMessage()), true);
-			}
-
+			SuperdudeDataManager.set((IDataSaver) user, "");
 		}
 		return TypedActionResult.success(user.getStackInHand(hand));
 	}

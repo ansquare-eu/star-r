@@ -1,5 +1,7 @@
 package eu.ansquare.starr.util.datasaving;
 
+import eu.ansquare.starr.superdude.SuperDude;
+import eu.ansquare.starr.superdude.SuperDudes;
 import net.minecraft.nbt.NbtCompound;
 
 public class SuperdudeDataManager {
@@ -7,9 +9,10 @@ public class SuperdudeDataManager {
 		NbtCompound nbt = dataSaver.getEntityData();
 		nbt.putString("superType", superType);
 	}
-	public static String get(IDataSaver dataSaver){
+	public static SuperDude get(IDataSaver dataSaver){
 		NbtCompound nbt = dataSaver.getEntityData();
 		String superType = nbt.getString("superType");
-		return superType;
+		SuperDude superDude = SuperDudes.getSuperDude(superType);
+		return superDude;
 	}
 }

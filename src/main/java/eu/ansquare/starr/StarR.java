@@ -1,6 +1,7 @@
 package eu.ansquare.starr;
 
 import eu.ansquare.starr.blocks.ModBlocks;
+import eu.ansquare.starr.entity.ModEntities;
 import eu.ansquare.starr.items.ModItems;
 import org.quiltmc.loader.api.ModContainer;
 import org.quiltmc.qsl.base.api.entrypoint.ModInitializer;
@@ -19,5 +20,7 @@ public class StarR implements ModInitializer {
 		LOGGER.info("Hello Quilt world from {}!", mod.metadata().name());
 		ModBlocks.init();
 		ModItems.init();
+		ModEntities.init();
 	}
+
 }
