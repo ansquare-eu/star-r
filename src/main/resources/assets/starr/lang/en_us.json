@@ -18,5 +18,10 @@
 ,"item.starr.captain_rs_chestplate" : "Captain Rs shirt"
 ,"item.starr.captain_rs_leggings" : "Captain Rs pants"
 ,"item.starr.captain_rs_boots" : "Captain Rs shoes"
+,"key.starr.transformation": "Transformation"
+,"category.starr.powers": "Power keybinds"
+,"entity.starr.cape": "Cape"
+,"message.starr.lack_power" : "You do not have this power"
+,"message.starr.not_superhero" : "You are not a superdude"
 
 }

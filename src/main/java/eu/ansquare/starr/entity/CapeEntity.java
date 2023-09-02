@@ -1,6 +1,7 @@
 package eu.ansquare.starr.entity;
 
 import eu.ansquare.starr.StarR;
+import net.minecraft.client.option.KeyBind;
 import net.minecraft.entity.*;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;

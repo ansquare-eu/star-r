@@ -10,11 +10,14 @@ public abstract class SuperDude {
 		powers = new HashMap<>();
 	}
 
-	private Map<PowerOrder, Power> powers;
+	public Map<PowerOrder, Power> powers;
 	public abstract String getName();
 	public abstract void initPowers();
 	public Power getPower(PowerOrder order){
-		return powers.get(order);
+		return this.powers.get(order);
 	}
 	public abstract String queryMessage();
+	public boolean hasPower(PowerOrder order){
+		return this.powers.containsKey(order);
+	}
 }

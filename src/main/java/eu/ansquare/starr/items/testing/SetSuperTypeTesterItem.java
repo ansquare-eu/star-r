@@ -1,5 +1,7 @@
 package eu.ansquare.starr.items.testing;
 
+import eu.ansquare.starr.superdude.SuperDude;
+import eu.ansquare.starr.superdude.SuperDudes;
 import eu.ansquare.starr.util.datasaving.IDataSaver;
 import eu.ansquare.starr.util.datasaving.SuperdudeDataManager;
 import net.minecraft.entity.player.PlayerEntity;
@@ -17,7 +19,7 @@ public class SetSuperTypeTesterItem extends Item {
 	@Override
 	public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand){
 		if(!world.isClient()){
-			SuperdudeDataManager.set((IDataSaver) user, "testType");
+			SuperdudeDataManager.set((IDataSaver) user, SuperDudes.TEST_SUPER_DUDE.getName());
 		}
 		return TypedActionResult.success(user.getStackInHand(hand));
 	}
