@@ -18,11 +18,12 @@ public class CapeEntityModel extends EntityModel<CapeEntity> {
 	}
 
 
-	public static TexturedModelData createBodyLayer() {
+	public static TexturedModelData getTexturedModelData() {
 		ModelData meshdefinition = new ModelData();
 		ModelPartData partdefinition = meshdefinition.getRoot();
 
-		ModelPartData bb_main = partdefinition.addChild("bb_main", ModelPartBuilder.create().uv(0, 0).cuboid(-6.0F, -24.0F, -3.0F, 11.0F, 24.0F, 1.0F, new Dilation(0.0F)), ModelTransform.pivot(0.0F, 24.0F, 0.0F));
+		ModelPartData bone = partdefinition.addChild("bone", ModelPartBuilder.create().
+				uv(0, 0).cuboid(-6.0F, -24.0F, 2.0F, 11.0F, 24.0F, 1.0F, new Dilation(0.0F)), ModelTransform.pivot(0.0F, 24.0F, 0.0F));
 
 		return TexturedModelData.of(meshdefinition, 32, 32);
 	}

@@ -19,7 +19,8 @@
 		},
 		"intermediate_mappings": "net.fabricmc:intermediary",
 		"entrypoints": {
-			"init": "eu.ansquare.starr.StarR"
+			"init": "eu.ansquare.starr.StarR",
+			"client_init": "eu.ansquare.starr.client.StarRClient"
 		},
 		"depends": [
 			{

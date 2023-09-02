@@ -10,5 +10,13 @@
 ,"item.starr.super_type_set_test" : "super type set test"
 ,"item.starr.super_type_get_test" : "super type get test"
 ,"item.starr.reset_tester" : "reset tester"
+,"item.starr.skin_helmet" : "skin h"
+,"item.starr.skin_chestplate" : "shin ch"
+,"item.starr.skin_leggings" : "shin l"
+,"item.starr.skin_boots" : "skin b"
+,"item.starr.captain_rs_helmet" : "mask"
+,"item.starr.captain_rs_chestplate" : "Captain Rs shirt"
+,"item.starr.captain_rs_leggings" : "Captain Rs pants"
+,"item.starr.captain_rs_boots" : "Captain Rs shoes"
 
 }

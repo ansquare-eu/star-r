@@ -2,6 +2,7 @@ package eu.ansquare.starr.entity;
 
 import eu.ansquare.starr.StarR;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
+import net.minecraft.entity.EntityDimensions;
 import net.minecraft.entity.EntityType;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroups;
@@ -18,7 +19,7 @@ import java.util.Map;
 public class ModEntities {
 	private static final Map<EntityType, Identifier> ENTITIES = new LinkedHashMap();
 
-	public static final EntityType CAPE = createEntity("cape", QuiltEntityTypeBuilder.<CapeEntity>create().build());
+	public static final EntityType CAPE = createEntity("cape", QuiltEntityTypeBuilder.<CapeEntity>createLiving().entityFactory(CapeEntity::new).setDimensions(EntityDimensions.fixed(0.1f, 0.1f)).defaultAttributes(CapeEntity.createJellyfishAttributes()).build());
 	public static <T extends EntityType> T createEntity(String name, T entity){
 		ENTITIES.put(entity, new Identifier(StarR.MODID, name));
 		return entity;
