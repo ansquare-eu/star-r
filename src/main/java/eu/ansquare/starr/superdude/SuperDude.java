@@ -8,6 +8,7 @@ import java.util.Map;
 public abstract class SuperDude {
 	public SuperDude() {
 		powers = new HashMap<>();
+		initPowers();
 	}
 
 	public Map<PowerOrder, Power> powers;
