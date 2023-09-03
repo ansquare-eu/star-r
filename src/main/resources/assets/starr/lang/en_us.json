@@ -23,5 +23,14 @@
 ,"entity.starr.cape": "Cape"
 ,"message.starr.lack_power" : "You do not have this power"
 ,"message.starr.not_superhero" : "You are not a superdude"
-
+,"key.starr.firstpower": "First power"
+,"key.starr.secondpower": "Second power"
+,"key.starr.thirdpower": "Third power"
+,"key.starr.fourthpower": "Fourth power"
+,"key.starr.fifthpower": "Fifth power"
+,"key.starr.sixthpower": "Sixth power"
+,"key.starr.seventhpower": "Seventh power"
+,"key.starr.eightpower": "Eight power"
+,"key.starr.ninthpower": "Ninth power"
+,"key.starr.tenthpower": "Tenth power"
 }
