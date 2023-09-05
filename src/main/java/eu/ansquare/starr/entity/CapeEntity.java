@@ -74,10 +74,12 @@ public class CapeEntity extends LivingEntity{
 	public void pushAway(Entity entity){
 
 	}
+	/*
 	@Override
 	public boolean damage(DamageSource source, float amount) {
 		return false;
 	}
+	*/
 	@Override
 	public Arm getMainArm() {
 		return Arm.RIGHT;

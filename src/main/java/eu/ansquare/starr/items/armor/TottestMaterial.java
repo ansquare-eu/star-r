@@ -1,4 +1,4 @@
-package eu.ansquare.starr.items;
+package eu.ansquare.starr.items.armor;
 
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.ArmorMaterial;

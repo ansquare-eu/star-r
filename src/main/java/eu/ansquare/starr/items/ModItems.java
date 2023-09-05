@@ -1,6 +1,10 @@
 package eu.ansquare.starr.items;
 
+import dev.emi.trinkets.api.TrinketItem;
 import eu.ansquare.starr.StarR;
+import eu.ansquare.starr.items.armor.LoMaterial;
+import eu.ansquare.starr.items.armor.SkinMaterial;
+import eu.ansquare.starr.items.armor.TottestMaterial;
 import eu.ansquare.starr.items.testing.GetSuperTypeTesterItem;
 import eu.ansquare.starr.items.testing.ResetSuperTypeTesterItem;
 import eu.ansquare.starr.items.testing.SetSuperTypeTesterItem;
@@ -43,15 +47,15 @@ public class ModItems {
     public static final Item SUPER_TYPE_SET_TEST = createItem("super_type_set_test", new SetSuperTypeTesterItem(new QuiltItemSettings()), ItemGroups.COMBAT);
     public static final Item SUPER_TYPE_GET_TEST = createItem("super_type_get_test", new GetSuperTypeTesterItem(new QuiltItemSettings()), ItemGroups.COMBAT);
     public static final Item RESET_TESTER = createItem("reset_tester", new ResetSuperTypeTesterItem(new QuiltItemSettings()), ItemGroups.COMBAT);
-    public static final ArmorMaterial SKIN = new SkinMaterial(); 
-    public static final Item SKIN_HELMET = createItem("skin_helmet", new ArmorItem(SKIN, ArmorItem.ArmorSlot.HELMET, new QuiltItemSettings().maxCount(1)), ItemGroups.COMBAT); 
-    public static final Item SKIN_CHESTPLATE = createItem("skin_chestplate", new ArmorItem(SKIN, ArmorItem.ArmorSlot.CHESTPLATE, new QuiltItemSettings().maxCount(1)), ItemGroups.COMBAT); 
-    public static final Item SKIN_LEGGINGS = createItem("skin_leggings", new ArmorItem(SKIN, ArmorItem.ArmorSlot.LEGGINGS, new QuiltItemSettings().maxCount(1)), ItemGroups.COMBAT); 
-    public static final Item SKIN_BOOTS = createItem("skin_boots", new ArmorItem(SKIN, ArmorItem.ArmorSlot.BOOTS, new QuiltItemSettings().maxCount(1)), ItemGroups.COMBAT); 
-    public static final ArmorMaterial CAPTAIN_RS = new CaptainrsMaterial(); 
-    public static final Item CAPTAIN_RS_HELMET = createItem("captain_rs_helmet", new ArmorItem(CAPTAIN_RS, ArmorItem.ArmorSlot.HELMET, new QuiltItemSettings().maxCount(1)), ItemGroups.COMBAT); 
-    public static final Item CAPTAIN_RS_CHESTPLATE = createItem("captain_rs_chestplate", new ArmorItem(CAPTAIN_RS, ArmorItem.ArmorSlot.CHESTPLATE, new QuiltItemSettings().maxCount(1)), ItemGroups.COMBAT); 
-    public static final Item CAPTAIN_RS_LEGGINGS = createItem("captain_rs_leggings", new ArmorItem(CAPTAIN_RS, ArmorItem.ArmorSlot.LEGGINGS, new QuiltItemSettings().maxCount(1)), ItemGroups.COMBAT); 
-    public static final Item CAPTAIN_RS_BOOTS = createItem("captain_rs_boots", new ArmorItem(CAPTAIN_RS, ArmorItem.ArmorSlot.BOOTS, new QuiltItemSettings().maxCount(1)), ItemGroups.COMBAT); 
+    public static final ArmorMaterial SKIN = new SkinMaterial();
+    public static final Item SKIN_HELMET = createItem("skin_helmet", new ArmorItem(SKIN, ArmorItem.ArmorSlot.HELMET, new QuiltItemSettings().maxCount(1)), ItemGroups.COMBAT);
+    public static final Item SKIN_CHESTPLATE = createItem("skin_chestplate", new ArmorItem(SKIN, ArmorItem.ArmorSlot.CHESTPLATE, new QuiltItemSettings().maxCount(1)), ItemGroups.COMBAT);
+    public static final Item SKIN_LEGGINGS = createItem("skin_leggings", new ArmorItem(SKIN, ArmorItem.ArmorSlot.LEGGINGS, new QuiltItemSettings().maxCount(1)), ItemGroups.COMBAT);
+    public static final Item SKIN_BOOTS = createItem("skin_boots", new ArmorItem(SKIN, ArmorItem.ArmorSlot.BOOTS, new QuiltItemSettings().maxCount(1)), ItemGroups.COMBAT);
+    public static final ArmorMaterial CAPTAIN_RS = new CaptainrsMaterial();
+    public static final Item CAPTAIN_RS_CHESTPLATE = createItem("captain_rs_chestplate", new ArmorItem(CAPTAIN_RS, ArmorItem.ArmorSlot.CHESTPLATE, new QuiltItemSettings().maxCount(1)), ItemGroups.COMBAT);
+    public static final Item CAPTAIN_RS_LEGGINGS = createItem("captain_rs_leggings", new ArmorItem(CAPTAIN_RS, ArmorItem.ArmorSlot.LEGGINGS, new QuiltItemSettings().maxCount(1)), ItemGroups.COMBAT);
+    public static final Item CAPTAIN_RS_BOOTS = createItem("captain_rs_boots", new ArmorItem(CAPTAIN_RS, ArmorItem.ArmorSlot.BOOTS, new QuiltItemSettings().maxCount(1)), ItemGroups.COMBAT);
+    public static final Item CAPE = createItem("cape", new CapeItem(new QuiltItemSettings(), new Identifier(StarR.MODID, "textures/wearable/cape/cape.png")), ItemGroups.COMBAT);
 
 }

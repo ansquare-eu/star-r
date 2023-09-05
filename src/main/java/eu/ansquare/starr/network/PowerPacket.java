@@ -1,5 +1,6 @@
 package eu.ansquare.starr.network;
 
+import dev.emi.trinkets.api.TrinketItem;
 import eu.ansquare.starr.power.Power;
 import eu.ansquare.starr.superdude.PowerOrder;
 import eu.ansquare.starr.superdude.SuperDude;
@@ -25,6 +26,7 @@ public class PowerPacket {
 				Power power = superDude.getPower(powerOrder);
 				power.onActivate(player);
 			}
+
 			else {
 				player.sendMessage(Text.translatable(LACKS_POWER), true);
 			}

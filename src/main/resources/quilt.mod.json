@@ -8,7 +8,8 @@
 			"name": "Star R",
 			"description": "A short description of your mod.",
 			"contributors": {
-				"Farpo (SasaElele)": "Owner"
+				"Farpo (SasaElele)": "Owner",
+				"ReadyRoad": "Author"
 			},
 			"contact": {
 				"homepage": "https://example.com/",
