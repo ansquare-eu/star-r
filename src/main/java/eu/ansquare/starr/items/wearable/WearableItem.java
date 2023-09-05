@@ -1,11 +1,11 @@
-package eu.ansquare.starr.items;
+package eu.ansquare.starr.items.wearable;
 
 import dev.emi.trinkets.api.TrinketItem;
 import net.minecraft.util.Identifier;
 
-public class CapeItem extends TrinketItem {
+public class WearableItem extends TrinketItem {
 	private Identifier texture;
-	public CapeItem(Settings settings, Identifier texture) {
+	public WearableItem(Settings settings, Identifier texture) {
 		super(settings);
 		this.texture = texture;
 	}

@@ -42,8 +42,12 @@ public class CapeWearableModel extends Model {
 	@Override
 	public void render(MatrixStack matrices, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
 		matrices.push();
-
 		capewearable.render(matrices, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
 		matrices.pop();
+	}
+	public void changeAngles(ModelPart thing, float x, float y, float z){
+		thing.yaw = y;
+		thing.pitch = x;
+		thing.roll = z;
 	}
 }

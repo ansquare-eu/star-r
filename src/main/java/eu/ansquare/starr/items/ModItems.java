@@ -1,6 +1,5 @@
 package eu.ansquare.starr.items;
 
-import dev.emi.trinkets.api.TrinketItem;
 import eu.ansquare.starr.StarR;
 import eu.ansquare.starr.items.armor.LoMaterial;
 import eu.ansquare.starr.items.armor.SkinMaterial;
@@ -8,6 +7,7 @@ import eu.ansquare.starr.items.armor.TottestMaterial;
 import eu.ansquare.starr.items.testing.GetSuperTypeTesterItem;
 import eu.ansquare.starr.items.testing.ResetSuperTypeTesterItem;
 import eu.ansquare.starr.items.testing.SetSuperTypeTesterItem;
+import eu.ansquare.starr.items.wearable.WearableItem;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
@@ -56,6 +56,6 @@ public class ModItems {
     public static final Item CAPTAIN_RS_CHESTPLATE = createItem("captain_rs_chestplate", new ArmorItem(CAPTAIN_RS, ArmorItem.ArmorSlot.CHESTPLATE, new QuiltItemSettings().maxCount(1)), ItemGroups.COMBAT);
     public static final Item CAPTAIN_RS_LEGGINGS = createItem("captain_rs_leggings", new ArmorItem(CAPTAIN_RS, ArmorItem.ArmorSlot.LEGGINGS, new QuiltItemSettings().maxCount(1)), ItemGroups.COMBAT);
     public static final Item CAPTAIN_RS_BOOTS = createItem("captain_rs_boots", new ArmorItem(CAPTAIN_RS, ArmorItem.ArmorSlot.BOOTS, new QuiltItemSettings().maxCount(1)), ItemGroups.COMBAT);
-    public static final Item CAPE = createItem("cape", new CapeItem(new QuiltItemSettings(), new Identifier(StarR.MODID, "textures/wearable/cape/cape.png")), ItemGroups.COMBAT);
+    public static final WearableItem CAPE = createItem("cape", new WearableItem(new QuiltItemSettings(), new Identifier(StarR.MODID, "textures/wearable/cape/cape.png")), ItemGroups.COMBAT);
 
 }
