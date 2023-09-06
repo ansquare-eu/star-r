@@ -32,8 +32,10 @@
 ,"key.starr.seventhpower": "Seventh power"
 ,"key.starr.eightpower": "Eight power"
 ,"key.starr.ninthpower": "Ninth power"
-,"item.starr.mask" : "Mask"
-,"item.starr.cape" : "cape"
-,"item.starr.mask" : "mask"
 ,"key.starr.tenthpower": "Tenth power"
+,"item.starr.cape" : "cape"
+,"item.starr.hare" : "hare",
+  "item.starr.hare.tooltip.true" : "Shift + Right click to disable",
+  "item.starr.hare.tooltip.false" : "Shift + Right click to enable"
+
 }

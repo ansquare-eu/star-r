@@ -2,8 +2,11 @@ package eu.ansquare.starr.client;
 
 import eu.ansquare.starr.StarR;
 import eu.ansquare.starr.client.wearables.TrinketRenderers;
+import eu.ansquare.starr.client.wearables.TwoStateWearableModels;
 import eu.ansquare.starr.client.wearables.model.CapeWearableModel;
 import eu.ansquare.starr.client.wearables.model.FaceWearableModel;
+import eu.ansquare.starr.client.wearables.model.hare.HareOneModel;
+import eu.ansquare.starr.client.wearables.model.hare.HareTwoModel;
 import eu.ansquare.starr.entity.ModEntities;
 import eu.ansquare.starr.entity.model.CapeEntityModel;
 import eu.ansquare.starr.entity.render.CapeEntityRenderer;
@@ -29,9 +32,13 @@ public class StarRClient implements ClientModInitializer {
 		});
 		EntityModelLayerRegistry.registerModelLayer(CapeWearableModel.LAYER_LOCATION, CapeWearableModel::getTexturedModelData);
 		EntityModelLayerRegistry.registerModelLayer(FaceWearableModel.LAYER_LOCATION, FaceWearableModel::getTexturedModelData);
+		EntityModelLayerRegistry.registerModelLayer(HareOneModel.LAYER_LOCATION, HareOneModel::getTexturedModelData);
+		EntityModelLayerRegistry.registerModelLayer(HareTwoModel.LAYER_LOCATION, HareTwoModel::getTexturedModelData);
 		ModKeyBinds.init();
 		ModPackets.initS2C();
+		//TwoStateWearableModels.init();
 		TrinketRenderers.registerCapeRenderers(GetItemTypes.getCapes());
+		TrinketRenderers.registerTwoStateRenderers(GetItemTypes.getTwoStateWearables());
 
 	}
 }
