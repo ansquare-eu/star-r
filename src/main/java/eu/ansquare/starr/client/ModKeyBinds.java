@@ -95,7 +95,7 @@ public class ModKeyBinds {
 		sixthPowerKey = KeyBindingHelper.registerKeyBinding(new KeyBind(
 				"key.starr.sixthpower", // The translation key of the keybinding's name
 				InputUtil.Type.KEYSYM, // The type of the keybinding, KEYSYM for keyboard, MOUSE for mouse.
-				GLFW.GLFW_KEY_J, // The keycode of the key
+				GLFW.GLFW_KEY_G, // The keycode of the key
 				"category.starr.powers" // The translation key of the keybinding's category.
 		));
 		ClientTickEvents.END_CLIENT_TICK.register(client -> {
@@ -139,7 +139,7 @@ public class ModKeyBinds {
 		tenthPowerKey = KeyBindingHelper.registerKeyBinding(new KeyBind(
 				"key.starr.tenthpower", // The translation key of the keybinding's name
 				InputUtil.Type.KEYSYM, // The type of the keybinding, KEYSYM for keyboard, MOUSE for mouse.
-				GLFW.GLFW_KEY_APOSTROPHE, // The keycode of the key
+				GLFW.GLFW_KEY_Z, // The keycode of the key
 				"category.starr.powers" // The translation key of the keybinding's category.
 		));
 		ClientTickEvents.END_CLIENT_TICK.register(client -> {
