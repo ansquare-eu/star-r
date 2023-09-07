@@ -12,9 +12,9 @@
 				"ReadyRoad": "Author"
 			},
 			"contact": {
-				"homepage": "https://example.com/",
-				"issues": "https://github.com/QuiltMC/quilt-template-mod/issues",
-				"sources": "https://github.com/QuiltMC/quilt-template-mod"
+				"homepage": "https://ansquare.eu/",
+				"issues": "https://github.com/aeraanic-project/star-r/issues",
+				"sources": "https://github.com/aeraanic-project/star-r"
 			},
 			"icon": "assets/starr/icon.png"
 		},

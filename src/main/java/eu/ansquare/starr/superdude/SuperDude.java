@@ -4,6 +4,7 @@ import eu.ansquare.starr.power.Power;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 public abstract class SuperDude {
 	public SuperDude() {
@@ -20,5 +21,8 @@ public abstract class SuperDude {
 	public abstract String queryMessage();
 	public boolean hasPower(PowerOrder order){
 		return this.powers.containsKey(order);
+	}
+	public Map<PowerOrder, Power> getPowers(){
+		return powers;
 	}
 }

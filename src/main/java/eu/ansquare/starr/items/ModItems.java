@@ -57,7 +57,7 @@ public class ModItems {
     public static final Item CAPTAIN_RS_CHESTPLATE = createItem("captain_rs_chestplate", new ArmorItem(CAPTAIN_RS, ArmorItem.ArmorSlot.CHESTPLATE, new QuiltItemSettings().maxCount(1)), ItemGroups.COMBAT);
     public static final Item CAPTAIN_RS_LEGGINGS = createItem("captain_rs_leggings", new ArmorItem(CAPTAIN_RS, ArmorItem.ArmorSlot.LEGGINGS, new QuiltItemSettings().maxCount(1)), ItemGroups.COMBAT);
     public static final Item CAPTAIN_RS_BOOTS = createItem("captain_rs_boots", new ArmorItem(CAPTAIN_RS, ArmorItem.ArmorSlot.BOOTS, new QuiltItemSettings().maxCount(1)), ItemGroups.COMBAT);
-    public static final WearableItem CAPE = createItem("cape", new WearableItem(new QuiltItemSettings(), new Identifier(StarR.MODID, "textures/wearable/cape/cape.png")), ItemGroups.COMBAT);
-    public static final TwoStateWearable HARE = createItem("hare", new TwoStateWearable(new QuiltItemSettings(), new Identifier(StarR.MODID, "textures/wearable/hare.png"), "hare"), ItemGroups.COMBAT);
+    public static final WearableItem CAPE = createItem("cape", new WearableItem(new QuiltItemSettings().maxCount(1), new Identifier(StarR.MODID, "textures/wearable/cape/cape.png")), ItemGroups.COMBAT);
+    public static final TwoStateWearable HARE = createItem("hare", new TwoStateWearable(new QuiltItemSettings().maxCount(1), new Identifier(StarR.MODID, "textures/wearable/hare.png"), "hare"), ItemGroups.COMBAT);
 
 }
