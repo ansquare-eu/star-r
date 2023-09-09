@@ -12,11 +12,14 @@ public abstract class ToggleablePower extends Power{
 	public void onActivate(ServerPlayerEntity player) {
 		if(map.contains(player.getUuid())){
 			map.remove(player.getUuid());
+			deactivationAction(player);
 		} else {
 			map.add(player.getUuid());
+			activationAction(player);
 		}
 	}
-
+	public abstract void activationAction(ServerPlayerEntity player);
+	public abstract void deactivationAction(ServerPlayerEntity player);
 	public abstract void activeTick(LivingEntity entity);
 	public boolean isActiveFor(UUID uuid){
 		return map.contains(uuid);

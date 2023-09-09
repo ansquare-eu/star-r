@@ -24,6 +24,15 @@ public class LaserPower extends ToggleablePower{
 	}
 
 
+	@Override
+	public void activationAction(ServerPlayerEntity player) {
+
+	}
+
+	@Override
+	public void deactivationAction(ServerPlayerEntity player) {
+
+	}
 
 	@Override
 	public void activeTick(LivingEntity entity) {

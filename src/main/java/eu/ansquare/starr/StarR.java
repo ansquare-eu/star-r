@@ -4,6 +4,7 @@ import eu.ansquare.starr.blocks.ModBlocks;
 import eu.ansquare.starr.entity.ModEntities;
 import eu.ansquare.starr.items.ModItems;
 import eu.ansquare.starr.network.ModPackets;
+import eu.ansquare.starr.power.Powers;
 import org.quiltmc.loader.api.ModContainer;
 import org.quiltmc.qsl.base.api.entrypoint.ModInitializer;
 import org.slf4j.Logger;
@@ -23,6 +24,7 @@ public class StarR implements ModInitializer {
 		ModItems.init();
 		ModEntities.init();
 		ModPackets.initC2S();
+		Powers.init();
 		LOGGER.info("{} succesfully intialized!", mod.metadata().name());
 	}
 
