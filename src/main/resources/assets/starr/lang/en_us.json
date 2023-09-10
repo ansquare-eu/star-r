@@ -37,5 +37,6 @@
 ,"item.starr.hare" : "hare",
   "item.starr.hare.tooltip.true" : "Shift + Right click to disable",
   "item.starr.hare.tooltip.false" : "Shift + Right click to enable"
+,"item.starr.palica" : "palica"
 
 }

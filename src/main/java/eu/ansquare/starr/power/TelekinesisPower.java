@@ -52,11 +52,11 @@ public class TelekinesisPower extends ToggleablePower{
 
 			}
 		}
-			BlockHitResult blockHitResult = player.getWorld().raycast(new RaycastContext(player.getEyePos(), player.getEyePos().add(playerDir), RaycastContext.ShapeType.VISUAL, RaycastContext.FluidHandling.NONE, player));
+/*			BlockHitResult blockHitResult = player.getWorld().raycast(new RaycastContext(player.getEyePos(), player.getEyePos().add(playerDir), RaycastContext.ShapeType.VISUAL, RaycastContext.FluidHandling.NONE, player));
 			if(blockHitResult != null){
 				FallingBlockEntity fallingBlock = FallingBlockEntity.fall(player.getWorld(), blockHitResult.getBlockPos(), player.getWorld().getBlockState(blockHitResult.getBlockPos()));
 				entities.put(player.getUuid(), fallingBlock);
-			}
+			}*/
 
 	}
 
