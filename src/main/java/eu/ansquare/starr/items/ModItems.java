@@ -1,15 +1,20 @@
 package eu.ansquare.starr.items;
 
 import eu.ansquare.starr.StarR;
+import eu.ansquare.starr.client.wearables.model.hare.HareOneModel;
+import eu.ansquare.starr.client.wearables.model.hare.HareTwoModel;
 import eu.ansquare.starr.items.armor.LoMaterial;
 import eu.ansquare.starr.items.armor.SkinMaterial;
 import eu.ansquare.starr.items.armor.TottestMaterial;
 import eu.ansquare.starr.items.testing.GetSuperTypeTesterItem;
 import eu.ansquare.starr.items.testing.ResetSuperTypeTesterItem;
 import eu.ansquare.starr.items.testing.SetSuperTypeTesterItem;
+import eu.ansquare.starr.items.wearable.TwoStateModelProvider;
 import eu.ansquare.starr.items.wearable.TwoStateWearable;
 import eu.ansquare.starr.items.wearable.WearableItem;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
+import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.model.Model;
 import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
@@ -57,8 +62,18 @@ public class ModItems {
     public static final Item CAPTAIN_RS_CHESTPLATE = createItem("captain_rs_chestplate", new ArmorItem(CAPTAIN_RS, ArmorItem.ArmorSlot.CHESTPLATE, new QuiltItemSettings().maxCount(1)), ItemGroups.COMBAT);
     public static final Item CAPTAIN_RS_LEGGINGS = createItem("captain_rs_leggings", new ArmorItem(CAPTAIN_RS, ArmorItem.ArmorSlot.LEGGINGS, new QuiltItemSettings().maxCount(1)), ItemGroups.COMBAT);
     public static final Item CAPTAIN_RS_BOOTS = createItem("captain_rs_boots", new ArmorItem(CAPTAIN_RS, ArmorItem.ArmorSlot.BOOTS, new QuiltItemSettings().maxCount(1)), ItemGroups.COMBAT);
-    public static final WearableItem CAPE = createItem("cape", new WearableItem(new QuiltItemSettings().maxCount(1), new Identifier(StarR.MODID, "textures/wearable/cape/cape.png")), ItemGroups.COMBAT);
-    public static final TwoStateWearable HARE = createItem("hare", new TwoStateWearable(new QuiltItemSettings().maxCount(1), new Identifier(StarR.MODID, "textures/wearable/hare.png"), "hare"), ItemGroups.COMBAT);
-    public static final Item PALICA = createItem("palica", new Item(new QuiltItemSettings()), ItemGroups.COMBAT); 
+    public static final WearableItem CAPE = createItem("cape", new WearableItem(new QuiltItemSettings().maxCount(1), "textures/wearable/cape/cape.png"), ItemGroups.COMBAT);
+    public static final TwoStateWearable HARE = createItem("hare", new TwoStateWearable(new QuiltItemSettings().maxCount(1), "textures/wearable/hare.png", "textures/wearable/hare.png", "hare", new TwoStateModelProvider() {
+		@Override
+		public Model getFirstModel() {
+			return new HareOneModel(MinecraftClient.getInstance().getEntityModelLoader().getModelPart(HareOneModel.LAYER_LOCATION));
+		}
+
+		@Override
+		public Model getSecondModel() {
+			return new HareTwoModel(MinecraftClient.getInstance().getEntityModelLoader().getModelPart(HareTwoModel.LAYER_LOCATION));
+		}
+	}), ItemGroups.COMBAT);
+    public static final Item PALICA = createItem("palica", new Item(new QuiltItemSettings()), ItemGroups.COMBAT);
 
 }

@@ -21,8 +21,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(LivingEntity.class)
 public abstract class LivingEntityMixin extends Entity {
-	@Shadow
-	public abstract boolean canHaveStatusEffect(StatusEffectInstance effect);
 
 	public LivingEntityMixin(EntityType<?> variant, World world) {
 		super(variant, world);
@@ -33,22 +31,7 @@ public abstract class LivingEntityMixin extends Entity {
 		if (!this.getWorld().isClient()) {
 			if (SuperdudeDataManager.get(((IDataSaver) this)) != null) {
 				SuperDude superDude = SuperdudeDataManager.get(((IDataSaver) this));
-				for (PowerOrder powerOrd : superDude.getPowers().keySet()) {
-					Power power = superDude.getPower(powerOrd);
-					if (power instanceof ToggleablePower) {
-						if (((ToggleablePower) power).isActiveFor(this.getUuid())) {
-							((ToggleablePower) power).activeTick((LivingEntity) ((Object) this));
-						}
-					}
-				}
-			}
-		}
-	}
-	@Inject(method = "isFallFlying", at = @At("HEAD"), cancellable = true)
-	public void onIsFallFlying(CallbackInfoReturnable<Boolean> cir){
-		if(!this.getWorld().isClient()){
-			if(SuperdudeDataManager.get(((IDataSaver) this)) != null){
-				cir.setReturnValue(SuperdudeDataManager.get(((IDataSaver) this)).isFlying((PlayerEntity) ((Object) this)));
+				superDude.executeActiveTicks((LivingEntity) ((Object) this));
 			}
 		}
 	}

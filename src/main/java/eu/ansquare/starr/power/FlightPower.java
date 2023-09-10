@@ -3,6 +3,7 @@ package eu.ansquare.starr.power;
 import net.fabricmc.fabric.api.entity.event.v1.EntityElytraEvents;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.Items;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.util.math.Vec3d;
 
@@ -25,6 +26,5 @@ public class FlightPower extends ToggleablePower{
 
 	@Override
 	public void activeTick(LivingEntity entity) {
-
 	}
 }

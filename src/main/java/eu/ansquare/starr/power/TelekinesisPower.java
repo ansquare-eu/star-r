@@ -21,14 +21,18 @@ import java.util.Map;
 import java.util.UUID;
 import java.util.function.Predicate;
 
-public class TelekinesisPower extends ToggleablePower{
+public class TelekinesisPower extends ToggleablePower implements Incrementable{
 	@Override
 	public String getName() {
 		return "telekinesis";
 	}
 	public Map<UUID, Entity> entities = new HashMap<>();
+	public Map<UUID, Integer> distances = new HashMap<>();
 	@Override
 	public void activationAction(ServerPlayerEntity player) {
+		if(!distances.containsKey(player.getUuid())){
+			distances.put(player.getUuid(), 10);
+		}
 		@Nullable Predicate<Entity> filter = new Predicate<Entity>() {
 			@Override
 			public boolean test(Entity entity) {
@@ -72,11 +76,18 @@ public class TelekinesisPower extends ToggleablePower{
 	public void activeTick(LivingEntity entity) {
 		if(entities.containsKey(entity.getUuid())){
 			Entity anotherEntity = entities.get(entity.getUuid());{
-				Vec3d playerDir = entity.getRotationVec(1f).normalize().multiply(10);
+				Vec3d playerDir = entity.getRotationVec(1f).normalize().multiply(distances.get(entity.getUuid()));
 				Vec3d dest = entity.getEyePos().add(playerDir);
 				anotherEntity.teleport(dest.x, dest.y, dest.z);
 			}
 
+		}
+	}
+	public void increment(UUID uuid, boolean bool){
+		if(bool){
+			distances.put(uuid, distances.get(uuid) + 1);
+		} else {
+			distances.put(uuid, distances.get(uuid) - 1);
 		}
 	}
 }

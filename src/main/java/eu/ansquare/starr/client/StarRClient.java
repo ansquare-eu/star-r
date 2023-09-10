@@ -36,7 +36,6 @@ public class StarRClient implements ClientModInitializer {
 		EntityModelLayerRegistry.registerModelLayer(HareTwoModel.LAYER_LOCATION, HareTwoModel::getTexturedModelData);
 		ModKeyBinds.init();
 		ModPackets.initS2C();
-		//TwoStateWearableModels.init();
 		TrinketRenderers.registerCapeRenderers(GetItemTypes.getCapes());
 		TrinketRenderers.registerTwoStateRenderers(GetItemTypes.getTwoStateWearables());
 

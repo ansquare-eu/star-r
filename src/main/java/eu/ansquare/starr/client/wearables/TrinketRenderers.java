@@ -67,13 +67,13 @@ public class TrinketRenderers {
 				public void render(ItemStack stack, SlotReference slotReference, EntityModel<? extends LivingEntity> contextModel, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, LivingEntity entity, float limbAngle, float limbDistance, float tickDelta, float animationProgress, float headYaw, float headPitch) {
 					if (model == null) {
 
-						model = new HareOneModel(MinecraftClient.getInstance().getEntityModelLoader().getModelPart(HareOneModel.LAYER_LOCATION));
-						secondModel = new HareTwoModel(MinecraftClient.getInstance().getEntityModelLoader().getModelPart(HareTwoModel.LAYER_LOCATION));
+						model = item.getFirstModel();
+						secondModel = item.getSecondModel();
 					} else if (!entity.isInvisible()) {
 						matrices.push();
 						((PlayerEntityModel<AbstractClientPlayerEntity>) contextModel).head.rotate(matrices);
 						if(item.getState(stack)){
-							secondModel.render(matrices, vertexConsumers.getBuffer(RenderLayer.getEntityCutout(item.getTexture())), light, OverlayTexture.DEFAULT_UV, 1f, 1f, 1f, 1f);
+							secondModel.render(matrices, vertexConsumers.getBuffer(RenderLayer.getEntityCutout(item.getSecondTexture())), light, OverlayTexture.DEFAULT_UV, 1f, 1f, 1f, 1f);
 						}
 						else {
 							model.render(matrices, vertexConsumers.getBuffer(RenderLayer.getEntityCutout(item.getTexture())), light, OverlayTexture.DEFAULT_UV, 1f, 1f, 1f, 1f);

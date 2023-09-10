@@ -1,6 +1,7 @@
 package eu.ansquare.starr.superdude;
 
 import eu.ansquare.starr.power.FlightPower;
+import eu.ansquare.starr.power.Incrementable;
 import eu.ansquare.starr.power.Power;
 import eu.ansquare.starr.power.ToggleablePower;
 import net.minecraft.entity.LivingEntity;
@@ -41,4 +42,26 @@ public abstract class SuperDude {
 		}
 		return false;
 	}
-}
+	public void executeActiveTicks(LivingEntity entity){
+		for (PowerOrder powerOrd : powers.keySet()) {
+			Power power = powers.get(powerOrd);
+			if (power instanceof ToggleablePower) {
+				if (((ToggleablePower) power).isActiveFor(entity.getUuid())) {
+					((ToggleablePower) power).activeTick(entity);
+				}
+			}
+		}
+	}
+	public void executeIncrements(LivingEntity entity, boolean bool){
+		for (PowerOrder powerOrd : powers.keySet()) {
+			Power power = powers.get(powerOrd);
+			if (power instanceof Incrementable) {
+				if(power instanceof ToggleablePower){
+					if(((ToggleablePower) power).isActiveFor(entity.getUuid())){
+						((Incrementable) power).increment(entity.getUuid(), bool);
+					}
+				} else {
+				((Incrementable) power).increment(entity.getUuid(), bool);
+			}}
+		}
+	}}
