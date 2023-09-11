@@ -1,5 +1,6 @@
 package eu.ansquare.starr.power;
 
+import eu.ansquare.starr.superdude.SuperDudes;
 import net.fabricmc.fabric.api.entity.event.v1.EntityElytraEvents;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -9,6 +10,10 @@ import net.minecraft.util.math.Vec3d;
 
 public class FlightPower extends ToggleablePower{
 	public FlightPower(){};
+	public void onActivate(ServerPlayerEntity player){
+		super.onActivate(player);
+		SuperDudes.changeFlying(player.getUuid());
+	}
 
 	@Override
 	public String getName() {

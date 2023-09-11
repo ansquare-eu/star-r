@@ -6,6 +6,7 @@ import eu.ansquare.starr.power.Power;
 import eu.ansquare.starr.power.ToggleablePower;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.server.network.ServerPlayerEntity;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -30,7 +31,7 @@ public abstract class SuperDude {
 	public Map<PowerOrder, Power> getPowers(){
 		return powers;
 	}
-	public boolean isFlying(PlayerEntity player){
+	public boolean isFlying(ServerPlayerEntity player){
 		for (PowerOrder powerOrd : powers.keySet()) {
 			Power power = powers.get(powerOrd);
 			if (power instanceof FlightPower) {

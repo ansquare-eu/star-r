@@ -9,7 +9,9 @@ import eu.ansquare.starr.client.wearables.model.hare.HareOneModel;
 import eu.ansquare.starr.client.wearables.model.hare.HareTwoModel;
 import eu.ansquare.starr.entity.ModEntities;
 import eu.ansquare.starr.entity.model.CapeEntityModel;
+import eu.ansquare.starr.entity.model.PalicaEntityModel;
 import eu.ansquare.starr.entity.render.CapeEntityRenderer;
+import eu.ansquare.starr.entity.render.PalicaEntityRenderer;
 import eu.ansquare.starr.items.GetItemTypes;
 import eu.ansquare.starr.items.wearable.WearableItem;
 import eu.ansquare.starr.items.ModItems;
@@ -29,6 +31,10 @@ public class StarRClient implements ClientModInitializer {
 		EntityModelLayerRegistry.registerModelLayer(MODEL_CAPE_LAYER, CapeEntityModel::getTexturedModelData);
 		EntityRendererRegistry.register(ModEntities.CAPE, (context) -> {
 			return new CapeEntityRenderer(context);
+		});
+		EntityModelLayerRegistry.registerModelLayer(PalicaEntityModel.LAYER_LOCATION, PalicaEntityModel::getTexturedModelData);
+		EntityRendererRegistry.register(ModEntities.PALICA, (context) -> {
+			return new PalicaEntityRenderer(context);
 		});
 		EntityModelLayerRegistry.registerModelLayer(CapeWearableModel.LAYER_LOCATION, CapeWearableModel::getTexturedModelData);
 		EntityModelLayerRegistry.registerModelLayer(FaceWearableModel.LAYER_LOCATION, FaceWearableModel::getTexturedModelData);

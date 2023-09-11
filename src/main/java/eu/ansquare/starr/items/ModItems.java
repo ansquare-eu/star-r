@@ -74,6 +74,6 @@ public class ModItems {
 			return new HareTwoModel(MinecraftClient.getInstance().getEntityModelLoader().getModelPart(HareTwoModel.LAYER_LOCATION));
 		}
 	}), ItemGroups.COMBAT);
-    public static final Item PALICA = createItem("palica", new Item(new QuiltItemSettings()), ItemGroups.COMBAT);
+    public static final Item PALICA = createItem("palica", new PalicaItem(new QuiltItemSettings()), ItemGroups.COMBAT);
 
 }
