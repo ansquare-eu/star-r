@@ -4,6 +4,7 @@ import eu.ansquare.starr.entity.ModEntities;
 import eu.ansquare.starr.entity.PalicaEntity;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.projectile.PersistentProjectileEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;
@@ -22,6 +23,8 @@ public class PalicaItem extends Item {
 			PalicaEntity entity = (PalicaEntity) ModEntities.PALICA.create(world);
 			entity.setOwner(user);
 			entity.setPosition(user.getEyePos());
+			entity.setNoGravity(true);
+			entity.pickupType = PersistentProjectileEntity.PickupPermission.ALLOWED;
 			entity.setVelocity(user.getRotationVec(1).normalize().multiply(1.1));
 			world.spawnEntity(entity);
 		}

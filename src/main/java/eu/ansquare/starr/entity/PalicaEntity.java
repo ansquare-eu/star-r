@@ -2,34 +2,58 @@ package eu.ansquare.starr.entity;
 
 import eu.ansquare.starr.items.ModItems;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.data.DataTracker;
+import net.minecraft.entity.data.TrackedData;
+import net.minecraft.entity.data.TrackedDataHandlerRegistry;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.PersistentProjectileEntity;
 import net.minecraft.entity.projectile.ProjectileEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NbtCompound;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
 public class PalicaEntity extends PersistentProjectileEntity {
-	int ticksUntilRemoval = -1;
+	private static final TrackedData<String> TYPE = DataTracker.registerData(PalicaEntity.class, TrackedDataHandlerRegistry.STRING);
+
+	int ticksUntilGroundRemoval = -2;
+	int ticksUntilRetrieval = -1;
 	public PalicaEntity(EntityType<? extends PersistentProjectileEntity> entityType, World world) {
 		super(entityType, world);
+	}
+	protected void initDataTracker(){
+		super.initDataTracker();
+		this.dataTracker.startTracking(TYPE, Type.CAPTAIN_R.toString());
 	}
 	public void tick(){
 		super.tick();
 
 		if (this.inGround) {
-			if (this.ticksUntilRemoval == -1) {
-				this.ticksUntilRemoval = 2;
+			if (this.ticksUntilGroundRemoval == -1) {
+				this.ticksUntilGroundRemoval = 2;
 			}
 
-			if (this.ticksUntilRemoval > 0) {
-				this.ticksUntilRemoval--;
-				if (this.ticksUntilRemoval <= 0) {
+			if (this.ticksUntilGroundRemoval > 0) {
+				this.ticksUntilGroundRemoval--;
+				if (this.ticksUntilGroundRemoval <= 0) {
 					this.remove(RemovalReason.DISCARDED);
 				}
 			}
-		} /*else {
+			this.setVelocity(this.getOwner().getRotationVec(1).normalize().multiply(-1.1));
+			this.inGround = false;
+			this.ticksUntilRetrieval = 40;
+		}
+		if(ticksUntilRetrieval > 0) {
+			this.ticksUntilRetrieval--;
+			if(this.ticksUntilRetrieval <= 0){
+				if(this.getOwner() instanceof PlayerEntity){
+					this.tryPickup(((PlayerEntity) this.getOwner()));
+					this.remove(RemovalReason.DISCARDED);
+				}
+			}
+		}/*else {
 			Vec3d vec3d = this.getVelocity();
 			double e = vec3d.x;
 			double f = vec3d.y;
@@ -47,9 +71,34 @@ public class PalicaEntity extends PersistentProjectileEntity {
 				this.kill();
 			}
 		}*/
+
 	}
 	@Override
 	protected ItemStack asItemStack() {
 		return new ItemStack(ModItems.PALICA, 1);
+	}
+	public void readCustomDataFromNbt(NbtCompound tag) {
+		super.readCustomDataFromNbt(tag);
+
+		if (tag.contains("CaptainType")) {
+			this.setCaptainType(Type.valueOf(tag.getString("CaptainType")));
+		}
+	}
+	public Type getCaptainType() {
+		return Type.valueOf(this.dataTracker.get(TYPE));
+	}
+
+	public void setCaptainType(Type type) {
+		this.dataTracker.set(TYPE, type.toString());
+	}
+
+	@Override
+	public void writeCustomDataToNbt(NbtCompound tag) {
+		super.writeCustomDataToNbt(tag);
+		tag.putString("CaptainType", this.getCaptainType().toString());
+	}
+	public enum Type{
+		CAPTAIN_R,
+		CAPTAIN_D
 	}
 }
