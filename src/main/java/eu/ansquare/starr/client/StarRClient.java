@@ -7,10 +7,12 @@ import eu.ansquare.starr.client.wearables.model.CapeWearableModel;
 import eu.ansquare.starr.client.wearables.model.FaceWearableModel;
 import eu.ansquare.starr.client.wearables.model.hare.HareOneModel;
 import eu.ansquare.starr.client.wearables.model.hare.HareTwoModel;
+import eu.ansquare.starr.entity.LaserEntity;
 import eu.ansquare.starr.entity.ModEntities;
 import eu.ansquare.starr.entity.model.CapeEntityModel;
 import eu.ansquare.starr.entity.model.PalicaEntityModel;
 import eu.ansquare.starr.entity.render.CapeEntityRenderer;
+import eu.ansquare.starr.entity.render.LaserEntityRenderer;
 import eu.ansquare.starr.entity.render.PalicaEntityRenderer;
 import eu.ansquare.starr.items.GetItemTypes;
 import eu.ansquare.starr.items.wearable.WearableItem;
@@ -35,6 +37,9 @@ public class StarRClient implements ClientModInitializer {
 		EntityModelLayerRegistry.registerModelLayer(PalicaEntityModel.LAYER_LOCATION, PalicaEntityModel::getTexturedModelData);
 		EntityRendererRegistry.register(ModEntities.PALICA, (context) -> {
 			return new PalicaEntityRenderer(context);
+		});
+		EntityRendererRegistry.register(ModEntities.LASER, (context) -> {
+			return new LaserEntityRenderer(context);
 		});
 		EntityModelLayerRegistry.registerModelLayer(CapeWearableModel.LAYER_LOCATION, CapeWearableModel::getTexturedModelData);
 		EntityModelLayerRegistry.registerModelLayer(FaceWearableModel.LAYER_LOCATION, FaceWearableModel::getTexturedModelData);
