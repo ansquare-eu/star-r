@@ -26,14 +26,14 @@ public class LaserEntityRenderer<T extends LaserEntity> extends EntityRenderer<T
 		matrices.multiply(Axis.Y_POSITIVE.rotationDegrees(MathHelper.lerp(tickDelta, entity.prevYaw, entity.getYaw()) - 90.0F));
 		matrices.multiply(Axis.Z_POSITIVE.rotationDegrees(MathHelper.lerp(tickDelta, entity.prevPitch, entity.getPitch()) + 90.0F));
 		for (int z = 1; z <= entity.getLenght(); z++) {
-			renderBeam(matrices, vertexConsumers, BEAM_TEXTURE, tickDelta, 1.0f, entity.getWorld().getTime(), 0, z, new float[]{1, 0, 1}, 0.2F, 0.25F);
+			renderBeam(matrices, vertexConsumers, BEAM_TEXTURE, tickDelta, 1.0f, entity.getWorld().getTime(), 0, z, new float[]{1, 1, 1}, 0.2F, 0.25F);
 		}
 
 	}
 	public static void renderBeam(MatrixStack matrices, VertexConsumerProvider vertexConsumers, Identifier textureId, float tickDelta, float heightScale, long worldTime, int yOffset, int maxY, float[] color, float innerRadius, float outerRadius) {
 		int i = yOffset + maxY;
 		matrices.push();
-		matrices.translate(0.5, 0.0, 0.5);
+		matrices.translate(0.0, 0.0, -0.5);
 		float f = (float)Math.floorMod(worldTime, 40) + tickDelta;
 		float g = maxY < 0 ? f : -f;
 		float h = MathHelper.fractionalPart(g * 0.2F - (float)MathHelper.floor(g * 0.1F));
