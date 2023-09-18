@@ -1,8 +1,17 @@
 package eu.ansquare.starr.entity.render;
 
 import com.mojang.blaze3d.vertex.VertexConsumer;
+import com.sammy.lodestone.handlers.RenderHandler;
 import com.sammy.lodestone.setup.LodestoneParticles;
+import com.sammy.lodestone.setup.LodestoneRenderLayers;
+import com.sammy.lodestone.systems.rendering.VFXBuilders;
+import com.sammy.lodestone.systems.rendering.particle.Easing;
+import com.sammy.lodestone.systems.rendering.particle.WorldParticleBuilder;
+import com.sammy.lodestone.systems.rendering.particle.data.ColorParticleData;
+import com.sammy.lodestone.systems.rendering.particle.data.GenericParticleData;
+import com.sammy.lodestone.systems.rendering.particle.data.SpinParticleData;
 import eu.ansquare.starr.StarR;
+import eu.ansquare.starr.client.StarRClient;
 import eu.ansquare.starr.entity.LaserEntity;
 import net.minecraft.client.render.OverlayTexture;
 import net.minecraft.client.render.RenderLayer;
@@ -13,24 +22,82 @@ import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.Axis;
 import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.math.Vec3d;
 import org.joml.Matrix3f;
 import org.joml.Matrix4f;
 import org.joml.Quaternionf;
+import org.quiltmc.loader.impl.lib.sat4j.core.Vec;
+
+import java.awt.*;
 
 public class LaserEntityRenderer<T extends LaserEntity> extends EntityRenderer<T> {
-	public static final Identifier BEAM_TEXTURE = new Identifier(StarR.MODID, "textures/laser/laser.png");
+	public static final Identifier LASER_TEXTURE = new Identifier(StarR.MODID, "textures/laser/laser.png");
+	private static final RenderLayer LIGHT_TYPE;
 
 	public LaserEntityRenderer(EntityRendererFactory.Context ctx) {
 		super(ctx);
 	}
 	public void render(T entity, float yaw, float tickDelta, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light){
+		matrices.push();
+		VFXBuilders.WorldVFXBuilder builder = VFXBuilders.createWorld().setPosColorTexLightmapDefaultFormat();
+		float lerp = 0.0F;
+		if (entity.age <= 60) {
+			lerp = Easing.EXPO_IN.ease(MathHelper.lerp(MathHelper.clamp((float)entity.age / 60.0F, 0.0F, 1.0F), 0.0F, 1.0F), 0.0F, 1.0F, 1.0F);
+		} else {
+			lerp = 1f;//Easing.SINE_OUT.ease(MathHelper.lerp(MathHelper.clamp(((float)entity.age - 60.0F) / 60.0F, 0.0F, 1.0F), 1.0F, 0.0F), 0.0F, 1.0F, 1.0F);
+		}
+		matrices.multiply(Axis.Y_POSITIVE.rotationDegrees(MathHelper.lerp(tickDelta, entity.prevYaw, entity.getYaw()) + 180.0f));
+		matrices.multiply(Axis.X_POSITIVE.rotationDegrees(MathHelper.lerp(tickDelta, entity.prevPitch, entity.getPitch()) + 90.0F));
+		float minSize = 5.0F * lerp;
+		float maxSize = 6.0f * lerp;
+		float inc = 0.5F;
 
-		matrices.multiply(Axis.Y_POSITIVE.rotationDegrees(MathHelper.lerp(tickDelta, entity.prevYaw, entity.getYaw()) - 90.0F));
-		matrices.multiply(Axis.Z_POSITIVE.rotationDegrees(MathHelper.lerp(tickDelta, entity.prevPitch, entity.getPitch()) + 90.0F));
-		for (int z = 1; z <= entity.getLenght(); z++) {
-			renderBeam(matrices, vertexConsumers, BEAM_TEXTURE, tickDelta, 1.0f, entity.getWorld().getTime(), 0, z, new float[]{1, 1, 1}, 0.2F, 0.25F);
+		for(float size = minSize; size <= maxSize; size += inc) {
+			float alpha = MathHelper.lerp((size - minSize) / (maxSize - minSize), 0.2F, 0.8F);
+			Color color = entity.getColor();
+			//Color color = new Color(MathHelper.lerp((size - minSize) / (maxSize - minSize), 0.5F, 0.0F), MathHelper.lerp((size - minSize) / (maxSize - minSize), 1.0F, 0.0F), 1.0F);
+			float x = (float)MathHelper.lerp((double)tickDelta, entity.prevX, entity.getX());
+			float y = (float)MathHelper.lerp((double)tickDelta, entity.prevY, entity.getY());
+			float z = (float)MathHelper.lerp((double)tickDelta, entity.prevZ, entity.getZ());
+			builder.setColor(color).setOffset((-x)-1, -y, -z ).setAlpha(alpha).renderBeam(RenderHandler.DELAYED_RENDER.getBuffer(LIGHT_TYPE), matrices, entity.getPos().add(0, -1, 0), entity.getPos().add(0.0, 1000.0, 0.0), size);
 		}
 
+		matrices.pop();
+		super.render(entity, yaw, tickDelta, matrices, vertexConsumers, 15728880);
+		/*float x = (float) MathHelper.lerp(tickDelta, entity.lastRenderX, entity.getX());
+		float y = (float) MathHelper.lerp(tickDelta, entity.lastRenderY, entity.getY());
+		float z = (float) MathHelper.lerp(tickDelta, entity.lastRenderZ, entity.getZ());
+		float j = MathHelper.lerp(tickDelta, entity.prevYaw, entity.getYaw()) - 90.0f;
+		float k = MathHelper.lerp(tickDelta, entity.prevYaw, entity.getYaw()) + 90.0f;
+		renderParticleBeam(1, entity, tickDelta);
+		for (int i = 1; i <= entity.getLenght(); i++) {
+			//renderParticleBeam(i, entity, tickDelta);
+			//renderBeam(matrices, vertexConsumers, BEAM_TEXTURE, tickDelta, 1.0f, entity.getWorld().getTime(), 0, i, new float[]{1, 1, 1}, 0.2F, 0.25F);
+		}*/
+
+	}
+	public void renderParticleBeam(int offset, T entity, float tickDelta){
+		/*//Vec3d multiplier = rot.multiply(offset);
+		//Vec3d newPos = pos.add(multiplier);
+		//float x = (float) MathHelper.lerp(tickDelta, entity.lastRenderX, entity.getX());
+		//float y = (float) MathHelper.lerp(tickDelta, entity.lastRenderY, entity.getY()) + offset;
+		//float z = (float) MathHelper.lerp(tickDelta, entity.lastRenderZ, entity.getZ());
+		double x = entity.getX();
+		double z = entity.getZ();
+		double y = entity.getY();
+		//float j = MathHelper.lerp(tickDelta, entity.prevYaw, entity.getYaw()) - 90.0f;
+		//float k = MathHelper.lerp(tickDelta, entity.prevYaw, entity.getYaw()) + 90.0f;
+		for (int i = 0; i < 2; i++) {
+			WorldParticleBuilder.create(StarRClient.LASER)
+					.setSpinData(SpinParticleData.create((float) (entity.getWorld().random.nextGaussian() / 5f)).build())
+					.setScaleData(GenericParticleData.create(1f, 0f).setEasing(Easing.CIRC_OUT).build())
+					.setTransparencyData(GenericParticleData.create(1f).build())
+					.setColorData(ColorParticleData.create(new Color(0xFF3C00), new Color(0xFFCB00)).setEasing(Easing.CIRC_OUT).build())
+					.enableNoClip()
+					.setLifetime(20)
+					.spawn(entity.getWorld(), x + entity.getWorld().random.nextGaussian() / 20f, y + (entity.getHeight() / 2f) + entity.getWorld().random.nextGaussian() / 20f, z + entity.getWorld().random.nextGaussian() / 20f);
+		}
+*/
 	}
 	public static void renderBeam(MatrixStack matrices, VertexConsumerProvider vertexConsumers, Identifier textureId, float tickDelta, float heightScale, long worldTime, int yOffset, int maxY, float[] color, float innerRadius, float outerRadius) {
 		int i = yOffset + maxY;
@@ -93,5 +160,8 @@ public class LaserEntityRenderer<T extends LaserEntity> extends EntityRenderer<T
 	@Override
 	public Identifier getTexture(LaserEntity entity) {
 		return null;
+	}
+	static {
+		LIGHT_TYPE = LodestoneRenderLayers.ADDITIVE_TEXTURE.apply(LASER_TEXTURE);
 	}
 }

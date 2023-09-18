@@ -14,15 +14,16 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.RaycastContext;
 
+import java.awt.*;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
 public class LaserPower extends ToggleablePower{
 	private int damage;
-	private int color;
+	private Color color;
 	public Map<UUID, LaserEntity> entityMap = new HashMap<>();
-	public LaserPower(int color, int damage){
+	public LaserPower(Color color, int damage){
 		this.color = color;
 		this.damage = damage;
 	}
@@ -30,7 +31,9 @@ public class LaserPower extends ToggleablePower{
 	public String getName() {
 		return "laser";
 	}
-
+	public Color getColor(){
+		return this.color;
+	}
 
 	@Override
 	public void activationAction(ServerPlayerEntity player) {
