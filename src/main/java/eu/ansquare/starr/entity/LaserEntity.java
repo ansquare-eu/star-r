@@ -1,7 +1,13 @@
 package eu.ansquare.starr.entity;
 
 import eu.ansquare.starr.StarR;
+import eu.ansquare.starr.power.LaserPower;
+import eu.ansquare.starr.power.Power;
 import eu.ansquare.starr.power.Powers;
+import eu.ansquare.starr.superdude.PowerOrder;
+import eu.ansquare.starr.superdude.SuperDude;
+import eu.ansquare.starr.util.datasaving.IDataSaver;
+import eu.ansquare.starr.util.datasaving.SuperdudeDataManager;
 import net.minecraft.entity.*;
 import net.minecraft.entity.data.DataTracker;
 import net.minecraft.entity.data.TrackedData;
@@ -17,6 +23,7 @@ import net.minecraft.world.ServerWorldAccess;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
+import java.awt.*;
 import java.util.UUID;
 
 public class LaserEntity extends Entity implements Ownable {
@@ -93,7 +100,7 @@ public class LaserEntity extends Entity implements Ownable {
 			this.setPitch(this.getOwner().getPitch());
 			this.setYaw((this.getOwner().getHeadYaw() * -1) + 180);
 			this.setPosition(this.getOwner().getEyePos());
-			Vec3d playerDir = this.getRotationVec(1f).normalize().multiply(32);
+			/*Vec3d playerDir = this.getRotationVec(1f).normalize().multiply(32);
 			Vec3d newLoc = this.getPos().add(playerDir);
 			BlockHitResult result = this.getWorld().raycast(new RaycastContext(this.getPos(), newLoc, RaycastContext.ShapeType.VISUAL, RaycastContext.FluidHandling.ANY, this));
 			if(result != null){
@@ -102,11 +109,22 @@ public class LaserEntity extends Entity implements Ownable {
 				lenght = (int) Math.ceil(distance);
 				StarR.LOGGER.info("Int distance = " + lenght);
 				this.dataTracker.set(LENGHT, lenght);
-			}
+			}*/
 		}
 	}
 	public int getLenght(){
 
 		return this.dataTracker.get(LENGHT);
+	}
+	public Color getColor(){
+		if(this.getOwner() != null){
+			SuperDude superDude = SuperdudeDataManager.get((IDataSaver) this.getOwner());
+			for (PowerOrder power : superDude.getPowers().keySet()) {
+				if(superDude.getPower(power) instanceof LaserPower){
+					return ((LaserPower) superDude.getPower(power)).getColor();
+				}
+			}
+		}
+		return new Color(0xFFFFFF);
 	}
 }

@@ -1,6 +1,8 @@
 package eu.ansquare.starr.client;
 
+import com.sammy.lodestone.systems.rendering.particle.world.WorldParticleEffect;
 import eu.ansquare.starr.StarR;
+import eu.ansquare.starr.client.particle.LaserParticleType;
 import eu.ansquare.starr.client.wearables.TrinketRenderers;
 import eu.ansquare.starr.client.wearables.TwoStateWearableModels;
 import eu.ansquare.starr.client.wearables.model.CapeWearableModel;
@@ -21,11 +23,13 @@ import eu.ansquare.starr.network.ModPackets;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.minecraft.client.render.entity.model.EntityModelLayer;
+import net.minecraft.particle.ParticleEffect;
 import net.minecraft.util.Identifier;
 import org.quiltmc.loader.api.ModContainer;
 import org.quiltmc.qsl.base.api.entrypoint.client.ClientModInitializer;
 
 public class StarRClient implements ClientModInitializer {
+	public static LaserParticleType LASER = new LaserParticleType();
 	public static final EntityModelLayer MODEL_CAPE_LAYER = new EntityModelLayer(new Identifier(StarR.MODID, "cape"), "main");
 
 	@Override
