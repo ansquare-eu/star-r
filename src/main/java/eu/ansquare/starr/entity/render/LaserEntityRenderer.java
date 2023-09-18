@@ -1,6 +1,7 @@
 package eu.ansquare.starr.entity.render;
 
 import com.mojang.blaze3d.vertex.VertexConsumer;
+import com.sammy.lodestone.setup.LodestoneParticles;
 import eu.ansquare.starr.StarR;
 import eu.ansquare.starr.entity.LaserEntity;
 import net.minecraft.client.render.OverlayTexture;
@@ -23,6 +24,7 @@ public class LaserEntityRenderer<T extends LaserEntity> extends EntityRenderer<T
 		super(ctx);
 	}
 	public void render(T entity, float yaw, float tickDelta, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light){
+
 		matrices.multiply(Axis.Y_POSITIVE.rotationDegrees(MathHelper.lerp(tickDelta, entity.prevYaw, entity.getYaw()) - 90.0F));
 		matrices.multiply(Axis.Z_POSITIVE.rotationDegrees(MathHelper.lerp(tickDelta, entity.prevPitch, entity.getPitch()) + 90.0F));
 		for (int z = 1; z <= entity.getLenght(); z++) {
