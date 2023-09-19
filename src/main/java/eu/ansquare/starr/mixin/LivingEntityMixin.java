@@ -1,10 +1,10 @@
 package eu.ansquare.starr.mixin;
 
+import eu.ansquare.starr.cca.StarREntityComponents;
 import eu.ansquare.starr.power.Power;
 import eu.ansquare.starr.power.ToggleablePower;
 import eu.ansquare.starr.superdude.SuperDude;
 import eu.ansquare.starr.util.datasaving.IDataSaver;
-import eu.ansquare.starr.util.datasaving.SuperdudeDataManager;
 import eu.ansquare.starr.superdude.PowerOrder;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
@@ -29,10 +29,7 @@ public abstract class LivingEntityMixin extends Entity {
 	@Inject(method = "baseTick", at = @At("HEAD"))
 	public void tick(CallbackInfo ci) {
 		if (!this.getWorld().isClient()) {
-			if (SuperdudeDataManager.get(((IDataSaver) this)) != null) {
-				SuperDude superDude = SuperdudeDataManager.get(((IDataSaver) this));
-				superDude.executeActiveTicks((LivingEntity) ((Object) this));
-			}
+			StarREntityComponents.SUPER_DUDE_COMPONENT.maybeGet((LivingEntity) ((Object) this)).ifPresent(superDudeComponent -> superDudeComponent.getType().executeActiveTicks((LivingEntity) ((Object) this)));
 		}
 	}
 }

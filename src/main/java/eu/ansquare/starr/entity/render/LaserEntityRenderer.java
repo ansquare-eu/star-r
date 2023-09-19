@@ -11,6 +11,7 @@ import com.sammy.lodestone.systems.rendering.particle.data.ColorParticleData;
 import com.sammy.lodestone.systems.rendering.particle.data.GenericParticleData;
 import com.sammy.lodestone.systems.rendering.particle.data.SpinParticleData;
 import eu.ansquare.starr.StarR;
+import eu.ansquare.starr.cca.StarREntityComponents;
 import eu.ansquare.starr.client.StarRClient;
 import eu.ansquare.starr.entity.LaserEntity;
 import net.minecraft.client.render.OverlayTexture;
@@ -32,7 +33,7 @@ import java.awt.*;
 
 public class LaserEntityRenderer<T extends LaserEntity> extends EntityRenderer<T> {
 	public static final Identifier LASER_TEXTURE = new Identifier(StarR.MODID, "textures/laser/laser.png");
-	private static final RenderLayer LIGHT_TYPE;
+	private static final RenderLayer LAYER;
 
 	public LaserEntityRenderer(EntityRendererFactory.Context ctx) {
 		super(ctx);
@@ -51,15 +52,14 @@ public class LaserEntityRenderer<T extends LaserEntity> extends EntityRenderer<T
 		float minSize = 5.0F * lerp;
 		float maxSize = 6.0f * lerp;
 		float inc = 0.5F;
-
+		Color color = entity.getColor();
 		for(float size = minSize; size <= maxSize; size += inc) {
 			float alpha = MathHelper.lerp((size - minSize) / (maxSize - minSize), 0.2F, 0.8F);
-			Color color = entity.getColor();
-			//Color color = new Color(MathHelper.lerp((size - minSize) / (maxSize - minSize), 0.5F, 0.0F), MathHelper.lerp((size - minSize) / (maxSize - minSize), 1.0F, 0.0F), 1.0F);
+
 			float x = (float)MathHelper.lerp((double)tickDelta, entity.prevX, entity.getX());
 			float y = (float)MathHelper.lerp((double)tickDelta, entity.prevY, entity.getY());
 			float z = (float)MathHelper.lerp((double)tickDelta, entity.prevZ, entity.getZ());
-			builder.setColor(color).setOffset((-x)-1, -y, -z ).setAlpha(alpha).renderBeam(RenderHandler.DELAYED_RENDER.getBuffer(LIGHT_TYPE), matrices, entity.getPos().add(0, -1, 0), entity.getPos().add(0.0, 1000.0, 0.0), size);
+			builder.setColor(color).setOffset((-x)-1, -y, -z ).setAlpha(alpha).renderBeam(RenderHandler.DELAYED_RENDER.getBuffer(LAYER), matrices, entity.getPos().add(0, -1, 0), entity.getPos().add(0.0, 10, 0.0), size);
 		}
 
 		matrices.pop();
@@ -162,6 +162,6 @@ public class LaserEntityRenderer<T extends LaserEntity> extends EntityRenderer<T
 		return null;
 	}
 	static {
-		LIGHT_TYPE = LodestoneRenderLayers.ADDITIVE_TEXTURE.apply(LASER_TEXTURE);
+		LAYER = LodestoneRenderLayers.ADDITIVE_TEXTURE.apply(LASER_TEXTURE);
 	}
 }

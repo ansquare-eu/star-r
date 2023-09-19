@@ -1,8 +1,8 @@
 package eu.ansquare.starr.items.testing;
 
+import eu.ansquare.starr.cca.StarREntityComponents;
 import eu.ansquare.starr.superdude.SuperDude;
 import eu.ansquare.starr.util.datasaving.IDataSaver;
-import eu.ansquare.starr.util.datasaving.SuperdudeDataManager;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -19,7 +19,7 @@ public class ResetSuperTypeTesterItem extends Item {
 
 	public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand){
 		if(!world.isClient()){
-			SuperdudeDataManager.set((IDataSaver) user, "");
+			StarREntityComponents.SUPER_DUDE_COMPONENT.maybeGet(user).ifPresent(superDudeComponent -> superDudeComponent.setType(null));
 		}
 		return TypedActionResult.success(user.getStackInHand(hand));
 	}

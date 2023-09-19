@@ -1,13 +1,13 @@
 package eu.ansquare.starr.entity;
 
 import eu.ansquare.starr.StarR;
+import eu.ansquare.starr.cca.StarREntityComponents;
 import eu.ansquare.starr.power.LaserPower;
 import eu.ansquare.starr.power.Power;
 import eu.ansquare.starr.power.Powers;
 import eu.ansquare.starr.superdude.PowerOrder;
 import eu.ansquare.starr.superdude.SuperDude;
 import eu.ansquare.starr.util.datasaving.IDataSaver;
-import eu.ansquare.starr.util.datasaving.SuperdudeDataManager;
 import net.minecraft.entity.*;
 import net.minecraft.entity.data.DataTracker;
 import net.minecraft.entity.data.TrackedData;
@@ -24,12 +24,13 @@ import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
 import java.awt.*;
+import java.util.Optional;
 import java.util.UUID;
 
 public class LaserEntity extends Entity implements Ownable {
 	private static final TrackedData<Integer> LENGHT = DataTracker.registerData(LaserEntity.class, TrackedDataHandlerRegistry.INTEGER);
-	@Nullable
-	private UUID ownerUuid;
+	private static final TrackedData<Optional<UUID>> OWNER_UUID = DataTracker.registerData(LaserEntity.class, TrackedDataHandlerRegistry.OPTIONAL_UUID);
+
 	@Nullable
 	private Entity owner;
 	private int ownerlessTicks = -1;
@@ -41,8 +42,8 @@ public class LaserEntity extends Entity implements Ownable {
 	}
 	public void setOwner(@Nullable Entity entity) {
 		if (entity != null) {
-			this.ownerUuid = entity.getUuid();
 			this.owner = entity;
+			this.dataTracker.set(OWNER_UUID, Optional.of(entity.getUuid()));
 		}
 
 	}
@@ -50,17 +51,21 @@ public class LaserEntity extends Entity implements Ownable {
 	@Nullable
 	public Entity getOwner() {
 		if (this.owner != null && !this.owner.isRemoved()) {
+			StarR.LOGGER.info("has owener");
 			return this.owner;
-		} else if (this.ownerUuid != null && this.getWorld() instanceof ServerWorld) {
-			this.owner = ((ServerWorld)this.getWorld()).getEntity(this.ownerUuid);
+		} else if (this.dataTracker.get(OWNER_UUID).isPresent() && this.getWorld() instanceof ServerWorld) {
+			StarR.LOGGER.info("has owener uuid");
+			this.owner = ((ServerWorld)this.getWorld()).getEntity(this.dataTracker.get(OWNER_UUID).get());
 			return this.owner;
 		} else {
+			StarR.LOGGER.info("has no owener");
 			return null;
 		}
 	}
 	@Override
 	protected void initDataTracker() {
 		this.dataTracker.startTracking(LENGHT, 1);
+		this.dataTracker.startTracking(OWNER_UUID, Optional.empty());
 	}
 
 	@Override
@@ -118,13 +123,11 @@ public class LaserEntity extends Entity implements Ownable {
 	}
 	public Color getColor(){
 		if(this.getOwner() != null){
-			SuperDude superDude = SuperdudeDataManager.get((IDataSaver) this.getOwner());
-			for (PowerOrder power : superDude.getPowers().keySet()) {
-				if(superDude.getPower(power) instanceof LaserPower){
-					return ((LaserPower) superDude.getPower(power)).getColor();
-				}
+			StarR.LOGGER.info("get color");
+			if(StarREntityComponents.SUPER_DUDE_COMPONENT.maybeGet(this.getOwner()).isPresent()){
+				return StarREntityComponents.SUPER_DUDE_COMPONENT.get(this.getOwner()).getCustomColor();
 			}
 		}
-		return new Color(0xFFFFFF);
+		return new Color(0xFF0059);
 	}
 }

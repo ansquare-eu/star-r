@@ -1,18 +1,17 @@
 package eu.ansquare.starr.power;
 
-import eu.ansquare.starr.util.datasaving.IDataSaver;
-import net.fabricmc.fabric.api.entity.FakePlayer;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.Text;
 
-public class TestTransformationPower extends Power{
+public class EmptyPower extends Power{
+	public static final String LACKS_POWER = "message.starr.lack_power";
 	@Override
 	public String getName() {
-		return "testTransformation";
+		return "empty";
 	}
 
 	@Override
 	public void onActivate(ServerPlayerEntity player) {
-
+		player.sendMessage(Text.translatable(LACKS_POWER), true);
 	}
 }
