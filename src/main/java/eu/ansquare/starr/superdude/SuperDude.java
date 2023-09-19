@@ -1,6 +1,5 @@
 package eu.ansquare.starr.superdude;
 
-import eu.ansquare.starr.power.FlightPower;
 import eu.ansquare.starr.power.Incrementable;
 import eu.ansquare.starr.power.Power;
 import eu.ansquare.starr.power.ToggleablePower;
@@ -8,12 +7,18 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.server.network.ServerPlayerEntity;
 
+import java.awt.*;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
 public abstract class SuperDude {
-	public SuperDude() {
+	public boolean flying;
+	public Color color;
+
+	public SuperDude(boolean flying, Color color) {
+		this.flying = flying;
+		this.color = color;
 		powers = new HashMap<>();
 		initPowers();
 	}
@@ -30,18 +35,6 @@ public abstract class SuperDude {
 	}
 	public Map<PowerOrder, Power> getPowers(){
 		return powers;
-	}
-	public boolean isFlying(ServerPlayerEntity player){
-		for (PowerOrder powerOrd : powers.keySet()) {
-			Power power = powers.get(powerOrd);
-			if (power instanceof FlightPower) {
-				if (((ToggleablePower) power).isActiveFor(player.getUuid())) {
-					return true;
-				}
-			}
-			return false;
-		}
-		return false;
 	}
 	public void executeActiveTicks(LivingEntity entity){
 		for (PowerOrder powerOrd : powers.keySet()) {

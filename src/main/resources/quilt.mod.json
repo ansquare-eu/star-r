@@ -21,7 +21,8 @@
 		"intermediate_mappings": "net.fabricmc:intermediary",
 		"entrypoints": {
 			"init": "eu.ansquare.starr.StarR",
-			"client_init": "eu.ansquare.starr.client.StarRClient"
+			"client_init": "eu.ansquare.starr.client.StarRClient",
+			"cardinal-components-entity": "eu.ansquare.starr.cca.StarREntityComponents"
 		},
 		"depends": [
 			{
@@ -38,5 +39,8 @@
 			}
 		]
 	},
+	"cardinal-components": [
+		"starr:superdude"
+	],
 	"mixin": "starr.mixins.json"
 }
