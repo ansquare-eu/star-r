@@ -20,6 +20,7 @@ import eu.ansquare.starr.items.GetItemTypes;
 import eu.ansquare.starr.items.wearable.WearableItem;
 import eu.ansquare.starr.items.ModItems;
 import eu.ansquare.starr.network.ModPackets;
+import eu.ansquare.starr.util.network.ClientLaserHolder;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.minecraft.client.render.entity.model.EntityModelLayer;
@@ -29,7 +30,7 @@ import org.quiltmc.loader.api.ModContainer;
 import org.quiltmc.qsl.base.api.entrypoint.client.ClientModInitializer;
 
 public class StarRClient implements ClientModInitializer {
-	public static LaserParticleType LASER = new LaserParticleType();
+	public static ClientLaserHolder LASER_HOLDER= new ClientLaserHolder();
 	public static final EntityModelLayer MODEL_CAPE_LAYER = new EntityModelLayer(new Identifier(StarR.MODID, "cape"), "main");
 
 	@Override

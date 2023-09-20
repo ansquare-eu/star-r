@@ -2,6 +2,7 @@ package eu.ansquare.starr.cca;
 
 import dev.onyxstudios.cca.api.v3.component.Component;
 import dev.onyxstudios.cca.api.v3.component.sync.AutoSyncedComponent;
+import eu.ansquare.starr.power.LaserPower;
 import eu.ansquare.starr.power.Power;
 import eu.ansquare.starr.power.Powers;
 import eu.ansquare.starr.superdude.PowerOrder;
@@ -23,9 +24,6 @@ public class SuperDudeComponent implements AutoSyncedComponent {
 		}
 		return SuperDudes.EMPTY;
 	}
-	public boolean isFlying(){
-		return this.getType().flying;
-	}
 	public void setType(SuperDude type){
 		this.type = type;
 	}
@@ -37,8 +35,16 @@ public class SuperDudeComponent implements AutoSyncedComponent {
 		}
 		return Powers.EMPTY_POWER;
 	}
-	public Color getCustomColor(){
-		return this.getType().color;
+	public int getLaserPower(){
+		for(PowerOrder powerOrder : this.getType().getPowers().keySet()){
+			if(this.getPower(powerOrder) instanceof LaserPower){
+				return ((LaserPower) this.getPower(powerOrder)).getDamage();
+			}
+		}
+		return 0;
+	}
+	public boolean canFly(){
+		return this.getType().flying;
 	}
 	@Override
 	public void writeToNbt(NbtCompound tag) {
