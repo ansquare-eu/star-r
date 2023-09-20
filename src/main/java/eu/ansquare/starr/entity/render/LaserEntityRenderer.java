@@ -47,7 +47,7 @@ public class LaserEntityRenderer<T extends LaserEntity> extends EntityRenderer<T
 		} else {
 			lerp = 1f;//Easing.SINE_OUT.ease(MathHelper.lerp(MathHelper.clamp(((float)entity.age - 60.0F) / 60.0F, 0.0F, 1.0F), 1.0F, 0.0F), 0.0F, 1.0F, 1.0F);
 		}
-		matrices.multiply(Axis.Y_POSITIVE.rotationDegrees(MathHelper.lerp(tickDelta, entity.prevYaw, entity.getYaw()) + 180.0f));
+		matrices.multiply(Axis.Y_POSITIVE.rotationDegrees(MathHelper.lerp(tickDelta, entity.prevYaw, entity.getYaw()) * -1));
 		matrices.multiply(Axis.X_POSITIVE.rotationDegrees(MathHelper.lerp(tickDelta, entity.prevPitch, entity.getPitch()) + 90.0F));
 		float minSize = 1.0f * lerp;
 		float maxSize = 2.0f * lerp;
@@ -59,7 +59,7 @@ public class LaserEntityRenderer<T extends LaserEntity> extends EntityRenderer<T
 			float x = (float)MathHelper.lerp((double)tickDelta, entity.prevX, entity.getX());
 			float y = (float)MathHelper.lerp((double)tickDelta, entity.prevY, entity.getY());
 			float z = (float)MathHelper.lerp((double)tickDelta, entity.prevZ, entity.getZ());
-			builder.setColor(color).setOffset((-x)-1, -y, -z ).setAlpha(alpha).renderBeam(RenderHandler.DELAYED_RENDER.getBuffer(LAYER), matrices, entity.getPos().add(0, -1, 0), entity.getPos().add(0.0, 10, 0.0), size);
+			builder.setColor(color).setOffset(-x, -y, -z ).setAlpha(alpha).renderBeam(RenderHandler.DELAYED_RENDER.getBuffer(LAYER), matrices, entity.getPos().add(0, -1, 0), entity.getPos().add(0.0, 10, 0.0), size);
 		}
 
 		matrices.pop();

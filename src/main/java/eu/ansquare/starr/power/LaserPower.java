@@ -34,7 +34,9 @@ public class LaserPower extends ToggleablePower{
 	public Color getColor(){
 		return this.color;
 	}
-
+	public int getDamage(){
+		return this.damage;
+	}
 	@Override
 	public void activationAction(ServerPlayerEntity player) {
 		LaserEntity entity = new LaserEntity(ModEntities.LASER, player.getServerWorld());

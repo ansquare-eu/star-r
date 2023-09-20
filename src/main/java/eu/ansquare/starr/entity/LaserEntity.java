@@ -2,39 +2,41 @@ package eu.ansquare.starr.entity;
 
 import eu.ansquare.starr.StarR;
 import eu.ansquare.starr.cca.StarREntityComponents;
-import eu.ansquare.starr.power.LaserPower;
-import eu.ansquare.starr.power.Power;
+import eu.ansquare.starr.cca.SuperDudeComponent;
+import eu.ansquare.starr.client.StarRClient;
 import eu.ansquare.starr.power.Powers;
-import eu.ansquare.starr.superdude.PowerOrder;
-import eu.ansquare.starr.superdude.SuperDude;
-import eu.ansquare.starr.util.datasaving.IDataSaver;
-import net.minecraft.entity.*;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityType;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.Ownable;
 import net.minecraft.entity.data.DataTracker;
 import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.data.TrackedDataHandlerRegistry;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.projectile.ProjectileEntity;
+import net.minecraft.entity.projectile.ProjectileUtil;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.network.PacketByteBuf;
 import net.minecraft.server.world.ServerWorld;
-import net.minecraft.util.hit.BlockHitResult;
+import net.minecraft.util.hit.EntityHitResult;
+import net.minecraft.util.math.Box;
 import net.minecraft.util.math.Vec3d;
-import net.minecraft.util.shape.VoxelShape;
-import net.minecraft.world.LocalDifficulty;
-import net.minecraft.world.RaycastContext;
-import net.minecraft.world.ServerWorldAccess;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
+import org.quiltmc.qsl.entity.networking.api.extended_spawn_data.QuiltExtendedSpawnDataEntity;
 
 import java.awt.*;
 import java.util.Optional;
 import java.util.UUID;
+import java.util.function.Predicate;
 
-public class LaserEntity extends Entity implements Ownable {
+public class LaserEntity extends Entity implements Ownable, QuiltExtendedSpawnDataEntity {
 	private static final TrackedData<Integer> COLOR = DataTracker.registerData(LaserEntity.class, TrackedDataHandlerRegistry.INTEGER);
 	private static final TrackedData<Optional<UUID>> OWNER_UUID = DataTracker.registerData(LaserEntity.class, TrackedDataHandlerRegistry.OPTIONAL_UUID);
 
 	@Nullable
 	private Entity owner;
 	private int ownerlessTicks = -1;
-	private int lenght = 1;
 
 
 	public LaserEntity(EntityType<?> variant, World world) {
@@ -82,7 +84,7 @@ public class LaserEntity extends Entity implements Ownable {
 	}
 	public void tick(){
 		super.tick();
-		if(!Powers.TEST_LASER_POWER.entityMap.containsValue(this)) {
+		if((!this.getWorld().isClient() && !Powers.TEST_LASER_POWER.entityMap.containsValue(this)) || (this.getWorld().isClient() && !StarRClient.LASER_HOLDER.SET.contains(this))) {
 			if (this.getOwner() != null) {
 				this.ownerlessTicks = -1;
 				this.setPitch(this.getOwner().getPitch());
@@ -102,13 +104,26 @@ public class LaserEntity extends Entity implements Ownable {
 				}
 			}
 		} else if (this.getOwner() != null) {
-
+			@Nullable Predicate<Entity> filter = entity -> {
+				if(entity.getType() == EntityType.PLAYER){
+					return false;
+				}
+				else {
+					return true;
+				}
+			};
 			this.setPitch(this.getOwner().getPitch());
-			this.setYaw((this.getOwner().getHeadYaw() * -1) + 180);
-			this.setPosition(this.getOwner().getEyePos());
-			/*Vec3d playerDir = this.getRotationVec(1f).normalize().multiply(32);
-			Vec3d newLoc = this.getPos().add(playerDir);
-			BlockHitResult result = this.getWorld().raycast(new RaycastContext(this.getPos(), newLoc, RaycastContext.ShapeType.VISUAL, RaycastContext.FluidHandling.ANY, this));
+			this.setYaw(this.getOwner().getHeadYaw());
+			this.setPosition(this.getOwner().getEyePos().add(0, -1, 0));
+			float damage = StarREntityComponents.SUPER_DUDE_COMPONENT.maybeGet(this.getOwner()).map(SuperDudeComponent::getLaserPower).orElse(0);
+			Double distance = 64d;
+			Vec3d playerDir = this.getOwner().getRotationVec(1f).normalize().multiply(64);
+			//BlockHitResult trace = player.getWorld().raycastBlock(player.getEyePos(), player.getRotationVec(1), 128, 1, filter);
+			EntityHitResult trace = ProjectileUtil.raycast(this.getOwner(), this.getOwner().getEyePos(), this.getOwner().getEyePos().add(playerDir), Box.of(this.getOwner().getEyePos(), 1, 1, 1).expand(distance), filter, distance*distance*distance);
+			if(trace != null){
+				trace.getEntity().damage(trace.getEntity().getDamageSources().playerAttack(((PlayerEntity) this.getOwner())), damage);
+			}
+			/*BlockHitResult result = this.getWorld().raycast(new RaycastContext(this.getPos(), newLoc, RaycastContext.ShapeType.VISUAL, RaycastContext.FluidHandling.ANY, this));
 			if(result != null){
 				double distance = result.getPos().distanceTo(this.getPos());
 				StarR.LOGGER.info("Ceil distance = " + distance);
@@ -126,5 +141,16 @@ public class LaserEntity extends Entity implements Ownable {
 		return new Color(this.dataTracker.get(COLOR));
 	}
 
+	@Override
+	public void writeAdditionalSpawnData(PacketByteBuf buffer) {
+		if(this.dataTracker.get(OWNER_UUID).isPresent()){
+			buffer.writeUuid(this.dataTracker.get(OWNER_UUID).get());
+		}
+	}
 
+	@Override
+	public void readAdditionalSpawnData(PacketByteBuf buffer) {
+		StarRClient.LASER_HOLDER.SET.add(this);
+		this.dataTracker.set(OWNER_UUID, Optional.of(buffer.readUuid()));
+	}
 }
