@@ -40,6 +40,7 @@ public class LaserPower extends ToggleablePower{
 		LaserEntity entity = new LaserEntity(ModEntities.LASER, player.getServerWorld());
 		entityMap.put(player.getUuid(), entity);
 		entity.setOwner(player);
+		entity.setColor(this.color);
 		entity.setPosition(player.getEyePos());
 		player.getWorld().spawnEntity(entity);
 	}

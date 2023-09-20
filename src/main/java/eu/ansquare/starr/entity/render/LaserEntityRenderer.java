@@ -43,14 +43,14 @@ public class LaserEntityRenderer<T extends LaserEntity> extends EntityRenderer<T
 		VFXBuilders.WorldVFXBuilder builder = VFXBuilders.createWorld().setPosColorTexLightmapDefaultFormat();
 		float lerp = 0.0F;
 		if (entity.age <= 60) {
-			lerp = Easing.EXPO_IN.ease(MathHelper.lerp(MathHelper.clamp((float)entity.age / 60.0F, 0.0F, 1.0F), 0.0F, 1.0F), 0.0F, 1.0F, 1.0F);
+			lerp = Easing.EXPO_IN.ease(MathHelper.lerp(MathHelper.clamp((float)entity.age / 60.0f, 0.0F, 1.0F), 0.0F, 1.0F), 0.0F, 1.0F, 1.0F);
 		} else {
 			lerp = 1f;//Easing.SINE_OUT.ease(MathHelper.lerp(MathHelper.clamp(((float)entity.age - 60.0F) / 60.0F, 0.0F, 1.0F), 1.0F, 0.0F), 0.0F, 1.0F, 1.0F);
 		}
 		matrices.multiply(Axis.Y_POSITIVE.rotationDegrees(MathHelper.lerp(tickDelta, entity.prevYaw, entity.getYaw()) + 180.0f));
 		matrices.multiply(Axis.X_POSITIVE.rotationDegrees(MathHelper.lerp(tickDelta, entity.prevPitch, entity.getPitch()) + 90.0F));
-		float minSize = 5.0F * lerp;
-		float maxSize = 6.0f * lerp;
+		float minSize = 1.0f * lerp;
+		float maxSize = 2.0f * lerp;
 		float inc = 0.5F;
 		Color color = entity.getColor();
 		for(float size = minSize; size <= maxSize; size += inc) {
