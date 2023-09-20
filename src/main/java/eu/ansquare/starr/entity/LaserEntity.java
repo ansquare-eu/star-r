@@ -28,7 +28,7 @@ import java.util.Optional;
 import java.util.UUID;
 
 public class LaserEntity extends Entity implements Ownable {
-	private static final TrackedData<Integer> LENGHT = DataTracker.registerData(LaserEntity.class, TrackedDataHandlerRegistry.INTEGER);
+	private static final TrackedData<Integer> COLOR = DataTracker.registerData(LaserEntity.class, TrackedDataHandlerRegistry.INTEGER);
 	private static final TrackedData<Optional<UUID>> OWNER_UUID = DataTracker.registerData(LaserEntity.class, TrackedDataHandlerRegistry.OPTIONAL_UUID);
 
 	@Nullable
@@ -64,7 +64,8 @@ public class LaserEntity extends Entity implements Ownable {
 	}
 	@Override
 	protected void initDataTracker() {
-		this.dataTracker.startTracking(LENGHT, 1);
+		this.dataTracker.startTracking(COLOR, 0xFFFFFF);
+
 		this.dataTracker.startTracking(OWNER_UUID, Optional.empty());
 	}
 
@@ -116,18 +117,14 @@ public class LaserEntity extends Entity implements Ownable {
 				this.dataTracker.set(LENGHT, lenght);
 			}*/
 		}
-	}
-	public int getLenght(){
 
-		return this.dataTracker.get(LENGHT);
+	}
+	public void setColor(Color color){
+		this.dataTracker.set(COLOR, color.getRGB());
 	}
 	public Color getColor(){
-		if(this.getOwner() != null){
-			StarR.LOGGER.info("get color");
-			if(StarREntityComponents.SUPER_DUDE_COMPONENT.maybeGet(this.getOwner()).isPresent()){
-				return StarREntityComponents.SUPER_DUDE_COMPONENT.get(this.getOwner()).getCustomColor();
-			}
-		}
-		return new Color(0xFF0059);
+		return new Color(this.dataTracker.get(COLOR));
 	}
+
+
 }
