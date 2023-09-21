@@ -9,6 +9,8 @@ public class ModPackets {
 	public static final Identifier POWER_PACKET_ID = new Identifier(StarR.MODID, "power");
 	public static final Identifier AS_PACKET_ID = new Identifier(StarR.MODID, "addsubstract");
 	public static final Identifier RENDER_LASER_PACKET_ID = new Identifier(StarR.MODID, "laser");
+	public static final Identifier UNRENDER_LASER_PACKET_ID = new Identifier(StarR.MODID, "unlaser");
+
 
 	public static void initC2S(){
 		ServerPlayNetworking.registerGlobalReceiver(AS_PACKET_ID, ASPacket::receive);
@@ -16,5 +18,7 @@ public class ModPackets {
 	}
 	public static void initS2C(){
 		ClientPlayNetworking.registerGlobalReceiver(RENDER_LASER_PACKET_ID, RenderLaserPacket::receive);
+		ClientPlayNetworking.registerGlobalReceiver(UNRENDER_LASER_PACKET_ID, UnrenderLaserPacket::receive);
+
 	}
 }
