@@ -82,7 +82,7 @@ public class LaserEntity extends Entity implements Ownable, QuiltExtendedSpawnDa
 	protected void writeCustomDataToNbt(NbtCompound nbt) {
 
 	}
-	public void tick(){
+	/*public void tick(){
 		super.tick();
 		if((!this.getWorld().isClient() && !Powers.TEST_LASER_POWER.entityMap.containsValue(this)) || (this.getWorld().isClient() && !StarRClient.LASER_HOLDER.SET.contains(this))) {
 			if (this.getOwner() != null) {
@@ -123,17 +123,17 @@ public class LaserEntity extends Entity implements Ownable, QuiltExtendedSpawnDa
 			if(trace != null){
 				trace.getEntity().damage(trace.getEntity().getDamageSources().playerAttack(((PlayerEntity) this.getOwner())), damage);
 			}
-			/*BlockHitResult result = this.getWorld().raycast(new RaycastContext(this.getPos(), newLoc, RaycastContext.ShapeType.VISUAL, RaycastContext.FluidHandling.ANY, this));
+			*//*BlockHitResult result = this.getWorld().raycast(new RaycastContext(this.getPos(), newLoc, RaycastContext.ShapeType.VISUAL, RaycastContext.FluidHandling.ANY, this));
 			if(result != null){
 				double distance = result.getPos().distanceTo(this.getPos());
 				StarR.LOGGER.info("Ceil distance = " + distance);
 				lenght = (int) Math.ceil(distance);
 				StarR.LOGGER.info("Int distance = " + lenght);
 				this.dataTracker.set(LENGHT, lenght);
-			}*/
+			}*//*
 		}
 
-	}
+	}*/
 	public void setColor(Color color){
 		this.dataTracker.set(COLOR, color.getRGB());
 	}
@@ -150,7 +150,6 @@ public class LaserEntity extends Entity implements Ownable, QuiltExtendedSpawnDa
 
 	@Override
 	public void readAdditionalSpawnData(PacketByteBuf buffer) {
-		StarRClient.LASER_HOLDER.SET.add(this);
 		this.dataTracker.set(OWNER_UUID, Optional.of(buffer.readUuid()));
 	}
 }

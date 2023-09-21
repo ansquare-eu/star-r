@@ -2,9 +2,9 @@ package eu.ansquare.starr.util.network;
 
 import eu.ansquare.starr.entity.LaserEntity;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 public class ClientLaserHolder {
-	public Set<LaserEntity> SET = new HashSet<>();
+	public Map<UUID, ClientLaser> MAP = new HashMap<>();
+
 }
