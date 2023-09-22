@@ -29,5 +29,6 @@ public class ModBlocks {
 		BLOCKS.keySet().forEach(item -> Registry.register(Registries.BLOCK, BLOCKS.get(item), item));
 		BLOCKITEMS.keySet().forEach(item -> Registry.register(Registries.ITEM, BLOCKITEMS.get(item), item));
 	}
+    public static final Block FORCEFIELD = createBlock("forcefield", new Block(QuiltBlockSettings.create()), ItemGroups.BUILDING_BLOCKS);
 
 }

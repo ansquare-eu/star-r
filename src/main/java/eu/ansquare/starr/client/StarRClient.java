@@ -2,6 +2,7 @@ package eu.ansquare.starr.client;
 
 import com.sammy.lodestone.systems.rendering.particle.world.WorldParticleEffect;
 import eu.ansquare.starr.StarR;
+import eu.ansquare.starr.blocks.ModBlocks;
 import eu.ansquare.starr.client.particle.LaserParticleType;
 import eu.ansquare.starr.client.wearables.TrinketRenderers;
 import eu.ansquare.starr.client.wearables.TwoStateWearableModels;
@@ -23,11 +24,13 @@ import eu.ansquare.starr.network.ModPackets;
 import eu.ansquare.starr.util.network.ClientLaserHolder;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
+import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.entity.model.EntityModelLayer;
 import net.minecraft.particle.ParticleEffect;
 import net.minecraft.util.Identifier;
 import org.quiltmc.loader.api.ModContainer;
 import org.quiltmc.qsl.base.api.entrypoint.client.ClientModInitializer;
+import org.quiltmc.qsl.block.extensions.api.client.BlockRenderLayerMap;
 
 public class StarRClient implements ClientModInitializer {
 	public static ClientLaserHolder LASER_HOLDER= new ClientLaserHolder();
@@ -54,6 +57,7 @@ public class StarRClient implements ClientModInitializer {
 		ModPackets.initS2C();
 		TrinketRenderers.registerCapeRenderers(GetItemTypes.getCapes());
 		TrinketRenderers.registerTwoStateRenderers(GetItemTypes.getTwoStateWearables());
+		BlockRenderLayerMap.put(RenderLayer.getTranslucent(), ModBlocks.FORCEFIELD);
 
 	}
 }

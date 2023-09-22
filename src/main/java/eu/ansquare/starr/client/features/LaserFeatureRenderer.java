@@ -50,7 +50,7 @@ public class LaserFeatureRenderer extends FeatureRenderer<AbstractClientPlayerEn
 				float x = (float)MathHelper.lerp((double)tickDelta, entity.prevX, entity.getX());
 				float y = (float)MathHelper.lerp((double)tickDelta, entity.prevY, entity.getY());
 				float z = (float)MathHelper.lerp((double)tickDelta, entity.prevZ, entity.getZ());
-				builder.setColor(color).setOffset(-x, -y, -z ).setAlpha(alpha).renderBeam(RenderHandler.DELAYED_RENDER.getBuffer(LAYER), matrices, entity.getPos().add(0, -1, 0), entity.getPos().add(0.0, 100, 0.0), size);
+				builder.setColor(color).setOffset(-x, -y, -z ).setAlpha(alpha).renderBeam(RenderHandler.DELAYED_RENDER.getBuffer(LAYER), matrices, entity.getPos().add(0, -1, 0), entity.getPos().add(entity.getRotationVec(tickDelta).multiply(10)), size);
 			}
 
 			matrices.pop();
