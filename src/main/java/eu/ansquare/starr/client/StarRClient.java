@@ -24,6 +24,7 @@ import eu.ansquare.starr.network.ModPackets;
 import eu.ansquare.starr.util.network.ClientLaserHolder;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
+import net.fabricmc.fabric.api.client.screenhandler.v1.ScreenRegistry;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.entity.model.EntityModelLayer;
 import net.minecraft.particle.ParticleEffect;
@@ -38,6 +39,7 @@ public class StarRClient implements ClientModInitializer {
 
 	@Override
 	public void onInitializeClient(ModContainer mod) {
+
 		EntityModelLayerRegistry.registerModelLayer(MODEL_CAPE_LAYER, CapeEntityModel::getTexturedModelData);
 		EntityRendererRegistry.register(ModEntities.CAPE, (context) -> {
 			return new CapeEntityRenderer(context);
