@@ -40,7 +40,8 @@
 		]
 	},
 	"cardinal-components": [
-		"starr:superdude"
+		"starr:superdude",
+		"starr:teleportloc"
 	],
 	"mixin": "starr.mixins.json"
 }
