@@ -14,8 +14,10 @@ import java.awt.*;
 
 public class SuperDudeComponent implements AutoSyncedComponent {
 	private SuperDude type;
+	private boolean flight;
 	@Override
 	public void readFromNbt(NbtCompound tag) {
+		this.flight = tag.getBoolean("isFlying");
 		this.type = SuperDudes.getSuperDude(tag.getString("superTypeN"));
 	}
 	public SuperDude getType(){
@@ -48,6 +50,7 @@ public class SuperDudeComponent implements AutoSyncedComponent {
 	}
 	@Override
 	public void writeToNbt(NbtCompound tag) {
+		tag.getBoolean("isFlying");
 		tag.putString("superTypeN", this.getType().getName());
 	}
 }
