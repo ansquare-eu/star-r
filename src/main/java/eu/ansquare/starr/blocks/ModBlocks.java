@@ -2,8 +2,8 @@ package eu.ansquare.starr.blocks;
 
 import eu.ansquare.starr.StarR;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
-import net.fabricmc.fabric.impl.content.registry.FuelRegistryImpl;
 import net.minecraft.block.Block;
+import net.minecraft.block.piston.PistonBehavior;
 import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
@@ -17,7 +17,7 @@ import java.util.Map;
 public class ModBlocks {
 	private static final Map<Block, Identifier> BLOCKS = new LinkedHashMap<>();
 	private static final Map<Item, Identifier> BLOCKITEMS = new LinkedHashMap<>();
-	private static <T extends Block> T createBlock(String name, T block, RegistryKey<ItemGroup> itemGroup){
+	private static <T extends Block> T createBlockAnditem(String name, T block, RegistryKey<ItemGroup> itemGroup){
 		BLOCKS.put(block, new Identifier(StarR.MODID, name));
 		BLOCKITEMS.put(new BlockItem(block, new QuiltItemSettings()), new Identifier(StarR.MODID, name));
 		ItemGroupEvents.modifyEntriesEvent(itemGroup).register(content -> {
@@ -25,10 +25,14 @@ public class ModBlocks {
 		});
 		return block;
 	}
+	private static <T extends Block> T createBlock(String name, T block){
+		BLOCKS.put(block, new Identifier(StarR.MODID, name));
+		return block;
+	}
 	public static void init() {
 		BLOCKS.keySet().forEach(item -> Registry.register(Registries.BLOCK, BLOCKS.get(item), item));
 		BLOCKITEMS.keySet().forEach(item -> Registry.register(Registries.ITEM, BLOCKITEMS.get(item), item));
 	}
-    public static final Block FORCEFIELD = createBlock("forcefield", new Block(QuiltBlockSettings.create()), ItemGroups.BUILDING_BLOCKS);
+    public static final Block FORCEFIELD = createBlock("forcefield", new Block(QuiltBlockSettings.create().dropsNothing().resistance(1000).pistonBehavior(PistonBehavior.IGNORE)));
 
 }

@@ -18,7 +18,8 @@ public class ForcefieldPower extends ToggleablePower{
 
 	@Override
 	public void activationAction(ServerPlayerEntity player) {
-		WorldStructure structure = WorldStructure.hollowCube(player.getBlockPos(), 8, ModBlocks.FORCEFIELD, player.getWorld());
+		WorldStructure structure = WorldStructure.hollowCube(player.getBlockPos(), 8, player.getWorld());
+		structure.construct(ModBlocks.FORCEFIELD);
 		structureMap.put(player.getUuid() ,structure);
 	}
 

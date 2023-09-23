@@ -29,7 +29,7 @@ public class WorldStructure {
 		}
 	}
 
-	public static WorldStructure hollowCube(BlockPos centre, int diameter, Block block, World world){
+	public static WorldStructure hollowCube(BlockPos centre, int diameter, World world){
 		WorldStructure worldStructure = new WorldStructure(world);
 		int dim = Math.floorDiv(diameter, 2);
 		int minX = centre.getX() - dim;
@@ -50,7 +50,6 @@ public class WorldStructure {
 				}
 			}
 		}
-		worldStructure.construct(block);
 		return worldStructure;
 	}
 }
