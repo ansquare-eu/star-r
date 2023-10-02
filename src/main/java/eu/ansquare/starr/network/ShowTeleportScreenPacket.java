@@ -11,6 +11,5 @@ import org.quiltmc.qsl.networking.api.PacketSender;
 
 public class ShowTeleportScreenPacket {
 	public static void receive(MinecraftClient minecraftClient, ClientPlayNetworkHandler clientPlayNetworkHandler, PacketByteBuf packetByteBuf, PacketSender packetSender) {
-		minecraftClient.setScreen(new TeleportSelectScreen(Text.literal("tele")));
 	}
 }
