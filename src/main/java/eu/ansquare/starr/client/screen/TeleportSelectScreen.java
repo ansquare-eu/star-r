@@ -1,20 +1,23 @@
 package eu.ansquare.starr.client.screen;
 
+import eu.ansquare.starr.screenhandler.TeleportScreenHandler;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.screen.ingame.HandledScreen;
 import net.minecraft.client.gui.tooltip.Tooltip;
 import net.minecraft.client.gui.widget.ButtonWidget;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.text.Text;
 
-public class TeleportSelectScreen extends Screen {
+public class TeleportSelectScreen extends HandledScreen<TeleportScreenHandler> {
 	public ButtonWidget button1;
 	public ButtonWidget button2;
 
-	public TeleportSelectScreen(Text title) {
-		super(title);
+	public TeleportSelectScreen(TeleportScreenHandler handler,PlayerInventory inventory, Text title) {
+		super(handler, inventory, title);
+
 	}
 
 	@Override
@@ -34,6 +37,11 @@ public class TeleportSelectScreen extends Screen {
 
 		addDrawableChild(button1);
 		addDrawableChild(button2);
+
+	}
+
+	@Override
+	protected void drawBackground(GuiGraphics graphics, float delta, int mouseX, int mouseY) {
 
 	}
 
