@@ -17,6 +17,10 @@ public class EmptySuperDude extends SuperDude{
 	}
 
 	@Override
+	public void initModifiers() {
+	}
+
+	@Override
 	public String queryMessage() {
 		return "lars this house is empty";
 	}

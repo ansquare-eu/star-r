@@ -19,7 +19,7 @@ public class SetSuperTypeTesterItem extends Item {
 	@Override
 	public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand){
 		if(!world.isClient()){
-			StarREntityComponents.SUPER_DUDE_COMPONENT.maybeGet(user).ifPresent(superDudeComponent -> superDudeComponent.setType(SuperDudes.TEST_SUPER_DUDE));
+			SuperDudes.applyToPlayer(user, SuperDudes.TEST_SUPER_DUDE);
 		}
 		return TypedActionResult.success(user.getStackInHand(hand));
 	}

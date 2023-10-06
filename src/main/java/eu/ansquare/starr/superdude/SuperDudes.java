@@ -1,5 +1,8 @@
 package eu.ansquare.starr.superdude;
 
+import eu.ansquare.starr.cca.StarREntityComponents;
+import net.minecraft.entity.player.PlayerEntity;
+
 import java.awt.*;
 import java.util.HashSet;
 import java.util.Set;
@@ -16,6 +19,13 @@ public class SuperDudes {
 			default:
 				return EMPTY;
 		}
+	}
+	public static void applyToPlayer(PlayerEntity player, SuperDude superDude){
+		StarREntityComponents.SUPER_DUDE_COMPONENT.maybeGet(player).ifPresent(superDudeComponent -> superDudeComponent.setType(superDude));
+		superDude.onApply(player);
+	}
+	public static void removeFromPlayer(PlayerEntity player){
+		StarREntityComponents.SUPER_DUDE_COMPONENT.maybeGet(player).ifPresent(superDudeComponent -> superDudeComponent.setType(SuperDudes.EMPTY));
 	}
 	public static Set<UUID> flying = new HashSet<>();
 	public static void changeFlying(UUID uuid){
