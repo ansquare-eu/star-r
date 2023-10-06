@@ -1,10 +1,15 @@
 package eu.ansquare.starr.superdude;
 
+import com.google.common.collect.Multimap;
+import com.google.common.collect.MultimapBuilder;
 import eu.ansquare.starr.power.Incrementable;
 import eu.ansquare.starr.power.Power;
 import eu.ansquare.starr.power.ToggleablePower;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.attribute.EntityAttribute;
+import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.server.network.ServerPlayerEntity;
 
 import java.awt.*;
@@ -20,12 +25,16 @@ public abstract class SuperDude {
 		this.flying = flying;
 		this.color = color;
 		powers = new HashMap<>();
+		attributeModifiers = MultimapBuilder.hashKeys().hashSetValues().build();
 		initPowers();
 	}
 
 	public Map<PowerOrder, Power> powers;
+	public Multimap<EntityAttribute, EntityAttributeModifier> attributeModifiers;
+
 	public abstract String getName();
 	public abstract void initPowers();
+	public abstract void initModifiers();
 	public Power getPower(PowerOrder order){
 		return this.powers.get(order);
 	}
@@ -35,6 +44,9 @@ public abstract class SuperDude {
 	}
 	public Map<PowerOrder, Power> getPowers(){
 		return powers;
+	}
+	public void onApply(PlayerEntity player){
+		player.getAttributes().addTemporaryModifiers(attributeModifiers);
 	}
 	public void executeActiveTicks(LivingEntity entity){
 		for (PowerOrder powerOrd : powers.keySet()) {

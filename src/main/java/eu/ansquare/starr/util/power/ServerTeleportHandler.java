@@ -4,15 +4,15 @@ import eu.ansquare.starr.cca.StarREntityComponents;
 import net.minecraft.server.network.ServerPlayerEntity;
 
 public class ServerTeleportHandler {
-	public static void teleport(ServerPlayerEntity player, SavedLocOrder order){
-		if(StarREntityComponents.TELEPORT_LOC_COMPONENT.maybeGet(player).isPresent()){
-			int[] loc = StarREntityComponents.TELEPORT_LOC_COMPONENT.get(player).getLoc(order);
-			if(loc.length >= 3){
-				teleport(player, loc[0], loc[1], loc[2]);
-			}
-		}
-
-	}
+//	public static void teleport(ServerPlayerEntity player, SavedLocOrder order){
+//		if(StarREntityComponents.TELEPORT_LOC_COMPONENT.maybeGet(player).isPresent()){
+//			int[] loc = StarREntityComponents.TELEPORT_LOC_COMPONENT.get(player).getLoc(order);
+//			if(loc.length >= 3){
+//				teleport(player, loc[0], loc[1], loc[2]);
+//			}
+//		}
+//
+//	}
 	public static void teleport(ServerPlayerEntity player, int x, int y, int z){
 		player.teleport(x, y , z);
 	}

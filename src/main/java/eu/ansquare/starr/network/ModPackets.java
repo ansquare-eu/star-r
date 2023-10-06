@@ -19,13 +19,11 @@ public class ModPackets {
 	public static void initC2S(){
 		ServerPlayNetworking.registerGlobalReceiver(AS_PACKET_ID, ASPacket::receive);
 		ServerPlayNetworking.registerGlobalReceiver(POWER_PACKET_ID, PowerPacket::receive);
-		ServerPlayNetworking.registerGlobalReceiver(TPSAVED_PACKET_ID, TeleportToSavedPacket::receive);
-		ServerPlayNetworking.registerGlobalReceiver(TPLOC_PACKET_ID, TeleportToLocPacket::receive);
+
 
 	}
 	public static void initS2C(){
 		ClientPlayNetworking.registerGlobalReceiver(RENDER_LASER_PACKET_ID, RenderLaserPacket::receive);
-		ClientPlayNetworking.registerGlobalReceiver(SHOW_TELEPORT_SCREEN_PACKET_ID, ShowTeleportScreenPacket::receive);
 		ClientPlayNetworking.registerGlobalReceiver(UNRENDER_LASER_PACKET_ID, UnrenderLaserPacket::receive);
 	}
 }
