@@ -21,7 +21,7 @@ import java.util.HashMap;
 public class TeleportSelectScreen extends HandledScreen<TeleportScreenHandler> {
 	private final static HashMap<String, Object> guistate = TeleportScreenHandler.guistate;
 	private final World world;
-	private final int x, y;
+	private int x, y;
 	private final PlayerEntity entity;
 	TextFieldWidget zabox;
 	TextFieldWidget xbox;
@@ -41,8 +41,6 @@ public class TeleportSelectScreen extends HandledScreen<TeleportScreenHandler> {
 		this.entity = container.entity;
 		this.backgroundWidth = 176;
 		this.backgroundHeight = 166;
-		this.x = container.x;
-		this.y = container.y;
 	}
 
 	private static final Identifier texture = new Identifier("starr:textures/screen/teleportscreen.png");
@@ -102,6 +100,8 @@ public class TeleportSelectScreen extends HandledScreen<TeleportScreenHandler> {
 	@Override
 	public void init() {
 		super.init();
+		this.x = this.getScreenHandler().x + (this.width / 2 - this.backgroundWidth / 2);
+		this.y = this.getScreenHandler().y + (this.height / 2 - this.backgroundHeight / 2);
 		zabox = new TextFieldWidget(this.textRenderer, this.x + 42, this.y + 142, 120, 20, Text.translatable("gui.starr.teleport.zabox"));
 		zabox.setMaxLength(32767);
 		guistate.put("text:zabox", zabox);
