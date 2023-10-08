@@ -32,6 +32,7 @@ public class TestSuperDude extends SuperDude{
 	@Override
 	public void initModifiers() {
 		this.attributeModifiers.put(EntityAttributes.GENERIC_MOVEMENT_SPEED, new EntityAttributeModifier(UUID.fromString("2b242343-82be-4931-aea2-32c79ffe34f0".toUpperCase()), this.getName(), 0.5000000596046448, EntityAttributeModifier.Operation.MULTIPLY_TOTAL));
+		this.attributeModifiers.put(EntityAttributes.GENERIC_ATTACK_DAMAGE, new EntityAttributeModifier(UUID.fromString("86100454-fdb0-4111-af63-96ca5bc05a73".toUpperCase()), this.getName(), 4.0, EntityAttributeModifier.Operation.ADDITION));
 	}
 
 	@Override

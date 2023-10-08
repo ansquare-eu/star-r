@@ -13,7 +13,7 @@ import java.util.Optional;
 
 public class Powers {
 	public static final TestTransformationPower TEST_TRANSFORMATION_POWER = new TestTransformationPower();
-	public static final LaserPower TEST_LASER_POWER = new LaserPower(new Color(0x271BC9), 2);
+	public static final LaserPower TEST_LASER_POWER = new LaserPower(new Color(0xFF0000), 2);
 	public static final TelekinesisPower TELEKINESIS_POWER = new TelekinesisPower();
 	public static final ForcefieldPower FORCEFIELD_POWER = new ForcefieldPower();
 	public static final TeleportPower TELEPORT_POWER = new TeleportPower();

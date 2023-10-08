@@ -7,6 +7,7 @@ import com.sammy.lodestone.systems.rendering.VFXBuilders;
 import eu.ansquare.starr.StarR;
 import eu.ansquare.starr.client.StarRClient;
 import eu.ansquare.starr.entity.LaserEntity;
+import eu.ansquare.starr.util.math.ColorConversion;
 import eu.ansquare.starr.util.network.ClientLaser;
 import net.minecraft.client.model.ModelPart;
 import net.minecraft.client.network.AbstractClientPlayerEntity;
@@ -36,18 +37,21 @@ public class LaserFeatureRenderer extends FeatureRenderer<AbstractClientPlayerEn
 	@Override
 	public void render(MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, AbstractClientPlayerEntity entity, float limbAngle, float limbDistance, float tickDelta, float animationProgress, float headYaw, float headPitch) {
 		if(StarRClient.LASER_HOLDER.MAP.containsKey(entity.getUuid())){
-			matrices.multiply(Axis.Y_POSITIVE.rotationDegrees(MathHelper.lerp(tickDelta, entity.prevYaw, entity.getYaw())));
-			matrices.multiply(Axis.X_POSITIVE.rotationDegrees(MathHelper.lerp(tickDelta, entity.prevPitch, entity.getPitch())));
+			ClientLaser laser = StarRClient.LASER_HOLDER.MAP.get(entity.getUuid());
+			Color color = laser.COLOR;
+			//float pitch = entity
+			matrices.multiply(Axis.Y_POSITIVE.rotationDegrees(MathHelper.lerp(tickDelta, headYaw, headYaw)));
+			matrices.multiply(Axis.X_POSITIVE.rotationDegrees(MathHelper.lerp(tickDelta, headPitch, headPitch) - 90));
 			for (int i = 1; i <= 100; i++) {
 				//renderParticleBeam(i, entity, tickDelta);
-				renderBeam(matrices, vertexConsumers, LASER_TEXTURE, tickDelta, 1.0f, entity.getWorld().getTime(), 0, i, new float[]{1, 1, 1}, 0.2F, 0.25F);
+				renderBeam(matrices, vertexConsumers, LASER_TEXTURE, tickDelta, 1.0f, entity.getWorld().getTime(), 0, i, ColorConversion.toScaledArray(color, 1), 0.2F, 0.25F);
 			}
 		}
 	}
 		public static void renderBeam(MatrixStack matrices, VertexConsumerProvider vertexConsumers, Identifier textureId, float tickDelta, float heightScale, long worldTime, int yOffset, int maxY, float[] color, float innerRadius, float outerRadius) {
 			int i = yOffset + maxY;
 			matrices.push();
-			matrices.translate(0.0, 0.0, -0.5);
+			matrices.translate(0.5, 0.0, -0.5);
 			float f = (float)Math.floorMod(worldTime, 40) + tickDelta;
 			float g = maxY < 0 ? f : -f;
 			float h = MathHelper.fractionalPart(g * 0.2F - (float)MathHelper.floor(g * 0.1F));
