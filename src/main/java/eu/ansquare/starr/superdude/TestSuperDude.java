@@ -8,6 +8,7 @@ import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.attribute.EntityAttributes;
 
 import java.awt.*;
+import java.util.UUID;
 
 public class TestSuperDude extends SuperDude{
 	public TestSuperDude(boolean flying, Color color) {
@@ -30,7 +31,7 @@ public class TestSuperDude extends SuperDude{
 
 	@Override
 	public void initModifiers() {
-		this.attributeModifiers.put(EntityAttributes.GENERIC_MOVEMENT_SPEED, new EntityAttributeModifier("testsuperspeed", 2, EntityAttributeModifier.Operation.MULTIPLY_BASE));
+		this.attributeModifiers.put(EntityAttributes.GENERIC_MOVEMENT_SPEED, new EntityAttributeModifier(UUID.fromString("2b242343-82be-4931-aea2-32c79ffe34f0".toUpperCase()), this.getName(), 0.5000000596046448, EntityAttributeModifier.Operation.MULTIPLY_TOTAL));
 	}
 
 	@Override
