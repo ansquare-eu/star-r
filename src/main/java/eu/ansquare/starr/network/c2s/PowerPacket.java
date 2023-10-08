@@ -1,4 +1,4 @@
-package eu.ansquare.starr.network;
+package eu.ansquare.starr.network.c2s;
 
 import dev.emi.trinkets.api.TrinketItem;
 import eu.ansquare.starr.cca.StarREntityComponents;

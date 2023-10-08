@@ -1,4 +1,4 @@
-package eu.ansquare.starr.network;
+package eu.ansquare.starr.network.s2c;
 
 import eu.ansquare.starr.client.StarRClient;
 import eu.ansquare.starr.util.network.ClientLaser;

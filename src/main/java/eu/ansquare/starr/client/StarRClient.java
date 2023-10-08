@@ -4,6 +4,7 @@ import com.sammy.lodestone.systems.rendering.particle.world.WorldParticleEffect;
 import eu.ansquare.starr.StarR;
 import eu.ansquare.starr.blocks.ModBlocks;
 import eu.ansquare.starr.client.particle.LaserParticleType;
+import eu.ansquare.starr.client.screen.TeleportSelectScreen;
 import eu.ansquare.starr.client.wearables.TrinketRenderers;
 import eu.ansquare.starr.client.wearables.TwoStateWearableModels;
 import eu.ansquare.starr.client.wearables.model.CapeWearableModel;
@@ -21,10 +22,12 @@ import eu.ansquare.starr.items.GetItemTypes;
 import eu.ansquare.starr.items.wearable.WearableItem;
 import eu.ansquare.starr.items.ModItems;
 import eu.ansquare.starr.network.ModPackets;
+import eu.ansquare.starr.screenhandler.ModScreenHandlers;
 import eu.ansquare.starr.util.network.ClientLaserHolder;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.fabricmc.fabric.api.client.screenhandler.v1.ScreenRegistry;
+import net.minecraft.client.gui.screen.ingame.HandledScreens;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.entity.model.EntityModelLayer;
 import net.minecraft.particle.ParticleEffect;
@@ -60,6 +63,7 @@ public class StarRClient implements ClientModInitializer {
 		TrinketRenderers.registerCapeRenderers(GetItemTypes.getCapes());
 		TrinketRenderers.registerTwoStateRenderers(GetItemTypes.getTwoStateWearables());
 		BlockRenderLayerMap.put(RenderLayer.getTranslucent(), ModBlocks.FORCEFIELD);
+		HandledScreens.register(ModScreenHandlers.TELEPORT_SCREEN, TeleportSelectScreen::new);
 
 	}
 }

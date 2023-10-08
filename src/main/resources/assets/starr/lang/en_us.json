@@ -39,6 +39,15 @@
   "item.starr.hare.tooltip.false" : "Shift + Right click to enable"
 ,"item.starr.palica" : "palica"
 ,"block.starr.forcefield" : "Forcefield"
-,"item.starr.forcefield" : "Forcefield"
-
+,"item.starr.forcefield" : "Forcefield",
+  "gui.starr.teleport.button_1": "1",
+  "gui.starr.teleport.ybox": "",
+  "gui.starr.teleport.button_2": "2",
+  "gui.starr.teleport.zabox": "",
+  "gui.starr.teleport.xbox": "",
+  "gui.starr.teleport.button_save_base": "Save base",
+  "gui.starr.teleport.button_base": "Base",
+  "gui.starr.teleport.button_tp": "Tp",
+  "gui.starr.teleport.button_save_2": "Save 2",
+  "gui.starr.teleport.button_save_1": "Save 1"
 }
