@@ -25,7 +25,10 @@ public class SuperDudes {
 		superDude.onApply(player);
 	}
 	public static void removeFromPlayer(PlayerEntity player){
-		StarREntityComponents.SUPER_DUDE_COMPONENT.maybeGet(player).ifPresent(superDudeComponent -> superDudeComponent.setType(SuperDudes.EMPTY));
+		StarREntityComponents.SUPER_DUDE_COMPONENT.maybeGet(player).ifPresent(superDudeComponent -> {
+			superDudeComponent.getType().onRemove(player);
+			superDudeComponent.setType(SuperDudes.EMPTY);
+		});
 	}
 	public static Set<UUID> flying = new HashSet<>();
 	public static void changeFlying(UUID uuid){
