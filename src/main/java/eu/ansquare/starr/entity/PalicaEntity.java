@@ -27,6 +27,14 @@ public class PalicaEntity extends PersistentProjectileEntity {
 		super.initDataTracker();
 		this.dataTracker.startTracking(TYPE, Type.CAPTAIN_R.toString());
 	}
+	public void retrieve(){
+		if(this.getOwner() != null){
+		this.setVelocity(this.getOwner().getRotationVec(1).normalize().multiply(-0.8));
+		this.inGround = false;
+		this.ticksUntilRetrieval = 40;
+		} else {this.remove(RemovalReason.DISCARDED);
+		}
+	}
 	public void tick(){
 		super.tick();
 
@@ -41,9 +49,7 @@ public class PalicaEntity extends PersistentProjectileEntity {
 					this.remove(RemovalReason.DISCARDED);
 				}
 			}
-			this.setVelocity(this.getOwner().getRotationVec(1).normalize().multiply(-1.1));
-			this.inGround = false;
-			this.ticksUntilRetrieval = 40;
+			this.retrieve();
 		}
 		if(ticksUntilRetrieval > 0) {
 			this.ticksUntilRetrieval--;
