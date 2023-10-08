@@ -11,8 +11,11 @@ import net.minecraft.server.network.ServerPlayNetworkHandler;
 import net.minecraft.server.network.ServerPlayerEntity;
 import org.quiltmc.qsl.networking.api.PacketSender;
 
+import java.awt.*;
+
 public class RenderLaserPacket {
 	public static void receive(MinecraftClient minecraftClient, ClientPlayNetworkHandler clientPlayNetworkHandler, PacketByteBuf packetByteBuf, PacketSender packetSender) {
 		StarRClient.LASER_HOLDER.MAP.put(packetByteBuf.readUuid(), new ClientLaser(Integer.parseInt(packetByteBuf.readString())));
 	}
+	//Integer.parseInt(packetByteBuf.readString())
 }

@@ -50,7 +50,7 @@ public class LaserPower extends ToggleablePower{
 	}
 	@Override
 	public void activationAction(ServerPlayerEntity player) {
-		ServerPlayNetworking.send(player.getServerWorld().getPlayers(), ModPackets.RENDER_LASER_PACKET_ID, PacketByteBufs.create().writeUuid(player.getUuid()).writeString(String.valueOf(this.color.getRGB())));
+		ServerPlayNetworking.send(player.getServerWorld().getPlayers(), ModPackets.RENDER_LASER_PACKET_ID, PacketByteBufs.create().writeUuid(player.getUuid()).writeString(String.valueOf(color.getRGB())));
 	}
 
 	@Override
