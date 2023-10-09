@@ -3,6 +3,7 @@ package eu.ansquare.starr.blocks;
 import eu.ansquare.starr.StarR;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
 import net.minecraft.block.piston.PistonBehavior;
 import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
@@ -33,6 +34,6 @@ public class ModBlocks {
 		BLOCKS.keySet().forEach(item -> Registry.register(Registries.BLOCK, BLOCKS.get(item), item));
 		BLOCKITEMS.keySet().forEach(item -> Registry.register(Registries.ITEM, BLOCKITEMS.get(item), item));
 	}
-    public static final Block FORCEFIELD = createBlock("forcefield", new Block(QuiltBlockSettings.create().dropsNothing().resistance(1000).pistonBehavior(PistonBehavior.IGNORE)));
+    public static final Block FORCEFIELD = createBlock("forcefield", new Block(QuiltBlockSettings.create().nonOpaque().dropsNothing().resistance(1000).pistonBehavior(PistonBehavior.IGNORE)));
 
 }

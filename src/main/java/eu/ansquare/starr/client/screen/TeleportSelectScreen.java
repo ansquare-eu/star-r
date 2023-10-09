@@ -130,17 +130,17 @@ public class TeleportSelectScreen extends HandledScreen<TeleportScreenHandler> {
 		guistate.put("button:button_2", button_2);
 		this.addDrawableChild(button_2);
 		button_save_1 = ButtonWidget.builder(Text.translatable("gui.starr.teleport.button_save_1"), e -> {
-			ClientPlayNetworking.send(ModPackets.SAVELOC_PACKET_ID, PacketByteBufs.create().writeString("1").writeIntArray(new int[] {client.player.getBlockPos().getX(), client.player.getBlockPos().getY(), client.player.getBlockPos().getZ()}));
+			ClientPlayNetworking.send(ModPackets.SAVELOC_PACKET_ID, PacketByteBufs.create().writeString("1"));
 		}).positionAndSize(this.x + 105, this.y + 52, 56, 20).build();
 		guistate.put("button:button_save_1", button_save_1);
 		this.addDrawableChild(button_save_1);
 		button_save_2 = ButtonWidget.builder(Text.translatable("gui.starr.teleport.button_save_2"), e -> {
-			ClientPlayNetworking.send(ModPackets.SAVELOC_PACKET_ID, PacketByteBufs.create().writeString("2").writeIntArray(new int[] {client.player.getBlockPos().getX(), client.player.getBlockPos().getY(), client.player.getBlockPos().getZ()}));
+			ClientPlayNetworking.send(ModPackets.SAVELOC_PACKET_ID, PacketByteBufs.create().writeString("2"));
 		}).positionAndSize(this.x + 105, this.y + 79, 56, 20).build();
 		guistate.put("button:button_save_2", button_save_2);
 		this.addDrawableChild(button_save_2);
 		button_save_base = ButtonWidget.builder(Text.translatable("gui.starr.teleport.button_save_base"), e -> {
-			ClientPlayNetworking.send(ModPackets.SAVELOC_PACKET_ID, PacketByteBufs.create().writeString("0").writeIntArray(new int[] {client.player.getBlockPos().getX(), client.player.getBlockPos().getY(), client.player.getBlockPos().getZ()}));
+			ClientPlayNetworking.send(ModPackets.SAVELOC_PACKET_ID, PacketByteBufs.create().writeString("0"));
 		}).positionAndSize(this.x + 96, this.y + 25, 72, 20).build();
 		guistate.put("button:button_save_base", button_save_base);
 		this.addDrawableChild(button_save_base);
