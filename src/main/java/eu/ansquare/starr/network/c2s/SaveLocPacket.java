@@ -1,7 +1,6 @@
 package eu.ansquare.starr.network.c2s;
 
 import eu.ansquare.starr.cca.StarREntityComponents;
-import eu.ansquare.starr.util.power.ServerTeleportHandler;
 import net.minecraft.network.PacketByteBuf;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.network.ServerPlayNetworkHandler;

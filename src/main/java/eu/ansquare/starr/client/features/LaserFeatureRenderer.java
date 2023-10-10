@@ -1,15 +1,10 @@
 package eu.ansquare.starr.client.features;
 
 import com.mojang.blaze3d.vertex.VertexConsumer;
-import com.sammy.lodestone.handlers.RenderHandler;
-import com.sammy.lodestone.setup.LodestoneRenderLayers;
-import com.sammy.lodestone.systems.rendering.VFXBuilders;
 import eu.ansquare.starr.StarR;
 import eu.ansquare.starr.client.StarRClient;
-import eu.ansquare.starr.entity.LaserEntity;
 import eu.ansquare.starr.util.math.ColorConversion;
 import eu.ansquare.starr.util.network.ClientLaser;
-import net.minecraft.client.model.ModelPart;
 import net.minecraft.client.network.AbstractClientPlayerEntity;
 import net.minecraft.client.render.OverlayTexture;
 import net.minecraft.client.render.RenderLayer;
@@ -23,13 +18,12 @@ import net.minecraft.util.math.Axis;
 import net.minecraft.util.math.MathHelper;
 import org.joml.Matrix3f;
 import org.joml.Matrix4f;
-import org.joml.Quaternionf;
 
 import java.awt.*;
 
 public class LaserFeatureRenderer extends FeatureRenderer<AbstractClientPlayerEntity, PlayerEntityModel<AbstractClientPlayerEntity>> {
 	public static final Identifier LASER_TEXTURE = new Identifier(StarR.MODID, "textures/laser/laser.png");
-	private static final RenderLayer LAYER;
+	//private static final RenderLayer LAYER;
 	public LaserFeatureRenderer(FeatureRendererContext<AbstractClientPlayerEntity, PlayerEntityModel<AbstractClientPlayerEntity>> context) {
 		super(context);
 	}
@@ -107,7 +101,7 @@ public class LaserFeatureRenderer extends FeatureRenderer<AbstractClientPlayerEn
 			vertices.vertex(matrix, x, (float)y, z).color(red, green, blue, alpha).uv(u, v).overlay(OverlayTexture.DEFAULT_UV).light(15728880).normal(normalMatrix, 0.0F, 1.0F, 0.0F).next();
 		}
 
-		static {
-			LAYER = LodestoneRenderLayers.ADDITIVE_TEXTURE.apply(LASER_TEXTURE);
-		}
+		//static {
+			//LAYER = LodestoneRenderLayers.ADDITIVE_TEXTURE.apply(LASER_TEXTURE);
+		//}
 }

@@ -1,26 +1,15 @@
 package eu.ansquare.starr.entity;
 
 import eu.ansquare.starr.StarR;
-import eu.ansquare.starr.cca.StarREntityComponents;
-import eu.ansquare.starr.cca.SuperDudeComponent;
-import eu.ansquare.starr.client.StarRClient;
-import eu.ansquare.starr.power.Powers;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
-import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.Ownable;
 import net.minecraft.entity.data.DataTracker;
 import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.data.TrackedDataHandlerRegistry;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.projectile.ProjectileEntity;
-import net.minecraft.entity.projectile.ProjectileUtil;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.network.PacketByteBuf;
 import net.minecraft.server.world.ServerWorld;
-import net.minecraft.util.hit.EntityHitResult;
-import net.minecraft.util.math.Box;
-import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 import org.quiltmc.qsl.entity.networking.api.extended_spawn_data.QuiltExtendedSpawnDataEntity;
@@ -28,7 +17,6 @@ import org.quiltmc.qsl.entity.networking.api.extended_spawn_data.QuiltExtendedSp
 import java.awt.*;
 import java.util.Optional;
 import java.util.UUID;
-import java.util.function.Predicate;
 
 public class LaserEntity extends Entity implements Ownable, QuiltExtendedSpawnDataEntity {
 	private static final TrackedData<Integer> COLOR = DataTracker.registerData(LaserEntity.class, TrackedDataHandlerRegistry.INTEGER);

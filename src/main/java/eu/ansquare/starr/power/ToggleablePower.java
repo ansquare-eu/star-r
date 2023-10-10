@@ -3,7 +3,9 @@ package eu.ansquare.starr.power;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.server.network.ServerPlayerEntity;
 
-import java.util.*;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.UUID;
 
 public abstract class ToggleablePower extends Power{
 	public Set<UUID> map = new HashSet<>() {

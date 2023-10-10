@@ -1,18 +1,7 @@
 package eu.ansquare.starr.entity.render;
 
 import com.mojang.blaze3d.vertex.VertexConsumer;
-import com.sammy.lodestone.handlers.RenderHandler;
-import com.sammy.lodestone.setup.LodestoneParticles;
-import com.sammy.lodestone.setup.LodestoneRenderLayers;
-import com.sammy.lodestone.systems.rendering.VFXBuilders;
-import com.sammy.lodestone.systems.rendering.particle.Easing;
-import com.sammy.lodestone.systems.rendering.particle.WorldParticleBuilder;
-import com.sammy.lodestone.systems.rendering.particle.data.ColorParticleData;
-import com.sammy.lodestone.systems.rendering.particle.data.GenericParticleData;
-import com.sammy.lodestone.systems.rendering.particle.data.SpinParticleData;
 import eu.ansquare.starr.StarR;
-import eu.ansquare.starr.cca.StarREntityComponents;
-import eu.ansquare.starr.client.StarRClient;
 import eu.ansquare.starr.entity.LaserEntity;
 import net.minecraft.client.render.OverlayTexture;
 import net.minecraft.client.render.RenderLayer;
@@ -23,44 +12,41 @@ import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.Axis;
 import net.minecraft.util.math.MathHelper;
-import net.minecraft.util.math.Vec3d;
 import org.joml.Matrix3f;
 import org.joml.Matrix4f;
-import org.joml.Quaternionf;
-import org.quiltmc.loader.impl.lib.sat4j.core.Vec;
 
 import java.awt.*;
 
 public class LaserEntityRenderer<T extends LaserEntity> extends EntityRenderer<T> {
 	public static final Identifier LASER_TEXTURE = new Identifier(StarR.MODID, "textures/laser/laser.png");
-	private static final RenderLayer LAYER;
+	//private static final RenderLayer LAYER;
 
 	public LaserEntityRenderer(EntityRendererFactory.Context ctx) {
 		super(ctx);
 	}
 	public void render(T entity, float yaw, float tickDelta, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light){
-		matrices.push();
-		VFXBuilders.WorldVFXBuilder builder = VFXBuilders.createWorld().setPosColorTexLightmapDefaultFormat();
-		float lerp = 0.0F;
-		if (entity.age <= 60) {
-			lerp = Easing.EXPO_IN.ease(MathHelper.lerp(MathHelper.clamp((float)entity.age / 60.0f, 0.0F, 1.0F), 0.0F, 1.0F), 0.0F, 1.0F, 1.0F);
-		} else {
-			lerp = 1f;//Easing.SINE_OUT.ease(MathHelper.lerp(MathHelper.clamp(((float)entity.age - 60.0F) / 60.0F, 0.0F, 1.0F), 1.0F, 0.0F), 0.0F, 1.0F, 1.0F);
-		}
-		matrices.multiply(Axis.Y_POSITIVE.rotationDegrees(MathHelper.lerp(tickDelta, entity.prevYaw, entity.getYaw()) * -1));
-		matrices.multiply(Axis.X_POSITIVE.rotationDegrees(MathHelper.lerp(tickDelta, entity.prevPitch, entity.getPitch()) + 90.0F));
-		float minSize = 1.0f * lerp;
-		float maxSize = 2.0f * lerp;
-		float inc = 0.5F;
-		Color color = entity.getColor();
-		for(float size = minSize; size <= maxSize; size += inc) {
-			float alpha = MathHelper.lerp((size - minSize) / (maxSize - minSize), 0.2F, 0.8F);
-
-			float x = (float)MathHelper.lerp((double)tickDelta, entity.prevX, entity.getX());
-			float y = (float)MathHelper.lerp((double)tickDelta, entity.prevY, entity.getY());
-			float z = (float)MathHelper.lerp((double)tickDelta, entity.prevZ, entity.getZ());
-			builder.setColor(color).setOffset(-x, -y, -z ).setAlpha(alpha).renderBeam(RenderHandler.DELAYED_RENDER.getBuffer(LAYER), matrices, entity.getPos().add(0, -1, 0), entity.getPos().add(0.0, 10, 0.0), size);
-		}
+//		matrices.push();
+//		VFXBuilders.WorldVFXBuilder builder = VFXBuilders.createWorld().setPosColorTexLightmapDefaultFormat();
+//		float lerp = 0.0F;
+//		if (entity.age <= 60) {
+//			lerp = Easing.EXPO_IN.ease(MathHelper.lerp(MathHelper.clamp((float)entity.age / 60.0f, 0.0F, 1.0F), 0.0F, 1.0F), 0.0F, 1.0F, 1.0F);
+//		} else {
+//			lerp = 1f;//Easing.SINE_OUT.ease(MathHelper.lerp(MathHelper.clamp(((float)entity.age - 60.0F) / 60.0F, 0.0F, 1.0F), 1.0F, 0.0F), 0.0F, 1.0F, 1.0F);
+//		}
+//		matrices.multiply(Axis.Y_POSITIVE.rotationDegrees(MathHelper.lerp(tickDelta, entity.prevYaw, entity.getYaw()) * -1));
+//		matrices.multiply(Axis.X_POSITIVE.rotationDegrees(MathHelper.lerp(tickDelta, entity.prevPitch, entity.getPitch()) + 90.0F));
+//		float minSize = 1.0f * lerp;
+//		float maxSize = 2.0f * lerp;
+//		float inc = 0.5F;
+//		Color color = entity.getColor();
+//		for(float size = minSize; size <= maxSize; size += inc) {
+//			float alpha = MathHelper.lerp((size - minSize) / (maxSize - minSize), 0.2F, 0.8F);
+//
+//			float x = (float)MathHelper.lerp((double)tickDelta, entity.prevX, entity.getX());
+//			float y = (float)MathHelper.lerp((double)tickDelta, entity.prevY, entity.getY());
+//			float z = (float)MathHelper.lerp((double)tickDelta, entity.prevZ, entity.getZ());
+//			builder.setColor(color).setOffset(-x, -y, -z ).setAlpha(alpha).renderBeam(RenderHandler.DELAYED_RENDER.getBuffer(LAYER), matrices, entity.getPos().add(0, -1, 0), entity.getPos().add(0.0, 10, 0.0), size);
+//		}
 
 		matrices.pop();
 		super.render(entity, yaw, tickDelta, matrices, vertexConsumers, 15728880);
@@ -161,7 +147,7 @@ public class LaserEntityRenderer<T extends LaserEntity> extends EntityRenderer<T
 	public Identifier getTexture(LaserEntity entity) {
 		return null;
 	}
-	static {
-		LAYER = LodestoneRenderLayers.ADDITIVE_TEXTURE.apply(LASER_TEXTURE);
-	}
+	//static {
+	//	LAYER = LodestoneRenderLayers.ADDITIVE_TEXTURE.apply(LASER_TEXTURE);
+	//}
 }

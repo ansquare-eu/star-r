@@ -5,8 +5,6 @@ import dev.emi.trinkets.api.client.TrinketRenderer;
 import dev.emi.trinkets.api.client.TrinketRendererRegistry;
 import eu.ansquare.starr.client.wearables.model.CapeWearableModel;
 import eu.ansquare.starr.client.wearables.model.FaceWearableModel;
-import eu.ansquare.starr.client.wearables.model.hare.HareOneModel;
-import eu.ansquare.starr.client.wearables.model.hare.HareTwoModel;
 import eu.ansquare.starr.items.wearable.TwoStateWearable;
 import eu.ansquare.starr.items.wearable.WearableItem;
 import net.minecraft.client.MinecraftClient;

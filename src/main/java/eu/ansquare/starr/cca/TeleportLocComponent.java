@@ -1,10 +1,7 @@
 package eu.ansquare.starr.cca;
 
 import dev.onyxstudios.cca.api.v3.component.Component;
-import eu.ansquare.starr.util.math.UselessNumberHolder;
 import net.minecraft.nbt.NbtCompound;
-
-import java.awt.*;
 
 public class TeleportLocComponent implements Component {
 	public int[] base;

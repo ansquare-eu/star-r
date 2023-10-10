@@ -1,6 +1,5 @@
 package eu.ansquare.starr.cca;
 
-import dev.onyxstudios.cca.api.v3.component.Component;
 import dev.onyxstudios.cca.api.v3.component.sync.AutoSyncedComponent;
 import eu.ansquare.starr.power.LaserPower;
 import eu.ansquare.starr.power.Power;
@@ -9,8 +8,6 @@ import eu.ansquare.starr.superdude.PowerOrder;
 import eu.ansquare.starr.superdude.SuperDude;
 import eu.ansquare.starr.superdude.SuperDudes;
 import net.minecraft.nbt.NbtCompound;
-
-import java.awt.*;
 
 public class SuperDudeComponent implements AutoSyncedComponent {
 	private SuperDude type;

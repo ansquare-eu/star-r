@@ -1,7 +1,6 @@
 package eu.ansquare.starr.util.math;
 
 import java.awt.*;
-import java.awt.color.ColorSpace;
 
 public class ColorConversion {
 	public static float[] toScaledArray(Color color, int scale){

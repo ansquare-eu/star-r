@@ -4,10 +4,8 @@ import eu.ansquare.starr.StarR;
 import eu.ansquare.starr.client.StarRClient;
 import eu.ansquare.starr.entity.CapeEntity;
 import eu.ansquare.starr.entity.model.CapeEntityModel;
-import net.minecraft.client.render.entity.EntityRenderer;
 import net.minecraft.client.render.entity.EntityRendererFactory;
 import net.minecraft.client.render.entity.LivingEntityRenderer;
-import net.minecraft.client.render.entity.MobEntityRenderer;
 import net.minecraft.util.Identifier;
 
 public class CapeEntityRenderer extends LivingEntityRenderer<CapeEntity, CapeEntityModel> {
