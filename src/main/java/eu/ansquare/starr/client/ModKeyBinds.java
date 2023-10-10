@@ -7,8 +7,6 @@ import eu.ansquare.starr.util.network.BoolEnum;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 import net.minecraft.client.option.KeyBind;
-import net.minecraft.network.PacketByteBuf;
-import net.minecraft.text.Text;
 import org.lwjgl.glfw.GLFW;
 import org.quiltmc.qsl.networking.api.PacketByteBufs;
 import org.quiltmc.qsl.networking.api.client.ClientPlayNetworking;

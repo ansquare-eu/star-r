@@ -1,9 +1,7 @@
 package eu.ansquare.starr.superdude;
 
 
-import eu.ansquare.starr.power.Power;
 import eu.ansquare.starr.power.Powers;
-import net.minecraft.entity.attribute.EntityAttribute;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.attribute.EntityAttributes;
 

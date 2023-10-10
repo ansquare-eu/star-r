@@ -1,15 +1,9 @@
 package eu.ansquare.starr.power;
 
-import eu.ansquare.starr.StarR;
 import eu.ansquare.starr.cca.StarREntityComponents;
-import eu.ansquare.starr.cca.SuperDudeComponent;
-import eu.ansquare.starr.superdude.SuperDudes;
 import net.fabricmc.fabric.api.entity.event.v1.EntityElytraEvents;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.server.network.ServerPlayerEntity;
 
 import java.awt.*;
-import java.util.Optional;
 
 public class Powers {
 	public static final TestTransformationPower TEST_TRANSFORMATION_POWER = new TestTransformationPower();

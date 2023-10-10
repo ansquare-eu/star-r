@@ -3,7 +3,6 @@ package eu.ansquare.starr.client.screen;
 import com.mojang.blaze3d.systems.RenderSystem;
 import eu.ansquare.starr.network.ModPackets;
 import eu.ansquare.starr.screenhandler.TeleportScreenHandler;
-import eu.ansquare.starr.superdude.PowerOrder;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screen.ingame.HandledScreen;
 import net.minecraft.client.gui.widget.ButtonWidget;

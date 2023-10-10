@@ -1,7 +1,5 @@
 package eu.ansquare.starr.util.network;
 
-import net.minecraft.util.Pair;
-
 import java.awt.*;
 
 public class ClientLaser {

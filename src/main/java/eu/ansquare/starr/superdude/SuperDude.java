@@ -1,7 +1,5 @@
 package eu.ansquare.starr.superdude;
 
-import com.google.common.collect.Multimap;
-import com.google.common.collect.MultimapBuilder;
 import eu.ansquare.starr.power.Incrementable;
 import eu.ansquare.starr.power.Power;
 import eu.ansquare.starr.power.ToggleablePower;
@@ -10,14 +8,11 @@ import net.minecraft.entity.attribute.EntityAttribute;
 import net.minecraft.entity.attribute.EntityAttributeInstance;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.server.network.ServerPlayerEntity;
 
 import java.awt.*;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
-import java.util.Set;
 
 public abstract class SuperDude {
 	public boolean flying;

@@ -1,24 +1,15 @@
 package eu.ansquare.starr.entity.render;
 
 import eu.ansquare.starr.StarR;
-import eu.ansquare.starr.client.StarRClient;
-import eu.ansquare.starr.client.wearables.model.FaceWearableModel;
-import eu.ansquare.starr.entity.CapeEntity;
 import eu.ansquare.starr.entity.PalicaEntity;
-import eu.ansquare.starr.entity.model.CapeEntityModel;
 import eu.ansquare.starr.entity.model.PalicaEntityModel;
 import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.model.Model;
-import net.minecraft.client.network.AbstractClientPlayerEntity;
 import net.minecraft.client.render.OverlayTexture;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.VertexConsumerProvider;
-import net.minecraft.client.render.entity.EntityRenderer;
 import net.minecraft.client.render.entity.EntityRendererFactory;
-import net.minecraft.client.render.entity.LivingEntityRenderer;
 import net.minecraft.client.render.entity.ProjectileEntityRenderer;
 import net.minecraft.client.render.entity.model.EntityModel;
-import net.minecraft.client.render.entity.model.PlayerEntityModel;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.Axis;

@@ -1,11 +1,9 @@
 package eu.ansquare.starr.client.wearables;
 
-import eu.ansquare.starr.client.wearables.model.FaceWearableModel;
 import eu.ansquare.starr.client.wearables.model.hare.HareOneModel;
 import eu.ansquare.starr.client.wearables.model.hare.HareTwoModel;
 import eu.ansquare.starr.items.ModItems;
 import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.model.Model;
 import net.minecraft.item.Item;
 import net.minecraft.util.Pair;
 
