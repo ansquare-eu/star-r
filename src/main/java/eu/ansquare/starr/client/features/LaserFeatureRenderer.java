@@ -38,7 +38,7 @@ public class LaserFeatureRenderer extends FeatureRenderer<AbstractClientPlayerEn
 			matrices.multiply(Axis.X_POSITIVE.rotationDegrees(MathHelper.lerp(tickDelta, headPitch, headPitch) - 90));
 			for (int i = 1; i <= 100; i++) {
 				//renderParticleBeam(i, entity, tickDelta);
-				renderBeam(matrices, vertexConsumers, LASER_TEXTURE, tickDelta, 1.0f, entity.getWorld().getTime(), 0, i, ColorConversion.toScaledArray(color, 1), 0.2F, 0.25F);
+				renderBeam(matrices, vertexConsumers, LASER_TEXTURE, tickDelta, 1.0f, entity.getWorld().getTime(), 0, i, ColorConversion.toScaledArray(color, 1f), 0.2F, 0.25F);
 			}
 		}
 	}
