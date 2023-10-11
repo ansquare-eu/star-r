@@ -17,8 +17,8 @@ public class TwoStateWearable extends WearableItem{
 	private String name;
 	private Identifier secondTexture;
 	private TwoStateModelProvider modelProvider;
-	public TwoStateWearable(Settings settings, String texture, String secondtexture, String name, TwoStateModelProvider modelProvider) {
-		super(settings, texture);
+	public TwoStateWearable(Settings settings, String texture, String secondtexture, String name, TwoStateModelProvider modelProvider, boolean headRotated) {
+		super(settings, texture, modelProvider, headRotated);
 		this.name = name;
 		this.secondTexture = new Identifier(StarR.MODID, secondtexture);
 		this.modelProvider = modelProvider;

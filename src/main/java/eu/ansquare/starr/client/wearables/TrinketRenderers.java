@@ -3,7 +3,6 @@ package eu.ansquare.starr.client.wearables;
 import dev.emi.trinkets.api.SlotReference;
 import dev.emi.trinkets.api.client.TrinketRenderer;
 import dev.emi.trinkets.api.client.TrinketRendererRegistry;
-import eu.ansquare.starr.client.wearables.model.CapeWearableModel;
 import eu.ansquare.starr.client.wearables.model.FaceWearableModel;
 import eu.ansquare.starr.items.wearable.TwoStateWearable;
 import eu.ansquare.starr.items.wearable.WearableItem;
@@ -20,14 +19,14 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.ItemStack;
 
 public class TrinketRenderers {
-	public static void registerCapeRenderers(WearableItem... items){
+	public static void registerSimpleWearables(WearableItem... items){
 		for (WearableItem item:items) {
 			TrinketRendererRegistry.registerRenderer(item, new TrinketRenderer() {
 				private Model model = null;
 				@Override
 				public void render(ItemStack stack, SlotReference slotReference, EntityModel<? extends LivingEntity> contextModel, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, LivingEntity entity, float limbAngle, float limbDistance, float tickDelta, float animationProgress, float headYaw, float headPitch) {
 					if (model == null) {
-						model = new CapeWearableModel(MinecraftClient.getInstance().getEntityModelLoader().getModelPart(CapeWearableModel.LAYER_LOCATION));
+						model = item.getModel();
 					} else if (!entity.isInvisible()) {
 						matrices.push();
 						model.render(matrices, vertexConsumers.getBuffer(RenderLayer.getEntityCutout(item.getTexture())), light, OverlayTexture.DEFAULT_UV, 1f, 1f, 1f, 1f);
@@ -69,7 +68,9 @@ public class TrinketRenderers {
 						secondModel = item.getSecondModel();
 					} else if (!entity.isInvisible()) {
 						matrices.push();
-						((PlayerEntityModel<AbstractClientPlayerEntity>) contextModel).head.rotate(matrices);
+						if(item.rotateWithHead) {
+							((PlayerEntityModel<AbstractClientPlayerEntity>) contextModel).head.rotate(matrices);
+						}
 						if(item.getState(stack)){
 							secondModel.render(matrices, vertexConsumers.getBuffer(RenderLayer.getEntityCutout(item.getSecondTexture())), light, OverlayTexture.DEFAULT_UV, 1f, 1f, 1f, 1f);
 						}

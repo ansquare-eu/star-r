@@ -4,9 +4,8 @@ import eu.ansquare.starr.items.wearable.TwoStateWearable;
 import eu.ansquare.starr.items.wearable.WearableItem;
 
 public class GetItemTypes {
-	public static WearableItem[] getCapes(){
+	public static WearableItem[] getSimpleWearables(){
 		return new WearableItem[]{
-				ModItems.CAPE
 		};
 	}
 	public static WearableItem[] getFaceWearables(){
@@ -14,7 +13,8 @@ public class GetItemTypes {
 	}
 	public static TwoStateWearable[] getTwoStateWearables(){
 		return new TwoStateWearable[]{
-				ModItems.HARE
+				ModItems.HARE,
+				ModItems.CAPE
 		};
 	}
 }

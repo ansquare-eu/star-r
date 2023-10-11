@@ -1,4 +1,4 @@
-package eu.ansquare.starr.client.wearables.model;
+package eu.ansquare.starr.client.wearables.model.cape;
 
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import eu.ansquare.starr.StarR;

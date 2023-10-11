@@ -37,7 +37,10 @@
 ,"item.starr.hare" : "hare",
   "item.starr.hare.tooltip.true" : "Shift + Right click to disable",
   "item.starr.hare.tooltip.false" : "Shift + Right click to enable"
-,"item.starr.palica" : "palica"
+,
+  "item.starr.cape.tooltip.true" : "Shift + Right click to select ReadyRoad's cape design",
+  "item.starr.cape.tooltip.false" : "Shift + Right click to select Sasa's cape design",
+  "item.starr.palica" : "palica"
 ,"block.starr.forcefield" : "Forcefield"
 ,"item.starr.forcefield" : "Forcefield",
   "gui.starr.teleport.button_1": "1",

@@ -1,5 +1,6 @@
 package eu.ansquare.starr.entity;
 
+import eu.ansquare.starr.entity.projectile.ReturningProjectileEntity;
 import eu.ansquare.starr.items.ModItems;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.data.DataTracker;
@@ -11,11 +12,9 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.world.World;
 
-public class PalicaEntity extends PersistentProjectileEntity {
+public class PalicaEntity extends ReturningProjectileEntity {
 	private static final TrackedData<String> TYPE = DataTracker.registerData(PalicaEntity.class, TrackedDataHandlerRegistry.STRING);
 
-	int ticksUntilGroundRemoval = -2;
-	int ticksUntilRetrieval = -1;
 	public PalicaEntity(EntityType<? extends PersistentProjectileEntity> entityType, World world) {
 		super(entityType, world);
 	}
@@ -23,18 +22,11 @@ public class PalicaEntity extends PersistentProjectileEntity {
 		super.initDataTracker();
 		this.dataTracker.startTracking(TYPE, Type.CAPTAIN_R.toString());
 	}
-	public void retrieve(){
-		if(this.getOwner() != null){
-		this.setVelocity(this.getOwner().getRotationVec(1).normalize().multiply(-0.8));
-		this.inGround = false;
-		this.ticksUntilRetrieval = 40;
-		} else {this.remove(RemovalReason.DISCARDED);
-		}
-	}
+
 	public void tick(){
 		super.tick();
 
-		if (this.inGround) {
+/*		if (this.inGround) {
 			if (this.ticksUntilGroundRemoval == -1) {
 				this.ticksUntilGroundRemoval = 2;
 			}
@@ -55,7 +47,7 @@ public class PalicaEntity extends PersistentProjectileEntity {
 					this.remove(RemovalReason.DISCARDED);
 				}
 			}
-		}/*else {
+		}*//*else {
 			Vec3d vec3d = this.getVelocity();
 			double e = vec3d.x;
 			double f = vec3d.y;
