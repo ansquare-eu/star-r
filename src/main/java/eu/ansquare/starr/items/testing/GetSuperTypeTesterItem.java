@@ -1,20 +1,20 @@
 package eu.ansquare.starr.items.testing;
 
 import eu.ansquare.starr.cca.StarREntityComponents;
+import eu.ansquare.starr.util.inventory.InventoryPopulator;
+import eu.ansquare.starr.util.inventory.ItemArrayProvider;
 import net.minecraft.client.gui.screen.ingame.HandledScreens;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.screen.NamedScreenHandlerFactory;
-import net.minecraft.screen.ScreenHandler;
-import net.minecraft.screen.ScreenHandlerType;
-import net.minecraft.screen.SimpleNamedScreenHandlerFactory;
+import net.minecraft.item.Items;
+import net.minecraft.screen.*;
 import net.minecraft.text.Text;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
 
-public class GetSuperTypeTesterItem extends Item {
+public class GetSuperTypeTesterItem extends Item implements ItemArrayProvider {
 	public GetSuperTypeTesterItem(Settings settings) {
 		super(settings);
 	}
@@ -25,9 +25,18 @@ public class GetSuperTypeTesterItem extends Item {
 				String message = superDudeComponent.getType().queryMessage();
 				user.sendMessage(Text.literal(message), false);
 			});
-			user.openHandledScreen(new SimpleNamedScreenHandlerFactory((syncId, playerInventory, playerx) -> ScreenHandlerType.GENERIC_9X3.create(syncId, playerInventory), Text.literal("meme")));
+			user.openHandledScreen(new SimpleNamedScreenHandlerFactory((syncId, playerInventory, playerx) -> {
+				GenericContainerScreenHandler handler = ScreenHandlerType.GENERIC_9X3.create(syncId, playerInventory);
+				InventoryPopulator.populate(handler.getInventory(), this);
+				return handler;
+			}, Text.literal("meme")));
 
 		}
 		return TypedActionResult.success(user.getStackInHand(hand));
+	}
+
+	@Override
+	public Item[] get() {
+		return new Item[]{Items.ALLIUM, Items.LILAC, Items.LIGHT};
 	}
 }
