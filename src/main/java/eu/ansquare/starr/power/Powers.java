@@ -11,6 +11,7 @@ public class Powers {
 	public static final TelekinesisPower TELEKINESIS_POWER = new TelekinesisPower();
 	public static final ForcefieldPower FORCEFIELD_POWER = new ForcefieldPower();
 	public static final TeleportPower TELEPORT_POWER = new TeleportPower();
+	public static final ItemGuiPower ITEM_GUI_POWER = new ItemGuiPower();
 
 	public static final EmptyPower EMPTY_POWER = new EmptyPower();
 

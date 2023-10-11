@@ -1,14 +1,17 @@
 package eu.ansquare.starr.superdude;
 
 
+import eu.ansquare.starr.items.SuperDudeInventories;
 import eu.ansquare.starr.power.Powers;
+import eu.ansquare.starr.util.inventory.ItemArrayProvider;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.attribute.EntityAttributes;
+import net.minecraft.item.Item;
 
 import java.awt.*;
 import java.util.UUID;
 
-public class TestSuperDude extends SuperDude{
+public class TestSuperDude extends SuperDude implements ItemArrayProvider {
 	public TestSuperDude(boolean flying, Color color) {
 		super(flying, color);
 	}
@@ -25,6 +28,7 @@ public class TestSuperDude extends SuperDude{
 		this.powers.put(PowerOrder.SECOND, Powers.TEST_LASER_POWER);
 		this.powers.put(PowerOrder.THIRD, Powers.FORCEFIELD_POWER);
 		this.powers.put(PowerOrder.FOURTH, Powers.TELEPORT_POWER);
+		this.powers.put(PowerOrder.FIFTH, Powers.ITEM_GUI_POWER);
 	}
 
 	@Override
@@ -36,5 +40,10 @@ public class TestSuperDude extends SuperDude{
 	@Override
 	public String queryMessage() {
 		return "Message123";
+	}
+
+	@Override
+	public Item[] get() {
+		return SuperDudeInventories.testDude();
 	}
 }
