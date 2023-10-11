@@ -14,7 +14,7 @@ import java.util.Map;
 public class ModEntities {
 	private static final Map<EntityType, Identifier> ENTITIES = new LinkedHashMap();
 
-	public static final EntityType CAPE = createEntity("cape", QuiltEntityTypeBuilder.<CapeEntity>createLiving().entityFactory(CapeEntity::new).setDimensions(EntityDimensions.fixed(0.1f, 0.1f)).defaultAttributes(CapeEntity.createJellyfishAttributes()).build());
+	public static final EntityType CAPE = createEntity("cape", QuiltEntityTypeBuilder.<CapeEntity>create().entityFactory(CapeEntity::new).setDimensions(EntityDimensions.fixed(0.1f, 0.1f)).build());
 	public static final EntityType PALICA = createEntity("palica", QuiltEntityTypeBuilder.<PalicaEntity>create().entityFactory(PalicaEntity::new).setDimensions(EntityDimensions.fixed(0.2f, 1f)).build());
 	public static final EntityType LASER = createEntity("laser", QuiltEntityTypeBuilder.<LaserEntity>create().entityFactory(LaserEntity::new).setDimensions(EntityDimensions.fixed(0.2f, 1f)).build());
 
