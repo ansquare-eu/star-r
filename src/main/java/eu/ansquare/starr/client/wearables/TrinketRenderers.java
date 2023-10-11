@@ -63,7 +63,6 @@ public class TrinketRenderers {
 				@Override
 				public void render(ItemStack stack, SlotReference slotReference, EntityModel<? extends LivingEntity> contextModel, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, LivingEntity entity, float limbAngle, float limbDistance, float tickDelta, float animationProgress, float headYaw, float headPitch) {
 					if (model == null) {
-
 						model = item.getFirstModel();
 						secondModel = item.getSecondModel();
 					} else if (!entity.isInvisible()) {
