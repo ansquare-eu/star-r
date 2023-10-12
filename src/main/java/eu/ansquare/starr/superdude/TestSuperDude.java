@@ -3,7 +3,7 @@ package eu.ansquare.starr.superdude;
 
 import eu.ansquare.starr.items.SuperDudeInventories;
 import eu.ansquare.starr.power.Powers;
-import eu.ansquare.starr.util.inventory.ItemArrayProvider;
+import eu.ansquare.starr.util.item.ItemArrayProvider;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.item.Item;
