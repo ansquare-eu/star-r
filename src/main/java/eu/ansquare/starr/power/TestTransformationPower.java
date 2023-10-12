@@ -6,10 +6,6 @@ import net.minecraft.entity.projectile.PersistentProjectileEntity;
 import net.minecraft.server.network.ServerPlayerEntity;
 
 public class TestTransformationPower extends Power{
-	@Override
-	public String getName() {
-		return "testTransformation";
-	}
 
 	@Override
 	public void onActivate(ServerPlayerEntity player) {

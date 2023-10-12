@@ -68,7 +68,7 @@ public abstract class SuperDude {
 			}
 		}
 	}
-		public void executeActiveTicks(LivingEntity entity){
+	public void executeActiveTicks(LivingEntity entity){
 		for (PowerOrder powerOrd : powers.keySet()) {
 			Power power = powers.get(powerOrd);
 			if (power instanceof ToggleablePower) {

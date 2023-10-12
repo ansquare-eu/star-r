@@ -6,10 +6,6 @@ import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.Text;
 
 public class TeleportPower extends Power{
-	@Override
-	public String getName() {
-		return "teleport";
-	}
 
 	@Override
 	public void onActivate(ServerPlayerEntity player) {

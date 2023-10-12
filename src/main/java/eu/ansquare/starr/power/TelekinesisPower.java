@@ -16,10 +16,6 @@ import java.util.UUID;
 import java.util.function.Predicate;
 
 public class TelekinesisPower extends ToggleablePower implements Incrementable{
-	@Override
-	public String getName() {
-		return "telekinesis";
-	}
 	public Map<UUID, Entity> entities = new HashMap<>();
 	public Map<UUID, Integer> distances = new HashMap<>();
 	@Override

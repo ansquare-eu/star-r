@@ -12,11 +12,6 @@ import net.minecraft.text.Text;
 
 public class ItemGuiPower extends Power {
 	@Override
-	public String getName() {
-		return "itemgui";
-	}
-
-	@Override
 	public void onActivate(ServerPlayerEntity player) {
 		SuperDude superDude = StarREntityComponents.SUPER_DUDE_COMPONENT.get(player).getType();
 		if (superDude instanceof ItemArrayProvider) {

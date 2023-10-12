@@ -5,10 +5,7 @@ import net.minecraft.text.Text;
 
 public class EmptyPower extends Power{
 	public static final String LACKS_POWER = "message.starr.lack_power";
-	@Override
-	public String getName() {
-		return "empty";
-	}
+
 
 	@Override
 	public void onActivate(ServerPlayerEntity player) {
