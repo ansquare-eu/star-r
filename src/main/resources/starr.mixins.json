@@ -6,7 +6,8 @@
 	"mixins": [
       "EntityMixin",
       "LivingEntityMixin",
-      "ScreenHandlerMixin"
+      "ScreenHandlerMixin",
+      "PlayerInventoryMixin"
     ],
 	"client": [
       "client.PlayerEntityRendererMixin"

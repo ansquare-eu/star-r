@@ -1,4 +1,4 @@
-package eu.ansquare.starr.util.inventory;
+package eu.ansquare.starr.util.item;
 
 import net.minecraft.item.Item;
 

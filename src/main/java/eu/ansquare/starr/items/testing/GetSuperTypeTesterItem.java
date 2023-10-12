@@ -1,9 +1,8 @@
 package eu.ansquare.starr.items.testing;
 
 import eu.ansquare.starr.cca.StarREntityComponents;
-import eu.ansquare.starr.util.inventory.InventoryPopulator;
-import eu.ansquare.starr.util.inventory.ItemArrayProvider;
-import net.minecraft.client.gui.screen.ingame.HandledScreens;
+import eu.ansquare.starr.util.item.ItemUtils;
+import eu.ansquare.starr.util.item.ItemArrayProvider;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -27,7 +26,7 @@ public class GetSuperTypeTesterItem extends Item implements ItemArrayProvider {
 			});
 			user.openHandledScreen(new SimpleNamedScreenHandlerFactory((syncId, playerInventory, playerx) -> {
 				GenericContainerScreenHandler handler = ScreenHandlerType.GENERIC_9X3.create(syncId, playerInventory);
-				InventoryPopulator.populate(handler.getInventory(), this);
+				ItemUtils.populate(handler.getInventory(), this);
 				return handler;
 			}, Text.literal("meme")));
 
