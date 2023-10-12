@@ -11,10 +11,6 @@ import java.util.UUID;
 
 public class ForcefieldPower extends ToggleablePower{
 	public Map<UUID, WorldStructure> structureMap = new HashMap<>();
-	@Override
-	public String getName() {
-		return "forcefield";
-	}
 
 	@Override
 	public void activationAction(ServerPlayerEntity player) {

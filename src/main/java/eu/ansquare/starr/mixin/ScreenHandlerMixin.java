@@ -1,5 +1,8 @@
 package eu.ansquare.starr.mixin;
 
+import eu.ansquare.starr.StarR;
+import eu.ansquare.starr.items.ModItems;
+import eu.ansquare.starr.items.wearable.CapeWearable;
 import eu.ansquare.starr.items.wearable.TwoStateWearable;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
@@ -28,6 +31,11 @@ public class ScreenHandlerMixin {
 				ItemStack stack = slot.getStack();
 				if (stack.getItem() instanceof TwoStateWearable wearable) {
 					boolean isSneaking = actionType == SlotActionType.QUICK_MOVE;
+					if(stack.getItem() instanceof CapeWearable capeWearable) {
+						boolean second = actionType == SlotActionType.PICKUP;
+						capeWearable.toggleCapeState(stack, second);
+						ci.cancel();
+					}
 					wearable.toggleState(stack, isSneaking);
 					ci.cancel();
 				}

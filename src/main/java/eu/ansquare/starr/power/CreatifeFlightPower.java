@@ -5,11 +5,6 @@ import net.minecraft.server.network.ServerPlayerEntity;
 
 public class CreatifeFlightPower extends ToggleablePower{
 	@Override
-	public String getName() {
-		return "creaflight";
-	}
-
-	@Override
 	public void activationAction(ServerPlayerEntity player) {
 		player.getAbilities().allowFlying = true;
 	}

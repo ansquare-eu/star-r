@@ -28,10 +28,6 @@ public class LaserPower extends ToggleablePower{
 		this.color = color;
 		this.damage = damage;
 	}
-	@Override
-	public String getName() {
-		return "laser";
-	}
 	public Color getColor(){
 		return this.color;
 	}

@@ -61,7 +61,7 @@ public class ModItems {
     public static final Item CAPTAIN_RS_CHESTPLATE = createItem("captain_rs_chestplate", new ArmorItem(CAPTAIN_RS, ArmorItem.ArmorSlot.CHESTPLATE, new QuiltItemSettings().maxCount(1)), ItemGroups.COMBAT);
     public static final Item CAPTAIN_RS_LEGGINGS = createItem("captain_rs_leggings", new ArmorItem(CAPTAIN_RS, ArmorItem.ArmorSlot.LEGGINGS, new QuiltItemSettings().maxCount(1)), ItemGroups.COMBAT);
     public static final Item CAPTAIN_RS_BOOTS = createItem("captain_rs_boots", new ArmorItem(CAPTAIN_RS, ArmorItem.ArmorSlot.BOOTS, new QuiltItemSettings().maxCount(1)), ItemGroups.COMBAT);
-    public static final TwoStateWearable CAPE = createItem("cape", new TwoStateWearable(new QuiltItemSettings().maxCount(1), "textures/wearable/cape/caprcape.png", "textures/wearable/cape/caprscape.png","cape", capeModelProvider, false), ItemGroups.COMBAT);
+    public static final CapeWearable CAPE = createItem("cape", new CapeWearable(new QuiltItemSettings().maxCount(1), "textures/wearable/cape/caprcape.png", "textures/wearable/cape/caprscape.png","cape", capeModelProvider, false), ItemGroups.COMBAT);
     public static final TwoStateWearable HARE = createItem("hare", new TwoStateWearable(new QuiltItemSettings().maxCount(1), "textures/wearable/hare.png", "textures/wearable/hare.png", "hare", new TwoStateModelProvider() {
 		@Override
 		public Model getModel() {
