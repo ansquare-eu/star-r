@@ -54,5 +54,8 @@
   "gui.starr.teleport.button_save_2": "Save 2",
   "gui.starr.teleport.button_save_1": "Save 1",
   "death.attack.laser" : "%1$s was lasered!",
-  "death.attack.laser.player" : "%1$s was fried by %2$s's laser!"
+  "death.attack.laser.player" : "%1$s was fried by %2$s's laser!",
+  "message.starr.signeditem" : "This %1$s is not yours!",
+  "message.starr.signeditem" : "This %1$s is owned by %2$s!"
+
 }
