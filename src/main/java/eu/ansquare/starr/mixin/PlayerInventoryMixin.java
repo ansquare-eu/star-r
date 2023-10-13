@@ -7,6 +7,7 @@ import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.text.Text;
 import net.minecraft.util.Nameable;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
@@ -29,6 +30,12 @@ public abstract class PlayerInventoryMixin implements Inventory, Nameable {
 		NbtCompound compound = stack.getOrCreateNbt();
 		if(compound.containsUuid(ItemUtils.SIGN_KEY)){
 			if(!compound.getUuid(ItemUtils.SIGN_KEY).equals(this.player.getUuid())){
+				PlayerEntity owner = this.player.getServer().getPlayerManager().getPlayer(compound.getUuid(ItemUtils.SIGN_KEY));
+				if(owner != null){
+					this.player.sendMessage(Text.translatable("message.starr.signeditem.owner", new Object[]{stack.getItem().getName(), owner.getName()}), true);
+				} else {
+					this.player.sendMessage(Text.translatable("message.starr.signeditem", new Object[]{stack.getItem().getName()}), true);
+				}
 				ci.cancel();
 			}
 		}
