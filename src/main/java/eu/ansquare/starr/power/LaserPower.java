@@ -6,6 +6,7 @@ import eu.ansquare.starr.network.ModPackets;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.projectile.ProjectileUtil;
+import net.minecraft.network.PacketByteBuf;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.util.hit.EntityHitResult;
 import net.minecraft.util.math.Box;
@@ -36,7 +37,10 @@ public class LaserPower extends ToggleablePower{
 	}
 	@Override
 	public void activationAction(ServerPlayerEntity player) {
-		ServerPlayNetworking.send(player.getServerWorld().getPlayers(), ModPackets.RENDER_LASER_PACKET_ID, PacketByteBufs.create().writeUuid(player.getUuid()).writeString(String.valueOf(color.getRGB())));
+		PacketByteBuf buf = PacketByteBufs.create().writeUuid(player.getUuid()).writeString(String.valueOf(color.getRGB()));
+		buf.writeDouble(0.8d);
+		buf.writeFloat(2f);
+		ServerPlayNetworking.send(player.getServerWorld().getPlayers(), ModPackets.RENDER_LASER_PACKET_ID, buf);
 	}
 
 	@Override

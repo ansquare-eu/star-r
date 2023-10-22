@@ -57,5 +57,13 @@
   "death.attack.laser.player" : "%1$s was fried by %2$s's laser!",
   "message.starr.signeditem" : "This %1$s is not yours!",
   "message.starr.signeditem" : "This %1$s is owned by %2$s!"
+,"item.starr.itemitem" : "The item of items"
+,"block.starr.blockblock" : "The block of blocks"
+,"item.starr.blockblock" : "The block of blocks"
+
+,"item.starr.armorarmor_helmet" : "The helmet"
+,"item.starr.armorarmor_chestplate" : "The chestplate"
+,"item.starr.armorarmor_leggings" : "The leggings"
+,"item.starr.armorarmor_boots" : "The boots"
 
 }

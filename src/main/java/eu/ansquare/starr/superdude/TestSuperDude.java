@@ -29,6 +29,8 @@ public class TestSuperDude extends SuperDude implements ItemArrayProvider {
 		this.powers.put(PowerOrder.THIRD, Powers.FORCEFIELD_POWER);
 		this.powers.put(PowerOrder.FOURTH, Powers.TELEPORT_POWER);
 		this.powers.put(PowerOrder.FIFTH, Powers.ITEM_GUI_POWER);
+		this.powers.put(PowerOrder.SIXTH, Powers.INVIS_POWER);
+		this.powers.put(PowerOrder.SEVENTH, Powers.UNDERWATER_POWER);
 	}
 
 	@Override

@@ -38,14 +38,14 @@ public class LaserFeatureRenderer extends FeatureRenderer<AbstractClientPlayerEn
 			matrices.multiply(Axis.X_POSITIVE.rotationDegrees(MathHelper.lerp(tickDelta, headPitch, headPitch) - 90));
 			for (int i = 1; i <= 100; i++) {
 				//renderParticleBeam(i, entity, tickDelta);
-				renderBeam(matrices, vertexConsumers, LASER_TEXTURE, tickDelta, 1.0f, entity.getWorld().getTime(), 0, i, ColorConversion.toScaledArray(color, 1f), 0.2F, 0.25F);
+				renderBeam(matrices, vertexConsumers, LASER_TEXTURE, tickDelta, 1.0f, entity.getWorld().getTime(), 0, i, ColorConversion.toScaledArray(color, 1f), 0.2F, 0.25F, laser.xOff, laser.yOff);
 			}
 		}
 	}
-		public static void renderBeam(MatrixStack matrices, VertexConsumerProvider vertexConsumers, Identifier textureId, float tickDelta, float heightScale, long worldTime, int yOffset, int maxY, float[] color, float innerRadius, float outerRadius) {
+		public static void renderBeam(MatrixStack matrices, VertexConsumerProvider vertexConsumers, Identifier textureId, float tickDelta, float heightScale, long worldTime, int yOffset, int maxY, float[] color, float innerRadius, float outerRadius, float x, float z) {
 			int i = yOffset + maxY;
 			matrices.push();
-			matrices.translate(0.5, 0.0, -0.5);
+			matrices.translate(x, 0.0, z);
 			float f = (float)Math.floorMod(worldTime, 40) + tickDelta;
 			float g = maxY < 0 ? f : -f;
 			float h = MathHelper.fractionalPart(g * 0.2F - (float)MathHelper.floor(g * 0.1F));
@@ -63,8 +63,8 @@ public class LaserFeatureRenderer extends FeatureRenderer<AbstractClientPlayerEn
 			float u = 0.0F;
 			float v = 1.0F;
 			float w = -1.0F + h;
-			float x = (float)maxY * heightScale * (0.5F / innerRadius) + w;
-			renderBeamLayer(matrices, vertexConsumers.getBuffer(RenderLayer.getBeaconBeam(textureId, false)), j, k, l, 1.0F, yOffset, i, 0.0F, innerRadius, innerRadius, 0.0F, q, 0.0F, 0.0F, t, 0.0F, 1.0F, x, w);
+			float d = (float)maxY * heightScale * (0.5F / innerRadius) + w;
+			renderBeamLayer(matrices, vertexConsumers.getBuffer(RenderLayer.getBeaconBeam(textureId, false)), j, k, l, 1.0F, yOffset, i, 0.0F, innerRadius, innerRadius, 0.0F, q, 0.0F, 0.0F, t, 0.0F, 1.0F, d, w);
 			matrices.pop();
 		/*m = -outerRadius;
 		float n = -outerRadius;

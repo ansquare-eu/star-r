@@ -12,7 +12,9 @@ public class Powers {
 	public static final ForcefieldPower FORCEFIELD_POWER = new ForcefieldPower();
 	public static final TeleportPower TELEPORT_POWER = new TeleportPower();
 	public static final ItemGuiPower ITEM_GUI_POWER = new ItemGuiPower();
-
+	public static final InvisPower INVIS_POWER = new InvisPower();
+	public static final UnderwaterPower UNDERWATER_POWER = new UnderwaterPower();
+	public static final TornadoPower TORNADO_POWER = new TornadoPower();
 	public static final EmptyPower EMPTY_POWER = new EmptyPower();
 
 	public static void init(){

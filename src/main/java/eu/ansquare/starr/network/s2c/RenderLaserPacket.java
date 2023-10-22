@@ -9,7 +9,7 @@ import org.quiltmc.qsl.networking.api.PacketSender;
 
 public class RenderLaserPacket {
 	public static void receive(MinecraftClient minecraftClient, ClientPlayNetworkHandler clientPlayNetworkHandler, PacketByteBuf packetByteBuf, PacketSender packetSender) {
-		StarRClient.LASER_HOLDER.MAP.put(packetByteBuf.readUuid(), new ClientLaser(Integer.parseInt(packetByteBuf.readString())));
+		StarRClient.LASER_HOLDER.MAP.put(packetByteBuf.readUuid(), new ClientLaser(Integer.parseInt(packetByteBuf.readString()), packetByteBuf.readFloat(), packetByteBuf.readDouble()));
 	}
 	//Integer.parseInt(packetByteBuf.readString())
 }
