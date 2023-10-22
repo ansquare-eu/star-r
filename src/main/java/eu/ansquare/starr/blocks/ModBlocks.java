@@ -7,6 +7,7 @@ import net.minecraft.block.piston.PistonBehavior;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
+import net.minecraft.item.ItemGroups;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
@@ -20,7 +21,7 @@ import java.util.Map;
 public class ModBlocks {
 	private static final Map<Block, Identifier> BLOCKS = new LinkedHashMap<>();
 	private static final Map<Item, Identifier> BLOCKITEMS = new LinkedHashMap<>();
-	private static <T extends Block> T createBlockAnditem(String name, T block, RegistryKey<ItemGroup> itemGroup){
+	private static <T extends Block> T createBlockAndItem(String name, T block, RegistryKey<ItemGroup> itemGroup){
 		BLOCKS.put(block, new Identifier(StarR.MODID, name));
 		BLOCKITEMS.put(new BlockItem(block, new QuiltItemSettings()), new Identifier(StarR.MODID, name));
 		ItemGroupEvents.modifyEntriesEvent(itemGroup).register(content -> {
@@ -37,5 +38,6 @@ public class ModBlocks {
 		BLOCKITEMS.keySet().forEach(item -> Registry.register(Registries.ITEM, BLOCKITEMS.get(item), item));
 	}
     public static final Block FORCEFIELD = createBlock("forcefield", new Block(QuiltBlockSettings.create().nonOpaque().dropsNothing().resistance(1000).pistonBehavior(PistonBehavior.IGNORE)));
+    public static final Block BLOCKBLOCK = createBlockAndItem("blockblock", new Block(QuiltBlockSettings.create()), ItemGroups.BUILDING_BLOCKS);
 
 }

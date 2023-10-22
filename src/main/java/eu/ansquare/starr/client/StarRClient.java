@@ -2,6 +2,7 @@ package eu.ansquare.starr.client;
 
 import eu.ansquare.starr.StarR;
 import eu.ansquare.starr.blocks.ModBlocks;
+import eu.ansquare.starr.client.particle.ModParticles;
 import eu.ansquare.starr.client.screen.TeleportSelectScreen;
 import eu.ansquare.starr.client.wearables.TrinketRenderers;
 import eu.ansquare.starr.client.wearables.model.cape.CapeWearableModel;
@@ -54,6 +55,7 @@ public class StarRClient implements ClientModInitializer {
 		EntityModelLayerRegistry.registerModelLayer(HareTwoModel.LAYER_LOCATION, HareTwoModel::getTexturedModelData);
 		ModKeyBinds.init();
 		ModPackets.initS2C();
+		ModParticles.init();
 		TrinketRenderers.registerSimpleWearables(GetItemTypes.getSimpleWearables());
 		TrinketRenderers.registerTwoStateRenderers(GetItemTypes.getTwoStateWearables());
 		BlockRenderLayerMap.put(RenderLayer.getTranslucent(), ModBlocks.FORCEFIELD);
