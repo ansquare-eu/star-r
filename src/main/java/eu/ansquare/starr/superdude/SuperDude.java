@@ -56,6 +56,9 @@ public abstract class SuperDude {
 			}
 		}
 	}
+	public void addPower(PowerOrder order, Power power){
+		this.powers.put(order, power);
+	}
 	public void onRemove(PlayerEntity player) {
 		Iterator iterator = this.attributeModifiers.entrySet().iterator();
 

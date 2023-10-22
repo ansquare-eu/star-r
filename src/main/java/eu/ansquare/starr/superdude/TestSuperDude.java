@@ -9,6 +9,7 @@ import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.item.Item;
 
 import java.awt.*;
+import java.util.Random;
 import java.util.UUID;
 
 public class TestSuperDude extends SuperDude implements ItemArrayProvider {
@@ -23,14 +24,15 @@ public class TestSuperDude extends SuperDude implements ItemArrayProvider {
 
 	@Override
 	public void initPowers() {
-		this.powers.put(PowerOrder.TRANSFORMATION, Powers.TEST_TRANSFORMATION_POWER);
-		this.powers.put(PowerOrder.FIRST, Powers.TELEKINESIS_POWER);
-		this.powers.put(PowerOrder.SECOND, Powers.TEST_LASER_POWER);
-		this.powers.put(PowerOrder.THIRD, Powers.FORCEFIELD_POWER);
-		this.powers.put(PowerOrder.FOURTH, Powers.TELEPORT_POWER);
-		this.powers.put(PowerOrder.FIFTH, Powers.ITEM_GUI_POWER);
-		this.powers.put(PowerOrder.SIXTH, Powers.INVIS_POWER);
-		this.powers.put(PowerOrder.SEVENTH, Powers.UNDERWATER_POWER);
+		addPower(PowerOrder.TRANSFORMATION, Powers.TEST_TRANSFORMATION_POWER);
+		addPower(PowerOrder.FIRST, Powers.TELEKINESIS_POWER);
+		addPower(PowerOrder.SECOND, Powers.TEST_LASER_POWER);
+		addPower(PowerOrder.THIRD, Powers.FORCEFIELD_POWER);
+		addPower(PowerOrder.FOURTH, Powers.TELEPORT_POWER);
+		addPower(PowerOrder.FIFTH, Powers.ITEM_GUI_POWER);
+		addPower(PowerOrder.SIXTH, Powers.INVIS_POWER);
+		addPower(PowerOrder.SEVENTH, Powers.UNDERWATER_POWER);
+		addPower(PowerOrder.EIGHT, Powers.TORNADO_POWER);
 	}
 
 	@Override
