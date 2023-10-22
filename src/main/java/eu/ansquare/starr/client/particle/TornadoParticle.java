@@ -6,8 +6,12 @@ import net.minecraft.particle.DefaultParticleType;
 import org.jetbrains.annotations.Nullable;
 
 public class TornadoParticle extends SpriteBillboardParticle {
-	protected TornadoParticle(ClientWorld clientWorld, double d, double e, double f) {
+	private final SpriteProvider spriteProvider;
+
+	protected TornadoParticle(ClientWorld clientWorld, double d, double e, double f, SpriteProvider provider) {
 		super(clientWorld, d, e, f);
+		this.spriteProvider = provider;
+		this.setSpriteForAge(provider);
 		this.maxAge = 100;
 	}
 	public void tick() {
@@ -27,7 +31,7 @@ public class TornadoParticle extends SpriteBillboardParticle {
 		}
 
 		public Particle createParticle(DefaultParticleType particleEffect, ClientWorld clientWorld, double x, double y, double z, double g, double h, double i) {
-			return new TornadoParticle(clientWorld, x, y, z);
+			return new TornadoParticle(clientWorld, x, y, z, spriteProvider);
 		}
 	}
 }
