@@ -6,6 +6,7 @@ import eu.ansquare.starr.items.ModItems;
 import eu.ansquare.starr.network.ModPackets;
 import eu.ansquare.starr.power.Powers;
 import eu.ansquare.starr.screenhandler.ModScreenHandlers;
+import eu.ansquare.starr.superdude.SuperDudes;
 import org.quiltmc.loader.api.ModContainer;
 import org.quiltmc.qsl.base.api.entrypoint.ModInitializer;
 import org.slf4j.Logger;
@@ -21,6 +22,7 @@ public class StarR implements ModInitializer {
 	@Override
 	public void onInitialize(ModContainer mod) {
 		LOGGER.info("Hello Quilt world from {}!", mod.metadata().name());
+		SuperDudes.init();
 		ModBlocks.init();
 		ModItems.init();
 		ModEntities.init();

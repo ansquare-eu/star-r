@@ -19,7 +19,7 @@ public class TestSuperDude extends SuperDude implements ItemArrayProvider {
 
 	@Override
 	public String getName() {
-		return "testType";
+		return "testtype";
 	}
 
 	@Override

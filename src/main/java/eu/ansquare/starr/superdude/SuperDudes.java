@@ -1,24 +1,31 @@
 package eu.ansquare.starr.superdude;
 
+import eu.ansquare.starr.ModRegistries;
+import eu.ansquare.starr.StarR;
 import eu.ansquare.starr.cca.StarREntityComponents;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.registry.Registry;
+import net.minecraft.registry.RegistryKey;
+import net.minecraft.util.Identifier;
 
 import java.awt.*;
-import java.util.HashSet;
-import java.util.Set;
-import java.util.UUID;
+import java.util.*;
 
 public class SuperDudes {
-	public static final SuperDude TEST_SUPER_DUDE = new TestSuperDude(true, new Color(0x0B4AC9));
-	public static final SuperDude EMPTY = new EmptySuperDude();
+	private static Map<SuperDude, Identifier> SUPERDUDES = new HashMap<>();
 
+	public static final SuperDude TEST_SUPER_DUDE = create("testtype", new TestSuperDude(true, new Color(0x0B4AC9)));
+	public static final SuperDude EMPTY = create("empty", new EmptySuperDude());
+	public static <T extends SuperDude> T create(String name, T superDude){
+		Identifier id = new Identifier(StarR.MODID, name);
+		SUPERDUDES.put(superDude, id);
+		return superDude;
+	}
+	public static void init(){
+		SUPERDUDES.keySet().forEach((superDude -> Registry.register(ModRegistries.SUPER_DUDES, SUPERDUDES.get(superDude), superDude)));
+	}
 	public static SuperDude getSuperDude(String type){
-		switch (type){
-			case "testType":
-				return TEST_SUPER_DUDE;
-			default:
-				return EMPTY;
-		}
+		return ModRegistries.SUPER_DUDES.get(new Identifier(StarR.MODID, type.toLowerCase()));
 	}
 	public static void applyToPlayer(PlayerEntity player, SuperDude superDude){
 		StarREntityComponents.SUPER_DUDE_COMPONENT.maybeGet(player).ifPresent(superDudeComponent -> superDudeComponent.setType(superDude));
