@@ -4,7 +4,6 @@
 	"package": "eu.ansquare.starr.mixin",
 	"compatibilityLevel": "JAVA_17",
 	"mixins": [
-      "EntityMixin",
       "LivingEntityMixin",
       "ScreenHandlerMixin",
       "PlayerInventoryMixin"

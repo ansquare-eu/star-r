@@ -1,15 +1,20 @@
 package eu.ansquare.starr.power;
 
+import eu.ansquare.starr.StarR;
 import eu.ansquare.starr.entity.LaserEntity;
 import eu.ansquare.starr.entity.damage.ModDamageStuff;
 import eu.ansquare.starr.network.ModPackets;
+import eu.ansquare.starr.util.math.Math3D;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.passive.PigEntity;
 import net.minecraft.entity.projectile.ProjectileUtil;
 import net.minecraft.network.PacketByteBuf;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.util.hit.EntityHitResult;
 import net.minecraft.util.math.Box;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import org.jetbrains.annotations.Nullable;
 import org.quiltmc.qsl.networking.api.PacketByteBufs;
