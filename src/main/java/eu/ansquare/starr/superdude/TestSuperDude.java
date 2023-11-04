@@ -28,6 +28,7 @@ public class TestSuperDude extends SuperDude implements ItemArrayProvider {
 		addPower(PowerOrder.SIXTH, Powers.INVIS_POWER);
 		addPower(PowerOrder.SEVENTH, Powers.UNDERWATER_POWER);
 		addPower(PowerOrder.EIGHT, Powers.TORNADO_POWER);
+		addPower(PowerOrder.NINHT, Powers.AUTO_MSG_POWER);
 	}
 
 	@Override

@@ -30,8 +30,8 @@ public class LaserFeatureRenderer extends FeatureRenderer<AbstractClientPlayerEn
 
 	@Override
 	public void render(MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, AbstractClientPlayerEntity entity, float limbAngle, float limbDistance, float tickDelta, float animationProgress, float headYaw, float headPitch) {
-		if (StarRClient.LASER_HOLDER.MAP.containsKey(entity.getUuid())) {
-			ClientLaser laser = StarRClient.LASER_HOLDER.MAP.get(entity.getUuid());
+		if (StarRClient.LASER_HOLDER.LASER_MAP.containsKey(entity.getUuid())) {
+			ClientLaser laser = StarRClient.LASER_HOLDER.LASER_MAP.get(entity.getUuid());
 			Color color = laser.COLOR;
 			matrices.multiply(Axis.Y_POSITIVE.rotationDegrees(MathHelper.lerp(tickDelta, headYaw, headYaw)));
 			matrices.multiply(Axis.X_POSITIVE.rotationDegrees(MathHelper.lerp(tickDelta, headPitch, headPitch) - 90));

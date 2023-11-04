@@ -3,7 +3,10 @@ package eu.ansquare.starr.superdude;
 import eu.ansquare.starr.ModRegistries;
 import eu.ansquare.starr.StarR;
 import eu.ansquare.starr.cca.StarREntityComponents;
+import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.network.ClientPlayNetworkHandler;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.vehicle.MinecartEntity;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.util.Identifier;
@@ -29,7 +32,7 @@ public class SuperDudes {
 		SUPERDUDES.keySet().forEach(superDude -> {
 			superDude.init(SUPERDUDES.get(superDude));
 			Registry.register(ModRegistries.SUPER_DUDES, SUPERDUDES.get(superDude), superDude);
-	});
+		});
 	}
 	public static SuperDude getSuperDude(Identifier type){
 		return ModRegistries.SUPER_DUDES.get(type);
