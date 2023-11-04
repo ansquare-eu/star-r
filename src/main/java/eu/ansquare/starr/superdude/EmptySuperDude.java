@@ -8,11 +8,6 @@ public class EmptySuperDude extends SuperDude{
 	}
 
 	@Override
-	public String getName() {
-		return "empty";
-	}
-
-	@Override
 	public void initPowers() {
 	}
 

@@ -16,16 +16,23 @@ public class SuperDudes {
 
 	public static final SuperDude TEST_SUPER_DUDE = create("testtype", new TestSuperDude(true, new Color(0x0B4AC9)));
 	public static final SuperDude EMPTY = create("empty", new EmptySuperDude());
-	public static <T extends SuperDude> T create(String name, T superDude){
-		Identifier id = new Identifier(StarR.MODID, name);
+	public static <T extends SuperDude> T create(String modid, String name, T superDude){
+		Identifier id = new Identifier(modid, name);
+		superDude.id = id;
 		SUPERDUDES.put(superDude, id);
 		return superDude;
 	}
-	public static void init(){
-		SUPERDUDES.keySet().forEach((superDude -> Registry.register(ModRegistries.SUPER_DUDES, SUPERDUDES.get(superDude), superDude)));
+	public static <T extends SuperDude> T create(String name, T superDude){
+		return create(StarR.MODID, name, superDude);
 	}
-	public static SuperDude getSuperDude(String type){
-		return ModRegistries.SUPER_DUDES.get(new Identifier(StarR.MODID, type.toLowerCase()));
+	public static void init(){
+		SUPERDUDES.keySet().forEach(superDude -> {
+			superDude.init(SUPERDUDES.get(superDude));
+			Registry.register(ModRegistries.SUPER_DUDES, SUPERDUDES.get(superDude), superDude);
+	});
+	}
+	public static SuperDude getSuperDude(Identifier type){
+		return ModRegistries.SUPER_DUDES.get(type);
 	}
 	public static void applyToPlayer(PlayerEntity player, SuperDude superDude){
 		StarREntityComponents.SUPER_DUDE_COMPONENT.maybeGet(player).ifPresent(superDudeComponent -> superDudeComponent.setType(superDude));

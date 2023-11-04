@@ -8,6 +8,7 @@ import net.minecraft.entity.attribute.EntityAttribute;
 import net.minecraft.entity.attribute.EntityAttributeInstance;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.util.Identifier;
 
 import java.awt.*;
 import java.util.HashMap;
@@ -15,6 +16,7 @@ import java.util.Iterator;
 import java.util.Map;
 
 public abstract class SuperDude {
+	public Identifier id;
 	public boolean flying;
 	public Color color;
 
@@ -23,14 +25,15 @@ public abstract class SuperDude {
 		this.color = color;
 		powers = new HashMap<>();
 		attributeModifiers = new HashMap<>();
+	}
+	public void init(Identifier id){
+		this.id = id;
 		initPowers();
 		initModifiers();
 	}
-
 	public Map<PowerOrder, Power> powers;
 	public Map<EntityAttribute, EntityAttributeModifier> attributeModifiers;
 
-	public abstract String getName();
 	public abstract void initPowers();
 	public abstract void initModifiers();
 	public Power getPower(PowerOrder order){
@@ -52,7 +55,7 @@ public abstract class SuperDude {
 			if (entityAttributeInstance != null) {
 				EntityAttributeModifier entityAttributeModifier = entry.getValue();
 				entityAttributeInstance.removeModifier(entityAttributeModifier);
-				entityAttributeInstance.addPersistentModifier(new EntityAttributeModifier(entityAttributeModifier.getId(), this.getName(), entityAttributeModifier.getValue(), entityAttributeModifier.getOperation()));
+				entityAttributeInstance.addPersistentModifier(entityAttributeModifier);
 			}
 		}
 	}

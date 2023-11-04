@@ -8,12 +8,13 @@ import eu.ansquare.starr.superdude.PowerOrder;
 import eu.ansquare.starr.superdude.SuperDude;
 import eu.ansquare.starr.superdude.SuperDudes;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.util.Identifier;
 
 public class SuperDudeComponent implements AutoSyncedComponent {
 	private SuperDude type;
 	@Override
 	public void readFromNbt(NbtCompound tag) {
-		this.type = SuperDudes.getSuperDude(tag.getString("superTypeN"));
+		this.type = SuperDudes.getSuperDude(new Identifier(tag.getString("superTypeN")));
 	}
 	public SuperDude getType(){
 		if(type != null){
@@ -45,6 +46,6 @@ public class SuperDudeComponent implements AutoSyncedComponent {
 	}
 	@Override
 	public void writeToNbt(NbtCompound tag) {
-		tag.putString("superTypeN", this.getType().getName());
+		tag.putString("superTypeN", this.getType().id.toString());
 	}
 }
