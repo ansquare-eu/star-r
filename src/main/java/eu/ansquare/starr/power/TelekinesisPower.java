@@ -2,12 +2,15 @@ package eu.ansquare.starr.power;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.FallingBlockEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.projectile.ProjectileUtil;
 import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.hit.EntityHitResult;
 import net.minecraft.util.math.Box;
 import net.minecraft.util.math.Vec3d;
+import net.minecraft.world.RaycastContext;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.HashMap;
@@ -36,7 +39,6 @@ public class TelekinesisPower extends ToggleablePower implements Incrementable{
 		};
 		Double distance = 64d;
 		Vec3d playerDir = player.getRotationVec(1f).normalize().multiply(64);
-		//BlockHitResult trace = player.getWorld().raycastBlock(player.getEyePos(), player.getRotationVec(1), 128, 1, filter);
 		EntityHitResult trace = ProjectileUtil.raycast(player, player.getEyePos(), player.getEyePos().add(playerDir), Box.of(player.getEyePos(), 1, 1, 1).expand(distance), filter, distance*distance*distance);
 		if(trace != null){
 			player.sendMessage(trace.getEntity().getName(), false);
@@ -45,12 +47,14 @@ public class TelekinesisPower extends ToggleablePower implements Incrementable{
 				trace.getEntity().setInvulnerable(true);
 
 			}
+			return;
 		}
-/*			BlockHitResult blockHitResult = player.getWorld().raycast(new RaycastContext(player.getEyePos(), player.getEyePos().add(playerDir), RaycastContext.ShapeType.VISUAL, RaycastContext.FluidHandling.NONE, player));
+		BlockHitResult blockHitResult = player.getWorld().raycast(new RaycastContext(player.getEyePos(), player.getEyePos().add(playerDir), RaycastContext.ShapeType.VISUAL, RaycastContext.FluidHandling.NONE, player));
 			if(blockHitResult != null){
 				FallingBlockEntity fallingBlock = FallingBlockEntity.fall(player.getWorld(), blockHitResult.getBlockPos(), player.getWorld().getBlockState(blockHitResult.getBlockPos()));
+				fallingBlock.setNoGravity(true);
 				entities.put(player.getUuid(), fallingBlock);
-			}*/
+			}
 
 	}
 
@@ -59,6 +63,7 @@ public class TelekinesisPower extends ToggleablePower implements Incrementable{
 		Entity entity = entities.remove(player.getUuid());
 		if(entity != null){
 			entity.setInvulnerable(false);
+			entity.setNoGravity(false);
 		}
 	}
 
