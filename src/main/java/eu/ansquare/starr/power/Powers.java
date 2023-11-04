@@ -15,6 +15,7 @@ public class Powers {
 	public static final InvisPower INVIS_POWER = new InvisPower();
 	public static final UnderwaterPower UNDERWATER_POWER = new UnderwaterPower();
 	public static final TornadoPower TORNADO_POWER = new TornadoPower();
+	public static final AutoMsgPower AUTO_MSG_POWER = new AutoMsgPower();
 	public static final EmptyPower EMPTY_POWER = new EmptyPower();
 
 	public static void init(){

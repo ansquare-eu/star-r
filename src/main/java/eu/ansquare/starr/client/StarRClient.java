@@ -19,7 +19,7 @@ import eu.ansquare.starr.entity.render.PalicaEntityRenderer;
 import eu.ansquare.starr.items.GetItemTypes;
 import eu.ansquare.starr.network.ModPackets;
 import eu.ansquare.starr.screenhandler.ModScreenHandlers;
-import eu.ansquare.starr.util.network.ClientLaserHolder;
+import eu.ansquare.starr.util.network.ClientPlayerHolder;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.minecraft.client.gui.screen.ingame.HandledScreens;
@@ -31,7 +31,7 @@ import org.quiltmc.qsl.base.api.entrypoint.client.ClientModInitializer;
 import org.quiltmc.qsl.block.extensions.api.client.BlockRenderLayerMap;
 
 public class StarRClient implements ClientModInitializer {
-	public static ClientLaserHolder LASER_HOLDER= new ClientLaserHolder();
+	public static ClientPlayerHolder LASER_HOLDER= new ClientPlayerHolder();
 	public static final EntityModelLayer MODEL_CAPE_LAYER = new EntityModelLayer(new Identifier(StarR.MODID, "cape"), "main");
 
 	@Override
