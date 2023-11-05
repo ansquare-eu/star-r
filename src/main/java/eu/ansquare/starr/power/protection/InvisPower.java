@@ -1,9 +1,9 @@
-package eu.ansquare.starr.power;
+package eu.ansquare.starr.power.protection;
 
-import net.minecraft.entity.LivingEntity;
+import eu.ansquare.starr.power.Power;
 import net.minecraft.server.network.ServerPlayerEntity;
 
-public class InvisPower extends Power{
+public class InvisPower extends Power {
 
 	@Override
 	public void onActivate(ServerPlayerEntity player) {

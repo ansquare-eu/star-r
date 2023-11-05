@@ -1,5 +1,7 @@
-package eu.ansquare.starr.power;
+package eu.ansquare.starr.power.offense;
 
+import eu.ansquare.starr.power.Incrementable;
+import eu.ansquare.starr.power.ToggleablePower;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.FallingBlockEntity;
@@ -18,7 +20,7 @@ import java.util.Map;
 import java.util.UUID;
 import java.util.function.Predicate;
 
-public class TelekinesisPower extends ToggleablePower implements Incrementable{
+public class TelekinesisPower extends ToggleablePower implements Incrementable {
 	public Map<UUID, Entity> entities = new HashMap<>();
 	public Map<UUID, Integer> distances = new HashMap<>();
 	@Override

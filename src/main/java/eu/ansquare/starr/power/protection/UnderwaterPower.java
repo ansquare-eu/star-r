@@ -1,21 +1,22 @@
-package eu.ansquare.starr.power;
+package eu.ansquare.starr.power.protection;
 
+import eu.ansquare.starr.power.ToggleablePower;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.server.network.ServerPlayerEntity;
 
-public class CreatifeFlightPower extends ToggleablePower{
+public class UnderwaterPower extends ToggleablePower {
 	@Override
 	public void activationAction(ServerPlayerEntity player) {
-		player.getAbilities().allowFlying = true;
+
 	}
 
 	@Override
 	public void deactivationAction(ServerPlayerEntity player) {
-		player.getAbilities().allowFlying = false;
+
 	}
 
 	@Override
 	public void activeTick(LivingEntity entity) {
-
+		entity.setAir(10);
 	}
 }

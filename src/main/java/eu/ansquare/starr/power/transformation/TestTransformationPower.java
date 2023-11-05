@@ -1,11 +1,12 @@
-package eu.ansquare.starr.power;
+package eu.ansquare.starr.power.transformation;
 
 import eu.ansquare.starr.entity.ModEntities;
 import eu.ansquare.starr.entity.PalicaEntity;
+import eu.ansquare.starr.power.Power;
 import net.minecraft.entity.projectile.PersistentProjectileEntity;
 import net.minecraft.server.network.ServerPlayerEntity;
 
-public class TestTransformationPower extends Power{
+public class TestTransformationPower extends Power {
 
 	@Override
 	public void onActivate(ServerPlayerEntity player) {

@@ -1,23 +1,18 @@
-package eu.ansquare.starr.power;
+package eu.ansquare.starr.power.transport;
 
-import eu.ansquare.starr.network.ModPackets;
-import eu.ansquare.starr.util.network.ClientPlayerState;
+import eu.ansquare.starr.power.ToggleablePower;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.server.network.ServerPlayerEntity;
-import org.quiltmc.qsl.networking.api.PacketByteBufs;
-import org.quiltmc.qsl.networking.api.ServerPlayNetworking;
 
-
-public class AutoMsgPower extends ToggleablePower{
-
+public class CreatifeFlightPower extends ToggleablePower {
 	@Override
 	public void activationAction(ServerPlayerEntity player) {
-
+		player.getAbilities().allowFlying = true;
 	}
 
 	@Override
 	public void deactivationAction(ServerPlayerEntity player) {
-
+		player.getAbilities().allowFlying = false;
 	}
 
 	@Override
