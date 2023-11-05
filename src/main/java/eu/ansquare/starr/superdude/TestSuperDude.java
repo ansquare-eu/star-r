@@ -4,6 +4,7 @@ package eu.ansquare.starr.superdude;
 import eu.ansquare.starr.items.SuperDudeInventories;
 import eu.ansquare.starr.power.Powers;
 import eu.ansquare.starr.util.item.ItemArrayProvider;
+import eu.ansquare.starr.util.power.FlightType;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.item.Item;
@@ -13,8 +14,8 @@ import java.util.Random;
 import java.util.UUID;
 
 public class TestSuperDude extends SuperDude implements ItemArrayProvider {
-	public TestSuperDude(boolean flying, Color color) {
-		super(flying, color);
+	public TestSuperDude(FlightType flight, Color color) {
+		super(flight, color);
 	}
 
 	@Override

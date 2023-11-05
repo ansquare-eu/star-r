@@ -3,6 +3,7 @@ package eu.ansquare.starr.superdude;
 import eu.ansquare.starr.ModRegistries;
 import eu.ansquare.starr.StarR;
 import eu.ansquare.starr.cca.StarREntityComponents;
+import eu.ansquare.starr.util.power.FlightType;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.ClientPlayNetworkHandler;
 import net.minecraft.entity.player.PlayerEntity;
@@ -17,7 +18,8 @@ import java.util.*;
 public class SuperDudes {
 	private static Map<SuperDude, Identifier> SUPERDUDES = new HashMap<>();
 
-	public static final SuperDude TEST_SUPER_DUDE = create("testtype", new TestSuperDude(true, new Color(0x0B4AC9)));
+	public static final SuperDude TEST_SUPER_DUDE = create("testtype", new TestSuperDude(FlightType.NORMAL, new Color(0x0B4AC9)));
+	public static final SuperDude TELEMAN = create("teleman", new Teleman(FlightType.CREATIVE, new Color(0x4DF18F)));
 	public static final SuperDude EMPTY = create("empty", new EmptySuperDude());
 	public static <T extends SuperDude> T create(String modid, String name, T superDude){
 		Identifier id = new Identifier(modid, name);
@@ -38,6 +40,7 @@ public class SuperDudes {
 		return ModRegistries.SUPER_DUDES.get(type);
 	}
 	public static void applyToPlayer(PlayerEntity player, SuperDude superDude){
+		removeFromPlayer(player);
 		StarREntityComponents.SUPER_DUDE_COMPONENT.maybeGet(player).ifPresent(superDudeComponent -> superDudeComponent.setType(superDude));
 		superDude.onApply(player);
 	}

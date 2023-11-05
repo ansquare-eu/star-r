@@ -3,6 +3,7 @@ package eu.ansquare.starr.superdude;
 import eu.ansquare.starr.power.Incrementable;
 import eu.ansquare.starr.power.Power;
 import eu.ansquare.starr.power.ToggleablePower;
+import eu.ansquare.starr.util.power.FlightType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.EntityAttribute;
 import net.minecraft.entity.attribute.EntityAttributeInstance;
@@ -17,11 +18,11 @@ import java.util.Map;
 
 public abstract class SuperDude {
 	public Identifier id;
-	public boolean flying;
+	public FlightType flight;
 	public Color color;
 
-	public SuperDude(boolean flying, Color color) {
-		this.flying = flying;
+	public SuperDude(FlightType flight, Color color) {
+		this.flight = flight;
 		this.color = color;
 		powers = new HashMap<>();
 		attributeModifiers = new HashMap<>();
@@ -47,6 +48,10 @@ public abstract class SuperDude {
 		return powers;
 	}
 	public void onApply(PlayerEntity player){
+		if(flight == FlightType.CREATIVE){
+			player.getAbilities().allowFlying = true;
+			player.sendAbilitiesUpdate();
+		}
 		Iterator iterator = this.attributeModifiers.entrySet().iterator();
 
 		while(iterator.hasNext()) {
@@ -63,6 +68,11 @@ public abstract class SuperDude {
 		this.powers.put(order, power);
 	}
 	public void onRemove(PlayerEntity player) {
+		if(flight == FlightType.CREATIVE){
+			player.getAbilities().allowFlying = false;
+			player.getAbilities().flying = false;
+			player.sendAbilitiesUpdate();
+		}
 		Iterator iterator = this.attributeModifiers.entrySet().iterator();
 
 		while(iterator.hasNext()) {
