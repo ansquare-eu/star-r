@@ -1,6 +1,16 @@
 package eu.ansquare.starr.power;
 
 import eu.ansquare.starr.cca.StarREntityComponents;
+import eu.ansquare.starr.power.creation.ItemGuiPower;
+import eu.ansquare.starr.power.protection.ForcefieldPower;
+import eu.ansquare.starr.power.protection.InvisPower;
+import eu.ansquare.starr.power.protection.UnderwaterPower;
+import eu.ansquare.starr.power.offense.LaserPower;
+import eu.ansquare.starr.power.offense.TelekinesisPower;
+import eu.ansquare.starr.power.offense.TornadoPower;
+import eu.ansquare.starr.power.transformation.TestTransformationPower;
+import eu.ansquare.starr.power.transport.TeleportPower;
+import eu.ansquare.starr.power.utility.AutoMsgPower;
 import net.fabricmc.fabric.api.entity.event.v1.EntityElytraEvents;
 
 import java.awt.*;

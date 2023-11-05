@@ -1,6 +1,7 @@
-package eu.ansquare.starr.power;
+package eu.ansquare.starr.power.protection;
 
 import eu.ansquare.starr.blocks.ModBlocks;
+import eu.ansquare.starr.power.ToggleablePower;
 import eu.ansquare.starr.util.world.WorldStructure;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.server.network.ServerPlayerEntity;
@@ -9,7 +10,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
-public class ForcefieldPower extends ToggleablePower{
+public class ForcefieldPower extends ToggleablePower {
 	public Map<UUID, WorldStructure> structureMap = new HashMap<>();
 
 	@Override

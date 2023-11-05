@@ -21,7 +21,7 @@ import java.util.Map;
 public class ModBlocks {
 	private static final Map<Block, Identifier> BLOCKS = new LinkedHashMap<>();
 	private static final Map<Item, Identifier> BLOCKITEMS = new LinkedHashMap<>();
-	private static <T extends Block> T createBlockAnditem(String name, T block, RegistryKey<ItemGroup> itemGroup){
+	private static <T extends Block> T createBlockAndItem(String name, T block, RegistryKey<ItemGroup> itemGroup){
 		BLOCKS.put(block, new Identifier(StarR.MODID, name));
 		BLOCKITEMS.put(new BlockItem(block, new QuiltItemSettings()), new Identifier(StarR.MODID, name));
 		ItemGroupEvents.modifyEntriesEvent(itemGroup).register(content -> {
@@ -38,6 +38,6 @@ public class ModBlocks {
 		BLOCKITEMS.keySet().forEach(item -> Registry.register(Registries.ITEM, BLOCKITEMS.get(item), item));
 	}
     public static final Block FORCEFIELD = createBlock("forcefield", new Block(QuiltBlockSettings.create().nonOpaque().dropsNothing().resistance(1000).pistonBehavior(PistonBehavior.IGNORE)));
-	public static final Block TV = createBlockAnditem("tv", new TvBlock(QuiltBlockSettings.create().pistonBehavior(PistonBehavior.IGNORE).nonOpaque()), ItemGroups.FUNCTIONAL_BLOCKS);
+	public static final Block TV = createBlockAndItem("tv", new TvBlock(QuiltBlockSettings.create().pistonBehavior(PistonBehavior.IGNORE).nonOpaque()), ItemGroups.FUNCTIONAL_BLOCKS);
 
 }

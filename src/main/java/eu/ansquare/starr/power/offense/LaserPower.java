@@ -1,9 +1,10 @@
-package eu.ansquare.starr.power;
+package eu.ansquare.starr.power.offense;
 
 import eu.ansquare.starr.StarR;
 import eu.ansquare.starr.entity.LaserEntity;
 import eu.ansquare.starr.entity.damage.ModDamageStuff;
 import eu.ansquare.starr.network.ModPackets;
+import eu.ansquare.starr.power.ToggleablePower;
 import eu.ansquare.starr.util.math.Math3D;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
@@ -26,7 +27,7 @@ import java.util.Map;
 import java.util.UUID;
 import java.util.function.Predicate;
 
-public class LaserPower extends ToggleablePower{
+public class LaserPower extends ToggleablePower {
 	private int damage;
 	private Color color;
 	public Map<UUID, LaserEntity> entityMap = new HashMap<>();

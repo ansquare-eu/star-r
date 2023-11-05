@@ -30,9 +30,7 @@ public class TvBlock extends HorizontalFacingBlock {
 		Vec3d offset = state.getModelOffset(world, pos);
 		return (switch (state.get(FACING)) {
 			default -> createCuboidShape(0, 0, 7, 16, 14, 9);
-			case NORTH -> createCuboidShape(0, 0, 7, 16, 14, 9);
-			case EAST -> createCuboidShape(7, 0, 0, 9, 14, 16);
-			case WEST -> createCuboidShape(7, 0, 0, 9, 14, 16);
+			case EAST, WEST -> createCuboidShape(7, 0, 0, 9, 14, 16);
 		}).offset(offset.x, offset.y, offset.z);
 	}
 	@Override

@@ -1,11 +1,12 @@
-package eu.ansquare.starr.power;
+package eu.ansquare.starr.power.transport;
 
+import eu.ansquare.starr.power.Power;
 import eu.ansquare.starr.screenhandler.TeleportScreenHandler;
 import net.minecraft.screen.SimpleNamedScreenHandlerFactory;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.Text;
 
-public class TeleportPower extends Power{
+public class TeleportPower extends Power {
 
 	@Override
 	public void onActivate(ServerPlayerEntity player) {

@@ -1,6 +1,7 @@
-package eu.ansquare.starr.power;
+package eu.ansquare.starr.power.creation;
 
 import eu.ansquare.starr.cca.StarREntityComponents;
+import eu.ansquare.starr.power.Power;
 import eu.ansquare.starr.superdude.SuperDude;
 import eu.ansquare.starr.util.item.ItemUtils;
 import eu.ansquare.starr.util.item.ItemArrayProvider;

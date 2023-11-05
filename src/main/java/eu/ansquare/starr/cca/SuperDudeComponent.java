@@ -1,7 +1,7 @@
 package eu.ansquare.starr.cca;
 
 import dev.onyxstudios.cca.api.v3.component.sync.AutoSyncedComponent;
-import eu.ansquare.starr.power.LaserPower;
+import eu.ansquare.starr.power.offense.LaserPower;
 import eu.ansquare.starr.power.Power;
 import eu.ansquare.starr.power.Powers;
 import eu.ansquare.starr.superdude.PowerOrder;
