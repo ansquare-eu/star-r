@@ -50,15 +50,5 @@ public class SuperDudes {
 			superDudeComponent.setType(SuperDudes.EMPTY);
 		});
 	}
-	public static Set<UUID> flying = new HashSet<>();
-	public static void changeFlying(UUID uuid){
-		if(flying.contains(uuid)){
-			flying.remove(uuid);
-		} else {
-			flying.add(uuid);
-		}
-	}
-	public static boolean isFlying(UUID uuid){
-		return flying.contains(uuid);
-	}
+
 }
