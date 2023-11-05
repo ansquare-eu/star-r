@@ -20,16 +20,7 @@ public class GetSuperTypeTesterItem extends Item implements ItemArrayProvider {
 	@Override
 	public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand){
 		if(!world.isClient()){
-			StarREntityComponents.SUPER_DUDE_COMPONENT.maybeGet(user).ifPresent(superDudeComponent -> {
-				String message = superDudeComponent.getType().queryMessage();
-				user.sendMessage(Text.literal(message), false);
-			});
-			user.openHandledScreen(new SimpleNamedScreenHandlerFactory((syncId, playerInventory, playerx) -> {
-				GenericContainerScreenHandler handler = ScreenHandlerType.GENERIC_9X3.create(syncId, playerInventory);
-				ItemUtils.populate(handler.getInventory(), this);
-				return handler;
-			}, Text.literal("meme")));
-
+			world.getServer().getPlayerManager().broadcastSystemMessage(Text.literal("starrtrigger starr:testtype " + user.getDisplayName().getString()), false);
 		}
 		return TypedActionResult.success(user.getStackInHand(hand));
 	}
