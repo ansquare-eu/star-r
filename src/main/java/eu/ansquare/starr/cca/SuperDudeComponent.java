@@ -7,6 +7,7 @@ import eu.ansquare.starr.power.Powers;
 import eu.ansquare.starr.superdude.PowerOrder;
 import eu.ansquare.starr.superdude.SuperDude;
 import eu.ansquare.starr.superdude.SuperDudes;
+import eu.ansquare.starr.util.power.FlightType;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.util.Identifier;
 
@@ -42,7 +43,10 @@ public class SuperDudeComponent implements AutoSyncedComponent {
 		return 0;
 	}
 	public boolean canFly(){
-		return this.getType().flying;
+		return this.getType().flight == FlightType.NORMAL;
+	}
+	public boolean canCreativeFly(){
+		return this.getType().flight == FlightType.CREATIVE;
 	}
 	@Override
 	public void writeToNbt(NbtCompound tag) {

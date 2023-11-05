@@ -56,6 +56,7 @@
   "death.attack.laser" : "%1$s was lasered!",
   "death.attack.laser.player" : "%1$s was fried by %2$s's laser!",
   "message.starr.signeditem" : "This %1$s is not yours!",
-  "message.starr.signeditem" : "This %1$s is owned by %2$s!"
+  "message.starr.signeditem.owner" : "This %1$s is owned by %2$s!",
+  "block.starr.tv" : "Tv"
 
 }
