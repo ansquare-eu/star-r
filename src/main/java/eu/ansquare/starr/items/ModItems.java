@@ -1,12 +1,12 @@
 package eu.ansquare.starr.items;
 
 import eu.ansquare.starr.StarR;
-import eu.ansquare.starr.client.wearables.model.cape.CapeWearableModel;
 import eu.ansquare.starr.client.wearables.model.hare.HareOneModel;
 import eu.ansquare.starr.client.wearables.model.hare.HareTwoModel;
-import eu.ansquare.starr.items.armor.LoMaterial;
-import eu.ansquare.starr.items.armor.SkinMaterial;
-import eu.ansquare.starr.items.armor.TottestMaterial;
+import eu.ansquare.starr.items.material.ForcefieldMaterial;
+import eu.ansquare.starr.items.material.LoMaterial;
+import eu.ansquare.starr.items.material.SkinMaterial;
+import eu.ansquare.starr.items.material.TottestMaterial;
 import eu.ansquare.starr.items.testing.GetSuperTypeTesterItem;
 import eu.ansquare.starr.items.testing.ResetSuperTypeTesterItem;
 import eu.ansquare.starr.items.testing.SetSuperTypeTesterItem;
@@ -14,7 +14,6 @@ import eu.ansquare.starr.items.wearable.*;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.model.Model;
-import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
@@ -32,6 +31,10 @@ public class ModItems {
 		ItemGroupEvents.modifyEntriesEvent(itemGroup).register(content -> {
 			content.addItem(item);
 		});
+		return item;
+	}
+	private static <T extends Item> T createGrouplessItem(String name, T item){
+		ITEMS.put(item, new Identifier(StarR.MODID, name));
 		return item;
 	}
 	public static void init() {
@@ -80,5 +83,7 @@ public class ModItems {
 		}
 	}, true), ItemGroups.COMBAT);
     public static final Item PALICA = createItem("palica", new PalicaItem(new QuiltItemSettings()), ItemGroups.COMBAT);
+	public static final ForcefieldMaterial FORCEFIELD_MATERIAL = new ForcefieldMaterial();
+	public static final Item FORCESWORD = createGrouplessItem("forcesword", new SwordItem(FORCEFIELD_MATERIAL, 20, 1, new QuiltItemSettings().maxCount(1)));
 
 }

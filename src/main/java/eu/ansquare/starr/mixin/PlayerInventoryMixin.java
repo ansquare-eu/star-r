@@ -29,14 +29,16 @@ public abstract class PlayerInventoryMixin implements Inventory, Nameable {
 	public void onSetStack(int slot, ItemStack stack, CallbackInfo ci) {
 		NbtCompound compound = stack.getOrCreateNbt();
 		if(compound.containsUuid(ItemUtils.SIGN_KEY)){
-			if(!compound.getUuid(ItemUtils.SIGN_KEY).equals(this.player.getUuid())){
-				PlayerEntity owner = this.player.getServer().getPlayerManager().getPlayer(compound.getUuid(ItemUtils.SIGN_KEY));
-				if(owner != null){
-					this.player.sendMessage(Text.translatable("message.starr.signeditem.owner", new Object[]{stack.getItem().getName(), owner.getName()}), true);
-				} else {
-					this.player.sendMessage(Text.translatable("message.starr.signeditem", new Object[]{stack.getItem().getName()}), true);
+			if(!player.getWorld().isClient()){
+				if(!compound.getUuid(ItemUtils.SIGN_KEY).equals(this.player.getUuid())){
+					PlayerEntity owner = this.player.getServer().getPlayerManager().getPlayer(compound.getUuid(ItemUtils.SIGN_KEY));
+					if(owner != null){
+						this.player.sendMessage(Text.translatable("message.starr.signeditem.owner", new Object[]{stack.getItem().getName(), owner.getName()}), true);
+					} else {
+						this.player.sendMessage(Text.translatable("message.starr.signeditem", new Object[]{stack.getItem().getName()}), true);
+					}
+					ci.cancel();
 				}
-				ci.cancel();
 			}
 		}
 	}

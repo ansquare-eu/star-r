@@ -1,4 +1,4 @@
-package eu.ansquare.starr.items.armor;
+package eu.ansquare.starr.items.material;
 
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.ArmorMaterial;
@@ -7,15 +7,15 @@ import net.minecraft.recipe.Ingredient;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 
-public class SkinMaterial implements ArmorMaterial {
+public class LoMaterial implements ArmorMaterial {
 	@Override
 	public int getDurability(ArmorItem.ArmorSlot slot) {
-		return 5000;
+		return 4;
 	}
 
 	@Override
 	public int getProtection(ArmorItem.ArmorSlot slot) {
-		return 5;
+		return 2;
 	}
 
 	@Override
@@ -35,7 +35,7 @@ public class SkinMaterial implements ArmorMaterial {
 
 	@Override
 	public String getName() {
-		return "skin";
+		return "lo";
 	}
 
 	@Override

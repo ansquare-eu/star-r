@@ -5,8 +5,8 @@ import eu.ansquare.starr.util.power.FlightType;
 
 import java.awt.*;
 
-public class Teleman extends SuperDude{
-	public Teleman(FlightType flight, Color color) {
+public class TelemanSuperDude extends SuperDude{
+	public TelemanSuperDude(FlightType flight, Color color) {
 		super(flight, color);
 	}
 
