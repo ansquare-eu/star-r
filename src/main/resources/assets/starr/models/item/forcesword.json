@@ -1,0 +1,28 @@
+{
+  "parent": "item/generated",
+  "display": {
+    "thirdperson_righthand": {
+      "rotation": [ 0, -90, 55 ],
+      "translation": [ 0, 16.0, -3.5 ],
+      "scale": [ 3, 3, 3]
+    },
+    "thirdperson_lefthand": {
+      "rotation": [ 0, 90, -55 ],
+      "translation": [ 0, 16.0, -3.5 ],
+      "scale": [ 3, 3, 3]
+    },
+    "firstperson_righthand": {
+      "rotation": [ 0, -90, 25 ],
+      "translation": [ 1.13, 16.2, -4.13 ],
+      "scale": [ 3, 3, 3]
+    },
+    "firstperson_lefthand": {
+      "rotation": [ 0, 90, -25 ],
+      "translation": [ 1.13, 16.2, -4.13 ],
+      "scale": [ 3, 3, 3]
+    }
+  },
+  "textures": {
+    "layer0": "starr:item/forcesword"
+  }
+}

@@ -4,12 +4,8 @@ import eu.ansquare.starr.ModRegistries;
 import eu.ansquare.starr.StarR;
 import eu.ansquare.starr.cca.StarREntityComponents;
 import eu.ansquare.starr.util.power.FlightType;
-import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.network.ClientPlayNetworkHandler;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.vehicle.MinecartEntity;
 import net.minecraft.registry.Registry;
-import net.minecraft.registry.RegistryKey;
 import net.minecraft.util.Identifier;
 
 import java.awt.*;
@@ -19,7 +15,8 @@ public class SuperDudes {
 	private static Map<SuperDude, Identifier> SUPERDUDES = new HashMap<>();
 
 	public static final SuperDude TEST_SUPER_DUDE = create("testtype", new TestSuperDude(FlightType.NORMAL, new Color(0x0B4AC9)));
-	public static final SuperDude TELEMAN = create("teleman", new Teleman(FlightType.CREATIVE, new Color(0x4DF18F)));
+	public static final SuperDude TELEMAN = create("teleman", new TelemanSuperDude(FlightType.CREATIVE, new Color(0x4DF18F)));
+	public static final SuperDude SHIELDBOY = create("shieldboy", new ShieldboySuperDude(FlightType.NONE, new Color(0x5BDA12)));
 	public static final SuperDude EMPTY = create("empty", new EmptySuperDude());
 	public static <T extends SuperDude> T create(String modid, String name, T superDude){
 		Identifier id = new Identifier(modid, name);

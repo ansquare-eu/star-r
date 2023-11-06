@@ -20,8 +20,10 @@ import eu.ansquare.starr.items.GetItemTypes;
 import eu.ansquare.starr.network.ModPackets;
 import eu.ansquare.starr.screenhandler.ModScreenHandlers;
 import eu.ansquare.starr.util.network.ClientPlayerHolder;
+import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
+import net.minecraft.client.color.block.BlockColorProvider;
 import net.minecraft.client.gui.screen.ingame.HandledScreens;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.entity.model.EntityModelLayer;
@@ -59,6 +61,7 @@ public class StarRClient implements ClientModInitializer {
 		TrinketRenderers.registerSimpleWearables(GetItemTypes.getSimpleWearables());
 		TrinketRenderers.registerTwoStateRenderers(GetItemTypes.getTwoStateWearables());
 		BlockRenderLayerMap.put(RenderLayer.getTranslucent(), ModBlocks.FORCEFIELD);
+		ColorProviderRegistry.BLOCK.register(ModBlocks.FORCEFIELD, ModBlocks.FORCEFIELD);
 		HandledScreens.register(ModScreenHandlers.TELEPORT_SCREEN, TeleportSelectScreen::new);
 
 	}
