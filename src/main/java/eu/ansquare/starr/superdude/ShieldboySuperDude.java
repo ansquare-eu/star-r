@@ -1,9 +1,11 @@
 package eu.ansquare.starr.superdude;
 
+import eu.ansquare.starr.blocks.ModBlocks;
 import eu.ansquare.starr.items.ModItems;
 import eu.ansquare.starr.power.Powers;
 import eu.ansquare.starr.power.creation.CreateItemPower;
 import eu.ansquare.starr.power.creation.SummonEntityPower;
+import eu.ansquare.starr.power.transport.AirwalkPower;
 import eu.ansquare.starr.util.power.FlightType;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.FallingBlockEntity;
@@ -47,6 +49,7 @@ public class ShieldboySuperDude extends SuperDude{
 			turtle.startRiding(player);
 			player.getServerWorld().spawnEntity(turtle);
 		}));
+		addPower(PowerOrder.SIXTH, new AirwalkPower(ModBlocks.FORCEFIELD, 20));
 	}
 	@Override
 	public void initModifiers() {
