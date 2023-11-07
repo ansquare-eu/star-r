@@ -31,6 +31,7 @@ public class BoyshieldEntityRenderer<T extends BoyshieldEntity> extends Projecti
 			model = new BoyshieldEntityModel(MinecraftClient.getInstance().getEntityModelLoader().getModelPart(BoyshieldEntityModel.LAYER_LOCATION));
 		} else {
 			matrices.push();
+			matrices.multiply(Axis.Y_POSITIVE.rotationDegrees(MathHelper.lerp(tickDelta, entity.prevYaw, entity.getYaw())));
 			model.render(matrices, vertexConsumers.getBuffer(RenderLayer.getEntityTranslucent(getTexture(entity))), light, OverlayTexture.DEFAULT_UV, 1f, 1f, 1f, 1f);
 			matrices.pop();
 		}
