@@ -85,5 +85,5 @@ public class ModItems {
     public static final Item PALICA = createItem("palica", new PalicaItem(new QuiltItemSettings()), ItemGroups.COMBAT);
 	public static final ForcefieldMaterial FORCEFIELD_MATERIAL = new ForcefieldMaterial();
 	public static final Item FORCESWORD = createGrouplessItem("forcesword", new SwordItem(FORCEFIELD_MATERIAL, 20, 1, new QuiltItemSettings().maxCount(1)));
-
+	public static final Item BOYSHIELD = createGrouplessItem("boyshield", new BoyshieldItem(new QuiltItemSettings().maxCount(1)));
 }
