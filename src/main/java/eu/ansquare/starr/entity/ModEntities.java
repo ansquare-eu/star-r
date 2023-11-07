@@ -17,6 +17,7 @@ public class ModEntities {
 	public static final EntityType CAPE = createEntity("cape", QuiltEntityTypeBuilder.<CapeEntity>create().entityFactory(CapeEntity::new).setDimensions(EntityDimensions.fixed(0.1f, 0.1f)).build());
 	public static final EntityType PALICA = createEntity("palica", QuiltEntityTypeBuilder.<PalicaEntity>create().entityFactory(PalicaEntity::new).setDimensions(EntityDimensions.fixed(0.2f, 1f)).build());
 	public static final EntityType LASER = createEntity("laser", QuiltEntityTypeBuilder.<LaserEntity>create().entityFactory(LaserEntity::new).setDimensions(EntityDimensions.fixed(0.2f, 1f)).build());
+	public static final EntityType BOYSHIELD = createEntity("boyshield", QuiltEntityTypeBuilder.<BoyshieldEntity>create().entityFactory(BoyshieldEntity::new).setDimensions(EntityDimensions.fixed(0.2f, 1f)).build());
 
 	public static <T extends EntityType> T createEntity(String name, T entity){
 		ENTITIES.put(entity, new Identifier(StarR.MODID, name));

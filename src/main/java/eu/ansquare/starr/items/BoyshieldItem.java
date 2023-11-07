@@ -1,5 +1,6 @@
 package eu.ansquare.starr.items;
 
+import eu.ansquare.starr.entity.BoyshieldEntity;
 import eu.ansquare.starr.entity.ModEntities;
 import eu.ansquare.starr.entity.PalicaEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -11,14 +12,14 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
 
-public class PalicaItem extends Item {
-	public PalicaItem(Settings settings) {
+public class BoyshieldItem extends CustomShieldItem {
+	public BoyshieldItem(Settings settings) {
 		super(settings);
 	}
 	public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
 		ItemStack stack = user.getStackInHand(hand);
 		if (!world.isClient) {
-			PalicaEntity entity = (PalicaEntity) ModEntities.PALICA.create(world);
+			BoyshieldEntity entity = (BoyshieldEntity) ModEntities.BOYSHIELD.create(world);
 			entity.maxDistance = 20;
 			entity.setOwner(user);
 			entity.setPosition(user.getEyePos());

@@ -23,6 +23,7 @@ public class ShieldboySuperDude extends SuperDude{
 
 	@Override
 	public void initPowers() {
+		addPower(PowerOrder.TRANSFORMATION, new CreateItemPower(ModItems.BOYSHIELD, 1, true));
 		addPower(PowerOrder.FIRST, Powers.FORCEFIELD_POWER);
 		addPower(PowerOrder.SECOND, new CreateItemPower(ModItems.FORCESWORD, 1, true));
 		addPower(PowerOrder.THIRD, new SummonEntityPower((player) -> {

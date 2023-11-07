@@ -11,8 +11,10 @@ import eu.ansquare.starr.client.wearables.model.cape.SimpleCapeWearableModel;
 import eu.ansquare.starr.client.wearables.model.hare.HareOneModel;
 import eu.ansquare.starr.client.wearables.model.hare.HareTwoModel;
 import eu.ansquare.starr.entity.ModEntities;
+import eu.ansquare.starr.entity.model.BoyshieldEntityModel;
 import eu.ansquare.starr.entity.model.CapeEntityModel;
 import eu.ansquare.starr.entity.model.PalicaEntityModel;
+import eu.ansquare.starr.entity.render.BoyshieldEntityRenderer;
 import eu.ansquare.starr.entity.render.CapeEntityRenderer;
 import eu.ansquare.starr.entity.render.LaserEntityRenderer;
 import eu.ansquare.starr.entity.render.PalicaEntityRenderer;
@@ -26,6 +28,7 @@ import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.minecraft.client.color.block.BlockColorProvider;
 import net.minecraft.client.gui.screen.ingame.HandledScreens;
 import net.minecraft.client.render.RenderLayer;
+import net.minecraft.client.render.entity.model.BoatEntityModel;
 import net.minecraft.client.render.entity.model.EntityModelLayer;
 import net.minecraft.util.Identifier;
 import org.quiltmc.loader.api.ModContainer;
@@ -46,6 +49,10 @@ public class StarRClient implements ClientModInitializer {
 		EntityModelLayerRegistry.registerModelLayer(PalicaEntityModel.LAYER_LOCATION, PalicaEntityModel::getTexturedModelData);
 		EntityRendererRegistry.register(ModEntities.PALICA, (context) -> {
 			return new PalicaEntityRenderer(context);
+		});
+		EntityModelLayerRegistry.registerModelLayer(BoyshieldEntityModel.LAYER_LOCATION, BoyshieldEntityModel::getTexturedModelData);
+		EntityRendererRegistry.register(ModEntities.BOYSHIELD, (context) -> {
+			return new BoyshieldEntityRenderer<>(context);
 		});
 		EntityRendererRegistry.register(ModEntities.LASER, (context) -> {
 			return new LaserEntityRenderer(context);
