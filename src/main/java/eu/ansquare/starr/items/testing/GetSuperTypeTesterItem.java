@@ -5,6 +5,7 @@ import eu.ansquare.starr.util.item.ItemUtils;
 import eu.ansquare.starr.util.item.ItemArrayProvider;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.screen.*;
@@ -26,7 +27,7 @@ public class GetSuperTypeTesterItem extends Item implements ItemArrayProvider {
 	}
 
 	@Override
-	public Item[] get() {
+	public ItemConvertible[] get() {
 		return new Item[]{Items.ALLIUM, Items.LILAC, Items.LIGHT};
 	}
 }

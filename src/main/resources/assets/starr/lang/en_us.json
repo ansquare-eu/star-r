@@ -58,6 +58,7 @@
   "message.starr.signeditem" : "This %1$s is not yours!",
   "message.starr.signeditem.owner" : "This %1$s is owned by %2$s!",
   "block.starr.tv" : "Tv",
-  "item.starr.forcesword": "Forcefield sword"
-
+  "item.starr.forcesword": "Forcefield sword",
+  "item.starr.boyshield": "Shieldboy's shield",
+  "block.starr.kufor" : "Randomizer briefcase"
 }

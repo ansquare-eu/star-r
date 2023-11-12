@@ -14,9 +14,10 @@ import java.util.*;
 public class SuperDudes {
 	private static Map<SuperDude, Identifier> SUPERDUDES = new HashMap<>();
 
-	public static final SuperDude TEST_SUPER_DUDE = create("testtype", new TestSuperDude(FlightType.NORMAL, new Color(0x0B4AC9)));
+	public static final SuperDude TEST_SUPER_DUDE = create("testtype", new TestSuperDude(FlightType.NORMAL, new Color(0xFF0000)));
 	public static final SuperDude TELEMAN = create("teleman", new TelemanSuperDude(FlightType.CREATIVE, new Color(0x4DF18F)));
 	public static final SuperDude SHIELDBOY = create("shieldboy", new ShieldboySuperDude(FlightType.NONE, new Color(0x5BDA12)));
+	public static final SuperDude CAPTAIN_R = create("captain_r", new CaptainRSuperDude(FlightType.NORMAL, new Color(0x0B4AC9)));
 	public static final SuperDude EMPTY = create("empty", new EmptySuperDude());
 	public static <T extends SuperDude> T create(String modid, String name, T superDude){
 		Identifier id = new Identifier(modid, name);
