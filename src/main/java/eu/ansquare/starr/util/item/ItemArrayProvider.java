@@ -1,7 +1,7 @@
 package eu.ansquare.starr.util.item;
 
-import net.minecraft.item.Item;
+import net.minecraft.item.ItemConvertible;
 
 public interface ItemArrayProvider {
-	Item[] get();
+	ItemConvertible[] get();
 }

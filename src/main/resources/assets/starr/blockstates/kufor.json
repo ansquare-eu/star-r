@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "starr:block/kufor"
+    },
+    "facing=east": {
+      "model": "starr:block/kufor",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "starr:block/kufor",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "starr:block/kufor",
+      "y": 270
+    }
+  }
+}

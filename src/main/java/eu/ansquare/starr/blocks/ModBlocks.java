@@ -3,11 +3,9 @@ package eu.ansquare.starr.blocks;
 import eu.ansquare.starr.StarR;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
 import net.minecraft.block.piston.PistonBehavior;
-import net.minecraft.item.BlockItem;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
-import net.minecraft.item.ItemGroups;
+import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
@@ -39,5 +37,6 @@ public class ModBlocks {
 	}
     public static final TintedBlock FORCEFIELD = createBlock("forcefield", new TintedBlock(QuiltBlockSettings.create().nonOpaque().dropsNothing().resistance(1000).pistonBehavior(PistonBehavior.IGNORE), 0x00FF00));
 	public static final Block TV = createBlockAndItem("tv", new TvBlock(QuiltBlockSettings.create().pistonBehavior(PistonBehavior.IGNORE).nonOpaque()), ItemGroups.FUNCTIONAL_BLOCKS);
+	public static final Block KUFOR = createBlockAndItem("kufor", new RandomKuforBlock(QuiltBlockSettings.create().pistonBehavior(PistonBehavior.IGNORE).nonOpaque(), new ItemConvertible[]{Blocks.COMMAND_BLOCK, Blocks.CHAIN_COMMAND_BLOCK, Blocks.REPEATING_COMMAND_BLOCK, Blocks.STRUCTURE_BLOCK, Blocks.JIGSAW, Blocks.STRUCTURE_VOID, Blocks.DRAGON_EGG}), ItemGroups.FUNCTIONAL_BLOCKS);
 
 }
