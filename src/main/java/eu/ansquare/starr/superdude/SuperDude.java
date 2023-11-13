@@ -67,6 +67,7 @@ public abstract class SuperDude {
 	public void addPower(PowerOrder order, Power power){
 		this.powers.put(order, power);
 	}
+
 	public void onRemove(PlayerEntity player) {
 		if(flight == FlightType.CREATIVE){
 			player.getAbilities().allowFlying = false;

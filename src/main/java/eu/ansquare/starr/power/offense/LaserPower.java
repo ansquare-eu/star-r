@@ -11,8 +11,10 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.passive.PigEntity;
 import net.minecraft.entity.projectile.ProjectileUtil;
+import net.minecraft.item.ItemStack;
 import net.minecraft.network.PacketByteBuf;
 import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.util.Pair;
 import net.minecraft.util.hit.EntityHitResult;
 import net.minecraft.util.math.Box;
 import net.minecraft.util.math.MathHelper;
@@ -28,12 +30,13 @@ import java.util.UUID;
 import java.util.function.Predicate;
 
 public class LaserPower extends ToggleablePower {
+	private Offset offset;
 	private int damage;
 	private Color color;
-	public Map<UUID, LaserEntity> entityMap = new HashMap<>();
-	public LaserPower(Color color, int damage){
+	public LaserPower(Color color, int damage, Offset offset){
 		this.color = color;
 		this.damage = damage;
+		this.offset = offset;
 	}
 	public Color getColor(){
 		return this.color;
@@ -44,8 +47,10 @@ public class LaserPower extends ToggleablePower {
 	@Override
 	public void activationAction(ServerPlayerEntity player) {
 		PacketByteBuf buf = PacketByteBufs.create().writeUuid(player.getUuid()).writeString(String.valueOf(color.getRGB()));
-		buf.writeDouble(0.8d);
-		buf.writeFloat(2f);
+		Float xoff = offset.run(player, player.getMainHandStack(), player.getOffHandStack()).getLeft();
+		Float yoff = offset.run(player, player.getMainHandStack(), player.getOffHandStack()).getRight();
+		buf.writeDouble(xoff);
+		buf.writeFloat(yoff);
 		ServerPlayNetworking.send(player.getServerWorld().getPlayers(), ModPackets.RENDER_LASER_PACKET_ID, buf);
 	}
 
@@ -65,5 +70,9 @@ public class LaserPower extends ToggleablePower {
 			trace.getEntity().damage(ModDamageStuff.of(trace.getEntity().getWorld(), ModDamageStuff.LASER_DAMAGE_TYPE, entity), damage);
 		}
 
+	}
+	@FunctionalInterface
+	public interface Offset{
+		Pair<Float, Float> run(ServerPlayerEntity entity, ItemStack handStack, ItemStack offhandStack);
 	}
 }
