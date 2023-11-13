@@ -1,5 +1,6 @@
 package eu.ansquare.starr.items.testing;
 
+import eu.ansquare.starr.items.ModItems;
 import eu.ansquare.starr.superdude.SuperDudes;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
@@ -18,7 +19,9 @@ public class SetSuperTypeTesterItem extends Item {
 		if(!world.isClient()){
 			if(user.getOffHandStack().isOf(Items.ANDESITE)){
 				SuperDudes.applyToPlayer(user, SuperDudes.SHIELDBOY);
-			} else {
+			} else if(user.getOffHandStack().isOf(ModItems.CAPE)){
+				SuperDudes.applyToPlayer(user, SuperDudes.CAPTAIN_R);
+			}else {
 				SuperDudes.applyToPlayer(user, SuperDudes.TEST_SUPER_DUDE);
 			}
 		}
