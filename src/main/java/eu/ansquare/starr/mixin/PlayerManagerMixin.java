@@ -8,6 +8,7 @@ import eu.ansquare.starr.superdude.SuperDudes;
 import net.minecraft.network.message.MessageType;
 import net.minecraft.network.message.OutgoingMessage;
 import net.minecraft.network.message.SignedChatMessage;
+import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.PlayerManager;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.Text;
@@ -27,7 +28,7 @@ import java.util.function.Function;
 import java.util.function.Predicate;
 
 @Mixin(PlayerManager.class)
-public class PlayerManagerMixin {
+public abstract class PlayerManagerMixin {
 	@Shadow
 	@Final
 	private List<ServerPlayerEntity> players;
@@ -35,6 +36,13 @@ public class PlayerManagerMixin {
 	@Shadow
 	@Final
 	private Map<UUID, ServerPlayerEntity> playerMap;
+
+	@Shadow
+	public abstract void sendChatMessage(SignedChatMessage message, ServerPlayerEntity sender, MessageType.Parameters parameters);
+
+	@Shadow
+	@Final
+	private MinecraftServer server;
 
 	@Inject(method = "broadcastSystemMessage(Lnet/minecraft/text/Text;Ljava/util/function/Function;Z)V", at = @At("HEAD"), cancellable = true)
 	public void onBroadcastSystemMessage(Text message, Function<ServerPlayerEntity, Text> toTextFunction, boolean overlay, CallbackInfo ci){
@@ -61,6 +69,12 @@ public class PlayerManagerMixin {
 				}
 			}
 			ci.cancel();
+		} else if(Powers.LOCALIZE_POWER.isActiveFor(sender.getUuid())){
+			for (ServerPlayerEntity player:players) {
+				if(player.getName().getString().equalsIgnoreCase(splitten[0])){
+					sender.sendMessage(Text.literal(player.getBlockPos().toString()), false);
+				}
+			}
 		}
 	}
 }
