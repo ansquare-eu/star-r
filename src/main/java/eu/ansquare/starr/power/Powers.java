@@ -12,6 +12,7 @@ import eu.ansquare.starr.power.transformation.TestTransformationPower;
 import eu.ansquare.starr.power.transport.TeleportOthersPower;
 import eu.ansquare.starr.power.transport.TeleportPower;
 import eu.ansquare.starr.power.utility.AutoMsgPower;
+import eu.ansquare.starr.power.utility.LocalizePower;
 import net.fabricmc.fabric.api.entity.event.v1.EntityElytraEvents;
 import net.minecraft.util.Pair;
 
@@ -29,6 +30,7 @@ public class Powers {
 	public static final TornadoPower TORNADO_POWER = new TornadoPower();
 	public static final AutoMsgPower AUTO_MSG_POWER = new AutoMsgPower();
 	public static final TeleportOthersPower TELEPORT_OTHERS_POWER = new TeleportOthersPower();
+	public static final LocalizePower LOCALIZE_POWER = new LocalizePower();
 	public static final EmptyPower EMPTY_POWER = new EmptyPower();
 
 	public static void init(){

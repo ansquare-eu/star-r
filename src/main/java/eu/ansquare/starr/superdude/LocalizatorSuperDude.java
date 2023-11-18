@@ -14,6 +14,7 @@ public class LocalizatorSuperDude extends SuperDude{
 	public void initPowers() {
 		addPower(PowerOrder.FIRST, Powers.TELEPORT_POWER);
 		addPower(PowerOrder.SECOND, Powers.TELEPORT_OTHERS_POWER);
+		addPower(PowerOrder.THIRD, Powers.LOCALIZE_POWER);
 	}
 
 	@Override
