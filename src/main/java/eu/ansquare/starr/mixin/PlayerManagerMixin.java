@@ -5,6 +5,7 @@ import eu.ansquare.starr.power.Power;
 import eu.ansquare.starr.power.Powers;
 import eu.ansquare.starr.superdude.SuperDude;
 import eu.ansquare.starr.superdude.SuperDudes;
+import net.minecraft.entity.Entity;
 import net.minecraft.network.message.MessageType;
 import net.minecraft.network.message.OutgoingMessage;
 import net.minecraft.network.message.SignedChatMessage;
@@ -44,6 +45,9 @@ public abstract class PlayerManagerMixin {
 	@Final
 	private MinecraftServer server;
 
+	@Shadow
+	public abstract MinecraftServer getServer();
+
 	@Inject(method = "broadcastSystemMessage(Lnet/minecraft/text/Text;Ljava/util/function/Function;Z)V", at = @At("HEAD"), cancellable = true)
 	public void onBroadcastSystemMessage(Text message, Function<ServerPlayerEntity, Text> toTextFunction, boolean overlay, CallbackInfo ci){
 		String[] splitten = message.getString().split(" ");
@@ -73,6 +77,7 @@ public abstract class PlayerManagerMixin {
 			for (ServerPlayerEntity player:players) {
 				if(player.getName().getString().equalsIgnoreCase(splitten[0])){
 					sender.sendMessage(Text.literal(player.getBlockPos().toString()), false);
+					ci.cancel();
 				}
 			}
 		}
