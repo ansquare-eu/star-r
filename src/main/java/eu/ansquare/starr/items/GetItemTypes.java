@@ -8,9 +8,6 @@ public class GetItemTypes {
 		return new WearableItem[]{
 		};
 	}
-	public static WearableItem[] getFaceWearables(){
-		return new WearableItem[]{};
-	}
 	public static TwoStateWearable[] getTwoStateWearables(){
 		return new TwoStateWearable[]{
 				ModItems.HARE,

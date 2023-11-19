@@ -31,6 +31,9 @@ public class TrinketRenderers {
 						model = item.getModel();
 					} else if (!entity.isInvisible()) {
 						matrices.push();
+						if(item.rotateWithHead) {
+							((PlayerEntityModel<AbstractClientPlayerEntity>) contextModel).head.rotate(matrices);
+						}
 						model.render(matrices, vertexConsumers.getBuffer(RenderLayer.getEntityCutout(item.getTexture())), light, OverlayTexture.DEFAULT_UV, 1f, 1f, 1f, 1f);
 						matrices.pop();
 					}
