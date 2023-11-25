@@ -1,5 +1,6 @@
 package eu.ansquare.starr.network.c2s;
 
+import eu.ansquare.starr.StarR;
 import eu.ansquare.starr.cca.StarREntityComponents;
 import eu.ansquare.starr.superdude.PowerOrder;
 import net.minecraft.network.PacketByteBuf;
@@ -12,6 +13,6 @@ public class PowerPacket {
 
 	public static void receive(MinecraftServer server, ServerPlayerEntity player, ServerPlayNetworkHandler handler, PacketByteBuf buf, PacketSender responseSender){
 		PowerOrder powerOrder = buf.readEnumConstant(PowerOrder.class);
-		StarREntityComponents.SUPER_DUDE_COMPONENT.maybeGet(player).ifPresent(superDudeComponent -> superDudeComponent.getPower(powerOrder).onActivate(player));
+		server.execute(() -> 		StarREntityComponents.SUPER_DUDE_COMPONENT.maybeGet(player).ifPresent(superDudeComponent -> superDudeComponent.getPower(powerOrder).onActivate(player)));
 	}
 }

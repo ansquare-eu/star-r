@@ -10,9 +10,7 @@ import org.quiltmc.qsl.networking.api.PacketSender;
 
 public class SpawnParticleEffectPacket {
 	public static void receive(MinecraftClient minecraftClient, ClientPlayNetworkHandler clientPlayNetworkHandler, PacketByteBuf packetByteBuf, PacketSender packetSender) {
-		String type = packetByteBuf.readString();
-		ClientPlayerEntity player = (ClientPlayerEntity) minecraftClient.player.getWorld().getPlayerByUuid(packetByteBuf.readUuid());
-		ParticleEffects.spawn(type, player.getX(), player.getY(), player.getZ(), (ClientWorld) player.getWorld());
+
 	}
 
 }

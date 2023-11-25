@@ -1,5 +1,6 @@
 package eu.ansquare.starr.util.power;
 
+import eu.ansquare.starr.StarR;
 import eu.ansquare.starr.cca.StarREntityComponents;
 import net.minecraft.server.network.ServerPlayerEntity;
 
@@ -16,7 +17,6 @@ public class ServerTeleportHandler {
 		tasks.remove(teleporter);
 	}
 	public static void teleport(ServerPlayerEntity player, int i){
-
 		if(StarREntityComponents.TELEPORT_LOC_COMPONENT.maybeGet(player).isPresent()){
 			int[] loc = StarREntityComponents.TELEPORT_LOC_COMPONENT.get(player).getLoc(i);
 			if(loc.length >= 3){
