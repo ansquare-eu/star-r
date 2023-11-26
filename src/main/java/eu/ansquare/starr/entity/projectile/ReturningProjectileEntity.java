@@ -34,7 +34,9 @@ public abstract class ReturningProjectileEntity extends PersistentProjectileEnti
 		if(!this.getWorld().isClient()){
 
 		if (this.inGround) {
-			this.retrieve();
+			this.tryPickup(((PlayerEntity) this.getOwner()));
+
+			this.discard();
 		}
 		if(this.getOwner() != null){
 			if(this.getPos().distanceTo(getOwner().getPos())>maxDistance){
