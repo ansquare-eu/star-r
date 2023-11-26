@@ -1,20 +1,8 @@
 {
-"item.starr.hagar_haha" : "HAHA"
-,"item.starr.tottest_helmet" : "o"
-,"item.starr.tottest_chestplate" : "o"
-,"item.starr.tottest_leggings" : "o"
-,"item.starr.tottest_boots" : "u"
-,"item.starr.lo_chestplate" : "kj"
-,"item.starr.lo_leggings" : "jk"
-,"item.starr.lo_boots" : "jk"
-,"item.starr.super_type_set_test" : "super type set test"
+"item.starr.super_type_set_test" : "super type set test"
 ,"item.starr.super_type_get_test" : "super type get test"
 ,"item.starr.reset_tester" : "reset tester"
-,"item.starr.skin_helmet" : "skin h"
-,"item.starr.skin_chestplate" : "shin ch"
-,"item.starr.skin_leggings" : "shin l"
-,"item.starr.skin_boots" : "skin b"
-,"item.starr.captain_rs_helmet" : "mask"
+,"item.starr.captain_rs_helmet" : "Mask"
 ,"item.starr.captain_rs_chestplate" : "Captain Rs shirt"
 ,"item.starr.captain_rs_leggings" : "Captain Rs pants"
 ,"item.starr.captain_rs_boots" : "Captain Rs shoes"
@@ -41,8 +29,7 @@
   "item.starr.cape.tooltip.true" : "Shift + Right click to select ReadyRoad's cape design",
   "item.starr.cape.tooltip.false" : "Shift + Right click to select Sasa's cape design",
   "item.starr.palica" : "palica"
-,"block.starr.forcefield" : "Forcefield"
-,"item.starr.forcefield" : "Forcefield",
+,"block.starr.forcefield" : "Forcefield",
   "gui.starr.teleport.button_1": "1",
   "gui.starr.teleport.ybox": "",
   "gui.starr.teleport.button_2": "2",
