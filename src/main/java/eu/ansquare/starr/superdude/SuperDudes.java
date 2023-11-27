@@ -19,6 +19,7 @@ public class SuperDudes {
 	public static final SuperDude SHIELDBOY = create("shieldboy", new ShieldboySuperDude(FlightType.NONE, new Color(0x5BDA12)));
 	public static final SuperDude CAPTAIN_R = create("captain_r", new CaptainRSuperDude(FlightType.NORMAL, new Color(0x0B4AC9)));
 	public static final SuperDude LOCALIZATOR = create("localizator", new LocalizatorSuperDude(FlightType.NONE, new Color(0xA85858)));
+	public static final SuperDude BRAIN = create("brain", new BrainSuperDude(FlightType.CREATIVE, new Color(0x5A9A73)));
 	public static final SuperDude EMPTY = create("empty", new EmptySuperDude());
 	public static <T extends SuperDude> T create(String modid, String name, T superDude){
 		Identifier id = new Identifier(modid, name);
