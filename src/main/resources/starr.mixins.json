@@ -8,10 +8,13 @@
       "ScreenHandlerMixin",
       "PlayerInventoryMixin",
       "PlayerManagerMixin",
-      "PlayerEntityMixin"
+      "PlayerEntityMixin",
+      "ServerPlayerInteractionManagerAccessor",
+      "ServerPlayNetworkHandlerMixin"
     ],
 	"client": [
-      "client.PlayerEntityRendererMixin"
+      "client.PlayerEntityRendererMixin",
+      "client.ClientPlayerInteractionManagerMixin"
     ],
 	"injectors": {
 		"defaultRequire": 1

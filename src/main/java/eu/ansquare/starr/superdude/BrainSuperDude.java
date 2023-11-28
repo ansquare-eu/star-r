@@ -15,7 +15,7 @@ public class BrainSuperDude extends SuperDude{
 	@Override
 	public void initPowers() {
 		addPower(PowerOrder.FIRST, Powers.TELEKINESIS_POWER);
-		addPower(PowerOrder.SECOND, new CreativeMenuPower());
+		addPower(PowerOrder.SECOND, Powers.CREATIVE_MENU_POWER);
 	}
 
 	@Override

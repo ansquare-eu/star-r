@@ -1,6 +1,7 @@
 package eu.ansquare.starr.power;
 
 import eu.ansquare.starr.cca.StarREntityComponents;
+import eu.ansquare.starr.power.creation.CreativeMenuPower;
 import eu.ansquare.starr.power.creation.ItemGuiPower;
 import eu.ansquare.starr.power.protection.ForcefieldPower;
 import eu.ansquare.starr.power.protection.InvisPower;
@@ -31,6 +32,7 @@ public class Powers {
 	public static final AutoMsgPower AUTO_MSG_POWER = new AutoMsgPower();
 	public static final TeleportOthersPower TELEPORT_OTHERS_POWER = new TeleportOthersPower();
 	public static final LocalizePower LOCALIZE_POWER = new LocalizePower();
+	public static final CreativeMenuPower CREATIVE_MENU_POWER = new CreativeMenuPower();
 	public static final EmptyPower EMPTY_POWER = new EmptyPower();
 
 	public static void init(){
