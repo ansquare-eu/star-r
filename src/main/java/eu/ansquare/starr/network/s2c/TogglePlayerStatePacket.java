@@ -21,7 +21,6 @@ public class TogglePlayerStatePacket {
 		if(state == ClientPlayerState.CREATIVE){
 			minecraftClient.execute(() ->{
 				StarRClient.LASER_HOLDER.add(state);
-				minecraftClient.setScreen(new InventoryScreen(minecraftClient.player));
 				}
 			);
 		}
