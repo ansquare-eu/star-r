@@ -1,5 +1,6 @@
 package eu.ansquare.starr.superdude;
 
+import eu.ansquare.starr.power.DelayedPower;
 import eu.ansquare.starr.power.Incrementable;
 import eu.ansquare.starr.power.Power;
 import eu.ansquare.starr.power.ToggleablePower;
@@ -9,6 +10,7 @@ import net.minecraft.entity.attribute.EntityAttribute;
 import net.minecraft.entity.attribute.EntityAttributeInstance;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.util.Identifier;
 
 import java.awt.*;
@@ -86,12 +88,19 @@ public abstract class SuperDude {
 		}
 	}
 	public void executeActiveTicks(LivingEntity entity){
+		if(flight == FlightType.CREATIVE && entity instanceof ServerPlayerEntity player){
+			player.getAbilities().allowFlying = true;
+			player.sendAbilitiesUpdate();
+		}
 		for (PowerOrder powerOrd : powers.keySet()) {
 			Power power = powers.get(powerOrd);
 			if (power instanceof ToggleablePower) {
 				if (((ToggleablePower) power).isActiveFor(entity.getUuid())) {
 					((ToggleablePower) power).activeTick(entity);
 				}
+			}
+			if(power instanceof DelayedPower delayedPower){
+				delayedPower.decreaseDelays();
 			}
 		}
 	}
