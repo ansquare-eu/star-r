@@ -9,6 +9,7 @@ import eu.ansquare.starr.items.testing.GetSuperTypeTesterItem;
 import eu.ansquare.starr.items.testing.ResetSuperTypeTesterItem;
 import eu.ansquare.starr.items.testing.SetSuperTypeTesterItem;
 import eu.ansquare.starr.items.wearable.*;
+import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.model.Model;
@@ -16,19 +17,25 @@ import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
+import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
+import org.jetbrains.annotations.Nullable;
+import org.quiltmc.qsl.item.setting.api.QuiltCustomItemSettings;
 import org.quiltmc.qsl.item.setting.api.QuiltItemSettings;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.function.Supplier;
 
 public class ModItems {
 	private static final Map<Item, Identifier> ITEMS = new LinkedHashMap<>();
-	private static <T extends Item> T createItem(String name, T item, RegistryKey<ItemGroup> itemGroup){
+	private static <T extends Item> T createItem(String name, T item, RegistryKey<ItemGroup>... itemGroups){
 		ITEMS.put(item, new Identifier(StarR.MODID, name));
-		ItemGroupEvents.modifyEntriesEvent(itemGroup).register(content -> {
-			content.addItem(item);
-		});
+		for (RegistryKey<ItemGroup> itemGroup:itemGroups) {
+			ItemGroupEvents.modifyEntriesEvent(itemGroup).register(content -> {
+				content.addItem(item);
+			});
+		}
 		return item;
 	}
 	private static <T extends Item> T createGrouplessItem(String name, T item){
@@ -67,4 +74,6 @@ public class ModItems {
 	public static final ForcefieldMaterial FORCEFIELD_MATERIAL = new ForcefieldMaterial();
 	public static final Item FORCESWORD = createGrouplessItem("forcesword", new SwordItem(FORCEFIELD_MATERIAL, 20, 1, new QuiltItemSettings().maxCount(1)));
 	public static final Item BOYSHIELD = createGrouplessItem("boyshield", new BoyshieldItem(new QuiltItemSettings().maxCount(1)));
+
+
 }
