@@ -29,6 +29,9 @@ public abstract class SuperDude {
 		powers = new HashMap<>();
 		attributeModifiers = new HashMap<>();
 	}
+	public boolean equals(SuperDude superDude){
+		return superDude.id.equals(this.id);
+	}
 	public void init(Identifier id){
 		this.id = id;
 		initPowers();

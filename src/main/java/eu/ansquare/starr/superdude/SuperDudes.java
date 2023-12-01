@@ -4,6 +4,7 @@ import eu.ansquare.starr.ModRegistries;
 import eu.ansquare.starr.StarR;
 import eu.ansquare.starr.cca.StarREntityComponents;
 import eu.ansquare.starr.util.power.FlightType;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
@@ -20,6 +21,7 @@ public class SuperDudes {
 	public static final SuperDude CAPTAIN_R = create("captain_r", new CaptainRSuperDude(FlightType.NORMAL, new Color(0x0B4AC9)));
 	public static final SuperDude LOCALIZATOR = create("localizator", new LocalizatorSuperDude(FlightType.NONE, new Color(0xA85858)));
 	public static final SuperDude BRAIN = create("brain", new BrainSuperDude(FlightType.CREATIVE, new Color(0x5A9A73)));
+	public static final SuperDude SKIER = create("skier", new SkierSuperDude(FlightType.CREATIVE, new Color(0x9BFFD7)));
 	public static final SuperDude EMPTY = create("empty", new EmptySuperDude());
 	public static <T extends SuperDude> T create(String modid, String name, T superDude){
 		Identifier id = new Identifier(modid, name);
@@ -50,5 +52,12 @@ public class SuperDudes {
 			superDudeComponent.setType(SuperDudes.EMPTY);
 		});
 	}
-
+	public static boolean isEntityOf(LivingEntity entity, SuperDude superDude){
+		if(StarREntityComponents.SUPER_DUDE_COMPONENT.isProvidedBy(entity)){
+			if (StarREntityComponents.SUPER_DUDE_COMPONENT.get(entity).getType().equals(superDude)){
+				return true;
+			}
+		}
+		return false;
+	}
 }
