@@ -32,6 +32,7 @@ public class ServerTeleportHandler {
 		} else {
 			finalplayer = player;
 		}
+		removeTask(player);
 		finalplayer.teleport(x, y , z);
 	}
 }
