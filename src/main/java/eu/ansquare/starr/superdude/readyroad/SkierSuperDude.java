@@ -1,9 +1,10 @@
-package eu.ansquare.starr.superdude;
+package eu.ansquare.starr.superdude.readyroad;
 
-import eu.ansquare.starr.mixin.LivingEntityMixin;
 import eu.ansquare.starr.power.offense.PointerPower;
 import eu.ansquare.starr.power.transport.AirwalkPower;
+import eu.ansquare.starr.superdude.SuperDude;
 import eu.ansquare.starr.util.power.FlightType;
+import eu.ansquare.starr.util.power.PowerOrder;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
@@ -12,7 +13,7 @@ import net.minecraft.entity.attribute.EntityAttributes;
 import java.awt.*;
 import java.util.UUID;
 
-public class SkierSuperDude extends SuperDude{
+public class SkierSuperDude extends SuperDude {
 	public SkierSuperDude(FlightType flight, Color color) {
 		super(flight, color);
 	}

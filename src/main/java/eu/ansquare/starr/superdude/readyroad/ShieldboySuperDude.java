@@ -1,4 +1,4 @@
-package eu.ansquare.starr.superdude;
+package eu.ansquare.starr.superdude.readyroad;
 
 import eu.ansquare.starr.blocks.ModBlocks;
 import eu.ansquare.starr.items.ModItems;
@@ -6,9 +6,10 @@ import eu.ansquare.starr.power.Powers;
 import eu.ansquare.starr.power.creation.CreateItemPower;
 import eu.ansquare.starr.power.creation.SummonEntityPower;
 import eu.ansquare.starr.power.transport.AirwalkPower;
+import eu.ansquare.starr.superdude.SuperDude;
 import eu.ansquare.starr.util.power.FlightType;
+import eu.ansquare.starr.util.power.PowerOrder;
 import net.minecraft.entity.EntityType;
-import net.minecraft.entity.FallingBlockEntity;
 import net.minecraft.entity.passive.TurtleEntity;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.Vec3d;
@@ -16,7 +17,7 @@ import net.minecraft.world.RaycastContext;
 
 import java.awt.*;
 
-public class ShieldboySuperDude extends SuperDude{
+public class ShieldboySuperDude extends SuperDude {
 	public ShieldboySuperDude(FlightType flight, Color color) {
 		super(flight, color);
 	}

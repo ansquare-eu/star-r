@@ -5,12 +5,12 @@ import eu.ansquare.starr.items.SuperDudeInventories;
 import eu.ansquare.starr.power.Powers;
 import eu.ansquare.starr.util.item.ItemArrayProvider;
 import eu.ansquare.starr.util.power.FlightType;
+import eu.ansquare.starr.util.power.PowerOrder;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.item.Item;
 
 import java.awt.*;
-import java.util.Random;
 import java.util.UUID;
 
 public class TestSuperDude extends SuperDude implements ItemArrayProvider {

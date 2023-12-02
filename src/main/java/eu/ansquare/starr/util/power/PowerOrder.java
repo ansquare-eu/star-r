@@ -1,4 +1,4 @@
-package eu.ansquare.starr.superdude;
+package eu.ansquare.starr.util.power;
 
 public enum PowerOrder {
 	TRANSFORMATION,

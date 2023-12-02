@@ -1,11 +1,13 @@
-package eu.ansquare.starr.superdude;
+package eu.ansquare.starr.superdude.readyroad;
 
 import eu.ansquare.starr.power.Powers;
+import eu.ansquare.starr.util.power.PowerOrder;
+import eu.ansquare.starr.superdude.SuperDude;
 import eu.ansquare.starr.util.power.FlightType;
 
 import java.awt.*;
 
-public class LocalizatorSuperDude extends SuperDude{
+public class LocalizatorSuperDude extends SuperDude {
 	public LocalizatorSuperDude(FlightType flight, Color color) {
 		super(flight, color);
 	}

@@ -4,7 +4,7 @@ import dev.onyxstudios.cca.api.v3.component.sync.AutoSyncedComponent;
 import eu.ansquare.starr.power.offense.LaserPower;
 import eu.ansquare.starr.power.Power;
 import eu.ansquare.starr.power.Powers;
-import eu.ansquare.starr.superdude.PowerOrder;
+import eu.ansquare.starr.util.power.PowerOrder;
 import eu.ansquare.starr.superdude.SuperDude;
 import eu.ansquare.starr.superdude.SuperDudes;
 import eu.ansquare.starr.util.power.FlightType;
