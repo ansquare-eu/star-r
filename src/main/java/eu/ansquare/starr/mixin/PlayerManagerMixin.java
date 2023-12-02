@@ -14,6 +14,7 @@ import net.minecraft.server.PlayerManager;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.math.BlockPos;
 import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
@@ -76,7 +77,7 @@ public abstract class PlayerManagerMixin {
 		} else if(Powers.LOCALIZE_POWER.isActiveFor(sender.getUuid())){
 			for (ServerPlayerEntity player:players) {
 				if(player.getName().getString().equalsIgnoreCase(splitten[0])){
-					sender.sendMessage(Text.literal(player.getBlockPos().toString()), false);
+					Powers.LOCALIZE_POWER.activeAction(sender, player);
 					ci.cancel();
 				}
 			}
