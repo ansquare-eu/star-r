@@ -1,5 +1,6 @@
 package eu.ansquare.starr.superdude;
 
+import eu.ansquare.starr.mixin.LivingEntityMixin;
 import eu.ansquare.starr.power.offense.PointerPower;
 import eu.ansquare.starr.power.transport.AirwalkPower;
 import eu.ansquare.starr.util.power.FlightType;
@@ -19,6 +20,11 @@ public class SkierSuperDude extends SuperDude{
 	@Override
 	public void initPowers() {
 		addPower(PowerOrder.FIRST, new AirwalkPower(Blocks.ICE, 20));
+		addPower(PowerOrder.SECOND, new PointerPower(((entity, player) -> {
+			if(entity instanceof LivingEntity living){
+				living.setFrozenTicks(1000);
+			}
+		}), 64));
 	}
 
 	@Override
