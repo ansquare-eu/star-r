@@ -2,7 +2,7 @@ package eu.ansquare.starr.client;
 
 import com.mojang.blaze3d.platform.InputUtil;
 import eu.ansquare.starr.network.ModPackets;
-import eu.ansquare.starr.superdude.PowerOrder;
+import eu.ansquare.starr.util.power.PowerOrder;
 import eu.ansquare.starr.util.network.BoolEnum;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;

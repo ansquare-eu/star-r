@@ -5,6 +5,7 @@ import eu.ansquare.starr.power.Incrementable;
 import eu.ansquare.starr.power.Power;
 import eu.ansquare.starr.power.ToggleablePower;
 import eu.ansquare.starr.util.power.FlightType;
+import eu.ansquare.starr.util.power.PowerOrder;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.EntityAttribute;
 import net.minecraft.entity.attribute.EntityAttributeInstance;
