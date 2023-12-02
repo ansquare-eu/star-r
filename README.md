@@ -1,3 +1,3 @@
-* 15 Powers
-* 4 Characters
+* 18 Powers
+* 6 Characters
 * And counting
