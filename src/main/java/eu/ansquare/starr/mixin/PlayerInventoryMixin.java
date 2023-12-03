@@ -15,6 +15,7 @@ import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import java.util.UUID;
 
@@ -25,21 +26,21 @@ public abstract class PlayerInventoryMixin implements Inventory, Nameable {
 	@Final
 	public PlayerEntity player;
 
-	@Inject(method = "setStack", at = @At("HEAD"), cancellable = true)
-	public void onSetStack(int slot, ItemStack stack, CallbackInfo ci) {
-		NbtCompound compound = stack.getOrCreateNbt();
-		if(compound.containsUuid(ItemUtils.SIGN_KEY)){
-			if(!player.getWorld().isClient()){
-				if(!compound.getUuid(ItemUtils.SIGN_KEY).equals(this.player.getUuid())){
-					PlayerEntity owner = this.player.getServer().getPlayerManager().getPlayer(compound.getUuid(ItemUtils.SIGN_KEY));
-					if(owner != null){
-						this.player.sendMessage(Text.translatable("message.starr.signeditem.owner", new Object[]{stack.getItem().getName(), owner.getName()}), true);
-					} else {
-						this.player.sendMessage(Text.translatable("message.starr.signeditem", new Object[]{stack.getItem().getName()}), true);
-					}
-					ci.cancel();
-				}
-			}
-		}
+	@Inject(method = "insertStack(Lnet/minecraft/item/ItemStack;)Z", at = @At("HEAD"), cancellable = true)
+	public void onSetStack(ItemStack stack, CallbackInfoReturnable<Boolean> cir) {
+//		NbtCompound compound = stack.getOrCreateNbt();
+//		if(compound.containsUuid(ItemUtils.SIGN_KEY)){
+//			if(!player.getWorld().isClient()){
+//				if(!compound.getUuid(ItemUtils.SIGN_KEY).equals(this.player.getUuid())){
+//					PlayerEntity owner = this.player.getServer().getPlayerManager().getPlayer(compound.getUuid(ItemUtils.SIGN_KEY));
+//					if(owner != null){
+//						this.player.sendMessage(Text.translatable("message.starr.signeditem.owner", new Object[]{stack.getItem().getName(), owner.getName()}), true);
+//					} else {
+//						this.player.sendMessage(Text.translatable("message.starr.signeditem", new Object[]{stack.getItem().getName()}), true);
+//					}
+//					cir.setReturnValue(false);
+//				}
+//			}
+//		}
 	}
 }
