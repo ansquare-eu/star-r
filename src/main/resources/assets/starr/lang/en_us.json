@@ -47,5 +47,14 @@
   "block.starr.tv" : "Tv",
   "item.starr.forcesword": "Forcefield sword",
   "item.starr.boyshield": "Shieldboy's shield",
-  "block.starr.kufor" : "Randomizer briefcase"
+  "block.starr.kufor" : "Randomizer briefcase",
+  "block.starr.world_anchor" : "World anchor",
+  "block.starr.spatial_anchor" : "Spatial anchor",
+  "itemgroup.starr.blocks" : "Star R blocks",
+  "itemgroup.starr.items" : "Star R items",
+  "itemgroup.starr.weapons" : "Star R weapons",
+  "itemgroup.starr.armor" : "Star R armor",
+  "message.starr.anchored.destination": "The destination is affected by a spatial anchor!",
+  "message.starr.anchored.origin": "You are affected by a spatial anchor!"
+
 }
