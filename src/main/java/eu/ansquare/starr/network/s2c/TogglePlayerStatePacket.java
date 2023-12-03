@@ -2,7 +2,6 @@ package eu.ansquare.starr.network.s2c;
 
 import eu.ansquare.starr.StarR;
 import eu.ansquare.starr.client.StarRClient;
-import eu.ansquare.starr.client.particle.ParticleEffects;
 import eu.ansquare.starr.util.network.ClientPlayerState;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.ingame.InventoryScreen;
