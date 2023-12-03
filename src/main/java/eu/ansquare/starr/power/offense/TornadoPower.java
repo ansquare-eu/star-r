@@ -13,7 +13,7 @@ public class TornadoPower extends Power {
 	@Override
 	public void onActivate(ServerPlayerEntity player) {
 		player.getServerWorld().spawnParticles(ModParticles.TORNADO, player.getX(), player.getY(), player.getZ(),
-				0, 1, 0, 0,
-				100);
+				0, player.getRotationVector().getX(), player.getRotationVector().getY(), player.getRotationVector().getZ(),
+				1);
 	}
 }
