@@ -20,6 +20,7 @@ public class CaptainRSuperDude extends SuperDude {
 		addPower(PowerOrder.SECOND, Powers.FORCEFIELD_POWER);
 		addPower(PowerOrder.THIRD, Powers.TELEKINESIS_POWER);
 		addPower(PowerOrder.FOURTH, Powers.TELEPORT_POWER);
+		addPower(PowerOrder.FIFTH, Powers.TORNADO_POWER);
 	}
 
 	@Override
