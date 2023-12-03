@@ -5,6 +5,7 @@ import net.minecraft.command.argument.EntityArgumentType;
 import net.minecraft.command.argument.ResourceKeyArgument;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.registry.RegistryKey;
+import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import org.quiltmc.qsl.command.api.CommandRegistrationCallback;
 
@@ -24,6 +25,10 @@ public class ModCommands {
 									PlayerEntity player = EntityArgumentType.getPlayer(context, "target");
 									SuperDudes.applyToPlayer(player, superDude);
 									return 1;
-								})))));
+								})).then(literal("get").executes(context -> {
+									SuperDude superDude = SuperDudes.getFromPlayer(EntityArgumentType.getPlayer(context, "target"));
+									context.getSource().sendFeedback(() -> Text.literal(superDude.id.toString()), true);
+									return 1;
+						})))));
 	}
 }

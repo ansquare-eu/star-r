@@ -46,10 +46,11 @@ public class LaserPower extends ToggleablePower {
 	}
 	@Override
 	public void activationAction(ServerPlayerEntity player) {
-		PacketByteBuf buf = PacketByteBufs.create().writeUuid(player.getUuid()).writeString(String.valueOf(color.getRGB()));
+		PacketByteBuf buf = PacketByteBufs.create().writeUuid(player.getUuid());
+		buf.writeInt(color.getRGB());
 		Float xoff = offset.run(player, player.getMainHandStack(), player.getOffHandStack()).getLeft();
 		Float yoff = offset.run(player, player.getMainHandStack(), player.getOffHandStack()).getRight();
-		buf.writeDouble(xoff);
+		buf.writeFloat(xoff);
 		buf.writeFloat(yoff);
 		ServerPlayNetworking.send(player.getServerWorld().getPlayers(), ModPackets.RENDER_LASER_PACKET_ID, buf);
 	}

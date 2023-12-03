@@ -7,9 +7,14 @@ import net.minecraft.client.network.ClientPlayNetworkHandler;
 import net.minecraft.network.PacketByteBuf;
 import org.quiltmc.qsl.networking.api.PacketSender;
 
+import java.util.UUID;
+
 public class RenderLaserPacket {
 	public static void receive(MinecraftClient minecraftClient, ClientPlayNetworkHandler clientPlayNetworkHandler, PacketByteBuf packetByteBuf, PacketSender packetSender) {
-		StarRClient.LASER_HOLDER.LASER_MAP.put(packetByteBuf.readUuid(), new ClientLaser(Integer.parseInt(packetByteBuf.readString()), packetByteBuf.readFloat(), packetByteBuf.readDouble()));
+		UUID uuid = packetByteBuf.readUuid();
+		int color = packetByteBuf.readInt();
+		float x = packetByteBuf.readFloat();
+		float y = packetByteBuf.readFloat();
+		minecraftClient.execute(() -> StarRClient.LASER_HOLDER.LASER_MAP.put(uuid, new ClientLaser(color, x, y)));
 	}
-	//Integer.parseInt(packetByteBuf.readString())
 }

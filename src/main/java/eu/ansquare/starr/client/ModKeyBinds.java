@@ -3,10 +3,10 @@ package eu.ansquare.starr.client;
 import com.mojang.blaze3d.platform.InputUtil;
 import eu.ansquare.starr.network.ModPackets;
 import eu.ansquare.starr.util.power.PowerOrder;
-import eu.ansquare.starr.util.network.BoolEnum;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 import net.minecraft.client.option.KeyBind;
+import net.minecraft.network.PacketByteBuf;
 import org.lwjgl.glfw.GLFW;
 import org.quiltmc.qsl.networking.api.PacketByteBufs;
 import org.quiltmc.qsl.networking.api.client.ClientPlayNetworking;
@@ -156,7 +156,9 @@ public class ModKeyBinds {
 		));
 		ClientTickEvents.END_CLIENT_TICK.register(client -> {
 			if (substractPowerKey.wasPressed()) {
-				ClientPlayNetworking.send(ModPackets.AS_PACKET_ID, PacketByteBufs.create().writeEnumConstant(BoolEnum.FALSE));
+				PacketByteBuf buf = PacketByteBufs.create();
+				buf.writeBoolean(false);
+				ClientPlayNetworking.send(ModPackets.AS_PACKET_ID, buf);
 			}
 		});
 		addPowerKey = KeyBindingHelper.registerKeyBinding(new KeyBind(
@@ -167,7 +169,9 @@ public class ModKeyBinds {
 		));
 		ClientTickEvents.END_CLIENT_TICK.register(client -> {
 			if (addPowerKey.wasPressed()) {
-				ClientPlayNetworking.send(ModPackets.AS_PACKET_ID , PacketByteBufs.create().writeEnumConstant(BoolEnum.TRUE));
+				PacketByteBuf buf = PacketByteBufs.create();
+				buf.writeBoolean(true);
+				ClientPlayNetworking.send(ModPackets.AS_PACKET_ID , buf);
 			}
 		});
 	}

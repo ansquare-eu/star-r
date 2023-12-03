@@ -9,7 +9,9 @@ import org.quiltmc.qsl.networking.api.PacketSender;
 
 public class TeleportToSavedPacket {
 	public static void receive(MinecraftServer server, ServerPlayerEntity player, ServerPlayNetworkHandler handler, PacketByteBuf buf, PacketSender responseSender){
-		int order = Integer.parseInt(buf.readString());
-		ServerTeleportHandler.teleport(player, order);
+		int order = buf.readInt();
+		server.execute(() -> {
+			ServerTeleportHandler.teleport(player, order);
+		});
 	}
 }

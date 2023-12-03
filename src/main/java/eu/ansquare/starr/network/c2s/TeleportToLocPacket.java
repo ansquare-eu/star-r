@@ -11,10 +11,12 @@ import org.quiltmc.qsl.networking.api.PacketSender;
 public class TeleportToLocPacket {
 	public static void receive(MinecraftServer server, ServerPlayerEntity player, ServerPlayNetworkHandler handler, PacketByteBuf buf, PacketSender responseSender){
 		int[] loc = buf.readIntArray();
-		if(loc.length >= 3){
-			ServerTeleportHandler.teleport(player, loc[0], loc[1], loc[2]);
-		} else {
-			player.sendMessage(Text.literal("how"), false);
-		}
+		server.execute(() -> {
+			if(loc.length >= 3){
+				ServerTeleportHandler.teleport(player, loc[0], loc[1], loc[2]);
+			} else {
+				player.sendMessage(Text.literal("how"), false);
+			}
+		});
 	}
 }

@@ -9,6 +9,7 @@ import net.minecraft.client.gui.widget.ButtonWidget;
 import net.minecraft.client.gui.widget.TextFieldWidget;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
+import net.minecraft.network.PacketByteBuf;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import net.minecraft.world.World;
@@ -114,32 +115,41 @@ public class TeleportSelectScreen extends HandledScreen<TeleportScreenHandler> {
 		guistate.put("text:ybox", ybox);
 		this.addSelectableChild(this.ybox);
 		button_base = ButtonWidget.builder(Text.translatable("gui.starr.teleport.button_base"), e -> {
-			ClientPlayNetworking.send(ModPackets.TPSAVED_PACKET_ID, PacketByteBufs.create().writeString("0"));
+			PacketByteBuf buf = PacketByteBufs.create();
+			buf.writeInt(0);
+			ClientPlayNetworking.send(ModPackets.TPSAVED_PACKET_ID, buf);
 		}).positionAndSize(this.x + 15, this.y + 25, 46, 20).build();
 		guistate.put("button:button_base", button_base);
 		this.addDrawableChild(button_base);
 		button_1 = ButtonWidget.builder(Text.translatable("gui.starr.teleport.button_1"), e -> {
-			ClientPlayNetworking.send(ModPackets.TPSAVED_PACKET_ID, PacketByteBufs.create().writeString("1"));
-		}).positionAndSize(this.x + 15, this.y + 52, 30, 20).build();
+			PacketByteBuf buf = PacketByteBufs.create();
+			buf.writeInt(1);
+			ClientPlayNetworking.send(ModPackets.TPSAVED_PACKET_ID, buf);}).positionAndSize(this.x + 15, this.y + 52, 30, 20).build();
 		guistate.put("button:button_1", button_1);
 		this.addDrawableChild(button_1);
 		button_2 = ButtonWidget.builder(Text.translatable("gui.starr.teleport.button_2"), e -> {
-			ClientPlayNetworking.send(ModPackets.TPSAVED_PACKET_ID, PacketByteBufs.create().writeString("2"));
-		}).positionAndSize(this.x + 15, this.y + 79, 30, 20).build();
+			PacketByteBuf buf = PacketByteBufs.create();
+			buf.writeInt(2);
+			ClientPlayNetworking.send(ModPackets.TPSAVED_PACKET_ID, buf);}).positionAndSize(this.x + 15, this.y + 79, 30, 20).build();
 		guistate.put("button:button_2", button_2);
 		this.addDrawableChild(button_2);
 		button_save_1 = ButtonWidget.builder(Text.translatable("gui.starr.teleport.button_save_1"), e -> {
-			ClientPlayNetworking.send(ModPackets.SAVELOC_PACKET_ID, PacketByteBufs.create().writeString("1"));
-		}).positionAndSize(this.x + 105, this.y + 52, 56, 20).build();
+			PacketByteBuf buf = PacketByteBufs.create();
+			buf.writeInt(1);
+			ClientPlayNetworking.send(ModPackets.SAVELOC_PACKET_ID, buf);}).positionAndSize(this.x + 105, this.y + 52, 56, 20).build();
 		guistate.put("button:button_save_1", button_save_1);
 		this.addDrawableChild(button_save_1);
 		button_save_2 = ButtonWidget.builder(Text.translatable("gui.starr.teleport.button_save_2"), e -> {
-			ClientPlayNetworking.send(ModPackets.SAVELOC_PACKET_ID, PacketByteBufs.create().writeString("2"));
+			PacketByteBuf buf = PacketByteBufs.create();
+			buf.writeInt(2);
+			ClientPlayNetworking.send(ModPackets.SAVELOC_PACKET_ID, buf);
 		}).positionAndSize(this.x + 105, this.y + 79, 56, 20).build();
 		guistate.put("button:button_save_2", button_save_2);
 		this.addDrawableChild(button_save_2);
 		button_save_base = ButtonWidget.builder(Text.translatable("gui.starr.teleport.button_save_base"), e -> {
-			ClientPlayNetworking.send(ModPackets.SAVELOC_PACKET_ID, PacketByteBufs.create().writeString("0"));
+			PacketByteBuf buf = PacketByteBufs.create();
+			buf.writeInt(0);
+			ClientPlayNetworking.send(ModPackets.SAVELOC_PACKET_ID, buf);
 		}).positionAndSize(this.x + 96, this.y + 25, 72, 20).build();
 		guistate.put("button:button_save_base", button_save_base);
 		this.addDrawableChild(button_save_base);
