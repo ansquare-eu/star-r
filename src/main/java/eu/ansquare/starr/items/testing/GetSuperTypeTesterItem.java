@@ -1,5 +1,7 @@
 package eu.ansquare.starr.items.testing;
 
+import eu.ansquare.starr.StarR;
+import eu.ansquare.starr.blocks.WorldAnchorBlock;
 import eu.ansquare.starr.cca.StarREntityComponents;
 import eu.ansquare.starr.util.item.ItemUtils;
 import eu.ansquare.starr.util.item.ItemArrayProvider;
@@ -21,7 +23,9 @@ public class GetSuperTypeTesterItem extends Item implements ItemArrayProvider {
 	@Override
 	public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand){
 		if(!world.isClient()){
-			world.getServer().getPlayerManager().broadcastSystemMessage(Text.literal("starrtrigger starr:testtype " + user.getDisplayName().getString()), false);
+			if(WorldAnchorBlock.isInVicinity(false, user.getBlockPos(), world)){
+				StarR.LOGGER.info("logss");
+			}
 		}
 		return TypedActionResult.success(user.getStackInHand(hand));
 	}

@@ -2,6 +2,7 @@ package eu.ansquare.starr;
 
 import eu.ansquare.starr.blocks.ModBlocks;
 import eu.ansquare.starr.entity.ModEntities;
+import eu.ansquare.starr.items.ModItemGroups;
 import eu.ansquare.starr.items.ModItems;
 import eu.ansquare.starr.network.ModPackets;
 import eu.ansquare.starr.power.Powers;
@@ -23,6 +24,7 @@ public class StarR implements ModInitializer {
 	public void onInitialize(ModContainer mod) {
 		LOGGER.info("Hello Quilt world from {}!", mod.metadata().name());
 		ModCommands.init();
+		ModItemGroups.init();
 		SuperDudes.init();
 		ModBlocks.init();
 		ModItems.init();

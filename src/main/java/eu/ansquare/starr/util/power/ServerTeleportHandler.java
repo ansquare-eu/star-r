@@ -1,8 +1,11 @@
 package eu.ansquare.starr.util.power;
 
 import eu.ansquare.starr.StarR;
+import eu.ansquare.starr.blocks.WorldAnchorBlock;
 import eu.ansquare.starr.cca.StarREntityComponents;
 import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.text.Text;
+import net.minecraft.util.math.BlockPos;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -33,6 +36,13 @@ public class ServerTeleportHandler {
 			finalplayer = player;
 		}
 		removeTask(player);
+		if(WorldAnchorBlock.isInVicinity(true, new BlockPos(x, y ,z), player.getWorld())){
+			player.sendMessage(Text.translatable("message.starr.anchored.destination"), true);
+			return;
+		} else if(WorldAnchorBlock.isInVicinity(true, finalplayer.getBlockPos(), player.getWorld())){
+			player.sendMessage(Text.translatable("message.starr.anchored.origin"), true);
+			return;
+		}
 		finalplayer.teleport(x, y , z);
 	}
 }
