@@ -6,8 +6,11 @@ import net.minecraft.client.network.ClientPlayNetworkHandler;
 import net.minecraft.network.PacketByteBuf;
 import org.quiltmc.qsl.networking.api.PacketSender;
 
+import java.util.UUID;
+
 public class UnrenderLaserPacket {
 	public static void receive(MinecraftClient minecraftClient, ClientPlayNetworkHandler clientPlayNetworkHandler, PacketByteBuf packetByteBuf, PacketSender packetSender) {
-		StarRClient.LASER_HOLDER.LASER_MAP.remove(packetByteBuf.readUuid());
+		UUID uuid = packetByteBuf.readUuid();
+		minecraftClient.execute(() -> StarRClient.LASER_HOLDER.LASER_MAP.remove(uuid));
 	}
 }

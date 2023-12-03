@@ -3,6 +3,7 @@ package eu.ansquare.starr.superdude;
 import eu.ansquare.starr.ModRegistries;
 import eu.ansquare.starr.StarR;
 import eu.ansquare.starr.cca.StarREntityComponents;
+import eu.ansquare.starr.power.Powers;
 import eu.ansquare.starr.superdude.readyroad.*;
 import eu.ansquare.starr.util.power.FlightType;
 import net.minecraft.entity.LivingEntity;
@@ -46,6 +47,7 @@ public class SuperDudes {
 		removeFromPlayer(player);
 		StarREntityComponents.SUPER_DUDE_COMPONENT.maybeGet(player).ifPresent(superDudeComponent -> superDudeComponent.setType(superDude));
 		superDude.onApply(player);
+		Powers.init();
 	}
 	public static void removeFromPlayer(PlayerEntity player){
 		StarREntityComponents.SUPER_DUDE_COMPONENT.maybeGet(player).ifPresent(superDudeComponent -> {
@@ -60,5 +62,11 @@ public class SuperDudes {
 			}
 		}
 		return false;
+	}
+	public static SuperDude getFromPlayer(LivingEntity entity){
+		if(StarREntityComponents.SUPER_DUDE_COMPONENT.isProvidedBy(entity)){
+			return StarREntityComponents.SUPER_DUDE_COMPONENT.get(entity).getType();
+		}
+		return EMPTY;
 	}
 }
