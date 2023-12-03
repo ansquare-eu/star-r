@@ -8,7 +8,7 @@ import net.minecraft.item.ItemStack;
 import java.util.UUID;
 
 public class ItemUtils {
-	public static final String SIGN_KEY = "starr:owner";
+	public static final String SIGN_KEY = "signlib:owner";
 	public static Inventory populate(Inventory inventory, ItemArrayProvider provider){
 		ItemConvertible[] items = provider.get();
 		for(int i = 0; i < items.length; i++){
