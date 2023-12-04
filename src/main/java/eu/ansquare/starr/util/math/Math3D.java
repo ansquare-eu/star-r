@@ -4,9 +4,7 @@ import eu.ansquare.starr.StarR;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Box;
 import net.minecraft.util.math.Vec3d;
-import org.quiltmc.loader.impl.lib.sat4j.core.Vec;
 
-import java.util.function.Consumer;
 import java.util.function.Predicate;
 
 public class Math3D {
@@ -20,7 +18,7 @@ public class Math3D {
 	public static void logPos(Vec3d pos){
 		StarR.LOGGER.info(pos.toString());
 	}
-	public static boolean predicateBoxIterator(Box box, Predicate<BlockPos> predicate){
+	public static boolean boxSearch(Box box, Predicate<BlockPos> predicate){
 		int maxX = (int) box.maxX;
 		int maxY = (int) box.maxY;
 		int maxZ = (int) box.maxZ;
