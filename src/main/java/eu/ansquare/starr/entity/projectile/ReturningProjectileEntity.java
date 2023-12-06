@@ -17,7 +17,7 @@ public abstract class ReturningProjectileEntity extends PersistentProjectileEnti
 	public void retrieve(){
 
 		if(this.getOwner() != null){
-			this.setVelocity(this.getOwner().getRotationVec(1).normalize().multiply(-0.8));
+			this.setVelocity(this.getOwner().getPos().subtract(this.getEyePos()).normalize().multiply(2));
 			this.inGround = false;
 			this.untilremove = 20;
 		} else {this.remove(RemovalReason.DISCARDED);
@@ -25,9 +25,12 @@ public abstract class ReturningProjectileEntity extends PersistentProjectileEnti
 	}
 
 	public void onEntityHit(EntityHitResult result){
-		super.onEntityHit(result);
+		if(this.getOwner() != null){
+			if(!result.getEntity().getUuid().equals(this.getOwner().getUuid())){
+				super.onEntityHit(result);
+			}
+		}
 
-		retrieve();
 	}
 	public void tick(){
 		super.tick();
