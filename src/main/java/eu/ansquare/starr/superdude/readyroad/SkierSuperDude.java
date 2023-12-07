@@ -9,6 +9,11 @@ import net.minecraft.block.Blocks;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.attribute.EntityAttributes;
+import net.minecraft.particle.DustParticleEffect;
+import net.minecraft.server.world.ServerWorld;
+import net.minecraft.util.math.Vec3d;
+import org.joml.Vector3f;
+import org.quiltmc.loader.impl.lib.sat4j.core.Vec;
 
 import java.awt.*;
 import java.util.UUID;
@@ -24,7 +29,7 @@ public class SkierSuperDude extends SuperDude {
 		addPower(PowerOrder.SECOND, new PointerPower(((entity, player) -> {
 			if(entity instanceof LivingEntity living){
 				living.setFrozenTicks(1000);
-			}
+				}
 		}), 64));
 	}
 
@@ -36,6 +41,6 @@ public class SkierSuperDude extends SuperDude {
 
 	@Override
 	public String queryMessage() {
-		return "Extremely rendom";
+		return "Extremely random";
 	}
 }
