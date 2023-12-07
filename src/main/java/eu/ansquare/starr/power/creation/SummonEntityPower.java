@@ -5,17 +5,16 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.util.math.Vec3d;
 
+import java.util.function.Consumer;
+
 public class SummonEntityPower extends Power {
-	public EntitySummoner summoner;
-	public SummonEntityPower(EntitySummoner summoner){
+	public Consumer<ServerPlayerEntity> summoner;
+	public SummonEntityPower(Consumer<ServerPlayerEntity> summoner){
 		this.summoner = summoner;
 	}
 	@Override
 	public void onActivate(ServerPlayerEntity player) {
-		summoner.run(player);
+		summoner.accept(player);
 	}
-	@FunctionalInterface
-	public interface EntitySummoner{
-		void run(ServerPlayerEntity player);
-	}
+
 }
