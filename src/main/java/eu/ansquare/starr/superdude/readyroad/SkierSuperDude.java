@@ -1,12 +1,16 @@
 package eu.ansquare.starr.superdude.readyroad;
 
+import eu.ansquare.starr.power.AnonymousToggleablePower;
 import eu.ansquare.starr.power.offense.PointerPower;
 import eu.ansquare.starr.power.transport.AirwalkPower;
+import eu.ansquare.starr.power.utility.ToggleableAttributePower;
 import eu.ansquare.starr.superdude.SuperDude;
 import eu.ansquare.starr.util.power.FlightType;
 import eu.ansquare.starr.util.power.PowerOrder;
 import net.minecraft.block.Blocks;
+import net.minecraft.enchantment.FrostWalkerEnchantment;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.attribute.EntityAttribute;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.particle.DustParticleEffect;
@@ -31,6 +35,7 @@ public class SkierSuperDude extends SuperDude {
 				living.setFrozenTicks(1000);
 				}
 		}), 64));
+		addPower(PowerOrder.THIRD, new AnonymousToggleablePower((entity -> FrostWalkerEnchantment.freezeWater(entity, entity.getWorld(), entity.getBlockPos(), 2))));
 	}
 
 	@Override
