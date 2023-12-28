@@ -4,15 +4,10 @@
 	"package": "eu.ansquare.starr.mixin",
 	"compatibilityLevel": "JAVA_17",
 	"mixins": [
-      "LivingEntityMixin",
       "ScreenHandlerMixin",
       "PlayerInventoryMixin",
-      "PlayerManagerMixin",
-      "PlayerEntityMixin",
       "ServerPlayerInteractionManagerAccessor",
-      "ServerPlayNetworkHandlerMixin",
-      "ServerPlayerEntityMixin"
-    ],
+      "ServerPlayNetworkHandlerMixin"],
 	"client": [
       "client.PlayerEntityRendererMixin",
       "client.ClientPlayerInteractionManagerMixin"

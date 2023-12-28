@@ -3,7 +3,6 @@ package eu.ansquare.starr.client;
 import eu.ansquare.starr.StarR;
 import eu.ansquare.starr.blocks.ModBlocks;
 import eu.ansquare.starr.client.particle.ModParticles;
-import eu.ansquare.starr.client.screen.TeleportSelectScreen;
 import eu.ansquare.starr.client.wearables.TrinketRenderers;
 import eu.ansquare.starr.client.wearables.model.cape.CapeWearableModel;
 import eu.ansquare.starr.client.wearables.model.FaceWearableModel;
@@ -19,8 +18,6 @@ import eu.ansquare.starr.entity.render.CapeEntityRenderer;
 import eu.ansquare.starr.entity.render.LaserEntityRenderer;
 import eu.ansquare.starr.entity.render.PalicaEntityRenderer;
 import eu.ansquare.starr.items.GetItemTypes;
-import eu.ansquare.starr.network.ModPackets;
-import eu.ansquare.starr.screenhandler.ModScreenHandlers;
 import eu.ansquare.starr.util.network.ClientPlayerHolder;
 import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
@@ -63,14 +60,12 @@ public class StarRClient implements ClientModInitializer {
 		EntityModelLayerRegistry.registerModelLayer(FaceWearableModel.LAYER_LOCATION, FaceWearableModel::getTexturedModelData);
 		EntityModelLayerRegistry.registerModelLayer(HareOneModel.LAYER_LOCATION, HareOneModel::getTexturedModelData);
 		EntityModelLayerRegistry.registerModelLayer(HareTwoModel.LAYER_LOCATION, HareTwoModel::getTexturedModelData);
-		ModKeyBinds.init();
-		ModPackets.initS2C();
+
 		ModParticles.init();
 		TrinketRenderers.registerSimpleWearables(GetItemTypes.getSimpleWearables());
 		TrinketRenderers.registerTwoStateRenderers(GetItemTypes.getTwoStateWearables());
 		BlockRenderLayerMap.put(RenderLayer.getTranslucent(), ModBlocks.FORCEFIELD);
 		ColorProviderRegistry.BLOCK.register(ModBlocks.FORCEFIELD, ModBlocks.FORCEFIELD);
-		HandledScreens.register(ModScreenHandlers.TELEPORT_SCREEN, TeleportSelectScreen::new);
 
 	}
 }

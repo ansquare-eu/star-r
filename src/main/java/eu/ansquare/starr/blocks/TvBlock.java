@@ -1,7 +1,6 @@
 package eu.ansquare.starr.blocks;
 
 import eu.ansquare.starr.StarR;
-import eu.ansquare.starr.superdude.SuperDudes;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.HorizontalFacingBlock;
@@ -42,15 +41,7 @@ public class TvBlock extends HorizontalFacingBlock {
 	protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
 		builder.add(FACING);
 	}
-	@Override
-	public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-		if (!world.isClient) {
 
-			SuperDudes.applyToPlayer(player, SuperDudes.TELEMAN);
-		}
-
-		return ActionResult.SUCCESS;
-	}
 	@Override
 	public BlockState getPlacementState(ItemPlacementContext context) {
 		return this.getDefaultState().with(FACING, context.getPlayerFacing().getOpposite());
