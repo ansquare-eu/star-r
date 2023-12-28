@@ -5,9 +5,6 @@ import eu.ansquare.starr.client.wearables.model.hare.HareOneModel;
 import eu.ansquare.starr.client.wearables.model.hare.HareTwoModel;
 import eu.ansquare.starr.items.material.CaptainrsMaterial;
 import eu.ansquare.starr.items.material.ForcefieldMaterial;
-import eu.ansquare.starr.items.testing.GetSuperTypeTesterItem;
-import eu.ansquare.starr.items.testing.ResetSuperTypeTesterItem;
-import eu.ansquare.starr.items.testing.SetSuperTypeTesterItem;
 import eu.ansquare.starr.items.wearable.*;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
@@ -46,9 +43,6 @@ public class ModItems {
 		ITEMS.keySet().forEach(item -> Registry.register(Registries.ITEM, ITEMS.get(item), item));
 	}
 	public static final CapeModelProvider capeModelProvider = new CapeModelProvider();
-	public static final Item SUPER_TYPE_SET_TEST = createItem("super_type_set_test", new SetSuperTypeTesterItem(new QuiltItemSettings()), ItemGroups.COMBAT, ModItemGroups.STARR_ITEMS);
-    public static final Item SUPER_TYPE_GET_TEST = createItem("super_type_get_test", new GetSuperTypeTesterItem(new QuiltItemSettings()), ItemGroups.COMBAT, ModItemGroups.STARR_ITEMS);
-    public static final Item RESET_TESTER = createItem("reset_tester", new ResetSuperTypeTesterItem(new QuiltItemSettings()), ItemGroups.COMBAT, ModItemGroups.STARR_ITEMS);
 	public static final ArmorMaterial CAPTAIN_RS = new CaptainrsMaterial();
     public static final Item CAPTAIN_RS_CHESTPLATE = createItem("captain_rs_chestplate", new ArmorItem(CAPTAIN_RS, ArmorItem.ArmorSlot.CHESTPLATE, new QuiltItemSettings().maxCount(1)), ItemGroups.COMBAT, ModItemGroups.STARR_ARMOR);
     public static final Item CAPTAIN_RS_LEGGINGS = createItem("captain_rs_leggings", new ArmorItem(CAPTAIN_RS, ArmorItem.ArmorSlot.LEGGINGS, new QuiltItemSettings().maxCount(1)), ItemGroups.COMBAT, ModItemGroups.STARR_ARMOR);

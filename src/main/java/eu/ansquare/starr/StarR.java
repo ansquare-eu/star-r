@@ -4,10 +4,7 @@ import eu.ansquare.starr.blocks.ModBlocks;
 import eu.ansquare.starr.entity.ModEntities;
 import eu.ansquare.starr.items.ModItemGroups;
 import eu.ansquare.starr.items.ModItems;
-import eu.ansquare.starr.network.ModPackets;
-import eu.ansquare.starr.power.Powers;
-import eu.ansquare.starr.screenhandler.ModScreenHandlers;
-import eu.ansquare.starr.superdude.SuperDudes;
+import net.minecraft.util.Identifier;
 import org.quiltmc.loader.api.ModContainer;
 import org.quiltmc.qsl.base.api.entrypoint.ModInitializer;
 import org.slf4j.Logger;
@@ -19,19 +16,18 @@ public class StarR implements ModInitializer {
 	// That way, it's clear which mod wrote info, warnings, and errors.
 	public static final Logger LOGGER = LoggerFactory.getLogger("Star R");
 	public static final String MODID = "starr";
+	public static Identifier id(String path){
+		return new Identifier(MODID, path);
+	}
 
 	@Override
 	public void onInitialize(ModContainer mod) {
 		LOGGER.info("Hello Quilt world from {}!", mod.metadata().name());
 		ModCommands.init();
 		ModItemGroups.init();
-		SuperDudes.init();
 		ModBlocks.init();
 		ModItems.init();
 		ModEntities.init();
-		ModPackets.initC2S();
-		ModScreenHandlers.init();
-		Powers.init();
 		LOGGER.info("{} succesfully intialized!", mod.metadata().name());
 	}
 
