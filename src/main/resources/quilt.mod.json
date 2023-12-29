@@ -20,8 +20,14 @@
 		},
 		"intermediate_mappings": "net.fabricmc:intermediary",
 		"entrypoints": {
-			"init": "eu.ansquare.starr.StarR",
-			"client_init": "eu.ansquare.starr.client.StarRClient",
+			"init": [
+				"eu.ansquare.starr.StarR",
+				"eu.ansquare.squarepowered.Squarepowered"
+			],
+			"client_init": [
+				"eu.ansquare.starr.client.StarRClient",
+				"eu.ansquare.squarepowered.client.SquarepoweredClient"
+			],
 			"cardinal-components-entity": "eu.ansquare.starr.cca.StarREntityComponents"
 		},
 		"depends": [
