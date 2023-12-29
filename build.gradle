@@ -33,6 +33,21 @@ repositories {
 			content { includeGroup "maven.modrinth" }
 		}
 		maven { url 'https://masa.dy.fi/maven' }
+		maven {
+			url = 'https://maven.cafeteria.dev'
+			content {
+				includeGroup 'net.adriantodt.fabricmc'
+			}
+		}
+		maven {
+			url "https://maven.jamieswhiteshirt.com/libs-release"
+			content {
+				includeGroup "com.jamieswhiteshirt"
+			}
+		}
+		maven {
+			url "https://maven.shedaniel.me/"
+		}
 	}
 }
 
@@ -48,6 +63,12 @@ dependencies {
 		officialMojangMappings()
 	}
 	*/
+	modImplementation ("com.github.apace100:origins-fabric:${project.origins_version}"){
+		exclude group: 'net.fabricmc', module: 'fabric-loader'
+	}
+	modImplementation ("com.github.apace100:apoli:${project.apoli_version}"){
+		exclude group: 'net.fabricmc', module: 'fabric-loader'
+	}
 	modImplementation libs.quilt.loader
 	// QSL is not a complete API; You will need Quilted Fabric API to fill in the gaps.
 	// Quilted Fabric API will automatically pull in the correct QSL version.
