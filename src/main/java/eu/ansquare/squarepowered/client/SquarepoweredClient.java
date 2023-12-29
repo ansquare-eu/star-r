@@ -20,6 +20,9 @@ public class SquarepoweredClient implements ClientModInitializer {
 	public static KeyBind powerKeybindTransform;
 	@Override
 	public void onInitializeClient(ModContainer mod) {
+		initKeyBinds();
+	}
+	private void initKeyBinds(){
 		powerKeybind3 = new KeyBind("key.origins.3_active", InputUtil.Type.KEYSYM, GLFW.GLFW_KEY_M, "category.origins");
 		powerKeybind4 = new KeyBind("key.origins.4_active", InputUtil.Type.KEYSYM, GLFW.GLFW_KEY_N, "category.origins");
 		powerKeybind5 = new KeyBind("key.origins.5_active", InputUtil.Type.KEYSYM, GLFW.GLFW_KEY_B, "category.origins");
@@ -47,7 +50,5 @@ public class SquarepoweredClient implements ClientModInitializer {
 		KeyBindingHelper.registerKeyBinding(powerKeybind9);
 		KeyBindingHelper.registerKeyBinding(powerKeybind10);
 		KeyBindingHelper.registerKeyBinding(powerKeybindTransform);
-
-
 	}
 }
