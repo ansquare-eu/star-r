@@ -3,7 +3,8 @@
     "starr:shieldboy/summon_turtle",
     "starr:shieldboy/summon_baby_turtle",
     "starr:shieldboy/turtle_helmet",
-    "starr:shieldboy/fieldwalk"
+    "starr:shieldboy/fieldwalk",
+    "starr:shieldboy/get_forcesword"
   ],
   "icon":"minecraft:scute",
   "impact":3
