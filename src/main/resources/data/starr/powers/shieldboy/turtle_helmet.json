@@ -1,0 +1,21 @@
+{
+  "type": "origins:active_self",
+  "entity_action": {
+    "type": "origins:spawn_entity",
+    "entity_type": "minecraft:turtle",
+    "bientity_action": {
+      "type": "origins:invert",
+      "action": {
+        "type": "origins:mount"
+      }
+    }
+  },
+  "key": {
+    "key": "key.origins.5_active",
+    "continuous": false
+  },
+  "cooldown": 20,
+  "hud_render": {
+    "should_render": true
+  }
+}

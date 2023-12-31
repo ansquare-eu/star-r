@@ -3,6 +3,7 @@
   "order": 10,
   "enabled": true,
   "origins": [
-    "origins:human"
+    "origins:human",
+    "starr:shieldboy"
   ]
 }

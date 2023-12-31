@@ -1,0 +1,9 @@
+{
+  "powers":[
+    "starr:shieldboy/summon_turtle",
+    "starr:shieldboy/summon_baby_turtle",
+    "starr:shieldboy/turtle_helmet"
+  ],
+  "icon":"minecraft:scute",
+  "impact":3
+}

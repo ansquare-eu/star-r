@@ -1,0 +1,13 @@
+{
+  "type": "origins:fire_projectile",
+  "entity_type": "minecraft:turtle",
+  "cooldown": 2,
+  "hud_render": {
+    "should_render": true
+  },
+  "tag": "{Age:-12000}",
+  "key": {
+    "key": "key.origins.4_active",
+    "continuous": false
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "type": "origins:fire_projectile",
+  "entity_type": "minecraft:turtle",
+  "cooldown": 2,
+  "hud_render": {
+    "should_render": true
+  },
+  "key": {
+    "key": "key.origins.3_active",
+    "continuous": false
+  }
+}
