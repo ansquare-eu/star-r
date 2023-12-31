@@ -1,5 +1,7 @@
 package eu.ansquare.squarepowered;
 
+import eu.ansquare.squarepowered.action.entity.SquareEntityActions;
+import eu.ansquare.squarepowered.power.SquarePowers;
 import eu.ansquare.starr.StarR;
 import net.minecraft.util.Identifier;
 import org.quiltmc.loader.api.ModContainer;
@@ -13,9 +15,23 @@ public class Squarepowered implements ModInitializer {
 	public static Identifier id(String path){
 		return StarR.id(path);
 	}
+	public static void log(String string, int severity, Object... objects){
+		switch (severity){
+			case 1:
+				LOGGER.warn(string, objects);
+				break;
+			case 2:
+				LOGGER.error(string, objects);
+				break;
+			default:
+				LOGGER.info(string, objects);
+		}
+	}
 	@Override
 	public void onInitialize(ModContainer mod) {
 		LOGGER.info("Hello Quilt world from Squarepowered lib!");
+		SquarePowers.init();
+		SquareEntityActions.init();
 		LOGGER.info("Squarepowered lib successfully initialized!");
 	}
 }
