@@ -71,4 +71,5 @@ public class AirwalkEntityAction {
 						.add("delay", SerializableDataTypes.INT),
 				AirwalkEntityAction	::action
 		);
-	}}
+	}
+}
