@@ -4,9 +4,8 @@ import eu.ansquare.starr.StarR;
 import eu.ansquare.starr.client.wearables.model.hare.HareOneModel;
 import eu.ansquare.starr.client.wearables.model.hare.HareTwoModel;
 import eu.ansquare.starr.items.material.CaptainrsMaterial;
-import eu.ansquare.starr.items.material.ForcefieldMaterial;
+import eu.ansquare.starr.items.material.MegaSword;
 import eu.ansquare.starr.items.wearable.*;
-import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.model.Model;
@@ -14,15 +13,11 @@ import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
-import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
-import org.jetbrains.annotations.Nullable;
-import org.quiltmc.qsl.item.setting.api.QuiltCustomItemSettings;
 import org.quiltmc.qsl.item.setting.api.QuiltItemSettings;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
-import java.util.function.Supplier;
 
 public class ModItems {
 	private static final Map<Item, Identifier> ITEMS = new LinkedHashMap<>();
@@ -65,9 +60,9 @@ public class ModItems {
 		}
 	}, true), ItemGroups.COMBAT, ModItemGroups.STARR_ITEMS);
     public static final Item PALICA = createItem("palica", new PalicaItem(new QuiltItemSettings()), ItemGroups.COMBAT, ModItemGroups.STARR_WEAPONS);
-	public static final ForcefieldMaterial FORCEFIELD_MATERIAL = new ForcefieldMaterial();
-	public static final Item FORCESWORD = createItem("forcesword", new SwordItem(FORCEFIELD_MATERIAL, 20, 1, new QuiltItemSettings().maxCount(1)), ModItemGroups.STARR_WEAPONS);
+	public static final MegaSword MEGASWORD_MATERIALS = new MegaSword();
+	public static final Item FORCESWORD = createItem("forcesword", new SwordItem(MEGASWORD_MATERIALS, 20, 1, new QuiltItemSettings().maxCount(1)), ModItemGroups.STARR_WEAPONS);
 	public static final Item BOYSHIELD = createItem("boyshield", new BoyshieldItem(new QuiltItemSettings().maxCount(1)), ModItemGroups.STARR_WEAPONS);
-
+	public static final Item MEGASWORD = createItem("megasword", new SwordItem(MEGASWORD_MATERIALS, 20, 1, new QuiltItemSettings().maxCount(1)), ModItemGroups.STARR_WEAPONS);
 
 }

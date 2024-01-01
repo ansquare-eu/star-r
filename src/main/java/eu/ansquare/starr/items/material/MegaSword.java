@@ -1,10 +1,11 @@
 package eu.ansquare.starr.items.material;
 
-import net.minecraft.item.ToolItem;
+import net.minecraft.client.color.item.ItemColorProvider;
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.recipe.Ingredient;
 
-public class ForcefieldMaterial implements ToolMaterial {
+public class MegaSword implements ToolMaterial, ItemColorProvider {
 	@Override
 	public int getDurability() {
 		return 1;
@@ -33,5 +34,10 @@ public class ForcefieldMaterial implements ToolMaterial {
 	@Override
 	public Ingredient getRepairIngredient() {
 		return Ingredient.EMPTY;
+	}
+
+	@Override
+	public int getColor(ItemStack itemStack, int i) {
+		return itemStack.getOrCreateNbt().getInt("color");
 	}
 }

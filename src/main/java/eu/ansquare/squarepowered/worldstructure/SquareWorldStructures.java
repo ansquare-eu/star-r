@@ -1,6 +1,6 @@
 package eu.ansquare.squarepowered.worldstructure;
 
-import eu.ansquare.SquareRegistries;
+import eu.ansquare.squarepowered.SquareRegistries;
 import eu.ansquare.squarepowered.Squarepowered;
 import net.minecraft.registry.Registry;
 

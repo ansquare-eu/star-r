@@ -1,10 +1,11 @@
 {
-  "powers":[
+  "powers": [
+    "starr:shieldboy/forcefield",
+    "starr:shieldboy/get_forcesword",
     "starr:shieldboy/summon_turtle",
     "starr:shieldboy/summon_baby_turtle",
     "starr:shieldboy/turtle_helmet",
-    "starr:shieldboy/fieldwalk",
-    "starr:shieldboy/get_forcesword"
+    "starr:shieldboy/fieldwalk"
   ],
   "icon":"minecraft:scute",
   "impact":3
