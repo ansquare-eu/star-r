@@ -1,6 +1,7 @@
 package eu.ansquare.squarepowered;
 
-import eu.ansquare.squarepowered.action.entity.SquareEntityActions;
+import eu.ansquare.squarepowered.action.SquareActions;
+import eu.ansquare.squarepowered.action.SquareActions;
 import eu.ansquare.squarepowered.client.SquarepoweredClient;
 import eu.ansquare.squarepowered.power.SquarePowers;
 import eu.ansquare.squarepowered.worldstructure.SquareWorldStructures;
@@ -33,7 +34,7 @@ public class Squarepowered implements ModInitializer {
 	public void onInitialize(ModContainer mod) {
 		LOGGER.info("Hello Quilt world from Squarepowered lib!");
 		SquarePowers.init();
-		SquareEntityActions.init();
+		SquareActions.init();
 		SquareWorldStructures.init();
 		LOGGER.info("Squarepowered lib successfully initialized!");
 	}
