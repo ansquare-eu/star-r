@@ -1,7 +1,9 @@
 package eu.ansquare.squarepowered;
 
 import eu.ansquare.squarepowered.action.entity.SquareEntityActions;
+import eu.ansquare.squarepowered.client.SquarepoweredClient;
 import eu.ansquare.squarepowered.power.SquarePowers;
+import eu.ansquare.squarepowered.worldstructure.SquareWorldStructures;
 import eu.ansquare.starr.StarR;
 import net.minecraft.util.Identifier;
 import org.quiltmc.loader.api.ModContainer;
@@ -32,6 +34,7 @@ public class Squarepowered implements ModInitializer {
 		LOGGER.info("Hello Quilt world from Squarepowered lib!");
 		SquarePowers.init();
 		SquareEntityActions.init();
+		SquareWorldStructures.init();
 		LOGGER.info("Squarepowered lib successfully initialized!");
 	}
 }

@@ -1,33 +1,42 @@
 {
-"item.starr.captain_rs_helmet" : "Mask"
-,"item.starr.captain_rs_chestplate" : "Captain Rs shirt"
-,"item.starr.captain_rs_leggings" : "Captain Rs pants"
-,"item.starr.captain_rs_boots" : "Captain Rs shoes"
-,"item.starr.cape" : "cape"
-,"item.starr.hare" : "hare",
-  "item.starr.hare.tooltip.true" : "Shift + Right click to disable",
-  "item.starr.hare.tooltip.false" : "Shift + Right click to enable"
-,
-  "item.starr.cape.tooltip.true" : "Shift + Right click to select ReadyRoad's cape design",
-  "item.starr.cape.tooltip.false" : "Shift + Right click to select Sasa's cape design",
-  "item.starr.palica" : "palica"
-,"block.starr.forcefield" : "Forcefield",
-  "death.attack.laser" : "%1$s was lasered!",
-  "death.attack.laser.player" : "%1$s was fried by %2$s's laser!",
-  "message.starr.signeditem" : "This %1$s is not yours!",
-  "message.starr.signeditem.owner" : "This %1$s is owned by %2$s!",
-  "block.starr.tv" : "Tv",
-  "item.starr.forcesword": "Forcefield sword",
+  "BLOCKS": "BLOCKS",
+  "block.starr.forcefield": "Forcefield",
+  "block.starr.kufor": "Randomizer briefcase",
+  "block.starr.spatial_anchor": "Spatial anchor",
+  "block.starr.tv": "Tv",
+  "block.starr.world_anchor": "World anchor",
+
+  "DEATH MESSAGES": "DEATH MESSAGES",
+  "death.attack.laser": "%1$s was lasered!",
+  "death.attack.laser.player": "%1$s was fried by %2$s's laser!",
+
+  "ITEMS": "ITEMS",
   "item.starr.boyshield": "Shieldboy's shield",
-  "block.starr.kufor" : "Randomizer briefcase",
-  "block.starr.world_anchor" : "World anchor",
-  "block.starr.spatial_anchor" : "Spatial anchor",
-  "itemgroup.starr.blocks" : "Star R blocks",
-  "itemgroup.starr.items" : "Star R items",
-  "itemgroup.starr.weapons" : "Star R weapons",
-  "itemgroup.starr.armor" : "Star R armor",
-  "message.starr.anchored.destination": "The destination is affected by a spatial anchor!",
-  "message.starr.anchored.origin": "You are affected by a spatial anchor!",
+  "item.starr.cape": "cape",
+  "item.starr.captain_rs_boots": "Captain Rs shoes",
+  "item.starr.captain_rs_chestplate": "Captain Rs shirt",
+  "item.starr.captain_rs_helmet": "Mask",
+  "item.starr.captain_rs_leggings": "Captain Rs pants",
+  "item.starr.forcesword": "Forcefield sword",
+  "item.starr.megasword": "Megasword",
+  "item.starr.hare": "hare",
+  "item.starr.palica": "palica",
+
+  "WEARABLE TOOLTIPS": "WEARABLE TOOLTIPS",
+  "item.starr.hare.tooltip.false": "Shift + Right click to enable",
+  "item.starr.hare.tooltip.true": "Shift + Right click to disable",
+  "item.starr.cape.tooltip.false": "Shift + Right click to select Sasa's cape design",
+  "item.starr.cape.tooltip.true": "Shift + Right click to select ReadyRoad's cape design",
+
+  "ITEM GROUPS": "ITEM GROUPS",
+  "itemgroup.starr.armor": "Star R armor",
+  "itemgroup.starr.blocks": "Star R blocks",
+  "itemgroup.starr.items": "Star R items",
+  "itemgroup.starr.weapons": "Star R weapons",
+
+  "KEYS": "KEYS",
+  "key.origins.10_active": "Active Power (10)",
+  "key.origins.11_active": "Active Power (Transformation)",
   "key.origins.3_active": "Active Power (3)",
   "key.origins.4_active": "Active Power (4)",
   "key.origins.5_active": "Active Power (5)",
@@ -35,7 +44,27 @@
   "key.origins.7_active": "Active Power (7)",
   "key.origins.8_active": "Active Power (8)",
   "key.origins.9_active": "Active Power (9)",
-  "key.origins.10_active": "Active Power (10)",
-  "key.origins.11_active": "Active Power (Transformation)"
+  "message.starr.anchored.destination": "The destination is affected by a spatial anchor!",
+  "message.starr.anchored.origin": "You are affected by a spatial anchor!",
+  "message.starr.signeditem": "This %1$s is not yours!",
+  "message.starr.signeditem.owner": "This %1$s is owned by %2$s!",
 
+  "ORIGINS": "ORIGINS",
+  "origin.starr.shieldboy.description": "Shieldboy is a superhero with forcefield based powers. Designed by ReadyRoad",
+  "origin.starr.shieldboy.name": "Shieldboy",
+  "layer.starr.superdude.name": "Superdude",
+
+  "POWERS": "POWERS",
+  "power.starr.shieldboy/forcefield.description": "A green forcefield to protect you from enemies",
+  "power.starr.shieldboy/forcefield.name": "Forcefield",
+  "power.starr.shieldboy/get_forcesword.description": "A powerful sword at your disposal",
+  "power.starr.shieldboy/get_forcesword.name": "Swordmaking",
+  "power.starr.shieldboy/summon_turtle.description": "Create a big turtle to assist you in your ventures",
+  "power.starr.shieldboy/summon_turtle.name": "Turtle summon",
+  "power.starr.shieldboy/summon_baby_turtle.description": "Create a little turtle to assist you in your ventures",
+  "power.starr.shieldboy/summon_baby_turtle.name": "Hatchling summon",
+  "power.starr.shieldboy/turtle_helmet.description": "Put a turtle on your head. The practic use of this is left as an excercise for the reader",
+  "power.starr.shieldboy/turtle_helmet.name": "Turtle helmet",
+  "power.starr.shieldboy/fieldwalk.description": "Walk on a forcefield through air",
+  "power.starr.shieldboy/fieldwalk.name": "Forcefield airwalk"
 }

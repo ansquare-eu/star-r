@@ -18,6 +18,7 @@ import eu.ansquare.starr.entity.render.CapeEntityRenderer;
 import eu.ansquare.starr.entity.render.LaserEntityRenderer;
 import eu.ansquare.starr.entity.render.PalicaEntityRenderer;
 import eu.ansquare.starr.items.GetItemTypes;
+import eu.ansquare.starr.items.ModItems;
 import eu.ansquare.starr.util.network.ClientPlayerHolder;
 import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
@@ -66,6 +67,7 @@ public class StarRClient implements ClientModInitializer {
 		TrinketRenderers.registerTwoStateRenderers(GetItemTypes.getTwoStateWearables());
 		BlockRenderLayerMap.put(RenderLayer.getTranslucent(), ModBlocks.FORCEFIELD);
 		ColorProviderRegistry.BLOCK.register(ModBlocks.FORCEFIELD, ModBlocks.FORCEFIELD);
+		ColorProviderRegistry.ITEM.register(ModItems.MEGASWORD_MATERIALS, ModItems.MEGASWORD);
 
 	}
 }

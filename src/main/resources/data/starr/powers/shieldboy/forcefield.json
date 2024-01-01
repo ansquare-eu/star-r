@@ -1,0 +1,18 @@
+{
+  "type": "starr:on_and_off",
+  "key": {
+    "key": "key.origins.primary_active",
+    "continuous": false
+  },
+  "on_action": {
+    "type": "starr:create_world_structure",
+    "world_structure": "starr:hollow_cube",
+    "diameter": 8,
+    "blocks": [
+      "starr:forcefield"
+    ]
+  },
+  "off_action": {
+    "type": "starr:delete_world_structure"
+  }
+}

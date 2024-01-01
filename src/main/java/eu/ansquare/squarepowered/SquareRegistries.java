@@ -1,4 +1,4 @@
-package eu.ansquare;
+package eu.ansquare.squarepowered;
 
 import eu.ansquare.squarepowered.Squarepowered;
 import eu.ansquare.squarepowered.worldstructure.WorldStructureFactory;
