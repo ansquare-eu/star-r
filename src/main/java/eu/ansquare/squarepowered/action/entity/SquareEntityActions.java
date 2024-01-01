@@ -14,6 +14,8 @@ public class SquareEntityActions {
 		register(AirwalkEntityAction.getFactory());
 		register(new ActionFactory<>(Squarepowered.id("airwalk_stop"), new SerializableData(),
 				AirwalkEntityAction::delete));
+		register(WorldStructureAction.getCreateFactory());
+		register(WorldStructureAction.getDeleteFactory());
 	}
 	private static void register(ActionFactory<Entity> actionFactory) {
 		Registry.register(ApoliRegistries.ENTITY_ACTION, actionFactory.getSerializerId(), actionFactory);
