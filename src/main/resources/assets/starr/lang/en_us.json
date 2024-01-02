@@ -51,7 +51,7 @@
   "message.starr.anchored.origin": "You are affected by a spatial anchor!",
   "message.starr.signeditem": "This %1$s is not yours!",
   "message.starr.signeditem.owner": "This %1$s is owned by %2$s!",
-
+  "screen.starr.teleport_location.title": "Teleport to a location",
   "ORIGINS": "ORIGINS",
   "origin.starr.shieldboy.description": "Shieldboy is a superhero with forcefield based powers. Designed by ReadyRoad",
   "origin.starr.shieldboy.name": "Shieldboy",
