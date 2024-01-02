@@ -13,6 +13,10 @@ import io.github.apace100.calio.data.SerializableData;
 import net.minecraft.entity.Entity;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Pair;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Direction;
+import net.minecraft.world.World;
+import org.apache.commons.lang3.tuple.Triple;
 
 public class SquareActions {
 	public static void init(){
@@ -24,9 +28,14 @@ public class SquareActions {
 		registerEntity(TelekinesActions.getEndFactory());
 		registerEntity(TelekinesActions.getTickFactory());
 		registerBiEntity(TelekinesActions.getStartFactory());
+		registerEntity(TelekinesActions.getSetTaskFactory());
+		registerBlock(TelekinesActions.getGrabBlockFactory());
 	}
 	private static void registerEntity(ActionFactory<Entity> actionFactory) {
 		Registry.register(ApoliRegistries.ENTITY_ACTION, actionFactory.getSerializerId(), actionFactory);
+	}
+	private static void registerBlock(ActionFactory<Triple<World, BlockPos, Direction>> actionFactory) {
+		Registry.register(ApoliRegistries.BLOCK_ACTION, actionFactory.getSerializerId(), actionFactory);
 	}
 	private static void registerBiEntity(ActionFactory<Pair<Entity, Entity>> actionFactory) {
 		Registry.register(ApoliRegistries.BIENTITY_ACTION, actionFactory.getSerializerId(), actionFactory);
