@@ -2,6 +2,7 @@ package eu.ansquare.squarepowered;
 
 import eu.ansquare.squarepowered.action.SquareActions;
 import eu.ansquare.squarepowered.action.SquareActions;
+import eu.ansquare.squarepowered.actionscreen.SquareActionScreens;
 import eu.ansquare.squarepowered.client.SquarepoweredClient;
 import eu.ansquare.squarepowered.power.SquarePowers;
 import eu.ansquare.squarepowered.worldstructure.SquareWorldStructures;
@@ -36,6 +37,7 @@ public class Squarepowered implements ModInitializer {
 		SquarePowers.init();
 		SquareActions.init();
 		SquareWorldStructures.init();
+		SquareActionScreens.init();
 		LOGGER.info("Squarepowered lib successfully initialized!");
 	}
 }

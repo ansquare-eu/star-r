@@ -1,6 +1,7 @@
 {
   "powers": [
-    "starr:telekinesis"
+    "starr:telekinesis",
+    "starr:teleportation_location"
   ],
   "icon":"starr:tv",
   "impact":3
