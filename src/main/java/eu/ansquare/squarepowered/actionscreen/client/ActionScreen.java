@@ -22,7 +22,9 @@ public abstract class ActionScreen<T extends ActionScreenHandler> extends Handle
 	private List<Drawable> drawables = new LinkedList<>();
 	private List<TextFieldWidget> textFields = new LinkedList<>();
 	private int x, y;
-
+	protected void drawForeground(GuiGraphics graphics, int mouseX, int mouseY) {
+		graphics.drawText(this.textRenderer, this.title, this.titleX, this.titleY, 4210752, false);
+	}
 	public ActionScreen(T handler, PlayerInventory inventory, Text title, Identifier texture, int width, int height) {
 		super(handler, inventory, title);
 		this.texture = texture;
