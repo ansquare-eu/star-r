@@ -1,13 +1,11 @@
 package eu.ansquare.squarepowered.action;
 
 import eu.ansquare.squarepowered.Squarepowered;
-import eu.ansquare.squarepowered.action.bientity.TelekinesActions;
+import eu.ansquare.squarepowered.TelekinesActions;
 import eu.ansquare.squarepowered.action.entity.AirwalkEntityAction;
+import eu.ansquare.squarepowered.action.entity.OpenActionScreenAction;
 import eu.ansquare.squarepowered.action.entity.WorldStructureAction;
-import io.github.apace100.apoli.Apoli;
 import io.github.apace100.apoli.power.factory.action.ActionFactory;
-import io.github.apace100.apoli.power.factory.action.BiEntityActions;
-import io.github.apace100.apoli.power.factory.action.EntityActions;
 import io.github.apace100.apoli.registry.ApoliRegistries;
 import io.github.apace100.calio.data.SerializableData;
 import net.minecraft.entity.Entity;
@@ -31,6 +29,7 @@ public class SquareActions {
 		registerEntity(TelekinesActions.getSetTaskFactory());
 		registerBlock(TelekinesActions.getGrabBlockFactory());
 		registerEntity(TelekinesActions.getIncrementFactory());
+		registerEntity(OpenActionScreenAction.getOpenActionScreenFactory());
 	}
 	private static void registerEntity(ActionFactory<Entity> actionFactory) {
 		Registry.register(ApoliRegistries.ENTITY_ACTION, actionFactory.getSerializerId(), actionFactory);

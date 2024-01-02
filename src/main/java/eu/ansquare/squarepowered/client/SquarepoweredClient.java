@@ -1,8 +1,12 @@
 package eu.ansquare.squarepowered.client;
 
 import com.mojang.blaze3d.platform.InputUtil;
+import eu.ansquare.squarepowered.actionscreen.SquareActionScreens;
+import eu.ansquare.squarepowered.actionscreen.client.LocationTeleportScreen;
 import io.github.apace100.apoli.ApoliClient;
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
+import net.minecraft.client.gui.screen.ingame.HandledScreen;
+import net.minecraft.client.gui.screen.ingame.HandledScreens;
 import net.minecraft.client.option.KeyBind;
 import org.lwjgl.glfw.GLFW;
 import org.quiltmc.loader.api.ModContainer;
@@ -24,6 +28,8 @@ public class SquarepoweredClient implements ClientModInitializer {
 	@Override
 	public void onInitializeClient(ModContainer mod) {
 		initKeyBinds();
+		HandledScreens.register(SquareActionScreens.TELEPORT_SCREEN, LocationTeleportScreen);
+
 	}
 	private void initKeyBinds(){
 		powerKeybind3 = new KeyBind("key.origins.3_active", InputUtil.Type.KEYSYM, GLFW.GLFW_KEY_M, "category.origins");
