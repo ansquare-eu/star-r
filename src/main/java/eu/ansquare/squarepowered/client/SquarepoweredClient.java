@@ -28,7 +28,7 @@ public class SquarepoweredClient implements ClientModInitializer {
 	@Override
 	public void onInitializeClient(ModContainer mod) {
 		initKeyBinds();
-		HandledScreens.register(SquareActionScreens.TELEPORT_SCREEN, LocationTeleportScreen);
+		HandledScreens.register(SquareActionScreens.TELEPORT_SCREEN, LocationTeleportScreen::new);
 
 	}
 	private void initKeyBinds(){

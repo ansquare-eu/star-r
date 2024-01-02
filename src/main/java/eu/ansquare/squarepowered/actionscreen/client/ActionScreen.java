@@ -9,19 +9,21 @@ import net.minecraft.client.gui.screen.ingame.HandledScreen;
 import net.minecraft.client.gui.widget.ButtonWidget;
 import net.minecraft.client.gui.widget.TextFieldWidget;
 import net.minecraft.entity.player.PlayerInventory;
+import net.minecraft.screen.AbstractFurnaceScreenHandler;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
+import java.util.LinkedList;
 import java.util.List;
 
-public abstract class ActionScreen<T extends ActionScreenHandler> extends HandledScreen {
+public abstract class ActionScreen<T extends ActionScreenHandler> extends HandledScreen<T> {
 	private final Identifier texture;
-	private List<Drawable> drawables;
-	private List<TextFieldWidget> textFields;
+	private List<Drawable> drawables = new LinkedList<>();
+	private List<TextFieldWidget> textFields = new LinkedList<>();
 	private int x, y;
 
-	public ActionScreen(ScreenHandler handler, PlayerInventory inventory, Text title, Identifier texture, int width, int height) {
+	public ActionScreen(T handler, PlayerInventory inventory, Text title, Identifier texture, int width, int height) {
 		super(handler, inventory, title);
 		this.texture = texture;
 		this.width = width;
