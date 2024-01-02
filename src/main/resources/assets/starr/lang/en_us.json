@@ -55,6 +55,8 @@
   "ORIGINS": "ORIGINS",
   "origin.starr.shieldboy.description": "Shieldboy is a superhero with forcefield based powers. Designed by ReadyRoad",
   "origin.starr.shieldboy.name": "Shieldboy",
+  "origin.starr.teleman.name": "Teleman",
+  "origin.starr.teleman.description": "Teleman is a superhero with the powers starting with Tele-. Designed by ReadyRoad",
   "layer.starr.superdude.name": "Superdude",
 
   "POWERS": "POWERS",
@@ -69,5 +71,7 @@
   "power.starr.shieldboy/turtle_helmet.description": "Put a turtle on your head. The practic use of this is left as an excercise for the reader",
   "power.starr.shieldboy/turtle_helmet.name": "Turtle helmet",
   "power.starr.shieldboy/fieldwalk.description": "Walk on a forcefield through air",
-  "power.starr.shieldboy/fieldwalk.name": "Forcefield airwalk"
+  "power.starr.shieldboy/fieldwalk.name": "Forcefield airwalk",
+  "power.starr.telekinesis.description": "Manipulate blocks and entities from a distance. Use the = key to bring the entity closer and - to bring it farther",
+  "power.starr.telekinesis.name": "Telekinesis"
 }
