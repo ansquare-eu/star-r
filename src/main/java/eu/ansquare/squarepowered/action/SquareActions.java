@@ -30,6 +30,7 @@ public class SquareActions {
 		registerBiEntity(TelekinesActions.getStartFactory());
 		registerEntity(TelekinesActions.getSetTaskFactory());
 		registerBlock(TelekinesActions.getGrabBlockFactory());
+		registerEntity(TelekinesActions.getIncrementFactory());
 	}
 	private static void registerEntity(ActionFactory<Entity> actionFactory) {
 		Registry.register(ApoliRegistries.ENTITY_ACTION, actionFactory.getSerializerId(), actionFactory);
