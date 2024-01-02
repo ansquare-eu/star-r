@@ -11,7 +11,8 @@
     "type": "origins:action_over_time",
     "interval": 1,
     "entity_action": {
-      "type": "starr:telekinesis_tick"
+      "type": "starr:telekinesis_tick",
+      "default_distance": 5
     },
     "falling_action": {
       "type": "starr:telekinesis_end"
@@ -36,6 +37,38 @@
     "condition": {
       "type": "origins:power_active",
       "power": "*:*_toggle"
+    }
+  },
+  "increment":{
+    "type": "origins:active_self",
+    "entity_action": {
+      "type": "starr:telekinesis_increment",
+      "increment": true,
+      "amount": 1
+    },
+    "condition": {
+      "type": "origins:power_active",
+      "power": "*:*_toggle"
+    },
+    "key": {
+      "key": "key.origins.increment",
+      "continuous": true
+    }
+  },
+  "decrement":{
+    "type": "origins:active_self",
+    "entity_action": {
+      "type": "starr:telekinesis_increment",
+      "increment": false,
+      "amount": 1
+    },
+    "condition": {
+      "type": "origins:power_active",
+      "power": "*:*_toggle"
+    },
+    "key": {
+      "key": "key.origins.decrement",
+      "continuous": true
     }
   }
 }

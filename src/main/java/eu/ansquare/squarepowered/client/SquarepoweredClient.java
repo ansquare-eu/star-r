@@ -18,6 +18,9 @@ public class SquarepoweredClient implements ClientModInitializer {
 	public static KeyBind powerKeybind9;
 	public static KeyBind powerKeybind10;
 	public static KeyBind powerKeybindTransform;
+
+	public static KeyBind incrementKey;
+	public static KeyBind decrementKey;
 	@Override
 	public void onInitializeClient(ModContainer mod) {
 		initKeyBinds();
@@ -32,6 +35,8 @@ public class SquarepoweredClient implements ClientModInitializer {
 		powerKeybind9 = new KeyBind("key.origins.9_active", InputUtil.Type.KEYSYM, GLFW.GLFW_KEY_V, "category.origins");
 		powerKeybind10 = new KeyBind("key.origins.10_active", InputUtil.Type.KEYSYM, GLFW.GLFW_KEY_Z, "category.origins");
 		powerKeybindTransform = new KeyBind("key.origins.11_active", InputUtil.Type.KEYSYM, GLFW.GLFW_KEY_MINUS, "category.origins");
+		incrementKey = new KeyBind("key.origins.increment", InputUtil.Type.KEYSYM, GLFW.GLFW_KEY_EQUAL, "category.origins");
+		decrementKey = new KeyBind("key.origins.decrement", InputUtil.Type.KEYSYM, GLFW.GLFW_KEY_MINUS, "category.origins");
 		ApoliClient.registerPowerKeybinding("key.origins.3_active", powerKeybind3);
 		ApoliClient.registerPowerKeybinding("key.origins.4_active", powerKeybind4);
 		ApoliClient.registerPowerKeybinding("key.origins.5_active", powerKeybind5);
@@ -41,6 +46,8 @@ public class SquarepoweredClient implements ClientModInitializer {
 		ApoliClient.registerPowerKeybinding("key.origins.9_active", powerKeybind9);
 		ApoliClient.registerPowerKeybinding("key.origins.10_active", powerKeybind10);
 		ApoliClient.registerPowerKeybinding("key.origins.11_active", powerKeybindTransform);
+		ApoliClient.registerPowerKeybinding("key.origins.increment", incrementKey);
+		ApoliClient.registerPowerKeybinding("key.origins.decrement", decrementKey);
 		KeyBindingHelper.registerKeyBinding(powerKeybind3);
 		KeyBindingHelper.registerKeyBinding(powerKeybind4);
 		KeyBindingHelper.registerKeyBinding(powerKeybind5);
@@ -50,5 +57,7 @@ public class SquarepoweredClient implements ClientModInitializer {
 		KeyBindingHelper.registerKeyBinding(powerKeybind9);
 		KeyBindingHelper.registerKeyBinding(powerKeybind10);
 		KeyBindingHelper.registerKeyBinding(powerKeybindTransform);
+		KeyBindingHelper.registerKeyBinding(incrementKey);
+		KeyBindingHelper.registerKeyBinding(decrementKey);
 	}
 }

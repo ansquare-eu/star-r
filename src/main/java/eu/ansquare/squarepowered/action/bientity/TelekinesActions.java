@@ -23,6 +23,7 @@ import java.util.UUID;
 
 public class TelekinesActions {
 	public static Map<UUID, Entity> entities = new HashMap<>();
+	public static Map<UUID, Integer> distances = new HashMap<>();
 	public static UUID nextTaskedEntity = null;
 	public static void startAction(SerializableData.Instance data, Pair<Entity, Entity> entity) {
 		if (entity.getLeft() instanceof ServerPlayerEntity && !entities.containsValue(entity.getRight())) {
@@ -53,17 +54,36 @@ public class TelekinesActions {
 		}
 	}
 	public static void tickAction(SerializableData.Instance data, Entity entity) {
+		if(!distances.containsKey(entity.getUuid())){
+			distances.put(entity.getUuid(), data.getInt("default_distance"));
+		}
 		if(entities.containsKey(entity.getUuid())){
 			Entity entity1 = entities.get(entity.getUuid());
-			Vec3d playerDir = entity.getRotationVec(1f).normalize().multiply(5);
+			Vec3d playerDir = entity.getRotationVec(1f).normalize().multiply(distances.get(entity.getUuid()));
 			Vec3d dest = entity.getEyePos().add(playerDir);
 			entity1.teleport(dest.x, dest.y, dest.z);
 		}
+	}
+	public static void incrementAction(SerializableData.Instance data, Entity entity) {
+		if(entity instanceof ServerPlayerEntity){
+		if(data.getBoolean("increment")){
+			distances.put(entity.getUuid(), distances.get(entity.getUuid()) + data.getInt("amount"));
+		} else {
+			distances.put(entity.getUuid(), distances.get(entity.getUuid()) - data.getInt("amount"));
+		}}
 	}
 	public static ActionFactory<Entity> getSetTaskFactory() {
 		return new ActionFactory<>(Squarepowered.id("telekinesis_task"),
 				new SerializableData(),
 				TelekinesActions::setTaskAction
+		);
+	}
+	public static ActionFactory<Entity> getIncrementFactory() {
+		return new ActionFactory<>(Squarepowered.id("telekinesis_increment"),
+				new SerializableData()
+						.add("increment", SerializableDataTypes.BOOLEAN)
+						.add("amount", SerializableDataTypes.INT),
+				TelekinesActions::incrementAction
 		);
 	}
 	public static ActionFactory<Triple<World, BlockPos, Direction>> getGrabBlockFactory() {
@@ -86,7 +106,8 @@ public class TelekinesActions {
 	}
 	public static ActionFactory<Entity> getTickFactory() {
 		return new ActionFactory<>(Squarepowered.id("telekinesis_tick"),
-				new SerializableData(),
+				new SerializableData()
+						.add("default_distance", SerializableDataTypes.INT, 5),
 				TelekinesActions::tickAction
 		);
 	}
