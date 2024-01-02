@@ -12,6 +12,6 @@ public class LocationTeleportActionScreenHandler extends ActionScreenHandler{
 
 	@Override
 	public boolean canUse(PlayerEntity player) {
-		return false;
+		return true;
 	}
 }

@@ -8,7 +8,7 @@ import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
 public class LocationTeleportScreen extends ActionScreen<LocationTeleportActionScreenHandler> {
-	public LocationTeleportScreen(ScreenHandler handler, PlayerInventory inventory, Text title) {
+	public LocationTeleportScreen(LocationTeleportActionScreenHandler handler, PlayerInventory inventory, Text title) {
 		super(handler, inventory, title, Squarepowered.id("textures/screen/teleportscreen.png"), 176, 166);
 	}
 
