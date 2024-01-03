@@ -1,5 +1,7 @@
 1 character
-6 powers
+
+9 powers
+
 and counting
 
 The new age is incoming
