@@ -22,6 +22,8 @@ public abstract class ActionScreen<T extends ActionScreenHandler> extends Handle
 	private List<Drawable> drawables = new LinkedList<>();
 	private List<TextFieldWidget> textFields = new LinkedList<>();
 	private int x, y;
+	public String screenKey;
+
 	protected void drawForeground(GuiGraphics graphics, int mouseX, int mouseY) {
 		graphics.drawText(this.textRenderer, this.title, this.titleX, this.titleY, 4210752, false);
 	}
@@ -37,18 +39,28 @@ public abstract class ActionScreen<T extends ActionScreenHandler> extends Handle
 		this.x = (this.width / 2 - this.backgroundWidth / 2);
 		this.y = (this.height / 2 - this.backgroundHeight / 2);
 	}
-	public void addTextField(int x, int y, int i, int j, String translateKey, int maxlenght){
-		TextFieldWidget box = new TextFieldWidget(this.textRenderer, x, y, i, j, Text.translatable("screen.starr." + translateKey));
+	public TextFieldWidget addTextField(int x, int y, int i, int j, String translateKey, int maxlenght){
+		int finalX = x;
+		int finalY = y;
+		if(x == -200) finalX = this.backgroundWidth / 2 - i/2;
+		if(y == -200) finalY = this.backgroundHeight / 2 - j / 2;
+		TextFieldWidget box = new TextFieldWidget(this.textRenderer, this.x + finalX, this.y + finalY, i, j, Text.translatable("screen.starr." + screenKey + ".textfield." + translateKey));
 		box.setMaxLength(32767);
 		this.addSelectableChild(box);
 		drawables.add(box);
 		textFields.add(box);
+		return box;
 	}
-	public void addButton(String translateKey, int actionId, int x, int y, int i, int j){
-		ButtonWidget button = ButtonWidget.builder(Text.translatable("screen.starr." + translateKey), e -> {
+	public ButtonWidget addButton(String translateKey, int actionId, int x, int y, int i, int j){
+		int finalX = x;
+		int finalY = y;
+		if(x == -200) finalX = this.backgroundWidth / 2 - i/2;
+		if(y == -200) finalY = this.backgroundHeight / 2 - j / 2;
+		ButtonWidget button = ButtonWidget.builder(Text.translatable("screen.starr." + screenKey +".button." + translateKey), e -> {
 			sendPacket(actionId);
-		}).positionAndSize(this.x + x, this.y + y, i, j).build();
+		}).positionAndSize(this.x + finalX, this.y + finalY, i, j).build();
 		this.addDrawableChild(button);
+		return button;
 	}
 	public abstract void sendPacket(int actionId);
 	@Override
