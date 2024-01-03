@@ -17,4 +17,11 @@ public class AnchorChecker {
 		}
 		return true;
 	}
+	public static boolean checkLocalSpatial(boolean sendMessages, BlockPos location, PlayerEntity player){
+		if(WorldAnchorBlock.isInVicinity(true, location, player.getWorld())){
+			player.sendMessage(Text.translatable("message.starr.anchored.local"), true);
+			return false;
+		}
+		return true;
+	}
 }

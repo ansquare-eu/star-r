@@ -21,7 +21,7 @@ public abstract class ActionScreen<T extends ActionScreenHandler> extends Handle
 	private final Identifier texture;
 	private List<Drawable> drawables = new LinkedList<>();
 	private List<TextFieldWidget> textFields = new LinkedList<>();
-	private int x, y;
+	protected int x, y;
 	public String screenKey;
 
 	protected void drawForeground(GuiGraphics graphics, int mouseX, int mouseY) {
@@ -51,18 +51,18 @@ public abstract class ActionScreen<T extends ActionScreenHandler> extends Handle
 		textFields.add(box);
 		return box;
 	}
-	public ButtonWidget addButton(String translateKey, int actionId, int x, int y, int i, int j){
+	public ButtonWidget addButton(String translateKey, int x, int y, int i, int j, int... actions){
 		int finalX = x;
 		int finalY = y;
 		if(x == -200) finalX = this.backgroundWidth / 2 - i/2;
 		if(y == -200) finalY = this.backgroundHeight / 2 - j / 2;
 		ButtonWidget button = ButtonWidget.builder(Text.translatable("screen.starr." + screenKey +".button." + translateKey), e -> {
-			sendPacket(actionId);
+			sendPacket(actions);
 		}).positionAndSize(this.x + finalX, this.y + finalY, i, j).build();
 		this.addDrawableChild(button);
 		return button;
 	}
-	public abstract void sendPacket(int actionId);
+	public abstract void sendPacket(int... actions);
 	@Override
 	public boolean keyPressed(int key, int b, int c) {
 		if (key == 256) {

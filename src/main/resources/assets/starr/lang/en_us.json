@@ -17,6 +17,10 @@
   "screen.starr.teleport_location.textfield.y": "Y coordinate",
   "screen.starr.teleport_location.textfield.z": "Z coordinate",
 
+  "screen.starr.teleport_save.title": "Saved point teleportation",
+  "screen.starr.teleport_save.button.tp": "Go",
+  "screen.starr.teleport_save.button.save": "Save",
+
   "ITEMS": "ITEMS",
   "item.starr.boyshield": "Shieldboy's shield",
   "item.starr.cape": "cape",
@@ -32,7 +36,7 @@
   "WEARABLE TOOLTIPS": "WEARABLE TOOLTIPS",
   "item.starr.hare.tooltip.false": "Shift + Right click to enable",
   "item.starr.hare.tooltip.true": "Shift + Right click to disable",
-  "item.starr.cape.tooltip.false": "Shift + Right click to select Sasa's cape design",
+  "item.starr.cape.tooltip.false": "Shift + Right click to select Farpo's cape design",
   "item.starr.cape.tooltip.true": "Shift + Right click to select ReadyRoad's cape design",
 
   "ITEM GROUPS": "ITEM GROUPS",
@@ -57,6 +61,7 @@
   "MESSAGES": "MESSAGES",
   "message.starr.anchored.destination": "The destination is affected by a spatial anchor!",
   "message.starr.anchored.origin": "You are affected by a spatial anchor!",
+  "message.starr.anchored.local": "You are affected by a spatial anchor!",
   "message.starr.signeditem": "This %1$s is not yours!",
   "message.starr.signeditem.owner": "This %1$s is owned by %2$s!",
 
@@ -71,17 +76,19 @@
   "power.starr.shieldboy/forcefield.description": "A green forcefield to protect you from enemies",
   "power.starr.shieldboy/forcefield.name": "Forcefield",
   "power.starr.shieldboy/get_forcesword.description": "A powerful sword at your disposal",
-  "power.starr.shieldboy/get_forcesword.name": "Swordmaking",
+  "power.starr.shieldboy/get_forcesword.name": "Sword-making",
   "power.starr.shieldboy/summon_turtle.description": "Create a big turtle to assist you in your ventures",
   "power.starr.shieldboy/summon_turtle.name": "Turtle summon",
   "power.starr.shieldboy/summon_baby_turtle.description": "Create a little turtle to assist you in your ventures",
   "power.starr.shieldboy/summon_baby_turtle.name": "Hatchling summon",
-  "power.starr.shieldboy/turtle_helmet.description": "Put a turtle on your head. The practic use of this is left as an excercise for the reader",
+  "power.starr.shieldboy/turtle_helmet.description": "Put a turtle on your head. The practic use of this is left as an exercise for the reader",
   "power.starr.shieldboy/turtle_helmet.name": "Turtle helmet",
   "power.starr.shieldboy/fieldwalk.description": "Walk on a forcefield through air",
   "power.starr.shieldboy/fieldwalk.name": "Forcefield airwalk",
   "power.starr.telekinesis.description": "Manipulate blocks and entities from a distance. Use the = key to bring the entity closer and - to bring it farther",
   "power.starr.telekinesis.name": "Telekinesis",
   "power.starr.teleportation_location.description": "Teleport to any coordinates you specify",
-  "power.starr.teleportation_location.name": "Coordinate teleportation"
+  "power.starr.teleportation_location.name": "Coordinate teleportation",
+  "power.starr.teleportation_save.description": "Teleport to a point you have previously saved",
+  "power.starr.teleportation_save.name": "Saved point teleportation"
 }

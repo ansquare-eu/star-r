@@ -3,6 +3,7 @@ package eu.ansquare.squarepowered.client;
 import com.mojang.blaze3d.platform.InputUtil;
 import eu.ansquare.squarepowered.actionscreen.SquareActionScreens;
 import eu.ansquare.squarepowered.actionscreen.client.LocationTeleportScreen;
+import eu.ansquare.squarepowered.actionscreen.client.SaveTeleportScreen;
 import io.github.apace100.apoli.ApoliClient;
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 import net.minecraft.client.gui.screen.ingame.HandledScreen;
@@ -29,6 +30,7 @@ public class SquarepoweredClient implements ClientModInitializer {
 	public void onInitializeClient(ModContainer mod) {
 		initKeyBinds();
 		HandledScreens.register(SquareActionScreens.TELEPORT_SCREEN, LocationTeleportScreen::new);
+		HandledScreens.register(SquareActionScreens.SAVE_TELEPORT_SCREEN, SaveTeleportScreen::new);
 
 	}
 	private void initKeyBinds(){

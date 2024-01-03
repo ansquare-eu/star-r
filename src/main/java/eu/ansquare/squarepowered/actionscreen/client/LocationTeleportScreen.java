@@ -27,10 +27,10 @@ public class LocationTeleportScreen extends ActionScreen<LocationTeleportActionS
 		xbox = addTextField(-200, 94, 120, 20, "x", 32767);
 		ybox = addTextField(-200, 118, 120, 20, "y", 32767);
 		zabox = addTextField(-200, 142, 120, 20, "z", 32767);
-		tpbutton = addButton("tp", 0, -200, 70, 50, 20);
+		tpbutton = addButton("tp", -200, 70, 50, 20, 0);
 	}
 	@Override
-	public void sendPacket(int actionId) {
+	public void sendPacket(int... actions) {
 		PacketByteBuf buf = PacketByteBufs.create();
 		buf.writeInt(0);
 		try {
