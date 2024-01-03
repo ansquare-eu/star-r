@@ -1,4 +1,4 @@
-1 character
+2 character
 
 9 powers
 
