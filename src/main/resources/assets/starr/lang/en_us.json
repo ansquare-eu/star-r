@@ -10,6 +10,13 @@
   "death.attack.laser": "%1$s was lasered!",
   "death.attack.laser.player": "%1$s was fried by %2$s's laser!",
 
+  "SCREEN STUFF": "SCREEN STUFF",
+  "screen.starr.teleport_location.title": "Coordinate teleportation",
+  "screen.starr.teleport_location.button.tp": "Teleport",
+  "screen.starr.teleport_location.textfield.x": "X coordinate",
+  "screen.starr.teleport_location.textfield.y": "Y coordinate",
+  "screen.starr.teleport_location.textfield.z": "Z coordinate",
+
   "ITEMS": "ITEMS",
   "item.starr.boyshield": "Shieldboy's shield",
   "item.starr.cape": "cape",
@@ -46,12 +53,13 @@
   "key.origins.9_active": "Active Power (9)",
   "key.origins.increment": "Increment key",
   "key.origins.decrement": "Decrement key",
+
   "MESSAGES": "MESSAGES",
   "message.starr.anchored.destination": "The destination is affected by a spatial anchor!",
   "message.starr.anchored.origin": "You are affected by a spatial anchor!",
   "message.starr.signeditem": "This %1$s is not yours!",
   "message.starr.signeditem.owner": "This %1$s is owned by %2$s!",
-  "screen.starr.teleport_location.title": "Teleport to a location",
+
   "ORIGINS": "ORIGINS",
   "origin.starr.shieldboy.description": "Shieldboy is a superhero with forcefield based powers. Designed by ReadyRoad",
   "origin.starr.shieldboy.name": "Shieldboy",
@@ -73,5 +81,7 @@
   "power.starr.shieldboy/fieldwalk.description": "Walk on a forcefield through air",
   "power.starr.shieldboy/fieldwalk.name": "Forcefield airwalk",
   "power.starr.telekinesis.description": "Manipulate blocks and entities from a distance. Use the = key to bring the entity closer and - to bring it farther",
-  "power.starr.telekinesis.name": "Telekinesis"
+  "power.starr.telekinesis.name": "Telekinesis",
+  "power.starr.teleportation_location.description": "Teleport to any coordinates you specify",
+  "power.starr.teleportation_location.name": "Coordinate teleportation"
 }
