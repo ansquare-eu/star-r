@@ -1,11 +1,13 @@
 package eu.ansquare.starr;
 
 import com.mojang.brigadier.arguments.IntegerArgumentType;
+import eu.ansquare.squarepowered.cca.SquareEntityComponents;
 import net.minecraft.command.argument.EntityArgumentType;
 import net.minecraft.command.argument.ResourceKeyArgument;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.registry.RegistryKey;
+import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.Text;
 import net.minecraft.util.Hand;
 import net.minecraft.util.Identifier;
@@ -30,6 +32,12 @@ public class ModCommands {
 									stack.getOrCreateNbt().putInt("color", color);
 									return 1;
 								})))));
+		CommandRegistrationCallback.EVENT.register((dispatcher, buildContext, environment) -> dispatcher.register(literal("wipe")
+				.then(literal("saved_locations").requires(serverCommandSource -> serverCommandSource.hasPermissionLevel(4)).executes(context -> {
+					ServerPlayerEntity player = context.getSource().getPlayerOrThrow();
+					SquareEntityComponents.SAVED_LOCATION_COMPONENT.maybeGet(player).ifPresent(savedLocationComponent -> savedLocationComponent.wipe());
+					return 1;
+				}))));
 
 	}
 }

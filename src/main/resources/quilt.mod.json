@@ -28,7 +28,8 @@
 				"eu.ansquare.starr.client.StarRClient",
 				"eu.ansquare.squarepowered.client.SquarepoweredClient"
 			],
-			"cardinal-components-entity": "eu.ansquare.starr.cca.StarREntityComponents"
+			"cardinal-components-entity": ["eu.ansquare.starr.cca.StarREntityComponents",
+				"eu.ansquare.squarepowered.cca.SquareEntityComponents"]
 		},
 		"depends": [
 			{
@@ -49,6 +50,6 @@
 			}
 		]
 	},
-	"cardinal-components": [],
+	"cardinal-components": ["starr:saved_location"],
 	"mixin": "starr.mixins.json"
 }
