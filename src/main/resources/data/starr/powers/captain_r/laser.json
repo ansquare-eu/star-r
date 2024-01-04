@@ -4,7 +4,7 @@
     "type": "origins:toggle",
     "active_by_default": false,
     "key": {
-      "key": "key.origins.5_active"
+      "key": "key.origins.primary_active"
     }
   },
   "laser": {
