@@ -1,11 +1,10 @@
 {
   "powers": [
-    "starr:flight",
+    "starr:captain_r/propel_2",
     "starr:captain_r/laser",
     "starr:captain_r/telekinesis",
     "starr:captain_r/teleportation_location",
     "starr:captain_r/teleportation_save"
-
   ],
   "icon":"starr:cape",
   "impact":3
