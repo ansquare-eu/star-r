@@ -27,7 +27,8 @@ public class LaserEntityActions {
 						.add("green", SerializableDataTypes.INT)
 						.add("blue", SerializableDataTypes.INT),
 				LaserEntityActions::activateLaser);
-	}public static void deactivateLaser(SerializableData.Instance data, Entity entity){
+	}
+	public static void deactivateLaser(SerializableData.Instance data, Entity entity){
 		if(entity instanceof ServerPlayerEntity player){
 			if(SquareEntityComponents.CLIENT_STATE_COMPONENT.isProvidedBy(player)){
 				ClientStatesComponent component = SquareEntityComponents.CLIENT_STATE_COMPONENT.get(player);
@@ -41,4 +42,5 @@ public class LaserEntityActions {
 				new SerializableData(),
 				LaserEntityActions::deactivateLaser);
 	}
+
 }
