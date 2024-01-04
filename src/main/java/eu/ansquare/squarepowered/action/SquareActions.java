@@ -2,10 +2,7 @@ package eu.ansquare.squarepowered.action;
 
 import eu.ansquare.squarepowered.Squarepowered;
 import eu.ansquare.squarepowered.TelekinesActions;
-import eu.ansquare.squarepowered.action.entity.AirwalkEntityAction;
-import eu.ansquare.squarepowered.action.entity.OpenActionScreenAction;
-import eu.ansquare.squarepowered.action.entity.OpenContainerEntityAction;
-import eu.ansquare.squarepowered.action.entity.WorldStructureAction;
+import eu.ansquare.squarepowered.action.entity.*;
 import io.github.apace100.apoli.power.factory.action.ActionFactory;
 import io.github.apace100.apoli.registry.ApoliRegistries;
 import io.github.apace100.calio.data.SerializableData;
@@ -32,6 +29,8 @@ public class SquareActions {
 		registerEntity(TelekinesActions.getIncrementFactory());
 		registerEntity(OpenActionScreenAction.getOpenActionScreenFactory());
 		registerEntity(OpenContainerEntityAction.getOpenActionScreenFactory());
+		registerEntity(LaserEntityActions.getActivateFactory());
+		registerEntity(LaserEntityActions.getDeactivateFactory());
 	}
 	private static void registerEntity(ActionFactory<Entity> actionFactory) {
 		Registry.register(ApoliRegistries.ENTITY_ACTION, actionFactory.getSerializerId(), actionFactory);

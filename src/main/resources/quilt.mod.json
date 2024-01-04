@@ -50,6 +50,7 @@
 			}
 		]
 	},
-	"cardinal-components": ["starr:saved_location"],
+	"cardinal-components": ["starr:saved_location",
+	"starr:client_states"],
 	"mixin": "starr.mixins.json"
 }

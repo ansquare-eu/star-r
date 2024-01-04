@@ -1,0 +1,27 @@
+{
+  "type": "origins:multiple",
+  "toggle": {
+    "type": "origins:toggle",
+    "active_by_default": false,
+    "key": {
+      "key": "key.origins.5_active"
+    }
+  },
+  "laser": {
+    "type": "origins:action_over_time",
+    "interval": 1,
+    "falling_action": {
+      "type": "starr:deactivate_laser"
+    },
+    "rising_action": {
+      "type": "starr:activate_laser",
+      "red": 255,
+      "green": 0,
+      "blue": 0
+    },
+    "condition": {
+      "type": "origins:power_active",
+      "power": "*:*_toggle"
+    }
+  }
+}

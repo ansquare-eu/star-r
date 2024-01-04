@@ -1,6 +1,7 @@
 package eu.ansquare.starr;
 
 import com.mojang.brigadier.arguments.IntegerArgumentType;
+import com.mojang.brigadier.arguments.StringArgumentType;
 import eu.ansquare.squarepowered.cca.SquareEntityComponents;
 import net.minecraft.command.argument.EntityArgumentType;
 import net.minecraft.command.argument.ResourceKeyArgument;
@@ -23,10 +24,11 @@ public class ModCommands {
 	public static void init(){
 		CommandRegistrationCallback.EVENT.register((dispatcher, buildContext, environment) -> dispatcher.register(literal("color")
 				.then(literal("item")
-						.then(argument("colorint", IntegerArgumentType.integer())
+						.then(argument("color", StringArgumentType.string())
 								.requires(serverCommandSource -> serverCommandSource.hasPermissionLevel(4))
 								.executes(context -> {
-									int color = context.getArgument("colorint", Integer.class);
+									String hexcolor = context.getArgument("color", String.class);
+									int color = Integer.parseInt(hexcolor, 16);
 									PlayerEntity entity = context.getSource().getPlayer();
 									ItemStack stack = entity.getStackInHand(Hand.MAIN_HAND);
 									stack.getOrCreateNbt().putInt("color", color);
