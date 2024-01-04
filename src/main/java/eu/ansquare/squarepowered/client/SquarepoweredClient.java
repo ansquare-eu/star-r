@@ -5,6 +5,7 @@ import eu.ansquare.squarepowered.actionscreen.SquareActionScreens;
 import eu.ansquare.squarepowered.actionscreen.client.LocationTeleportScreen;
 import eu.ansquare.squarepowered.actionscreen.client.SaveTeleportScreen;
 import io.github.apace100.apoli.ApoliClient;
+import io.github.apace100.apoli.global.GlobalPowerSet;
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 import net.minecraft.client.gui.screen.ingame.HandledScreen;
 import net.minecraft.client.gui.screen.ingame.HandledScreens;

@@ -1,6 +1,8 @@
-package eu.ansquare.starr.client.features;
+package eu.ansquare.squarepowered.client.renderer;
 
 import com.mojang.blaze3d.vertex.VertexConsumer;
+import eu.ansquare.squarepowered.cca.ClientStatesComponent;
+import eu.ansquare.squarepowered.cca.SquareEntityComponents;
 import eu.ansquare.starr.StarR;
 import eu.ansquare.starr.client.StarRClient;
 import eu.ansquare.starr.util.math.ColorConversion;
@@ -21,6 +23,8 @@ import org.joml.Matrix4f;
 
 import java.awt.*;
 
+import static eu.ansquare.squarepowered.cca.SquareEntityComponents.CLIENT_STATE_COMPONENT;
+
 public class LaserFeatureRenderer extends FeatureRenderer<AbstractClientPlayerEntity, PlayerEntityModel<AbstractClientPlayerEntity>> {
 	public static final Identifier LASER_TEXTURE = new Identifier(StarR.MODID, "textures/laser/laser.png");
 
@@ -30,13 +34,14 @@ public class LaserFeatureRenderer extends FeatureRenderer<AbstractClientPlayerEn
 
 	@Override
 	public void render(MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, AbstractClientPlayerEntity entity, float limbAngle, float limbDistance, float tickDelta, float animationProgress, float headYaw, float headPitch) {
-		if (StarRClient.LASER_HOLDER.LASER_MAP.containsKey(entity.getUuid())) {
-			ClientLaser laser = StarRClient.LASER_HOLDER.LASER_MAP.get(entity.getUuid());
-			Color color = laser.COLOR;
+		if (CLIENT_STATE_COMPONENT.isProvidedBy(entity)) {
+			ClientStatesComponent component = CLIENT_STATE_COMPONENT.get(entity);
+			if(!component.laser) return;
+			float[] color = component.getColors(1);
 			matrices.multiply(Axis.Y_POSITIVE.rotationDegrees(MathHelper.lerp(tickDelta, headYaw, headYaw)));
 			matrices.multiply(Axis.X_POSITIVE.rotationDegrees(MathHelper.lerp(tickDelta, headPitch, headPitch) - 90));
 			for (int i = 1; i <= 100; i++) {
-				renderBeam(matrices, vertexConsumers, LASER_TEXTURE, tickDelta, 1.0f, entity.getWorld().getTime(), 0, i, ColorConversion.toScaledArray(color, 1f), 0.2F, 0.25F, laser.xOff, laser.yOff);
+				renderBeam(matrices, vertexConsumers, LASER_TEXTURE, tickDelta, 1.0f, entity.getWorld().getTime(), 0, i, color, 0.2F, 0.25F, component.x_offset, component.y_offset);
 			}
 		}
 	}
