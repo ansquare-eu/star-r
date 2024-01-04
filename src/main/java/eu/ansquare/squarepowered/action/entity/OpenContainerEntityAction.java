@@ -13,6 +13,7 @@ import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.screen.SimpleNamedScreenHandlerFactory;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.Text;
+import org.quiltmc.qsl.networking.api.PacketByteBufs;
 
 public class OpenContainerEntityAction {
 	public static void action(SerializableData.Instance data, Entity entity){

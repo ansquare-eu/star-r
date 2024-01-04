@@ -1,0 +1,36 @@
+{
+  "type": "origins:multiple",
+  "propel": {
+    "type": "origins:active_self",
+    "entity_action": {
+      "type": "origins:add_velocity",
+      "space": "local",
+      "z": 2
+    },
+    "key": {
+      "key": "key.use",
+      "continuous": false
+    },
+    "condition": {
+      "type": "origins:and",
+      "conditions": [
+        {
+          "type": "origins:fall_flying"
+        },
+        {
+          "type": "origins:equipped_item",
+          "equipment_slot": "mainhand",
+          "item_condition": {
+            "type": "origins:empty"
+
+          }
+        }
+      ]
+    }
+  },
+  "fly": {
+    "type": "origins:elytra_flight",
+    "render_elytra": false
+  }
+
+}

@@ -1,0 +1,29 @@
+{
+  "type": "origins:launch",
+  "cooldown": 200,
+  "hud_render": {
+    "sprite_location": "origins:textures/gui/resource_bar.png",
+    "bar_index": 4
+  },
+  "speed": 2,
+  "key": {
+    "key": "key.use",
+    "continuous": true
+  },
+  "condition": {
+    "type": "origins:and",
+    "conditions": [
+      {
+        "type": "origins:fall_flying"
+      },
+      {
+        "type": "origins:equipped_item",
+        "equipment_slot": "mainhand",
+        "item_condition": {
+          "type": "origins:empty"
+
+        }
+      }
+    ]
+  }
+}

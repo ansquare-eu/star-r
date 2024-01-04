@@ -1,5 +1,6 @@
-package eu.ansquare.squarepowered;
+package eu.ansquare.squarepowered.action.entity;
 
+import eu.ansquare.squarepowered.Squarepowered;
 import io.github.apace100.apoli.power.factory.action.ActionFactory;
 import io.github.apace100.calio.data.SerializableData;
 import io.github.apace100.calio.data.SerializableDataTypes;
