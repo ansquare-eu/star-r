@@ -9,6 +9,7 @@ import net.minecraft.registry.Registry;
 public class SquarePowers {
 	public static void init(){
 		register(OnAndOffPower.createFactory());
+		register(CreativeInvPower.createFactory());
 	}
 	private static void register(PowerFactory<?> powerFactory) {
 		Registry.register(ApoliRegistries.POWER_FACTORY, powerFactory.getSerializerId(), powerFactory);

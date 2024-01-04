@@ -1,6 +1,9 @@
 package eu.ansquare.starr.mixin.client;
 
+import eu.ansquare.squarepowered.power.CreativeInvPower;
 import eu.ansquare.starr.client.StarRClient;
+import io.github.apace100.apoli.component.PowerHolderComponent;
+import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.ClientPlayNetworkHandler;
 import net.minecraft.client.network.ClientPlayerInteractionManager;
 import net.minecraft.item.ItemStack;
@@ -23,13 +26,17 @@ public class ClientPlayerInteractionManagerMixin {
 	@Final
 	private ClientPlayNetworkHandler networkHandler;
 
+	@Shadow
+	@Final
+	private MinecraftClient client;
+
 	@Inject(method = "hasCreativeInventory", at = @At("TAIL"), cancellable = true)
 	public void onHasCreativeInventory(CallbackInfoReturnable<Boolean> cir) {
-		cir.setReturnValue(cir.getReturnValue() || StarRClient.LASER_HOLDER.readCreative());
+		cir.setReturnValue(cir.getReturnValue() || PowerHolderComponent.hasPower(client.player, CreativeInvPower.class));
 	}
 	@Inject(method = "clickCreativeStack", at = @At("TAIL"), cancellable = true)
 	public void onClickStack(ItemStack stack, int slotId, CallbackInfo ci) {
-		if (StarRClient.LASER_HOLDER.isFalseCreative && !gameMode.isCreative() && this.networkHandler.isEnabled(stack.getItem().getRequiredFlags())) {
+		if (PowerHolderComponent.hasPower(client.player, CreativeInvPower.class) && !gameMode.isCreative() && this.networkHandler.isEnabled(stack.getItem().getRequiredFlags())) {
 			this.networkHandler.sendPacket(new CreativeInventoryActionC2SPacket(slotId, stack));
 		}
 	}
