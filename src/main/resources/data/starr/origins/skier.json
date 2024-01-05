@@ -1,0 +1,7 @@
+{
+  "powers": [
+    "starr:prevent_freezing"
+  ],
+  "icon": "minecraft:packed_ice",
+  "impact": 3
+}

@@ -7,10 +7,12 @@
       "ScreenHandlerMixin",
       "PlayerInventoryMixin",
       "ServerPlayerInteractionManagerAccessor",
-      "ServerPlayNetworkHandlerMixin"],
+      "ServerPlayNetworkHandlerMixin"
+      ,"LivingEntityMixin"],
 	"client": [
       "client.PlayerEntityRendererMixin",
-      "client.ClientPlayerInteractionManagerMixin"
+      "client.ClientPlayerInteractionManagerMixin",
+      "client.CreativeInventoryScreenMixin"
     ],
 	"injectors": {
 		"defaultRequire": 1
