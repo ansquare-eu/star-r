@@ -10,6 +10,8 @@ public class SquarePowers {
 	public static void init(){
 		register(OnAndOffPower.createFactory());
 		register(CreativeInvPower.createFactory());
+		register(PreventFreezingPower.createFactory());
+		register(LimitCreativeMenuPower.createFactory());
 	}
 	private static void register(PowerFactory<?> powerFactory) {
 		Registry.register(ApoliRegistries.POWER_FACTORY, powerFactory.getSerializerId(), powerFactory);
