@@ -1,11 +1,7 @@
 {
   "type": "starr:limit_creative_menu",
-  "removed_stacks": [
-    {
-      "item": "minecraft:diamond_sword"
-    },
-    {
-      "item": "minecraft:diamond_block"
-    }
+  "removed": [
+    "minecraft:diamond_sword",
+    "minecraft:diamond_block"
   ]
 }
