@@ -1,0 +1,22 @@
+{
+  "type": "origins:multiple",
+  "toggle": {
+    "type": "origins:toggle",
+    "active_by_default": false,
+    "key": {
+      "key": "key.origins.3_active"
+    }
+  },
+  "freeze_water": {
+      "type": "origins:action_over_time",
+      "interval": 1,
+      "entity_action": {
+        "type": "starr:freeze_water",
+        "level": 2
+      },
+    "condition": {
+      "type": "origins:power_active",
+      "power": "*:*_toggle"
+    }
+  }
+}
