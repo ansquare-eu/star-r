@@ -1,0 +1,13 @@
+{
+  "type": "origins:active_self",
+  "entity_action": {
+    "type": "origins:heal",
+    "amount": 2
+  },
+  "cooldown": 100,
+  "key": {
+    "key": "key.origins.secondary_active",
+    "continuous": false
+  }
+}
+

@@ -1,0 +1,7 @@
+{
+  "type": "starr:limit_creative_menu",
+  "removed": [
+    "starr:forcesword",
+    "starr:megasword"
+  ]
+}

@@ -1,6 +1,6 @@
-3 character
+5 character
 
-14 powers
+23 powers
 
 and counting
 

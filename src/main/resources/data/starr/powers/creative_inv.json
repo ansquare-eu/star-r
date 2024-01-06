@@ -1,6 +1,3 @@
 {
-  "type": "starr:creative_inv",
-  "condition":   {      "type": "origins:in_rain"
-
-  }
+  "type": "starr:creative_inv"
 }
