@@ -68,6 +68,8 @@
   "message.starr.signeditem.owner": "This %1$s is owned by %2$s!",
 
   "ORIGINS": "ORIGINS",
+  "layer.starr.superdude.name": "Superdude",
+
   "origin.starr.shieldboy.description": "Shieldboy is a superhero with forcefield based powers. Designed by ReadyRoad",
   "origin.starr.shieldboy.name": "Shieldboy",
   "origin.starr.teleman.name": "Teleman",
@@ -76,7 +78,8 @@
   "origin.starr.captain_r.description": "Captain R is a superhero created to be omnipotent, but that is stupid so he is not. Designed by ReadyRoad",
   "origin.starr.skier.name": "Skier",
   "origin.starr.skier.description": "Skier is a superhero whose name is funny in Slovak. Designed by ReadyRoad",
-  "layer.starr.superdude.name": "Superdude",
+  "origin.starr.brain.description": "Brain is a superdude whose is grandpa who is scientist. Designed by ReadyRoad",
+  "origin.starr.brain.name": "Brain",
 
   "POWERS": "POWERS",
   "power.starr.shieldboy/forcefield.description": "A green forcefield to protect you from enemies",
@@ -91,12 +94,14 @@
   "power.starr.shieldboy/turtle_helmet.name": "Turtle helmet",
   "power.starr.shieldboy/fieldwalk.description": "Walk on a forcefield through air",
   "power.starr.shieldboy/fieldwalk.name": "Forcefield airwalk",
+
   "power.starr.teleman/telekinesis.description": "Manipulate blocks and entities from a distance. Use the = key to bring the entity closer and - to bring it farther",
   "power.starr.teleman/telekinesis.name": "Telekinesis",
   "power.starr.teleman/teleportation_location.description": "Teleport to any coordinates you specify",
   "power.starr.teleman/teleportation_location.name": "Coordinate teleportation",
   "power.starr.teleman/teleportation_save.description": "Teleport to a point you have previously saved",
   "power.starr.teleman/teleportation_save.name": "Saved point teleportation",
+
   "power.starr.captain_r/telekinesis.description": "Manipulate blocks and entities from a distance. Use the = key to bring the entity closer and - to bring it farther",
   "power.starr.captain_r/telekinesis.name": "Telekinesis",
   "power.starr.captain_r/teleportation_location.description": "Teleport to any coordinates you specify",
@@ -107,10 +112,14 @@
   "power.starr.captain_r/laser.name": "Laser",
   "power.starr.captain_r/propel_2.description": "Fly without any elytra. Right click while empty handed to propel yourself!",
   "power.starr.captain_r/propel_2.name": "Powered flight",
+
   "power.starr.flight.description": "Fly without any elytra",
   "power.starr.flight.name": "Flight",
   "power.starr.prevent_freezing.description": "No longer freeze in powdered snow",
   "power.starr.prevent_freezing.name": "Prevent freezing",
+  "power.starr.creative_inv.description": "Acces the creative menu in survival",
+  "power.starr.creative_inv.name": "Creative inventory",
+
   "power.starr.skier/freeze_ray.description": "Freeze an entity you point at",
   "power.starr.skier/freeze_ray.name": "Freeze ray",
   "power.starr.skier/freeze_water.description": "Create an ice path while walking on water",
@@ -118,5 +127,12 @@
   "power.starr.skier/icewalk.description": "Walk on ice through air",
   "power.starr.skier/icewalk.name": "Ice airwalk",
   "power.starr.skier/jump_boost.description": "Jump higher when active",
-  "power.starr.skier/jump_boost.name": "Jump boost"
+  "power.starr.skier/jump_boost.name": "Jump boost",
+
+  "power.starr.brain/heal.description": "Heal yourself one heart",
+  "power.starr.brain/heal.name": "Heal",
+  "power.starr.brain/telekinesis.description": "Manipulate blocks and entities from a distance. Use the = key to bring the entity closer and - to bring it farther",
+  "power.starr.brain/telekinesis.name": "Telekinesis",
+  "power.starr.brain/limit.description": "Your creative menu is not very strong and may miss some items",
+  "power.starr.brain/limit.name": "Creative menu limit"
 }
