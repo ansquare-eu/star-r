@@ -31,6 +31,7 @@ public class SquareActions {
 		registerEntity(OpenContainerEntityAction.getOpenActionScreenFactory());
 		registerEntity(LaserEntityActions.getActivateFactory());
 		registerEntity(LaserEntityActions.getDeactivateFactory());
+		registerEntity(SummonMountedAction.getFactory());
 	}
 	private static void registerEntity(ActionFactory<Entity> actionFactory) {
 		Registry.register(ApoliRegistries.ENTITY_ACTION, actionFactory.getSerializerId(), actionFactory);
