@@ -1,0 +1,33 @@
+{
+  "type": "origins:multiple",
+  "toggle": {
+    "type": "origins:toggle",
+    "active_by_default": false,
+    "key": {
+      "key": "key.origins.4_active"
+    }
+  },
+  "effect": {
+      "type": "origins:action_over_time",
+      "interval": 1,
+      "rising_action": {
+        "type": "origins:apply_effect",
+        "effect": {
+          "effect": "minecraft:jump_boost",
+          "duration": -1,
+          "amplifier": 2,
+          "is_ambient": false,
+          "show_particles": false,
+          "show_icon": false
+        }
+      },
+      "falling_action": {
+        "type": "origins:clear_effect",
+        "effect": "minecraft:jump_boost"
+      },
+    "condition": {
+      "type": "origins:power_active",
+      "power": "*:*_toggle"
+    }
+  }
+}

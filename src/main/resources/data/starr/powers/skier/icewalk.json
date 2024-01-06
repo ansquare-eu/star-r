@@ -1,0 +1,26 @@
+{
+  "type": "origins:multiple",
+  "toggle": {
+    "type": "origins:toggle",
+    "active_by_default": false,
+    "key": {
+      "key": "key.origins.primary_active"
+    }
+  },
+  "airwalk": {
+      "type": "origins:action_over_time",
+      "interval": 1,
+      "entity_action": {
+        "type": "starr:airwalk",
+        "block": "minecraft:ice",
+        "delay": 20
+      },
+      "falling_action": {
+        "type": "starr:airwalk_stop"
+      },
+    "condition": {
+      "type": "origins:power_active",
+      "power": "*:*_toggle"
+    }
+  }
+}
