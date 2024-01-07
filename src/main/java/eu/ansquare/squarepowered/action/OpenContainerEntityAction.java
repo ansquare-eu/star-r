@@ -1,22 +1,17 @@
-package eu.ansquare.squarepowered.action.entity;
+package eu.ansquare.squarepowered.action;
 
-import eu.ansquare.squarepowered.SquareRegistries;
 import eu.ansquare.squarepowered.Squarepowered;
-import eu.ansquare.squarepowered.cca.SquareEntityComponents;
 import eu.ansquare.starr.util.item.ItemUtils;
 import io.github.apace100.apoli.power.factory.action.ActionFactory;
 import io.github.apace100.calio.data.SerializableData;
 import io.github.apace100.calio.data.SerializableDataTypes;
 import net.minecraft.entity.Entity;
 import net.minecraft.inventory.Inventory;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import net.minecraft.screen.GenericContainerScreenHandler;
 import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.screen.SimpleNamedScreenHandlerFactory;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.Text;
-import org.quiltmc.qsl.networking.api.PacketByteBufs;
 
 public class OpenContainerEntityAction {
 	public static void action(SerializableData.Instance data, Entity entity) {
