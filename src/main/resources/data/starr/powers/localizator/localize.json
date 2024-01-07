@@ -1,0 +1,11 @@
+{
+  "type": "origins:active_self",
+  "entity_action": {
+    "type": "starr:open_action_screen",
+    "screen": "starr:localize"
+  },
+  "key": {
+    "key": "key.origins.primary_active",
+    "continuous": false
+  }
+}
