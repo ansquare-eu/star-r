@@ -21,6 +21,9 @@
   "screen.starr.teleport_save.button.tp": "Go",
   "screen.starr.teleport_save.button.save": "Save",
 
+  "screen.starr.localize.title": "Localize",
+  "screen.starr.localize.button.tp": "Go",
+
   "screen.starr.item.test": "meme",
 
   "ITEMS": "ITEMS",
@@ -78,8 +81,10 @@
   "origin.starr.captain_r.description": "Captain R is a superhero created to be omnipotent, but that is stupid so he is not. Designed by ReadyRoad",
   "origin.starr.skier.name": "Skier",
   "origin.starr.skier.description": "Skier is a superhero whose name is funny in Slovak. Designed by ReadyRoad",
-  "origin.starr.brain.description": "Brain is a superdude whose is grandpa who is scientist. Designed by ReadyRoad",
+  "origin.starr.brain.description": "Brain is a superhero whose is grandpa who is scientist. Designed by ReadyRoad",
   "origin.starr.brain.name": "Brain",
+  "origin.starr.localizator.description": "Localizator is a superhero who can find players. Designed by ReadyRoad",
+  "origin.starr.localizator.name": "Localizator",
 
   "POWERS": "POWERS",
   "power.starr.shieldboy/forcefield.description": "A green forcefield to protect you from enemies",
@@ -134,5 +139,12 @@
   "power.starr.brain/telekinesis.description": "Manipulate blocks and entities from a distance. Use the = key to bring the entity closer and - to bring it farther",
   "power.starr.brain/telekinesis.name": "Telekinesis",
   "power.starr.brain/limit.description": "Your creative menu is not very strong and may miss some items",
-  "power.starr.brain/limit.name": "Creative menu limit"
+  "power.starr.brain/limit.name": "Creative menu limit",
+
+  "power.starr.localizator/localize.description": "Teleport to any player",
+  "power.starr.localizator/localize.name": "Localization",
+  "power.starr.localizator/teleportation_location.description": "Teleport to any coordinates you specify",
+  "power.starr.localizator/teleportation_location.name": "Coordinate teleportation",
+  "power.starr.localizator/teleportation_save.description": "Teleport to a point you have previously saved",
+  "power.starr.localizator/teleportation_save.name": "Saved point teleportation"
 }

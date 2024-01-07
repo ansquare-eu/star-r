@@ -2,6 +2,7 @@ package eu.ansquare.squarepowered.client;
 
 import com.mojang.blaze3d.platform.InputUtil;
 import eu.ansquare.squarepowered.actionscreen.SquareActionScreens;
+import eu.ansquare.squarepowered.actionscreen.client.LocalizeScreen;
 import eu.ansquare.squarepowered.actionscreen.client.LocationTeleportScreen;
 import eu.ansquare.squarepowered.actionscreen.client.SaveTeleportScreen;
 import io.github.apace100.apoli.ApoliClient;
@@ -32,7 +33,7 @@ public class SquarepoweredClient implements ClientModInitializer {
 		initKeyBinds();
 		HandledScreens.register(SquareActionScreens.TELEPORT_SCREEN, LocationTeleportScreen::new);
 		HandledScreens.register(SquareActionScreens.SAVE_TELEPORT_SCREEN, SaveTeleportScreen::new);
-
+		HandledScreens.register(SquareActionScreens.LOCALIZE_SCREEN, LocalizeScreen::new);
 	}
 	private void initKeyBinds(){
 		powerKeybind3 = new KeyBind("key.origins.3_active", InputUtil.Type.KEYSYM, GLFW.GLFW_KEY_M, "category.origins");

@@ -1,5 +1,6 @@
 package eu.ansquare.squarepowered.actionscreen;
 
+import eu.ansquare.squarepowered.actionscreen.action.LocalizeScreenAction;
 import eu.ansquare.squarepowered.actionscreen.action.ScreenAction;
 import eu.ansquare.squarepowered.actionscreen.action.TeleportLocationScreenAction;
 import eu.ansquare.squarepowered.actionscreen.action.TeleportSavedScreenAction;
@@ -25,6 +26,9 @@ public class ActionScreenC2SPacket {
 			}
 			case 1 ->{
 				return new TeleportSavedScreenAction(buf);
+			}
+			case 2 ->{
+				return new LocalizeScreenAction(buf);
 			}
 		}
 	}

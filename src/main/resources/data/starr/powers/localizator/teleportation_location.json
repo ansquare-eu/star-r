@@ -1,0 +1,11 @@
+{
+  "type": "origins:active_self",
+  "entity_action": {
+    "type": "starr:open_action_screen",
+    "screen": "starr:teleport_location"
+  },
+  "key": {
+    "key": "key.origins.secondary_active",
+    "continuous": false
+  }
+}

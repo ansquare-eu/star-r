@@ -1,0 +1,9 @@
+{
+  "powers": [
+    "starr:localizator/localize",
+    "starr:localizator/teleportation_location",
+    "starr:localizator/teleportation_save"
+  ],
+  "icon":"minecraft:spyglass",
+  "impact":3
+}

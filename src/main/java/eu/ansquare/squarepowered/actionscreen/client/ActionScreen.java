@@ -20,6 +20,8 @@ import java.util.List;
 public abstract class ActionScreen<T extends ActionScreenHandler> extends HandledScreen<T> {
 	private final Identifier texture;
 	private List<Drawable> drawables = new LinkedList<>();
+	private List<Text> texts = new LinkedList<>();
+
 	private List<TextFieldWidget> textFields = new LinkedList<>();
 	protected int x, y;
 	public String screenKey;
