@@ -1,15 +1,12 @@
-package eu.ansquare.squarepowered.action.entity;
+package eu.ansquare.squarepowered.action;
 
 import eu.ansquare.squarepowered.Squarepowered;
-import eu.ansquare.squarepowered.cca.ClientStatesComponent;
-import eu.ansquare.squarepowered.cca.SquareEntityComponents;
 import io.github.apace100.apoli.power.factory.action.ActionFactory;
 import io.github.apace100.apoli.util.MiscUtil;
 import io.github.apace100.calio.data.SerializableData;
 import io.github.apace100.calio.data.SerializableDataTypes;
 import net.minecraft.entity.Entity;
 import net.minecraft.nbt.NbtCompound;
-import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 
 import java.util.Optional;

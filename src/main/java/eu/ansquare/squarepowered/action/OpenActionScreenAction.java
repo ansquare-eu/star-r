@@ -1,4 +1,4 @@
-package eu.ansquare.squarepowered.action.entity;
+package eu.ansquare.squarepowered.action;
 
 import eu.ansquare.squarepowered.SquareRegistries;
 import eu.ansquare.squarepowered.Squarepowered;

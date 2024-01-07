@@ -1,8 +1,6 @@
 package eu.ansquare.squarepowered.action;
 
 import eu.ansquare.squarepowered.Squarepowered;
-import eu.ansquare.squarepowered.action.entity.TelekinesActions;
-import eu.ansquare.squarepowered.action.entity.*;
 import io.github.apace100.apoli.power.factory.action.ActionFactory;
 import io.github.apace100.apoli.registry.ApoliRegistries;
 import io.github.apace100.calio.data.SerializableData;

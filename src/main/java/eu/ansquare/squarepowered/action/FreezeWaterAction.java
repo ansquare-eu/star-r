@@ -1,4 +1,4 @@
-package eu.ansquare.squarepowered.action.entity;
+package eu.ansquare.squarepowered.action;
 
 import eu.ansquare.squarepowered.Squarepowered;
 import io.github.apace100.apoli.power.factory.action.ActionFactory;
