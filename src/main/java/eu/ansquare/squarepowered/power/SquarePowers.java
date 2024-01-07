@@ -11,6 +11,7 @@ public class SquarePowers {
 		register(CreativeInvPower.createFactory());
 		register(PreventFreezingPower.createFactory());
 		register(LimitCreativeMenuPower.createFactory());
+		register(ModifySpatialAnchorRangePower.createFactory());
 	}
 	private static void register(PowerFactory<?> powerFactory) {
 		Registry.register(ApoliRegistries.POWER_FACTORY, powerFactory.getSerializerId(), powerFactory);
