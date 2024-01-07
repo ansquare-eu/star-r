@@ -53,6 +53,8 @@
   "KEYS": "KEYS",
   "key.origins.10_active": "Active Power (10)",
   "key.origins.11_active": "Active Power (Transformation)",
+  "key.origins.primary_active": "Active Power (1)",
+  "key.origins.secondary_active": "Active Power (2)",
   "key.origins.3_active": "Active Power (3)",
   "key.origins.4_active": "Active Power (4)",
   "key.origins.5_active": "Active Power (5)",
