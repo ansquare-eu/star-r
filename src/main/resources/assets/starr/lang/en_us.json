@@ -102,7 +102,7 @@
   "power.starr.shieldboy/fieldwalk.description": "Walk on a forcefield through air",
   "power.starr.shieldboy/fieldwalk.name": "Forcefield airwalk",
 
-  "power.starr.teleman/telekinesis.description": "Manipulate blocks and entities from a distance. Use the = key to bring the entity closer and - to bring it farther",
+  "power.starr.teleman/telekinesis.description": "Manipulate blocks and entities from a distance. Use the = key to bring the entity closer and - to move it farther",
   "power.starr.teleman/telekinesis.name": "Telekinesis",
   "power.starr.teleman/teleportation_location.description": "Teleport to any coordinates you specify",
   "power.starr.teleman/teleportation_location.name": "Coordinate teleportation",
