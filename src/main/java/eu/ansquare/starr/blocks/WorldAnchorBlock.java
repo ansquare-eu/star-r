@@ -12,8 +12,8 @@ public class WorldAnchorBlock extends Block {
 		super(settings);
 		this.isSpatial = spatial;
 	}
-	public static boolean isInVicinity(boolean spatial, BlockPos loc, World world){
-		Box box = new Box(loc).expand(8);
+	public static boolean isInVicinity(int range, boolean spatial, BlockPos loc, World world){
+		Box box = new Box(loc).expand(range);
 		return Math3D.boxSearch(box, (blockPos -> {
 			if(world.getBlockState(blockPos).getBlock() instanceof WorldAnchorBlock block){
 				return block.isSpatial == spatial;
