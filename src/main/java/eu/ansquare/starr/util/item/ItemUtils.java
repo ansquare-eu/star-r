@@ -14,7 +14,7 @@ public class ItemUtils {
 	public static final String SIGN_KEY = "signlib:owner";
 	public static Inventory populate(Inventory inventory, List<ItemStack> stacks, @Nullable UUID uuid){
 		for(int i = 0; i < stacks.size(); i++){
-			ItemStack stack = stacks.get(i);
+			ItemStack stack = stacks.get(i).copy();
 			if(uuid != null) sign(stack, uuid);
 			inventory.setStack(i, stack);
 		}
