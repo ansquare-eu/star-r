@@ -2,7 +2,8 @@
   "powers": [
     "starr:teleman/telekinesis",
     "starr:teleman/teleportation_location",
-    "starr:teleman/teleportation_save"
+    "starr:teleman/teleportation_save",
+    "starr:teleman/auto_msg"
   ],
   "icon":"starr:tv",
   "impact":3

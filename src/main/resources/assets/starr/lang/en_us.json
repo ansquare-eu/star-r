@@ -108,6 +108,8 @@
   "power.starr.teleman/teleportation_location.name": "Coordinate teleportation",
   "power.starr.teleman/teleportation_save.description": "Teleport to a point you have previously saved",
   "power.starr.teleman/teleportation_save.name": "Saved point teleportation",
+  "power.starr.teleman/auto_msg.description": "When active, if a sent message starts with a name, the message is only send to that player",
+  "power.starr.teleman/auto_msg.name": "Telepathy",
 
   "power.starr.captain_r/telekinesis.description": "Manipulate blocks and entities from a distance. Use the = key to bring the entity closer and - to bring it farther",
   "power.starr.captain_r/telekinesis.name": "Telekinesis",
@@ -149,6 +151,6 @@
   "power.starr.localizator/teleportation_location.name": "Coordinate teleportation",
   "power.starr.localizator/teleportation_save.description": "Teleport to a point you have previously saved",
   "power.starr.localizator/teleportation_save.name": "Saved point teleportation",
-  "power.starr.localizator/teleport_others.description": "Point at an entity when toggling on and your powers will teleport it instead of you. ",
+  "power.starr.localizator/teleport_others.description": "Point at an entity when toggling on and your powers will teleport it instead of you.",
   "power.starr.localizator/teleport_others.name": "Teleport others"
 }

@@ -8,7 +8,8 @@
       "PlayerEntityMixn",
       "ServerPlayerInteractionManagerAccessor",
       "ServerPlayNetworkHandlerMixin"
-      ,"LivingEntityMixin"],
+      ,"LivingEntityMixin",
+    "PlayerManagerMixin"],
 	"client": [
       "client.PlayerEntityRendererMixin",
       "client.ClientPlayerInteractionManagerMixin",
