@@ -2,7 +2,8 @@
   "powers": [
     "starr:localizator/localize",
     "starr:localizator/teleportation_location",
-    "starr:localizator/teleportation_save"
+    "starr:localizator/teleportation_save",
+    "starr:localizator/teleport_others"
   ],
   "icon":"minecraft:spyglass",
   "impact":3

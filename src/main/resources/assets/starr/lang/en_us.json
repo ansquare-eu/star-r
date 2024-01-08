@@ -148,5 +148,7 @@
   "power.starr.localizator/teleportation_location.description": "Teleport to any coordinates you specify",
   "power.starr.localizator/teleportation_location.name": "Coordinate teleportation",
   "power.starr.localizator/teleportation_save.description": "Teleport to a point you have previously saved",
-  "power.starr.localizator/teleportation_save.name": "Saved point teleportation"
+  "power.starr.localizator/teleportation_save.name": "Saved point teleportation",
+  "power.starr.localizator/teleport_others.description": "Point at an entity when toggling on and your powers will teleport it instead of you. ",
+  "power.starr.localizator/teleport_others.name": "Teleport others"
 }

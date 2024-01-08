@@ -1,5 +1,6 @@
 package eu.ansquare.squarepowered.actionscreen.action;
 
+import eu.ansquare.squarepowered.action.OpenActionScreenAction;
 import eu.ansquare.squarepowered.util.AnchorChecker;
 import net.minecraft.network.PacketByteBuf;
 import net.minecraft.server.network.ServerPlayerEntity;
@@ -16,6 +17,6 @@ public class TeleportLocationScreenAction implements ScreenAction{
 	}
 	@Override
 	public void action(ServerPlayerEntity entity) {
-		if(AnchorChecker.checkSpatial(true, pos, entity)) entity.teleport(x, y, z);
+		if(AnchorChecker.checkSpatial(true, pos, entity)) OpenActionScreenAction.processTeleportation(entity, x, y , z, entity.getServerWorld());
 	}
 }

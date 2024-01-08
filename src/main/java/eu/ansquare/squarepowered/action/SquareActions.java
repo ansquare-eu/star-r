@@ -32,6 +32,9 @@ public class SquareActions {
 		registerEntity(SummonMountedAction.getFactory());
 		registerEntity(AddFreezingTicks.getFactory());
 		registerEntity(FreezeWaterAction.getFactory());
+		registerEntity(OpenActionScreenAction.getRemoveTaskFactory());
+		registerBiEntity(OpenActionScreenAction.getAddTaskFactory());
+
 	}
 	private static void registerEntity(ActionFactory<Entity> actionFactory) {
 		Registry.register(ApoliRegistries.ENTITY_ACTION, actionFactory.getSerializerId(), actionFactory);
