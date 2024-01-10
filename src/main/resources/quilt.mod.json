@@ -47,6 +47,10 @@
 			{
 				"id": "trinkets",
 				"versions": ">=3.7.1"
+			},
+			{
+				"id": "origins",
+				"versions": ">=1.10.0"
 			}
 		]
 	},
