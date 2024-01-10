@@ -7,7 +7,10 @@ import eu.ansquare.squarepowered.client.SquarepoweredClient;
 import eu.ansquare.squarepowered.power.SquarePowers;
 import eu.ansquare.squarepowered.worldstructure.SquareWorldStructures;
 import eu.ansquare.starr.StarR;
+import net.fabricmc.fabric.api.gamerule.v1.GameRuleFactory;
+import net.fabricmc.fabric.api.gamerule.v1.GameRuleRegistry;
 import net.minecraft.util.Identifier;
+import net.minecraft.world.GameRules;
 import org.quiltmc.loader.api.ModContainer;
 import org.quiltmc.qsl.base.api.entrypoint.ModInitializer;
 import org.slf4j.Logger;
@@ -16,6 +19,9 @@ import org.slf4j.LoggerFactory;
 public class Squarepowered implements ModInitializer {
 	public static final Logger LOGGER = LoggerFactory.getLogger("Squarepowered");
 	public static final String MODID = StarR.MODID;
+
+	public static final GameRules.Key<GameRules.BooleanRule> EXCLUSIVE_SUPERDUDES =
+			GameRuleRegistry.register("exsclusive_superdudes", GameRules.Category.PLAYER, GameRuleFactory.createBooleanRule(true));
 	public static Identifier id(String path){
 		return StarR.id(path);
 	}

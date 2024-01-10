@@ -2,7 +2,7 @@ package eu.ansquare.squarepowered.action;
 
 import eu.ansquare.squarepowered.SquareRegistries;
 import eu.ansquare.squarepowered.Squarepowered;
-import eu.ansquare.squarepowered.cca.SquareEntityComponents;
+import eu.ansquare.squarepowered.cca.SquareComponents;
 import io.github.apace100.apoli.power.factory.action.ActionFactory;
 import io.github.apace100.calio.data.SerializableData;
 import io.github.apace100.calio.data.SerializableDataTypes;
@@ -14,7 +14,6 @@ import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.text.Text;
 import net.minecraft.util.Pair;
-import net.minecraft.world.World;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -24,7 +23,7 @@ public class OpenActionScreenAction {
 	public static void action(SerializableData.Instance data, Entity entity){
 		ScreenHandlerType type = SquareRegistries.ACTION_SCREEN.get(data.getId("screen"));
 		if(entity instanceof ServerPlayerEntity player){
-			SquareEntityComponents.SAVED_LOCATION_COMPONENT.sync(player);
+			SquareComponents.SAVED_LOCATION_COMPONENT.sync(player);
 			player.openHandledScreen(new SimpleNamedScreenHandlerFactory(((i, playerInventory, playerEntity) -> type.create(i, playerInventory)), Text.translatable("screen.starr."+data.getId("screen").getPath()+".title")));
 		}
 	}

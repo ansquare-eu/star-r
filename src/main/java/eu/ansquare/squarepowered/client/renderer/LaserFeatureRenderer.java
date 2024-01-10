@@ -2,11 +2,7 @@ package eu.ansquare.squarepowered.client.renderer;
 
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import eu.ansquare.squarepowered.cca.ClientStatesComponent;
-import eu.ansquare.squarepowered.cca.SquareEntityComponents;
 import eu.ansquare.starr.StarR;
-import eu.ansquare.starr.client.StarRClient;
-import eu.ansquare.starr.util.math.ColorConversion;
-import eu.ansquare.starr.util.network.ClientLaser;
 import net.minecraft.client.network.AbstractClientPlayerEntity;
 import net.minecraft.client.render.OverlayTexture;
 import net.minecraft.client.render.RenderLayer;
@@ -21,9 +17,7 @@ import net.minecraft.util.math.MathHelper;
 import org.joml.Matrix3f;
 import org.joml.Matrix4f;
 
-import java.awt.*;
-
-import static eu.ansquare.squarepowered.cca.SquareEntityComponents.CLIENT_STATE_COMPONENT;
+import static eu.ansquare.squarepowered.cca.SquareComponents.CLIENT_STATE_COMPONENT;
 
 public class LaserFeatureRenderer extends FeatureRenderer<AbstractClientPlayerEntity, PlayerEntityModel<AbstractClientPlayerEntity>> {
 	public static final Identifier LASER_TEXTURE = new Identifier(StarR.MODID, "textures/laser/laser.png");

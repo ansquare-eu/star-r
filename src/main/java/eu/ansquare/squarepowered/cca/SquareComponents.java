@@ -7,13 +7,13 @@ import dev.onyxstudios.cca.api.v3.entity.EntityComponentInitializer;
 import dev.onyxstudios.cca.api.v3.entity.RespawnCopyStrategy;
 import eu.ansquare.squarepowered.Squarepowered;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.util.Identifier;
 
-public class SquareEntityComponents implements EntityComponentInitializer {
+public class SquareComponents implements EntityComponentInitializer {
 	public static final ComponentKey<SavedLocationComponent> SAVED_LOCATION_COMPONENT =
 			ComponentRegistryV3.INSTANCE.getOrCreate(Squarepowered.id("saved_location"), SavedLocationComponent.class);
 	public static final ComponentKey<ClientStatesComponent> CLIENT_STATE_COMPONENT =
 			ComponentRegistryV3.INSTANCE.getOrCreate(Squarepowered.id("client_states"), ClientStatesComponent.class);
+
 	@Override
 	public void registerEntityComponentFactories(EntityComponentFactoryRegistry registry) {
 		registry.registerFor(LivingEntity.class, SAVED_LOCATION_COMPONENT, world -> new SavedLocationComponent());

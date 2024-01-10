@@ -4,7 +4,7 @@ import eu.ansquare.squarepowered.SquareNetworking;
 import eu.ansquare.squarepowered.Squarepowered;
 import eu.ansquare.squarepowered.actionscreen.SaveTeleportActionScreenHandler;
 import eu.ansquare.squarepowered.cca.SavedLocationComponent;
-import eu.ansquare.squarepowered.cca.SquareEntityComponents;
+import eu.ansquare.squarepowered.cca.SquareComponents;
 import eu.ansquare.squarepowered.util.PrettyPosUtil;
 import eu.ansquare.squarepowered.util.SquareMiscUtils;
 import net.minecraft.client.gui.GuiGraphics;
@@ -12,7 +12,6 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.network.PacketByteBuf;
 import net.minecraft.text.Text;
-import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import org.quiltmc.qsl.networking.api.PacketByteBufs;
 import org.quiltmc.qsl.networking.api.client.ClientPlayNetworking;
@@ -26,9 +25,9 @@ public class SaveTeleportScreen extends ActionScreen<SaveTeleportActionScreenHan
 	}
 	protected void drawForeground(GuiGraphics graphics, int mouseX, int mouseY) {
 		super.drawForeground(graphics, mouseX, mouseY);
-		SquareEntityComponents.SAVED_LOCATION_COMPONENT.sync(player);
-		if(SquareEntityComponents.SAVED_LOCATION_COMPONENT.isProvidedBy(player)){
-			SavedLocationComponent component = SquareEntityComponents.SAVED_LOCATION_COMPONENT.get(player);
+		SquareComponents.SAVED_LOCATION_COMPONENT.sync(player);
+		if(SquareComponents.SAVED_LOCATION_COMPONENT.isProvidedBy(player)){
+			SavedLocationComponent component = SquareComponents.SAVED_LOCATION_COMPONENT.get(player);
 			for (int i = 0; i < component.amount(); i++) {
 				BlockPos pos = component.get(i);
 				graphics.drawText(textRenderer, PrettyPosUtil.colonSeparatedBlockPos(pos), 5, 25 + i *20, 1, false);

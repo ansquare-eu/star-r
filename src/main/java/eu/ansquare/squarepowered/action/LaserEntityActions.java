@@ -2,7 +2,7 @@ package eu.ansquare.squarepowered.action;
 
 import eu.ansquare.squarepowered.Squarepowered;
 import eu.ansquare.squarepowered.cca.ClientStatesComponent;
-import eu.ansquare.squarepowered.cca.SquareEntityComponents;
+import eu.ansquare.squarepowered.cca.SquareComponents;
 import io.github.apace100.apoli.power.factory.action.ActionFactory;
 import io.github.apace100.calio.data.SerializableData;
 import io.github.apace100.calio.data.SerializableDataTypes;
@@ -12,11 +12,11 @@ import net.minecraft.server.network.ServerPlayerEntity;
 public class LaserEntityActions {
 	public static void activateLaser(SerializableData.Instance data, Entity entity){
 		if(entity instanceof ServerPlayerEntity player){
-			if(SquareEntityComponents.CLIENT_STATE_COMPONENT.isProvidedBy(player)){
-				ClientStatesComponent component = SquareEntityComponents.CLIENT_STATE_COMPONENT.get(player);
+			if(SquareComponents.CLIENT_STATE_COMPONENT.isProvidedBy(player)){
+				ClientStatesComponent component = SquareComponents.CLIENT_STATE_COMPONENT.get(player);
 				component.setColors(data.getInt("red"), data.getInt("green"), data.getInt("blue"));
 				component.laser = true;
-				SquareEntityComponents.CLIENT_STATE_COMPONENT.sync(player);
+				SquareComponents.CLIENT_STATE_COMPONENT.sync(player);
 			}
 		}
 	}
@@ -30,10 +30,10 @@ public class LaserEntityActions {
 	}
 	public static void deactivateLaser(SerializableData.Instance data, Entity entity){
 		if(entity instanceof ServerPlayerEntity player){
-			if(SquareEntityComponents.CLIENT_STATE_COMPONENT.isProvidedBy(player)){
-				ClientStatesComponent component = SquareEntityComponents.CLIENT_STATE_COMPONENT.get(player);
+			if(SquareComponents.CLIENT_STATE_COMPONENT.isProvidedBy(player)){
+				ClientStatesComponent component = SquareComponents.CLIENT_STATE_COMPONENT.get(player);
 				component.laser = false;
-				SquareEntityComponents.CLIENT_STATE_COMPONENT.sync(player);
+				SquareComponents.CLIENT_STATE_COMPONENT.sync(player);
 			}
 		}
 	}

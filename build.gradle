@@ -77,6 +77,7 @@ dependencies {
 	modImplementation ("dev.emi:trinkets:${project.trinkets}" ){
 		exclude group: 'net.fabricmc', module: 'fabric-loader'
 	}
+
 	//modImplementation "com.github.farpo:lodestonelib-quilt:v0.0.4-1.20.1"
 	//modImplementation include("maven.modrinth:midnightlib:${project.midnightlib_version}-quilt"){
 //		exclude group: 'net.fabricmc', module: 'fabric-loader'

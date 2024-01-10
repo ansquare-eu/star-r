@@ -11,10 +11,8 @@ import eu.ansquare.starr.client.wearables.model.hare.HareOneModel;
 import eu.ansquare.starr.client.wearables.model.hare.HareTwoModel;
 import eu.ansquare.starr.entity.ModEntities;
 import eu.ansquare.starr.entity.model.BoyshieldEntityModel;
-import eu.ansquare.starr.entity.model.CapeEntityModel;
 import eu.ansquare.starr.entity.model.PalicaEntityModel;
 import eu.ansquare.starr.entity.render.BoyshieldEntityRenderer;
-import eu.ansquare.starr.entity.render.CapeEntityRenderer;
 import eu.ansquare.starr.entity.render.LaserEntityRenderer;
 import eu.ansquare.starr.entity.render.PalicaEntityRenderer;
 import eu.ansquare.starr.items.GetItemTypes;
@@ -36,15 +34,9 @@ import org.quiltmc.qsl.block.extensions.api.client.BlockRenderLayerMap;
 
 public class StarRClient implements ClientModInitializer {
 	public static ClientPlayerHolder LASER_HOLDER= new ClientPlayerHolder();
-	public static final EntityModelLayer MODEL_CAPE_LAYER = new EntityModelLayer(new Identifier(StarR.MODID, "cape"), "main");
-
 	@Override
 	public void onInitializeClient(ModContainer mod) {
 
-		EntityModelLayerRegistry.registerModelLayer(MODEL_CAPE_LAYER, CapeEntityModel::getTexturedModelData);
-		EntityRendererRegistry.register(ModEntities.CAPE, (context) -> {
-			return new CapeEntityRenderer(context);
-		});
 		EntityModelLayerRegistry.registerModelLayer(PalicaEntityModel.LAYER_LOCATION, PalicaEntityModel::getTexturedModelData);
 		EntityRendererRegistry.register(ModEntities.PALICA, (context) -> {
 			return new PalicaEntityRenderer(context);
