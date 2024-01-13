@@ -2,14 +2,12 @@ package eu.ansquare.squarepowered.actionscreen.client;
 
 import eu.ansquare.squarepowered.SquareNetworking;
 import eu.ansquare.squarepowered.Squarepowered;
-import eu.ansquare.squarepowered.actionscreen.LocationTeleportActionScreenHandler;
+import eu.ansquare.squarepowered.actionscreen.handler.LocationTeleportActionScreenHandler;
 import net.minecraft.client.gui.widget.ButtonWidget;
 import net.minecraft.client.gui.widget.TextFieldWidget;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.network.PacketByteBuf;
-import net.minecraft.screen.ScreenHandler;
 import net.minecraft.text.Text;
-import net.minecraft.util.Identifier;
 import org.quiltmc.qsl.networking.api.PacketByteBufs;
 import org.quiltmc.qsl.networking.api.client.ClientPlayNetworking;
 

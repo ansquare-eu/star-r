@@ -2,6 +2,9 @@ package eu.ansquare.squarepowered.actionscreen;
 
 import eu.ansquare.squarepowered.SquareRegistries;
 import eu.ansquare.squarepowered.Squarepowered;
+import eu.ansquare.squarepowered.actionscreen.handler.LocalizeActionScreenHandler;
+import eu.ansquare.squarepowered.actionscreen.handler.LocationTeleportActionScreenHandler;
+import eu.ansquare.squarepowered.actionscreen.handler.SaveTeleportActionScreenHandler;
 import net.minecraft.feature_flags.FeatureFlags;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;

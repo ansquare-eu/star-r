@@ -1,4 +1,4 @@
-package eu.ansquare.squarepowered.actionscreen;
+package eu.ansquare.squarepowered.actionscreen.handler;
 
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;

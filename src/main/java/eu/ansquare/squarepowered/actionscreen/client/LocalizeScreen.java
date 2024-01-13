@@ -2,7 +2,7 @@ package eu.ansquare.squarepowered.actionscreen.client;
 
 import eu.ansquare.squarepowered.SquareNetworking;
 import eu.ansquare.squarepowered.Squarepowered;
-import eu.ansquare.squarepowered.actionscreen.LocalizeActionScreenHandler;
+import eu.ansquare.squarepowered.actionscreen.handler.LocalizeActionScreenHandler;
 import net.minecraft.client.gui.widget.TextWidget;
 import net.minecraft.client.network.PlayerListEntry;
 import net.minecraft.entity.player.PlayerInventory;
@@ -11,7 +11,6 @@ import net.minecraft.scoreboard.Team;
 import net.minecraft.text.MutableText;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
-import net.minecraft.util.Identifier;
 import net.minecraft.world.GameMode;
 import org.quiltmc.qsl.networking.api.PacketByteBufs;
 import org.quiltmc.qsl.networking.api.client.ClientPlayNetworking;

@@ -1,5 +1,6 @@
-package eu.ansquare.squarepowered.actionscreen;
+package eu.ansquare.squarepowered.actionscreen.handler;
 
+import eu.ansquare.squarepowered.actionscreen.SquareActionScreens;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 

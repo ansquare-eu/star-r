@@ -2,7 +2,7 @@ package eu.ansquare.squarepowered.actionscreen.client;
 
 import eu.ansquare.squarepowered.SquareNetworking;
 import eu.ansquare.squarepowered.Squarepowered;
-import eu.ansquare.squarepowered.actionscreen.SaveTeleportActionScreenHandler;
+import eu.ansquare.squarepowered.actionscreen.handler.SaveTeleportActionScreenHandler;
 import eu.ansquare.squarepowered.cca.SavedLocationComponent;
 import eu.ansquare.squarepowered.cca.SquareComponents;
 import eu.ansquare.squarepowered.util.PrettyPosUtil;

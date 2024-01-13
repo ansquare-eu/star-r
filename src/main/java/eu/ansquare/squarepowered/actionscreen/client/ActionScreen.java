@@ -1,16 +1,13 @@
 package eu.ansquare.squarepowered.actionscreen.client;
 
 import com.mojang.blaze3d.systems.RenderSystem;
-import eu.ansquare.squarepowered.actionscreen.ActionScreenHandler;
-import eu.ansquare.squarepowered.actionscreen.LocationTeleportActionScreenHandler;
+import eu.ansquare.squarepowered.actionscreen.handler.ActionScreenHandler;
 import net.minecraft.client.gui.Drawable;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screen.ingame.HandledScreen;
 import net.minecraft.client.gui.widget.ButtonWidget;
 import net.minecraft.client.gui.widget.TextFieldWidget;
 import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.screen.AbstractFurnaceScreenHandler;
-import net.minecraft.screen.ScreenHandler;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 

@@ -1,11 +1,7 @@
 package eu.ansquare.squarepowered;
 
-import eu.ansquare.squarepowered.Squarepowered;
-import eu.ansquare.squarepowered.actionscreen.ActionScreenHandler;
 import eu.ansquare.squarepowered.worldstructure.WorldStructureFactory;
-import io.github.apace100.apoli.power.factory.PowerFactory;
 import net.fabricmc.fabric.api.event.registry.FabricRegistryBuilder;
-import net.fabricmc.fabric.api.screenhandler.v1.ExtendedScreenHandlerType;
 import net.minecraft.registry.Registry;
 import net.minecraft.screen.ScreenHandlerType;
 
