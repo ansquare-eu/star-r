@@ -9,7 +9,8 @@
       "ServerPlayerInteractionManagerAccessor",
       "ServerPlayNetworkHandlerMixin"
       ,"LivingEntityMixin",
-    "PlayerManagerMixin"],
+    "PlayerManagerMixin"
+    ,"BlockMixin"],
 	"client": [
       "client.PlayerEntityRendererMixin",
       "client.ClientPlayerInteractionManagerMixin",

@@ -45,6 +45,7 @@ public class Squarepowered implements ModInitializer {
 		SquareWorldStructures.init();
 		SquareActionScreens.init();
 		SquareNetworking.initC2S();
+		SquareEvents.init();
 		LOGGER.info("Squarepowered lib successfully initialized!");
 	}
 }
