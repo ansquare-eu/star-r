@@ -137,6 +137,8 @@
   "power.starr.skier/icewalk.name": "Ice airwalk",
   "power.starr.skier/jump_boost.description": "Jump higher when active",
   "power.starr.skier/jump_boost.name": "Jump boost",
+  "power.starr.skier/creative_flight.description": "Fly like in creative mode",
+  "power.starr.skier/creative_flight.name": "Flight",
 
   "power.starr.brain/heal.description": "Heal yourself one heart",
   "power.starr.brain/heal.name": "Heal",
@@ -144,6 +146,10 @@
   "power.starr.brain/telekinesis.name": "Telekinesis",
   "power.starr.brain/limit.description": "Your creative menu is not very strong and may miss some items",
   "power.starr.brain/limit.name": "Creative menu limit",
+  "power.starr.brain/teleportation_location.description": "Teleport to any coordinates you specify",
+  "power.starr.brain/teleportation_location.name": "Coordinate teleportation",
+  "power.starr.brain/teleportation_save.description": "Teleport to a point you have previously saved",
+  "power.starr.brain/teleportation_save.name": "Saved point teleportation",
 
   "power.starr.localizator/localize.description": "Teleport to any player",
   "power.starr.localizator/localize.name": "Localization",

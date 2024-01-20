@@ -3,8 +3,9 @@
     "starr:brain/telekinesis",
     "starr:brain/heal",
     "starr:creative_inv",
-    "starr:brain/limit"
-
+    "starr:brain/limit",
+    "starr:brain/teleportation_location",
+    "starr:brain/teleportation_save"
   ],
   "icon":"minecraft:pink_stained_glass",
   "impact":3
