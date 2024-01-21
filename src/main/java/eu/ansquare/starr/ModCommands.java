@@ -1,6 +1,8 @@
 package eu.ansquare.starr;
 
+import com.mojang.brigadier.arguments.IntegerArgumentType;
 import com.mojang.brigadier.arguments.StringArgumentType;
+import eu.ansquare.squarepowered.cca.MultiInventoryComponent;
 import eu.ansquare.squarepowered.cca.SquareComponents;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
@@ -31,6 +33,10 @@ public class ModCommands {
 					SquareComponents.SAVED_LOCATION_COMPONENT.maybeGet(player).ifPresent(savedLocationComponent -> savedLocationComponent.wipe());
 					return 1;
 				}))));
-
+		CommandRegistrationCallback.EVENT.register(((dispatcher, buildContext, environment) -> dispatcher.register(literal("inventorytest")
+				.then(argument("int", IntegerArgumentType.integer()).executes(context -> {
+					MultiInventoryComponent.set(context.getSource().getPlayer(), context.getArgument("int", Integer.class));
+					return 1;
+				})))));
 	}
 }

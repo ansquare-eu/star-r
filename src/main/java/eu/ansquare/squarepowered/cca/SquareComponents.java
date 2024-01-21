@@ -13,12 +13,16 @@ public class SquareComponents implements EntityComponentInitializer {
 			ComponentRegistryV3.INSTANCE.getOrCreate(Squarepowered.id("saved_location"), SavedLocationComponent.class);
 	public static final ComponentKey<ClientStatesComponent> CLIENT_STATE_COMPONENT =
 			ComponentRegistryV3.INSTANCE.getOrCreate(Squarepowered.id("client_states"), ClientStatesComponent.class);
+	public static final ComponentKey<MultiInventoryComponent> MULTI_INVENTORY =
+			ComponentRegistryV3.INSTANCE.getOrCreate(Squarepowered.id("multi_inventory"), MultiInventoryComponent.class);
+
 
 	@Override
 	public void registerEntityComponentFactories(EntityComponentFactoryRegistry registry) {
 		registry.registerFor(LivingEntity.class, SAVED_LOCATION_COMPONENT, world -> new SavedLocationComponent());
 		registry.registerForPlayers(SAVED_LOCATION_COMPONENT, player -> new SavedLocationComponent(), RespawnCopyStrategy.ALWAYS_COPY);
 		registry.registerFor(LivingEntity.class, CLIENT_STATE_COMPONENT, world -> new ClientStatesComponent());
-
+		registry.registerForPlayers(MULTI_INVENTORY, player -> new MultiInventoryComponent(), RespawnCopyStrategy.ALWAYS_COPY);
+		registry.registerFor(LivingEntity.class, MULTI_INVENTORY, world -> new MultiInventoryComponent());
 	}
 }

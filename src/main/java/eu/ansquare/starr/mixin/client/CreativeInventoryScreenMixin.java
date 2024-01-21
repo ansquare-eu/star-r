@@ -59,10 +59,8 @@ public abstract class CreativeInventoryScreenMixin extends AbstractInventoryScre
 
 	@Inject(method = "reloadItems", at = @At("HEAD"), cancellable = true)
 	private void reloadItems(FeatureFlagBitSet featureFlags, boolean hasPermissions, HolderLookup.Provider lookupProvider, CallbackInfo ci) {
-		Squarepowered.log("i9s", 0);
 
 		if(PowerHolderComponent.hasPower(client.player, LimitCreativeMenuPower.class)){
-			Squarepowered.log("haqs", 1);
 
 				for(ItemGroup itemGroup : ItemGroups.getAllGroups()) {
 					Collection<ItemStack> collection = itemGroup.getOrInitTabStacks();

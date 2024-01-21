@@ -1,5 +1,6 @@
 package eu.ansquare.starr.mixin;
 
+import eu.ansquare.squarepowered.cca.MultiInventoryComponent;
 import eu.ansquare.starr.util.item.ItemUtils;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EquipmentSlot;
@@ -10,6 +11,7 @@ import net.minecraft.inventory.Inventories;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.nbt.NbtList;
 import net.minecraft.text.Text;
 import net.minecraft.util.Nameable;
 import net.minecraft.world.World;
@@ -59,5 +61,10 @@ public abstract class PlayerEntityMixn extends LivingEntity {
 				}
 			}
 		}
+	}
+
+	@Inject(method = "writeCustomDataToNbt", at = @At("TAIL"))
+	public void squarepowered_onWriteCustomDataToNbt(NbtCompound nbt, CallbackInfo ci) {
+		MultiInventoryComponent.save((PlayerEntity) (Object) this);
 	}
 }

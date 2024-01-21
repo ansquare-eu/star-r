@@ -59,6 +59,7 @@
 		]
 	},
 	"cardinal-components": ["starr:saved_location",
-	"starr:client_states"],
+	"starr:client_states",
+		"starr:multi_inventory"],
 	"mixin": "starr.mixins.json"
 }
