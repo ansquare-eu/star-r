@@ -18,7 +18,28 @@ public class MultiInventoryComponent implements AutoSyncedComponent {
 
 	private boolean preventItemTransfer = false;
 	private boolean noDroppingBlocks = false;
-
+	public static void setProperties(PlayerEntity player, boolean preventItemTransfer, boolean noDroppingBlocks){
+		if(SquareComponents.MULTI_INVENTORY.isProvidedBy(player)){
+			MultiInventoryComponent component = SquareComponents.MULTI_INVENTORY.get(player);
+			component.preventItemTransfer = preventItemTransfer;
+			component.noDroppingBlocks = noDroppingBlocks;
+		}
+		SquareComponents.MULTI_INVENTORY.sync(player);
+	}
+	public static boolean isNoDrop(PlayerEntity player){
+		if(SquareComponents.MULTI_INVENTORY.isProvidedBy(player)){
+			MultiInventoryComponent component = SquareComponents.MULTI_INVENTORY.get(player);
+			return component.noDroppingBlocks;
+		}
+		return false;
+	}
+	public static boolean isPreventTransfer(PlayerEntity player){
+		if(SquareComponents.MULTI_INVENTORY.isProvidedBy(player)){
+			MultiInventoryComponent component = SquareComponents.MULTI_INVENTORY.get(player);
+			return component.preventItemTransfer;
+		}
+		return false;
+	}
 	@Nullable
 	public static void load(PlayerEntity player){
 		if(SquareComponents.MULTI_INVENTORY.isProvidedBy(player)){

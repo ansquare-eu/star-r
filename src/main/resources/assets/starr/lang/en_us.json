@@ -152,6 +152,8 @@
   "power.starr.brain/teleportation_location.name": "Coordinate teleportation",
   "power.starr.brain/teleportation_save.description": "Teleport to a point you have previously saved",
   "power.starr.brain/teleportation_save.name": "Saved point teleportation",
+  "power.starr.brain/creative_inv.description": "Access the creative menu in survival",
+  "power.starr.brain/creative_inv.name": "Creative inventory",
 
   "power.starr.localizator/localize.description": "Teleport to any player",
   "power.starr.localizator/localize.name": "Localization",

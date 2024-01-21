@@ -1,5 +1,6 @@
 package eu.ansquare.starr.mixin;
 
+import eu.ansquare.squarepowered.cca.MultiInventoryComponent;
 import eu.ansquare.squarepowered.power.CreativeInvPower;
 import eu.ansquare.starr.StarR;
 import io.github.apace100.apoli.component.PowerHolderComponent;
@@ -33,9 +34,6 @@ public class ServerPlayNetworkHandlerMixin {
 		if (!player.interactionManager.isCreative() && PowerHolderComponent.hasPower(player, CreativeInvPower.class)) {
 			boolean bl = packet.getSlot() < 0;
 			ItemStack itemStack = packet.getItemStack();
-			if(CreativeInvPower.areStacksSigned(player) && itemStack.getItem() instanceof BlockItem){
-				itemStack.getOrCreateNbt().putBoolean("no_drop", true);
-			}
 			if (!itemStack.isEnabled(this.player.getWorld().getEnabledFlags())) {
 				return;
 			}

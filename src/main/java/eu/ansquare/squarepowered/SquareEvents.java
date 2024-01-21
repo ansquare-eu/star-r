@@ -1,6 +1,7 @@
 package eu.ansquare.squarepowered;
 
 import eu.ansquare.sbd.BlockDataApi;
+import eu.ansquare.squarepowered.cca.MultiInventoryComponent;
 import net.fabricmc.fabric.api.event.player.AttackBlockCallback;
 import net.fabricmc.fabric.api.event.player.PlayerBlockBreakEvents;
 import net.fabricmc.fabric.api.event.player.UseBlockCallback;
@@ -13,8 +14,7 @@ public class SquareEvents {
 		UseBlockCallback.EVENT.register((player, world, hand, hitResult) -> {
 			if(player instanceof ServerPlayerEntity){
 				BlockPos pos = hitResult.getBlockPos().offset(hitResult.getSide());
-				Squarepowered.log(pos.toShortString(), 0);
-				BlockDataApi.setBoolean(pos, world, "no_drop", true);
+				if(MultiInventoryComponent.isNoDrop(player)) BlockDataApi.setBoolean(pos, world, "no_drop", true);
 			}
 			return ActionResult.PASS;
 		});

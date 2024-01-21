@@ -17,22 +17,16 @@ import net.minecraft.entity.LivingEntity;
 import java.util.List;
 
 public class CreativeInvPower extends Power {
-	public final boolean sign;
-	public CreativeInvPower(PowerType<?> type, LivingEntity entity, boolean sign) {
+	public CreativeInvPower(PowerType<?> type, LivingEntity entity) {
 		super(type, entity);
-		this.sign = sign;
 	}
-	public static boolean areStacksSigned(LivingEntity entity){
-		List<CreativeInvPower> list = PowerHolderComponent.getPowers(entity, CreativeInvPower.class);
-		return list.stream().anyMatch(creativeInvPower -> creativeInvPower.sign == true);
-	}
+
 	public static PowerFactory createFactory() {
 		return new PowerFactory<CreativeInvPower>(Squarepowered.id("creative_inv"),
-				new SerializableData()
-						.add("sign_stacks", SerializableDataTypes.BOOLEAN, true),
+				new SerializableData(),
 				data ->
 						(type, player) -> {
-							CreativeInvPower power = new CreativeInvPower(type, player, data.getBoolean("sign_stacks"));
+							CreativeInvPower power = new CreativeInvPower(type, player);
 							return power;
 						})
 				.allowCondition();

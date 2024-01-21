@@ -1,0 +1,29 @@
+{
+  "type": "origins:multiple",
+  "toggle": {
+    "type": "starr:on_and_off",
+    "on_action": {
+      "type": "starr:set_inventory",
+      "inventory": 0,
+      "no_drop": true,
+      "prevent_item_transfer": true
+    },
+    "off_action": {
+      "type": "starr:set_inventory",
+      "inventory": -1,
+      "no_drop": false,
+      "prevent_item_transfer": false
+    },
+    "key": {
+      "key": "key.origins.5_active",
+      "continuous": false
+    }
+  },
+  "inventory": {
+    "type": "starr:creative_inv",
+    "condition": {
+      "type": "origins:power_active",
+      "power": "*:*_toggle"
+    }
+  }
+}
