@@ -6,11 +6,14 @@
 	"mixins": [
       "ScreenHandlerMixin",
       "PlayerEntityMixn",
+      "ServerPlayerEntityMixn",
       "ServerPlayerInteractionManagerAccessor",
       "ServerPlayNetworkHandlerMixin"
       ,"LivingEntityMixin",
     "PlayerManagerMixin"
-    ,"BlockMixin"],
+    ,"BlockMixin",
+    "ItemEntityMixin",
+    "LockableContainerBlockEntityMixin"],
 	"client": [
       "client.PlayerEntityRendererMixin",
       "client.ClientPlayerInteractionManagerMixin",

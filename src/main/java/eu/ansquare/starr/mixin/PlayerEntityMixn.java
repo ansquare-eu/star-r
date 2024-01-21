@@ -4,6 +4,7 @@ import eu.ansquare.squarepowered.cca.MultiInventoryComponent;
 import eu.ansquare.starr.util.item.ItemUtils;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EquipmentSlot;
+import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
@@ -62,7 +63,10 @@ public abstract class PlayerEntityMixn extends LivingEntity {
 			}
 		}
 	}
-
+	@Inject(method = "dropItem(Lnet/minecraft/item/ItemStack;ZZ)Lnet/minecraft/entity/ItemEntity;", at = @At("HEAD"), cancellable = true)
+	public void squarepowered_onDropItem(ItemStack stack, boolean throwRandomly, boolean retainOwnership, CallbackInfoReturnable<ItemEntity> cir) {
+		if(MultiInventoryComponent.isPreventTransfer((PlayerEntity) (Object) this)) cir.setReturnValue(null);
+	}
 	@Inject(method = "writeCustomDataToNbt", at = @At("TAIL"))
 	public void squarepowered_onWriteCustomDataToNbt(NbtCompound nbt, CallbackInfo ci) {
 		MultiInventoryComponent.save((PlayerEntity) (Object) this);
