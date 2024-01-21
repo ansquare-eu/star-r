@@ -59,8 +59,11 @@ public abstract class CreativeInventoryScreenMixin extends AbstractInventoryScre
 
 	@Inject(method = "reloadItems", at = @At("HEAD"), cancellable = true)
 	private void reloadItems(FeatureFlagBitSet featureFlags, boolean hasPermissions, HolderLookup.Provider lookupProvider, CallbackInfo ci) {
+		Squarepowered.log("i9s", 0);
+
 		if(PowerHolderComponent.hasPower(client.player, LimitCreativeMenuPower.class)){
-			if (ItemGroups.tryReloadEntries(featureFlags, hasPermissions, lookupProvider)) {
+			Squarepowered.log("haqs", 1);
+
 				for(ItemGroup itemGroup : ItemGroups.getAllGroups()) {
 					Collection<ItemStack> collection = itemGroup.getOrInitTabStacks();
 					Collection<ItemStack> collection2 = PowerHolderComponent.getPowers(client.player, LimitCreativeMenuPower.class).get(0).filterStacks(collection);
@@ -72,18 +75,6 @@ public abstract class CreativeInventoryScreenMixin extends AbstractInventoryScre
 						}
 					}
 				}
-			} else {
-				for(ItemGroup itemGroup : ItemGroups.getAllGroups()) {
-					Collection<ItemStack> collection = itemGroup.getOrInitTabStacks();
-					Collection<ItemStack> collection2 = PowerHolderComponent.getPowers(client.player, LimitCreativeMenuPower.class).get(0).filterStacks(collection);					if (itemGroup == selectedTab) {
-						if (itemGroup.getType() == ItemGroup.Type.CATEGORY && collection.isEmpty()) {
-							this.setSelectedTab(ItemGroups.getDefaultTab());
-						} else {
-							this.setItemList(collection2);
-						}
-					}
-				}
-			}
 			ci.cancel();
 		}
 	}

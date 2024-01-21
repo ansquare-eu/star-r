@@ -44,7 +44,7 @@ public class SquarepoweredClient implements ClientModInitializer {
 		powerKeybind8 = new KeyBind("key.origins.8_active", InputUtil.Type.KEYSYM, GLFW.GLFW_KEY_Y, "category.origins");
 		powerKeybind9 = new KeyBind("key.origins.9_active", InputUtil.Type.KEYSYM, GLFW.GLFW_KEY_V, "category.origins");
 		powerKeybind10 = new KeyBind("key.origins.10_active", InputUtil.Type.KEYSYM, GLFW.GLFW_KEY_Z, "category.origins");
-		powerKeybindTransform = new KeyBind("key.origins.11_active", InputUtil.Type.KEYSYM, GLFW.GLFW_KEY_MINUS, "category.origins");
+		powerKeybindTransform = new KeyBind("key.origins.11_active", InputUtil.Type.KEYSYM, GLFW.GLFW_KEY_COMMA, "category.origins");
 		incrementKey = new KeyBind("key.origins.increment", InputUtil.Type.KEYSYM, GLFW.GLFW_KEY_EQUAL, "category.origins");
 		decrementKey = new KeyBind("key.origins.decrement", InputUtil.Type.KEYSYM, GLFW.GLFW_KEY_MINUS, "category.origins");
 		ApoliClient.registerPowerKeybinding("key.origins.3_active", powerKeybind3);

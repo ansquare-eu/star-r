@@ -139,6 +139,8 @@
   "power.starr.skier/jump_boost.name": "Jump boost",
   "power.starr.skier/creative_flight.description": "Fly like in creative mode",
   "power.starr.skier/creative_flight.name": "Flight",
+  "power.starr.skier/speed.description": "Be faster",
+  "power.starr.skier/speed.name": "Speed",
 
   "power.starr.brain/heal.description": "Heal yourself one heart",
   "power.starr.brain/heal.name": "Heal",
