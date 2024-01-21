@@ -154,6 +154,8 @@
   "power.starr.brain/teleportation_save.name": "Saved point teleportation",
   "power.starr.brain/creative_inv.description": "Access the creative menu in survival",
   "power.starr.brain/creative_inv.name": "Creative inventory",
+  "power.starr.brain/teleport_others.description": "Point at an entity when toggling on and your powers will teleport it instead of you.",
+  "power.starr.brain/teleport_others.name": "Teleport others",
 
   "power.starr.localizator/localize.description": "Teleport to any player",
   "power.starr.localizator/localize.name": "Localization",

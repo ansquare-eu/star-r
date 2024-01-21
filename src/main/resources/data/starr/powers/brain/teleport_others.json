@@ -1,0 +1,21 @@
+{
+  "type": "starr:on_and_off",
+  "on_action": {
+      "type": "origins:raycast",
+      "distance": 16,
+      "block": true,
+      "entity": true,
+      "shape_type": "visual",
+      "fluid_handling": "any",
+      "bientity_action": {
+        "type": "starr:add_task"
+      }
+  },
+  "off_action": {
+      "type": "starr:remove_task"
+  },
+  "key": {
+    "key": "key.origins.5_active",
+    "continuous": false
+  }
+}
