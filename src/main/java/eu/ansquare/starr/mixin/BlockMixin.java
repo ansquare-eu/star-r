@@ -22,12 +22,14 @@ public class BlockMixin {
 	@Inject(method = "getDroppedStacks(Lnet/minecraft/block/BlockState;Lnet/minecraft/server/world/ServerWorld;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/block/entity/BlockEntity;)Ljava/util/List;", at = @At("TAIL"), cancellable = true)
 	private static void onGetDroppedStacks(BlockState state, ServerWorld world, BlockPos pos, @Nullable BlockEntity blockEntity, CallbackInfoReturnable<List<ItemStack>> cir){
 		if(BlockDataApi.getBoolean(pos, world, "no_drop")){
+			BlockDataApi.setBoolean(pos, world, "no_drop", false);
 			cir.setReturnValue(new LinkedList<>());
 		}
 	}
 	@Inject(method = "getDroppedStacks(Lnet/minecraft/block/BlockState;Lnet/minecraft/server/world/ServerWorld;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/block/entity/BlockEntity;Lnet/minecraft/entity/Entity;Lnet/minecraft/item/ItemStack;)Ljava/util/List;", at = @At("TAIL"), cancellable = true)
 	private static void onGetDroppedStacksTwo(BlockState state, ServerWorld world, BlockPos pos, @Nullable BlockEntity blockEntity, @Nullable Entity entity, ItemStack stack, CallbackInfoReturnable<List<ItemStack>> cir){
 		if(BlockDataApi.getBoolean(pos, world, "no_drop")){
+			BlockDataApi.setBoolean(pos, world, "no_drop", false);
 			cir.setReturnValue(new LinkedList<>());
 		}
 	}
