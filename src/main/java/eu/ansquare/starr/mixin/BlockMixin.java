@@ -5,32 +5,37 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.ItemEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Direction;
+import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.function.Supplier;
 
 @Mixin(Block.class)
 public class BlockMixin {
-	@Inject(method = "getDroppedStacks(Lnet/minecraft/block/BlockState;Lnet/minecraft/server/world/ServerWorld;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/block/entity/BlockEntity;)Ljava/util/List;", at = @At("TAIL"), cancellable = true)
-	private static void onGetDroppedStacks(BlockState state, ServerWorld world, BlockPos pos, @Nullable BlockEntity blockEntity, CallbackInfoReturnable<List<ItemStack>> cir){
+	@Inject(method = "dropStack(Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/item/ItemStack;)V", at = @At("HEAD"), cancellable = true)
+	private static void onGetDroppedStacks(World world, BlockPos pos, ItemStack stack, CallbackInfo ci){
 		if(BlockDataApi.getBoolean(pos, world, "no_drop")){
 			BlockDataApi.setBoolean(pos, world, "no_drop", false);
-			cir.setReturnValue(new LinkedList<>());
+			ci.cancel();
 		}
 	}
-	@Inject(method = "getDroppedStacks(Lnet/minecraft/block/BlockState;Lnet/minecraft/server/world/ServerWorld;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/block/entity/BlockEntity;Lnet/minecraft/entity/Entity;Lnet/minecraft/item/ItemStack;)Ljava/util/List;", at = @At("TAIL"), cancellable = true)
-	private static void onGetDroppedStacksTwo(BlockState state, ServerWorld world, BlockPos pos, @Nullable BlockEntity blockEntity, @Nullable Entity entity, ItemStack stack, CallbackInfoReturnable<List<ItemStack>> cir){
+	@Inject(method = "dropStack(Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/util/math/Direction;Lnet/minecraft/item/ItemStack;)V", at = @At("HEAD"), cancellable = true)
+	private static void onGetDroppedStacksTwo(World world, BlockPos pos, Direction direction, ItemStack stack, CallbackInfo ci){
 		if(BlockDataApi.getBoolean(pos, world, "no_drop")){
 			BlockDataApi.setBoolean(pos, world, "no_drop", false);
-			cir.setReturnValue(new LinkedList<>());
+			ci.cancel();
 		}
 	}
 }
