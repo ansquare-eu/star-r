@@ -58,7 +58,7 @@ public abstract class CreativeInventoryScreenMixin extends AbstractInventoryScre
 	}
 
 	@Inject(method = "reloadItems", at = @At("HEAD"), cancellable = true)
-	private void reloadItems(FeatureFlagBitSet featureFlags, boolean hasPermissions, HolderLookup.Provider lookupProvider, CallbackInfo ci) {
+	private void onReloadItems(FeatureFlagBitSet featureFlags, boolean hasPermissions, HolderLookup.Provider lookupProvider, CallbackInfo ci) {
 
 		if(PowerHolderComponent.hasPower(client.player, LimitCreativeMenuPower.class)){
 
@@ -77,7 +77,7 @@ public abstract class CreativeInventoryScreenMixin extends AbstractInventoryScre
 		}
 	}
 	@Inject(method = "search", at = @At("HEAD"), cancellable = true)
-	private void reloadItems(CallbackInfo ci) {
+	private void onSearch(CallbackInfo ci) {
 		if(PowerHolderComponent.hasPower(client.player, LimitCreativeMenuPower.class)){
 			this.handler.itemList.clear();
 			this.searchResultTags.clear();

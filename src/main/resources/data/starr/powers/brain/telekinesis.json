@@ -70,5 +70,8 @@
       "key": "key.origins.decrement",
       "continuous": true
     }
+  },
+  "flight": {
+    "type": "origins:creative_flight"
   }
 }
