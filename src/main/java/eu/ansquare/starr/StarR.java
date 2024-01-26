@@ -20,6 +20,7 @@ public class StarR implements ModInitializer {
 		return new Identifier(MODID, path);
 	}
 
+	//Seeds -867254401229485070
 	@Override
 	public void onInitialize(ModContainer mod) {
 		LOGGER.info("Hello Quilt world from {}!", mod.metadata().name());
