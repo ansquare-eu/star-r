@@ -14,7 +14,8 @@
     ,"BlockMixin",
     "ItemEntityMixin",
     "LockableContainerBlockEntityMixin",
-    "HorseBaseEntityMixin"],
+    "HorseBaseEntityMixin",
+    "PistonBlockMixin"],
 	"client": [
       "client.PlayerEntityRendererMixin",
       "client.ClientPlayerInteractionManagerMixin",

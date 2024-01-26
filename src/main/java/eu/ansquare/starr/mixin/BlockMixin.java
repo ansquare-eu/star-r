@@ -6,6 +6,7 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.ItemEntity;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.BlockPos;
@@ -37,5 +38,10 @@ public class BlockMixin {
 			BlockDataApi.setBoolean(pos, world, "no_drop", false);
 			ci.cancel();
 		}
+	}
+	@Inject(method = "afterBreak",at = @At("TAIL"), cancellable = true)
+	public void onAfterBreak(World world, PlayerEntity player, BlockPos pos, BlockState state, BlockEntity blockEntity, ItemStack stack, CallbackInfo ci){
+		//TODO move to SBD
+		BlockDataApi.setBoolean(pos, world, "no_drop", false);
 	}
 }
