@@ -5,6 +5,7 @@ import eu.ansquare.squarepowered.action.SquareActions;
 import eu.ansquare.squarepowered.actionscreen.SquareActionScreens;
 import eu.ansquare.squarepowered.client.SquarepoweredClient;
 import eu.ansquare.squarepowered.power.SquarePowers;
+import eu.ansquare.squarepowered.util.editation.SquareEditations;
 import eu.ansquare.squarepowered.worldstructure.SquareWorldStructures;
 import eu.ansquare.starr.StarR;
 import net.fabricmc.fabric.api.gamerule.v1.GameRuleFactory;
@@ -46,6 +47,7 @@ public class Squarepowered implements ModInitializer {
 		SquareActionScreens.init();
 		SquareNetworking.initC2S();
 		SquareEvents.init();
+		SquareEditations.init();
 		LOGGER.info("Squarepowered lib successfully initialized!");
 	}
 }

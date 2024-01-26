@@ -1,9 +1,6 @@
 package eu.ansquare.squarepowered.actionscreen;
 
-import eu.ansquare.squarepowered.actionscreen.action.LocalizeScreenAction;
-import eu.ansquare.squarepowered.actionscreen.action.ScreenAction;
-import eu.ansquare.squarepowered.actionscreen.action.TeleportLocationScreenAction;
-import eu.ansquare.squarepowered.actionscreen.action.TeleportSavedScreenAction;
+import eu.ansquare.squarepowered.actionscreen.action.*;
 import net.minecraft.network.PacketByteBuf;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.network.ServerPlayNetworkHandler;
@@ -29,6 +26,9 @@ public class ActionScreenC2SPacket {
 			}
 			case 2 ->{
 				return new LocalizeScreenAction(buf);
+			}
+			case 3 ->{
+				return new WorldEditAction(buf);
 			}
 		}
 	}
