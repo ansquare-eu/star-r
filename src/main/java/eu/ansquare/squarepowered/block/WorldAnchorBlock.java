@@ -1,4 +1,4 @@
-package eu.ansquare.starr.blocks;
+package eu.ansquare.squarepowered.block;
 
 import eu.ansquare.starr.util.math.Math3D;
 import net.minecraft.block.Block;

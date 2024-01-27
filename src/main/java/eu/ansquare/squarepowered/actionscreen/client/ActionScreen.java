@@ -11,15 +11,17 @@ import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 
 public abstract class ActionScreen<T extends ActionScreenHandler> extends HandledScreen<T> {
-	private final Identifier texture;
-	private List<Drawable> drawables = new LinkedList<>();
-	private List<Text> texts = new LinkedList<>();
+	protected final Identifier texture;
+	protected List<Drawable> drawables = new LinkedList<>();
+	protected List<Text> texts = new LinkedList<>();
 
-	private List<TextFieldWidget> textFields = new LinkedList<>();
+	protected HashMap<String, TextFieldWidget> textFields = new HashMap<>();
 	protected int x, y;
 	public String screenKey;
 
@@ -47,7 +49,7 @@ public abstract class ActionScreen<T extends ActionScreenHandler> extends Handle
 		box.setMaxLength(32767);
 		this.addSelectableChild(box);
 		drawables.add(box);
-		textFields.add(box);
+		textFields.put(translateKey, box);
 		return box;
 	}
 	public ButtonWidget addButton(String translateKey, int x, int y, int i, int j, int... actions){
@@ -68,7 +70,8 @@ public abstract class ActionScreen<T extends ActionScreenHandler> extends Handle
 			this.client.player.closeHandledScreen();
 			return true;
 		}
-		for (TextFieldWidget t:textFields) {
+		for (String s:textFields.keySet()) {
+			TextFieldWidget t = textFields.get(s);
 			if(t.isFocused()){
 				return t.keyPressed(key, b ,c);
 			}
@@ -78,7 +81,7 @@ public abstract class ActionScreen<T extends ActionScreenHandler> extends Handle
 	@Override
 	public void handledScreenTick() {
 		super.handledScreenTick();
-		textFields.forEach(textFieldWidget -> textFieldWidget.tick());
+		textFields.forEach((s, textFieldWidget) -> textFieldWidget.tick());
 	}
 	@Override
 	public void render(GuiGraphics ms, int mouseX, int mouseY, float partialTicks) {

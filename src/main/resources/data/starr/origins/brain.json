@@ -6,8 +6,8 @@
     "starr:brain/teleportation_location",
     "starr:brain/teleportation_save",
     "starr:brain/teleport_others",
-    "starr:brain/creative_inv"
-
+    "starr:brain/creative_inv",
+    "starr:brain/world_edit"
   ],
   "icon":"minecraft:pink_stained_glass",
   "impact":3

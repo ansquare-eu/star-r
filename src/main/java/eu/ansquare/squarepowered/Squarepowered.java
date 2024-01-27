@@ -3,7 +3,9 @@ package eu.ansquare.squarepowered;
 import eu.ansquare.squarepowered.action.SquareActions;
 import eu.ansquare.squarepowered.action.SquareActions;
 import eu.ansquare.squarepowered.actionscreen.SquareActionScreens;
+import eu.ansquare.squarepowered.block.SquareBlocks;
 import eu.ansquare.squarepowered.client.SquarepoweredClient;
+import eu.ansquare.squarepowered.item.SquareItems;
 import eu.ansquare.squarepowered.power.SquarePowers;
 import eu.ansquare.squarepowered.util.editation.SquareEditations;
 import eu.ansquare.squarepowered.worldstructure.SquareWorldStructures;
@@ -41,6 +43,8 @@ public class Squarepowered implements ModInitializer {
 	@Override
 	public void onInitialize(ModContainer mod) {
 		LOGGER.info("Hello Quilt world from Squarepowered lib!");
+		SquareItems.init();
+		SquareBlocks.init();
 		SquarePowers.init();
 		SquareActions.init();
 		SquareWorldStructures.init();

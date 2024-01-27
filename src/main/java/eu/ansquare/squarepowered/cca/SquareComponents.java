@@ -19,10 +19,10 @@ public class SquareComponents implements EntityComponentInitializer {
 
 	@Override
 	public void registerEntityComponentFactories(EntityComponentFactoryRegistry registry) {
-		registry.registerFor(LivingEntity.class, SAVED_LOCATION_COMPONENT, world -> new SavedLocationComponent());
-		registry.registerForPlayers(SAVED_LOCATION_COMPONENT, player -> new SavedLocationComponent(), RespawnCopyStrategy.ALWAYS_COPY);
-		registry.registerFor(LivingEntity.class, CLIENT_STATE_COMPONENT, world -> new ClientStatesComponent());
+		registry.registerFor(LivingEntity.class, SAVED_LOCATION_COMPONENT, entity -> new SavedLocationComponent(entity));
+		registry.registerForPlayers(SAVED_LOCATION_COMPONENT, player -> new SavedLocationComponent(player), RespawnCopyStrategy.ALWAYS_COPY);
+		registry.registerFor(LivingEntity.class, CLIENT_STATE_COMPONENT, entity -> new ClientStatesComponent());
 		registry.registerForPlayers(MULTI_INVENTORY, player -> new MultiInventoryComponent(), RespawnCopyStrategy.ALWAYS_COPY);
-		registry.registerFor(LivingEntity.class, MULTI_INVENTORY, world -> new MultiInventoryComponent());
+		registry.registerFor(LivingEntity.class, MULTI_INVENTORY, entity -> new MultiInventoryComponent());
 	}
 }

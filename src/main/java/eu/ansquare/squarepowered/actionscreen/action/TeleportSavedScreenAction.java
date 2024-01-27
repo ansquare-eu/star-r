@@ -2,7 +2,7 @@ package eu.ansquare.squarepowered.actionscreen.action;
 
 import eu.ansquare.squarepowered.action.OpenActionScreenAction;
 import eu.ansquare.squarepowered.cca.SquareComponents;
-import eu.ansquare.squarepowered.util.AnchorChecker;
+import eu.ansquare.squarepowered.util.WorldSecurity;
 import net.minecraft.network.PacketByteBuf;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.util.math.BlockPos;
@@ -20,9 +20,9 @@ public class TeleportSavedScreenAction implements ScreenAction{
 			if(!save){
 				BlockPos pos = savedLocationComponent.get(savedId);
 				if(pos == null) return;
-				if(AnchorChecker.checkSpatial(true, pos, entity)) OpenActionScreenAction.processTeleportation(entity, pos.getX(), pos.getY(), pos.getZ(), entity.getServerWorld());
+				if(WorldSecurity.checkSpatial(true, pos, entity)) OpenActionScreenAction.processTeleportation(entity, pos.getX(), pos.getY(), pos.getZ(), entity.getServerWorld());
 			} else {
-				 if(AnchorChecker.checkLocalSpatial(true, entity.getBlockPos(), entity)) savedLocationComponent.put(savedId, entity.getBlockX(), entity.getBlockY(), entity.getBlockZ());
+				 if(WorldSecurity.checkLocalSpatial(true, entity.getBlockPos(), entity)) savedLocationComponent.put(savedId, entity.getBlockX(), entity.getBlockY(), entity.getBlockZ());
 				SquareComponents.SAVED_LOCATION_COMPONENT.sync(entity);
 			}
 		});

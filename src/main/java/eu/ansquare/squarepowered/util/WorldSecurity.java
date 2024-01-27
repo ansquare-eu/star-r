@@ -1,13 +1,17 @@
 package eu.ansquare.squarepowered.util;
 
+import eu.ansquare.sbd.BlockDataApi;
 import eu.ansquare.squarepowered.Squarepowered;
+import eu.ansquare.squarepowered.block.WorldAnchorBlock;
 import eu.ansquare.squarepowered.power.ModifySpatialAnchorRangePower;
-import eu.ansquare.starr.blocks.WorldAnchorBlock;
+import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.text.Text;
 import net.minecraft.util.math.BlockPos;
 
-public class AnchorChecker {
+public class WorldSecurity {
 	public static boolean checkSpatial(boolean sendMessages, BlockPos location, PlayerEntity player){
 		Squarepowered.log(String.valueOf(ModifySpatialAnchorRangePower.getFinalRange(player)), 0);
 		if(WorldAnchorBlock.isInVicinity(ModifySpatialAnchorRangePower.getFinalRange(player), true, location, player.getWorld())){
@@ -23,6 +27,26 @@ public class AnchorChecker {
 		if(WorldAnchorBlock.isInVicinity(ModifySpatialAnchorRangePower.getFinalRange(player), true, location, player.getWorld())){
 			player.sendMessage(Text.translatable("message.starr.anchored.local"), true);
 			return false;
+		}
+		return true;
+	}
+	public static boolean changeBlockState(BlockState state, BlockPos pos, ServerWorld world, ServerPlayerEntity player, boolean checkAnchor, boolean checkState, boolean willNoDrop){
+		if(canChangeBlockState(state, pos, world, player, checkAnchor, checkState)){
+			if(state.isAir()){
+				BlockDataApi.setBoolean(pos, world, "no_drop", false);
+			} else if(willNoDrop){
+				BlockDataApi.setBoolean(pos, world, "no_drop", true);
+			}
+			world.setBlockState(pos, state);
+			return true;
+		}
+		return false;
+	}
+	public static boolean canChangeBlockState(BlockState state, BlockPos pos, ServerWorld world, ServerPlayerEntity player, boolean checkAnchor, boolean checkState){
+		if(checkAnchor){
+			if(WorldAnchorBlock.isInVicinity(8, false, pos, world)){
+				return false;
+			}
 		}
 		return true;
 	}

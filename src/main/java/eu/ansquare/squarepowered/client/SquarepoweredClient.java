@@ -5,6 +5,7 @@ import eu.ansquare.squarepowered.actionscreen.SquareActionScreens;
 import eu.ansquare.squarepowered.actionscreen.client.LocalizeScreen;
 import eu.ansquare.squarepowered.actionscreen.client.LocationTeleportScreen;
 import eu.ansquare.squarepowered.actionscreen.client.SaveTeleportScreen;
+import eu.ansquare.squarepowered.actionscreen.client.WorldEditScreen;
 import io.github.apace100.apoli.ApoliClient;
 import io.github.apace100.apoli.global.GlobalPowerSet;
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
@@ -34,6 +35,7 @@ public class SquarepoweredClient implements ClientModInitializer {
 		HandledScreens.register(SquareActionScreens.TELEPORT_SCREEN, LocationTeleportScreen::new);
 		HandledScreens.register(SquareActionScreens.SAVE_TELEPORT_SCREEN, SaveTeleportScreen::new);
 		HandledScreens.register(SquareActionScreens.LOCALIZE_SCREEN, LocalizeScreen::new);
+		HandledScreens.register(SquareActionScreens.WORLD_EDIT_SCREEN, WorldEditScreen::new);
 	}
 	private void initKeyBinds(){
 		powerKeybind3 = new KeyBind("key.origins.3_active", InputUtil.Type.KEYSYM, GLFW.GLFW_KEY_M, "category.origins");

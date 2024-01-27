@@ -24,6 +24,9 @@
   "screen.starr.localize.title": "Localize",
   "screen.starr.localize.button.tp": "Go",
 
+  "screen.starr.world_edit.title": "World edit",
+  "screen.starr.world_edit.button.starr.set": "Set",
+
   "screen.starr.item.test": "meme",
 
   "ITEMS": "ITEMS",
@@ -37,6 +40,7 @@
   "item.starr.megasword": "Megasword",
   "item.starr.hare": "hare",
   "item.starr.palica": "palica",
+  "item.starr.selector": "Selector",
 
   "WEARABLE TOOLTIPS": "WEARABLE TOOLTIPS",
   "item.starr.hare.tooltip.false": "Shift + Right click to enable",
@@ -71,6 +75,8 @@
   "message.starr.anchored.local": "You are affected by a spatial anchor!",
   "message.starr.signeditem": "This %1$s is not yours!",
   "message.starr.signeditem.owner": "This %1$s is owned by %2$s!",
+  "message.starr.selected.one": "Selected location one as %1$s",
+  "message.starr.selected.two": "Selected location two as %1$s",
 
   "ORIGINS": "ORIGINS",
   "layer.starr.superdude.name": "Superdude",
