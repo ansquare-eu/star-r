@@ -166,6 +166,8 @@
   "power.starr.brain/creative_inv.name": "Creative inventory",
   "power.starr.brain/teleport_others.description": "Point at an entity when toggling on and your powers will teleport it instead of you.",
   "power.starr.brain/teleport_others.name": "Teleport others",
+  "power.starr.brain/world_edit.description": "Edit the world.",
+  "power.starr.brain/world_edit.name": "World edit",
 
   "power.starr.localizator/localize.description": "Teleport to any player",
   "power.starr.localizator/localize.name": "Localization",
