@@ -33,14 +33,11 @@ public class WorldSecurity {
 	}
 	public static boolean changeBlockState(BlockState state, BlockPos pos, ServerWorld world, ServerPlayerEntity player, boolean checkAnchor, boolean checkState, boolean willNoDrop, boolean logChange){
 		if(canChangeBlockState(state, pos, world, player, checkAnchor, checkState)){
-			if(state.isAir()){
-				BlockDataApi.setBoolean(pos, world, "no_drop", false);
-			} else if(willNoDrop){
-				BlockDataApi.setBoolean(pos, world, "no_drop", true);
-			}
+			boolean no_drop = state.isAir() ? false : willNoDrop;
 			if(logChange){
-				ChangeLogger.changeAndLog(world, pos, state, player);
+				ChangeLogger.changeAndLog(world, pos, state, player, no_drop);
 			} else {
+				BlockDataApi.setBoolean(pos, world, "no_drop", no_drop);
 				world.setBlockState(pos, state);
 			}
 			return true;

@@ -38,19 +38,19 @@ public class WorldEditScreen extends ActionScreen<WorldEditScreenHandler> {
 	}
 	public void init(){
 		super.init();
-		addButton("undo", 50, 2, 40, 16, -1);
-		addButton("redo", 80, 2, 40, 16, -2);
+		addButton("undo", 60, 8, 40, 16, -1);
+		addButton("redo", 110, 8, 40, 16, -2);
 		addEditationsFromRegistry();
 	}
 	private void addEditationsFromRegistry(){
 		Set<RegistryKey<Editation>> keys = SquareRegistries.EDITATIONS.getKeys();
 		int i = 0;
 		for(RegistryKey<Editation> key : keys){
-			addButton(key.getValue().toTranslationKey(), 8, i * 18 + 18, 40, 16, i);
+			addButton(key.getValue().toTranslationKey(), 8, i * 18 + 26, 40, 16, i);
 			Editation editation = SquareRegistries.EDITATIONS.get(key);
 			numberedEditations.add(i, key.getValue());
-			addTextField(50, i * 18 + 18, 80, 16, key.getValue().toTranslationKey() + ".block", 64);
-			editation.getRequriedWidgets(this, i * 18 + 18, key.getValue().toTranslationKey());
+			addTextField(50, i * 18 + 26, 80, 16, key.getValue().toTranslationKey() + ".block", 64);
+			editation.getRequriedWidgets(this, i * 18 + 26, key.getValue().toTranslationKey());
 			i++;
 		}
 	}
