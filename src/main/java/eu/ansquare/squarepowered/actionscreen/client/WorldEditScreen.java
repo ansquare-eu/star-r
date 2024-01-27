@@ -38,9 +38,9 @@ public class WorldEditScreen extends ActionScreen<WorldEditScreenHandler> {
 	}
 	public void init(){
 		super.init();
+		addButton("undo", 50, 2, 40, 16, -1);
+		addButton("redo", 80, 2, 40, 16, -2);
 		addEditationsFromRegistry();
-
-
 	}
 	private void addEditationsFromRegistry(){
 		Set<RegistryKey<Editation>> keys = SquareRegistries.EDITATIONS.getKeys();
@@ -51,17 +51,22 @@ public class WorldEditScreen extends ActionScreen<WorldEditScreenHandler> {
 			numberedEditations.add(i, key.getValue());
 			addTextField(50, i * 18 + 18, 80, 16, key.getValue().toTranslationKey() + ".block", 64);
 			editation.getRequriedWidgets(this, i * 18 + 18, key.getValue().toTranslationKey());
+			i++;
 		}
 	}
 	@Override
 	public void sendPacket(int... actions) {
 		PacketByteBuf buf = PacketByteBufs.create();
+		if(actions[0] < 0){
+			buf.writeInt(4);
+			buf.writeBoolean(actions[0] == -2);
+		} else {
 		buf.writeInt(3);
 		Identifier editationId = numberedEditations.get(actions[0]);
 		Editation editation = SquareRegistries.EDITATIONS.get(editationId);
 		Identifier block = new Identifier(textFields.get(editationId.toTranslationKey() + ".block").getText());
 		buf.writeIdentifier(block);
-		buf.writeIdentifier(editationId);
+		buf.writeIdentifier(editationId);}
 		ClientPlayNetworking.send(SquareNetworking.ACTION_SCREEN_PACKET, buf);
 
 	}

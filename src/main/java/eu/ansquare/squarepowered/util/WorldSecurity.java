@@ -4,6 +4,7 @@ import eu.ansquare.sbd.BlockDataApi;
 import eu.ansquare.squarepowered.Squarepowered;
 import eu.ansquare.squarepowered.block.WorldAnchorBlock;
 import eu.ansquare.squarepowered.power.ModifySpatialAnchorRangePower;
+import eu.ansquare.squarepowered.util.changelogging.ChangeLogger;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.server.network.ServerPlayerEntity;
@@ -30,14 +31,18 @@ public class WorldSecurity {
 		}
 		return true;
 	}
-	public static boolean changeBlockState(BlockState state, BlockPos pos, ServerWorld world, ServerPlayerEntity player, boolean checkAnchor, boolean checkState, boolean willNoDrop){
+	public static boolean changeBlockState(BlockState state, BlockPos pos, ServerWorld world, ServerPlayerEntity player, boolean checkAnchor, boolean checkState, boolean willNoDrop, boolean logChange){
 		if(canChangeBlockState(state, pos, world, player, checkAnchor, checkState)){
 			if(state.isAir()){
 				BlockDataApi.setBoolean(pos, world, "no_drop", false);
 			} else if(willNoDrop){
 				BlockDataApi.setBoolean(pos, world, "no_drop", true);
 			}
-			world.setBlockState(pos, state);
+			if(logChange){
+				ChangeLogger.changeAndLog(world, pos, state, player);
+			} else {
+				world.setBlockState(pos, state);
+			}
 			return true;
 		}
 		return false;

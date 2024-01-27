@@ -30,6 +30,9 @@ public class ActionScreenC2SPacket {
 			case 3 ->{
 				return new WorldEditAction(buf);
 			}
+			case 4 ->{
+				return new UndoAndRedoAction(buf);
+			}
 		}
 	}
 
