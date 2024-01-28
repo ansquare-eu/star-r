@@ -19,7 +19,7 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 
 public class SquareEditations {
-	public static void init(){
+	public static void init() {
 		registerTwoPoint(((one, two, block, player) -> {
 			ServerWorld world = player.getServerWorld();
 			Block block1 = Registries.BLOCK.get(block);
@@ -57,7 +57,7 @@ public class SquareEditations {
 			for (int x = minX; x <= maxX; x++) {
 				for (int y = minY; y <= maxY; y++) {
 					for (int z = minZ; z <= maxZ; z++) {
-						if(x == minX || x == maxX || y == minY || y == maxY || z == minZ || z == maxZ){
+						if (x == minX || x == maxX || y == minY || y == maxY || z == minZ || z == maxZ) {
 							BlockPos b = new BlockPos(x, y, z);
 							WorldSecurity.changeBlockState(state, b, world, player, true, true, true, true);
 						}
@@ -81,7 +81,7 @@ public class SquareEditations {
 			for (int x = minX; x <= maxX; x++) {
 				for (int y = minY; y <= maxY; y++) {
 					for (int z = minZ; z <= maxZ; z++) {
-						if(x == minX || x == maxX || z == minZ || z == maxZ){
+						if (x == minX || x == maxX || z == minZ || z == maxZ) {
 							BlockPos b = new BlockPos(x, y, z);
 							WorldSecurity.changeBlockState(state, b, world, player, true, true, true, true);
 						}
@@ -90,8 +90,39 @@ public class SquareEditations {
 			}
 			logger.close();
 		}), Squarepowered.id("walls"));
+		registerExtraField(((one, two, block, extra, player) -> {
+			ServerWorld world = player.getServerWorld();
+			Block block1 = Registries.BLOCK.get(block);
+			Block toReplace = Registries.BLOCK.get(extra);
+			BlockState state = block1.getDefaultState();
+			ChangeLogger logger = ChangeLogger.getOrCreate(player);
+			logger.open();
+			int minX = Math.min(one.getX(), two.getX());
+			int minY = Math.min(one.getY(), two.getY());
+			int minZ = Math.min(one.getZ(), two.getZ());
+			int maxX = Math.max(one.getX(), two.getX());
+			int maxY = Math.max(one.getY(), two.getY());
+			int maxZ = Math.max(one.getZ(), two.getZ());
+			for (int x = minX; x <= maxX; x++) {
+				for (int y = minY; y <= maxY; y++) {
+					for (int z = minZ; z <= maxZ; z++) {
+						BlockPos b = new BlockPos(x, y, z);
+						if (world.getBlockState(b).isOf(toReplace)) {
+							WorldSecurity.changeBlockState(state, b, world, player, true, true, true, true);
+						}
+
+					}
+				}
+			}
+			logger.close();
+		}), Squarepowered.id("replace"));
 	}
+
 	private static void registerTwoPoint(TwoPointWorldEditation editation, Identifier id) {
+		Registry.register(SquareRegistries.EDITATIONS, id, editation);
+	}
+
+	private static void registerExtraField(ExtraFieldWorldEditation editation, Identifier id) {
 		Registry.register(SquareRegistries.EDITATIONS, id, editation);
 	}
 }

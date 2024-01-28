@@ -44,25 +44,6 @@ public abstract class PlayerEntityMixn extends LivingEntity {
 		super(entityType, world);
 	}
 
-	@Inject(method = "getEquippedStack", at = @At("RETURN"), cancellable = true)
-	public void onSetStack(EquipmentSlot slot, CallbackInfoReturnable<ItemStack> cir) {
-		ItemStack stack = cir.getReturnValue();
-		NbtCompound compound = stack.getOrCreateNbt();
-		if(compound.containsUuid(ItemUtils.SIGN_KEY)){
-			if(!getWorld().isClient()){
-				if(!compound.getUuid(ItemUtils.SIGN_KEY).equals(getUuid())){
-					PlayerEntity owner = getServer().getPlayerManager().getPlayer(compound.getUuid(ItemUtils.SIGN_KEY));
-					if(owner != null){
-						sendMessage(Text.translatable("message.starr.signeditem.owner", new Object[]{stack.getItem().getName(), owner.getName()}), true);
-					} else {
-						sendMessage(Text.translatable("message.starr.signeditem", new Object[]{stack.getItem().getName()}), true);
-					}
-					equipStack(slot, ItemStack.EMPTY);
-					cir.setReturnValue(ItemStack.EMPTY);
-				}
-			}
-		}
-	}
 	@Inject(method = "dropItem(Lnet/minecraft/item/ItemStack;ZZ)Lnet/minecraft/entity/ItemEntity;", at = @At("HEAD"), cancellable = true)
 	public void squarepowered_onDropItem(ItemStack stack, boolean throwRandomly, boolean retainOwnership, CallbackInfoReturnable<ItemEntity> cir) {
 		if(MultiInventoryComponent.isPreventTransfer((PlayerEntity) (Object) this)) cir.setReturnValue(null);

@@ -1,7 +1,5 @@
 package eu.ansquare.squarepowered.actionscreen.action;
 
-import eu.ansquare.squarepowered.Squarepowered;
-import eu.ansquare.squarepowered.util.changelogging.Change;
 import eu.ansquare.squarepowered.util.changelogging.ChangeLogger;
 import net.minecraft.network.PacketByteBuf;
 import net.minecraft.server.network.ServerPlayerEntity;

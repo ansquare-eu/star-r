@@ -4,6 +4,7 @@ import eu.ansquare.squarepowered.SquareRegistries;
 import eu.ansquare.squarepowered.Squarepowered;
 import eu.ansquare.squarepowered.cca.SavedLocationComponent;
 import eu.ansquare.squarepowered.util.editation.Editation;
+import eu.ansquare.squarepowered.util.editation.ExtraFieldWorldEditation;
 import eu.ansquare.squarepowered.util.editation.TwoPointWorldEditation;
 import net.minecraft.network.PacketByteBuf;
 import net.minecraft.server.network.ServerPlayerEntity;
@@ -16,16 +17,19 @@ public class WorldEditAction implements ScreenAction{
 	public Editation editation;
 
 	public Identifier block;
-
+	public Identifier extra;
 
 	public WorldEditAction(PacketByteBuf buf){
 		block = buf.readIdentifier();
 		editation = SquareRegistries.EDITATIONS.get(buf.readIdentifier());
+		if(editation instanceof ExtraFieldWorldEditation) extra = buf.readIdentifier();
 	}
 	@Override
 	public void action(ServerPlayerEntity entity) {
 		if(editation instanceof TwoPointWorldEditation twoPointWorldEditation){
 			twoPointWorldEditation.run(SavedLocationComponent.getSelOne(entity), SavedLocationComponent.getSelTwo(entity), block, entity);
+		} else if(editation instanceof ExtraFieldWorldEditation extraFieldWorldEditation){
+			extraFieldWorldEditation.run(SavedLocationComponent.getSelOne(entity), SavedLocationComponent.getSelTwo(entity), block, extra, entity);
 		}
 	}
 }
