@@ -7,7 +7,9 @@
     "starr:brain/teleportation_save",
     "starr:brain/teleport_others",
     "starr:brain/creative_inv",
-    "starr:brain/world_edit"
+    "starr:brain/world_edit",
+    "starr:brain/pocket_dimension"
+
   ],
   "icon":"minecraft:pink_stained_glass",
   "impact":3

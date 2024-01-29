@@ -13,9 +13,9 @@ import net.minecraft.text.Text;
 import net.minecraft.util.math.BlockPos;
 
 public class WorldSecurity {
-	public static boolean checkSpatial(boolean sendMessages, BlockPos location, PlayerEntity player){
+	public static boolean checkSpatial(boolean sendMessages, BlockPos location, PlayerEntity player, ServerWorld world){
 		Squarepowered.log(String.valueOf(ModifySpatialAnchorRangePower.getFinalRange(player)), 0);
-		if(WorldAnchorBlock.isInVicinity(ModifySpatialAnchorRangePower.getFinalRange(player), true, location, player.getWorld())){
+		if(WorldAnchorBlock.isInVicinity(ModifySpatialAnchorRangePower.getFinalRange(player), true, location, world)){
 			player.sendMessage(Text.translatable("message.starr.anchored.destination"), true);
 			return false;
 		} else if(WorldAnchorBlock.isInVicinity(ModifySpatialAnchorRangePower.getFinalRange(player), true, player.getBlockPos(), player.getWorld())){
@@ -24,7 +24,7 @@ public class WorldSecurity {
 		}
 		return true;
 	}
-	public static boolean checkLocalSpatial(boolean sendMessages, BlockPos location, PlayerEntity player){
+	public static boolean checkLocalSpatial(boolean sendMessages, BlockPos location, PlayerEntity player, ServerWorld world){
 		if(WorldAnchorBlock.isInVicinity(ModifySpatialAnchorRangePower.getFinalRange(player), true, location, player.getWorld())){
 			player.sendMessage(Text.translatable("message.starr.anchored.local"), true);
 			return false;

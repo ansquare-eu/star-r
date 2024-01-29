@@ -29,7 +29,7 @@ public class SaveTeleportScreen extends ActionScreen<SaveTeleportActionScreenHan
 		if(SquareComponents.SAVED_LOCATION_COMPONENT.isProvidedBy(player)){
 			SavedLocationComponent component = SquareComponents.SAVED_LOCATION_COMPONENT.get(player);
 			for (int i = 0; i < component.amount(); i++) {
-				BlockPos pos = component.get(i);
+				BlockPos pos = component.get(i).getLeft();
 				graphics.drawText(textRenderer, PrettyPosUtil.colonSeparatedBlockPos(pos), 5, 25 + i *20, 1, false);
 			}
 		} else {

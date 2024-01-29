@@ -17,6 +17,6 @@ public class TeleportLocationScreenAction implements ScreenAction{
 	}
 	@Override
 	public void action(ServerPlayerEntity entity) {
-		if(WorldSecurity.checkSpatial(true, pos, entity)) OpenActionScreenAction.processTeleportation(entity, x, y , z, entity.getServerWorld());
+		if(WorldSecurity.checkSpatial(true, pos, entity, entity.getServerWorld())) OpenActionScreenAction.processTeleportation(entity, x, y , z, entity.getServerWorld());
 	}
 }

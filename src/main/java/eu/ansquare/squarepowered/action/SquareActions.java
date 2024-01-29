@@ -35,6 +35,7 @@ public class SquareActions {
 		registerEntity(OpenActionScreenAction.getRemoveTaskFactory());
 		registerBiEntity(OpenActionScreenAction.getAddTaskFactory());
 		registerEntity(SetInventoryAction.getFactory());
+		registerEntity(TpToDimensionAction.getFactory());
 	}
 	private static void registerEntity(ActionFactory<Entity> actionFactory) {
 		Registry.register(ApoliRegistries.ENTITY_ACTION, actionFactory.getSerializerId(), actionFactory);
