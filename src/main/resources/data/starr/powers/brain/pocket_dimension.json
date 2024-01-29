@@ -5,7 +5,9 @@
     "x": 2,
     "y": 0,
     "z": 0,
-    "dimension": "starr:brain_pocket_dim"
+    "dimension": "starr:brain_pocket_dim",
+    "platformIfUnsupported": true,
+    "block": "minecraft:stone"
   },
   "cooldown": 100,
   "key": {
