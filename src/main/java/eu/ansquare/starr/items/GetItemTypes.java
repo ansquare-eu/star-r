@@ -10,7 +10,6 @@ public class GetItemTypes {
 	}
 	public static TwoStateWearable[] getTwoStateWearables(){
 		return new TwoStateWearable[]{
-				ModItems.HARE,
 				ModItems.CAPE
 		};
 	}

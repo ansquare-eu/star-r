@@ -1,8 +1,12 @@
 package eu.ansquare.starr.items.wearable;
 
 import eu.ansquare.starr.StarR;
+import eu.ansquare.starr.util.TriConsumer;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.client.model.Model;
+import net.minecraft.client.network.AbstractClientPlayerEntity;
+import net.minecraft.client.render.entity.model.PlayerEntityModel;
+import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.text.Text;
@@ -17,12 +21,14 @@ public class TwoStateWearable extends WearableItem{
 	private String name;
 	private Identifier secondTexture;
 	private TwoStateModelProvider modelProvider;
-	public TwoStateWearable(Settings settings, String texture, String secondtexture, String name, TwoStateModelProvider modelProvider, boolean headRotated) {
-		super(settings, texture, modelProvider, headRotated);
+
+	public TwoStateWearable(Settings settings, String texture, String secondtexture, String name, TwoStateModelProvider modelProvider, TriConsumer<MatrixStack, PlayerEntityModel<AbstractClientPlayerEntity>, AbstractClientPlayerEntity> aligning) {
+		super(settings, texture, modelProvider, aligning);
 		this.name = name;
 		this.secondTexture = new Identifier(StarR.MODID, secondtexture);
 		this.modelProvider = modelProvider;
 	}
+
 	public boolean getState(ItemStack stack) {
 		return stack.getOrCreateNbt().getBoolean("state");
 	}

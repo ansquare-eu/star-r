@@ -1,6 +1,8 @@
 package eu.ansquare.starr.items;
 
+import dev.emi.trinkets.api.client.TrinketRenderer;
 import eu.ansquare.starr.StarR;
+import eu.ansquare.starr.client.wearables.TrinketRenderers;
 import eu.ansquare.starr.client.wearables.model.hare.HareOneModel;
 import eu.ansquare.starr.client.wearables.model.hare.HareTwoModel;
 import eu.ansquare.starr.items.material.CaptainrsMaterial;
@@ -42,23 +44,7 @@ public class ModItems {
     public static final Item CAPTAIN_RS_CHESTPLATE = createItem("captain_rs_chestplate", new ArmorItem(CAPTAIN_RS, ArmorItem.ArmorSlot.CHESTPLATE, new QuiltItemSettings().maxCount(1)), ItemGroups.COMBAT, ModItemGroups.STARR_ARMOR);
     public static final Item CAPTAIN_RS_LEGGINGS = createItem("captain_rs_leggings", new ArmorItem(CAPTAIN_RS, ArmorItem.ArmorSlot.LEGGINGS, new QuiltItemSettings().maxCount(1)), ItemGroups.COMBAT, ModItemGroups.STARR_ARMOR);
     public static final Item CAPTAIN_RS_BOOTS = createItem("captain_rs_boots", new ArmorItem(CAPTAIN_RS, ArmorItem.ArmorSlot.BOOTS, new QuiltItemSettings().maxCount(1)), ItemGroups.COMBAT, ModItemGroups.STARR_ARMOR);
-    public static final CapeWearable CAPE = createItem("cape", new CapeWearable(new QuiltItemSettings().maxCount(1), "textures/wearable/cape/caprcape.png", "textures/wearable/cape/caprscape.png","cape", capeModelProvider, false), ItemGroups.COMBAT, ModItemGroups.STARR_ITEMS);
-    public static final TwoStateWearable HARE = createItem("hare", new TwoStateWearable(new QuiltItemSettings().maxCount(1), "textures/wearable/hare.png", "textures/wearable/hare.png", "hare", new TwoStateModelProvider() {
-		@Override
-		public Model getModel() {
-			return getFirstModel();
-		}
-
-		@Override
-		public Model getFirstModel() {
-			return new HareOneModel(MinecraftClient.getInstance().getEntityModelLoader().getModelPart(HareOneModel.LAYER_LOCATION));
-		}
-
-		@Override
-		public Model getSecondModel() {
-			return new HareTwoModel(MinecraftClient.getInstance().getEntityModelLoader().getModelPart(HareTwoModel.LAYER_LOCATION));
-		}
-	}, true), ItemGroups.COMBAT, ModItemGroups.STARR_ITEMS);
+    public static final CapeWearable CAPE = createItem("cape", new CapeWearable(new QuiltItemSettings().maxCount(1), "textures/wearable/cape/caprcape.png", "textures/wearable/cape/caprscape.png","cape", capeModelProvider), ItemGroups.COMBAT, ModItemGroups.STARR_ITEMS);
     public static final Item PALICA = createItem("palica", new PalicaItem(new QuiltItemSettings()), ItemGroups.COMBAT, ModItemGroups.STARR_WEAPONS);
 	public static final MegaSword MEGASWORD_MATERIALS = new MegaSword();
 	public static final Item FORCESWORD = createItem("forcesword", new SwordItem(MEGASWORD_MATERIALS, 20, 1, new QuiltItemSettings().maxCount(1)), ModItemGroups.STARR_WEAPONS);
