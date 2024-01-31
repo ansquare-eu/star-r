@@ -1,0 +1,5 @@
+{
+  "icon": "starr:slots/right_shoe",
+  "order": -129,
+  "validator_predicates": ["trinkets:tag"]
+}
