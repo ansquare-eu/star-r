@@ -4,6 +4,7 @@ import eu.ansquare.starr.StarR;
 import eu.ansquare.starr.blocks.ModBlocks;
 import eu.ansquare.starr.client.particle.ModParticles;
 import eu.ansquare.starr.client.wearables.TrinketRenderers;
+import eu.ansquare.starr.client.wearables.model.SkiModel;
 import eu.ansquare.starr.client.wearables.model.cape.CapeWearableModel;
 import eu.ansquare.starr.client.wearables.model.FaceWearableModel;
 import eu.ansquare.starr.client.wearables.model.cape.SimpleCapeWearableModel;
@@ -53,6 +54,7 @@ public class StarRClient implements ClientModInitializer {
 		EntityModelLayerRegistry.registerModelLayer(FaceWearableModel.LAYER_LOCATION, FaceWearableModel::getTexturedModelData);
 		EntityModelLayerRegistry.registerModelLayer(HareOneModel.LAYER_LOCATION, HareOneModel::getTexturedModelData);
 		EntityModelLayerRegistry.registerModelLayer(HareTwoModel.LAYER_LOCATION, HareTwoModel::getTexturedModelData);
+		EntityModelLayerRegistry.registerModelLayer(SkiModel.LAYER_LOCATION, SkiModel::getTexturedModelData);
 
 		ModParticles.init();
 		TrinketRenderers.registerSimpleWearables(GetItemTypes.getSimpleWearables());
@@ -60,6 +62,5 @@ public class StarRClient implements ClientModInitializer {
 		BlockRenderLayerMap.put(RenderLayer.getTranslucent(), ModBlocks.FORCEFIELD);
 		ColorProviderRegistry.BLOCK.register(ModBlocks.FORCEFIELD, ModBlocks.FORCEFIELD);
 		ColorProviderRegistry.ITEM.register(ModItems.MEGASWORD_MATERIALS, ModItems.MEGASWORD);
-
 	}
 }

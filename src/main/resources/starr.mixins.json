@@ -21,7 +21,8 @@
 	"client": [
       "client.PlayerEntityRendererMixin",
       "client.ClientPlayerInteractionManagerMixin",
-      "client.CreativeInventoryScreenMixin"
+      "client.CreativeInventoryScreenMixin",
+      "client.BipedEntityModelMixin"
     ],
 	"injectors": {
 		"defaultRequire": 1

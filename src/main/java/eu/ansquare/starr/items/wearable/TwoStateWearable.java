@@ -1,7 +1,8 @@
 package eu.ansquare.starr.items.wearable;
 
+import dev.emi.trinkets.api.SlotReference;
 import eu.ansquare.starr.StarR;
-import eu.ansquare.starr.util.TriConsumer;
+import eu.ansquare.starr.util.FourConsumer;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.client.model.Model;
 import net.minecraft.client.network.AbstractClientPlayerEntity;
@@ -22,7 +23,7 @@ public class TwoStateWearable extends WearableItem{
 	private Identifier secondTexture;
 	private TwoStateModelProvider modelProvider;
 
-	public TwoStateWearable(Settings settings, String texture, String secondtexture, String name, TwoStateModelProvider modelProvider, TriConsumer<MatrixStack, PlayerEntityModel<AbstractClientPlayerEntity>, AbstractClientPlayerEntity> aligning) {
+	public TwoStateWearable(Settings settings, String texture, String secondtexture, String name, TwoStateModelProvider modelProvider, FourConsumer<MatrixStack, PlayerEntityModel<AbstractClientPlayerEntity>, AbstractClientPlayerEntity, SlotReference> aligning) {
 		super(settings, texture, modelProvider, aligning);
 		this.name = name;
 		this.secondTexture = new Identifier(StarR.MODID, secondtexture);

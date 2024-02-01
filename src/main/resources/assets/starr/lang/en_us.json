@@ -59,6 +59,10 @@
   "itemgroup.starr.items": "Star R items",
   "itemgroup.starr.weapons": "Star R weapons",
 
+  "SLOTS": "SLOTS",
+  "trinkets.slot.feet.left_shoe": "Left shoe",
+  "trinkets.slot.feet.right_shoe": "Right shoe",
+
   "KEYS": "KEYS",
   "key.origins.10_active": "Active Power (10)",
   "key.origins.11_active": "Active Power (Transformation)",

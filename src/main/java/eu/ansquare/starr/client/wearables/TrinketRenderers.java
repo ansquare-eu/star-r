@@ -31,7 +31,7 @@ public class TrinketRenderers {
 						model = item.getModel();
 					} else if (!entity.isInvisible()) {
 						matrices.push();
-						if(entity instanceof AbstractClientPlayerEntity entity1) item.aligning.accept(matrices, (PlayerEntityModel<AbstractClientPlayerEntity>) contextModel, entity1);
+						if(entity instanceof AbstractClientPlayerEntity entity1) item.aligning.accept(matrices, (PlayerEntityModel<AbstractClientPlayerEntity>) contextModel, entity1, slotReference);
 						model.render(matrices, vertexConsumers.getBuffer(RenderLayer.getEntityCutout(item.getTexture())), light, OverlayTexture.DEFAULT_UV, 1f, 1f, 1f, 1f);
 						matrices.pop();
 					}
@@ -81,7 +81,7 @@ public class TrinketRenderers {
 								}
 							}
 						}
-						if(entity instanceof AbstractClientPlayerEntity entity1) item.aligning.accept(matrices, (PlayerEntityModel<AbstractClientPlayerEntity>) contextModel, entity1);
+						if(entity instanceof AbstractClientPlayerEntity entity1) item.aligning.accept(matrices, (PlayerEntityModel<AbstractClientPlayerEntity>) contextModel, entity1, slotReference);
 						if(item.getState(stack)){
 							secondModel.render(matrices, vertexConsumers.getBuffer(RenderLayer.getEntityCutout(item.getSecondTexture())), light, OverlayTexture.DEFAULT_UV, 1f, 1f, 1f, 1f);
 						}
