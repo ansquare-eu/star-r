@@ -1,4 +1,4 @@
-package eu.ansquare.starr.mixin.client;
+package eu.ansquare.starr.mixin.client.square;
 
 import eu.ansquare.squarepowered.Squarepowered;
 import eu.ansquare.squarepowered.power.LimitCreativeMenuPower;

@@ -1,4 +1,4 @@
-package eu.ansquare.starr.mixin;
+package eu.ansquare.starr.mixin.square;
 
 import eu.ansquare.sbd.BlockDataApi;
 import net.minecraft.block.Block;

@@ -5,26 +5,29 @@
 	"compatibilityLevel": "JAVA_17",
 	"mixins": [
       "ScreenHandlerMixin",
-      "PlayerEntityMixn",
-      "ServerPlayerEntityMixn",
-      "ServerPlayerInteractionManagerAccessor",
-      "ServerPlayNetworkHandlerMixin"
-      ,"LivingEntityMixin",
-    "PlayerManagerMixin"
-    ,"BlockMixin",
-    "ItemEntityMixin",
-    "LockableContainerBlockEntityMixin",
-    "HorseBaseEntityMixin",
-    "PistonBlockMixin",
-    "EntityMixin",
-    "ItemFrameEntityMixin",
-    "ItemMixin"],
-	"client": [
-      "client.PlayerEntityRendererMixin",
-      "client.ClientPlayerInteractionManagerMixin",
-      "client.CreativeInventoryScreenMixin",
-      "client.BipedEntityModelMixin"
+      "square.PlayerEntityMixn",
+      "square.ServerPlayerEntityMixn",
+      "square.ServerPlayerInteractionManagerAccessor",
+      "square.ServerPlayNetworkHandlerMixin"
+      ,
+      "square.LivingEntityMixin",
+      "square.PlayerManagerMixin"
+    ,
+      "square.BlockMixin",
+      "square.ItemEntityMixin",
+      "square.LockableContainerBlockEntityMixin",
+      "square.HorseBaseEntityMixin",
+      "square.PistonBlockMixin",
+      "square.EntityMixin",
+      "square.ItemFrameEntityMixin",
+      "ItemMixin",
+      "square.OriginComponentMixin"
     ],
+	"client": [
+      "client.square.PlayerEntityRendererMixin",
+      "client.square.ClientPlayerInteractionManagerMixin",
+      "client.square.CreativeInventoryScreenMixin",
+      "client.BipedEntityModelMixin"],
 	"injectors": {
 		"defaultRequire": 1
 	}

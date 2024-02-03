@@ -1,4 +1,4 @@
-package eu.ansquare.starr.mixin;
+package eu.ansquare.starr.mixin.square;
 
 import com.mojang.authlib.GameProfile;
 import eu.ansquare.squarepowered.cca.MultiInventoryComponent;

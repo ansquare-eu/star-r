@@ -1,4 +1,4 @@
-package eu.ansquare.starr.mixin;
+package eu.ansquare.starr.mixin.square;
 
 import eu.ansquare.squarepowered.cca.MultiInventoryComponent;
 import eu.ansquare.squarepowered.power.CreativeInvPower;

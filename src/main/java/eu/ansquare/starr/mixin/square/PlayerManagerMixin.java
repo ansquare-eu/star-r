@@ -1,4 +1,4 @@
-package eu.ansquare.starr.mixin;
+package eu.ansquare.starr.mixin.square;
 
 import eu.ansquare.squarepowered.power.AutoMsgPower;
 import io.github.apace100.apoli.component.PowerHolderComponent;

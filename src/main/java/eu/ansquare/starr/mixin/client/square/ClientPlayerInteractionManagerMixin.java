@@ -1,4 +1,4 @@
-package eu.ansquare.starr.mixin.client;
+package eu.ansquare.starr.mixin.client.square;
 
 import eu.ansquare.squarepowered.power.CreativeInvPower;
 import eu.ansquare.starr.client.StarRClient;

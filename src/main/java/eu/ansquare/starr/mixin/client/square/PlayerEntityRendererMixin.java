@@ -1,4 +1,4 @@
-package eu.ansquare.starr.mixin.client;
+package eu.ansquare.starr.mixin.client.square;
 
 import eu.ansquare.squarepowered.client.renderer.LaserFeatureRenderer;
 import net.minecraft.client.network.AbstractClientPlayerEntity;
