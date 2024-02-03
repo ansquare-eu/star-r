@@ -2,14 +2,11 @@ package eu.ansquare.starr.mixin.square;
 
 import eu.ansquare.squarepowered.Squarepowered;
 import eu.ansquare.squarepowered.worlddata.GlobalSuperdudeData;
-import io.github.apace100.origins.Origins;
-import io.github.apace100.origins.component.OriginComponent;
 import io.github.apace100.origins.component.PlayerOriginComponent;
 import io.github.apace100.origins.origin.Origin;
 import io.github.apace100.origins.origin.OriginLayer;
-import io.github.apace100.origins.origin.OriginLayers;
-import io.github.apace100.origins.registry.ModComponents;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.network.PacketByteBuf;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.Identifier;
 import org.spongepowered.asm.mixin.Mixin;
@@ -19,15 +16,22 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-@Mixin(OriginComponent.class)
-public interface OriginComponentMixin {
+@Mixin(OriginLayer.class)
+public abstract class OriginLayerMixin {
+	@Shadow
+	private Identifier identifier;
 
-	@Inject(method = "onChosen", at = @At("HEAD"), remap = false, cancellable = true)
-	private static void squarepowered_onSetOrigin(PlayerEntity player, boolean hadOriginBefore, CallbackInfo ci){
-		if(player.getWorld() instanceof ServerWorld world){
+
+	@Inject(method = "contains(Lio/github/apace100/origins/origin/Origin;Lnet/minecraft/entity/player/PlayerEntity;)Z", at = @At("HEAD"), remap = false, cancellable = true)
+	public void squarepowered_onSetOrigin(Origin origin, PlayerEntity playerEntity, CallbackInfoReturnable<Boolean> cir){
+		if(playerEntity.getWorld() instanceof ServerWorld world){
 			if(world.getGameRules().getBoolean(Squarepowered.EXCLUSIVE_SUPERDUDES)){
-				Identifier identifier = ModComponents.ORIGIN.get(player).getOrigin(OriginLayers.getLayer(Squarepowered.id("superdude"))).getIdentifier();
-				if(GlobalSuperdudeData.putOrReplace(world.getServer(), player.getUuid(), identifier)) Squarepowered.log("yes", 2);
+				if(identifier.equals(Squarepowered.id("superdude"))){
+					if(GlobalSuperdudeData.isTaken(world.getServer(), origin.getIdentifier())){
+						Squarepowered.log("mr log sky", 1);
+						cir.setReturnValue(false);
+					}
+				}
 			}
 		}
 	}

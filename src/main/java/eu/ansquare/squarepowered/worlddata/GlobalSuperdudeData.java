@@ -12,29 +12,32 @@ import net.minecraft.world.PersistentState;
 import net.minecraft.world.PersistentStateManager;
 import net.minecraft.world.World;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 public class GlobalSuperdudeData extends PersistentState{
-	private Set<Identifier> takens = new HashSet<>();
+	private Map<UUID, Identifier> map = new HashMap<>();
+
 	public GlobalSuperdudeData(){
 
 	}
 	protected GlobalSuperdudeData(NbtCompound nbt){
-		NbtList list = nbt.getList("taken", NbtElement.STRING_TYPE);
-		list.forEach(nbtElement -> {
-			if(nbtElement instanceof NbtString string){
-				takens.add(new Identifier(string.asString()));
+		NbtList listForMap = nbt.getList("map", NbtElement.COMPOUND_TYPE);
+		listForMap.forEach(nbtElement -> {
+			if(nbtElement instanceof NbtCompound compound){
+				map.put(compound.getUuid("player"), new Identifier(compound.getString("id")));
 			}
 		});
 	}
 	@Override
 	public NbtCompound writeNbt(NbtCompound nbt) {
-		NbtList list = new NbtList();
-		takens.forEach(identifier -> {
-			list.add(NbtString.of(identifier.toString()));
+		NbtList listFromMap = new NbtList();
+		map.forEach((uuid, identifier) -> {
+			NbtCompound compound = new NbtCompound();
+			compound.putUuid("player", uuid);
+			compound.putString("id", identifier.toString());
+			listFromMap.add(compound);
 		});
-		nbt.put("taken", list);
+		nbt.put("map", listFromMap);
 		return nbt;
 	}
 
@@ -47,5 +50,15 @@ public class GlobalSuperdudeData extends PersistentState{
 		GlobalSuperdudeData globalSuperdudeData = persistentStateManager.getOrCreate(GlobalSuperdudeData::createFromNbt, GlobalSuperdudeData::new, "global_superdude_data");
 		globalSuperdudeData.markDirty();
 		return globalSuperdudeData;
+	}
+	public static boolean isTaken(MinecraftServer server, Identifier id){
+		GlobalSuperdudeData globalSuperdudeData = getServerState(server);
+		return globalSuperdudeData.map.containsValue(id);
+	}
+	public static boolean putOrReplace(MinecraftServer server, UUID uuid, Identifier replaceWith){
+		GlobalSuperdudeData globalSuperdudeData = getServerState(server);
+		boolean hasContained = globalSuperdudeData.map.containsKey(uuid);
+		globalSuperdudeData.map.put(uuid, replaceWith);
+		return hasContained;
 	}
 }

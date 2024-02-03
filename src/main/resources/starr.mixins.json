@@ -21,7 +21,8 @@
       "square.EntityMixin",
       "square.ItemFrameEntityMixin",
       "ItemMixin",
-      "square.OriginComponentMixin"
+      "square.OriginComponentMixin",
+      "square.OriginLayerMixin"
     ],
 	"client": [
       "client.square.PlayerEntityRendererMixin",
