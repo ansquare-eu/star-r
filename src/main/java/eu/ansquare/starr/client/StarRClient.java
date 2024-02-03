@@ -25,6 +25,7 @@ import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.minecraft.client.color.block.BlockColorProvider;
 import net.minecraft.client.gui.screen.ingame.HandledScreens;
 import net.minecraft.client.render.RenderLayer;
+import net.minecraft.client.render.entity.FlyingItemEntityRenderer;
 import net.minecraft.client.render.entity.model.BoatEntityModel;
 import net.minecraft.client.render.entity.model.EntityModelLayer;
 import net.minecraft.util.Identifier;
@@ -49,6 +50,10 @@ public class StarRClient implements ClientModInitializer {
 		EntityRendererRegistry.register(ModEntities.LASER, (context) -> {
 			return new LaserEntityRenderer(context);
 		});
+		EntityRendererRegistry.register(ModEntities.HONEYBALL, (context) ->
+				new FlyingItemEntityRenderer(context));
+		EntityRendererRegistry.register(ModEntities.SLIMEBALL, (context) ->
+				new FlyingItemEntityRenderer(context));
 		EntityModelLayerRegistry.registerModelLayer(CapeWearableModel.LAYER_LOCATION, CapeWearableModel::getTexturedModelData);
 		EntityModelLayerRegistry.registerModelLayer(SimpleCapeWearableModel.LAYER_LOCATION, SimpleCapeWearableModel::getTexturedModelData);
 		EntityModelLayerRegistry.registerModelLayer(FaceWearableModel.LAYER_LOCATION, FaceWearableModel::getTexturedModelData);

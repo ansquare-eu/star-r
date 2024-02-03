@@ -70,4 +70,5 @@ public class ModItems {
 				stack.translate(-0.125F, 0, 0.0F);
 		}
 		})));
+	public static final Item HONEYBALL = createItem("honey_ball", new HoneyballItem(new QuiltItemSettings().maxCount(16)), ModItemGroups.STARR_ITEMS);
 }
