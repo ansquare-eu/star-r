@@ -28,11 +28,12 @@ public class LocalizeScreen extends ActionScreen<LocalizeActionScreenHandler> {
 		super.init();
 		entries = getVisibleEntries();
 		for (int i = 0; i < Math.min(entries.size(), 8); i++) {
+			if(!entries.get(i).getProfile().getId().equals(client.player.getUuid())){
 			TextWidget widget = new TextWidget(getPlayerName(entries.get(i)), textRenderer);
 			widget.setPosition(x + 15, y + i * 30 + 25);
 			widget.setTextColor(0xFF0000);
 			addDrawable(widget);
-			addButton("tp", this.backgroundWidth - 65, i * 30 + 20, 50, 20 ,i);
+			addButton("tp", this.backgroundWidth - 65, i * 30 + 20, 50, 20 ,i);}
 		}
 	}
 	private List<PlayerListEntry> getVisibleEntries() {

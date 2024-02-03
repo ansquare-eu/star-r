@@ -1,11 +1,13 @@
 package eu.ansquare.squarepowered.action;
 
 import eu.ansquare.squarepowered.Squarepowered;
+import eu.ansquare.squarepowered.util.LocalizationHandler;
 import io.github.apace100.apoli.power.factory.action.ActionFactory;
 import io.github.apace100.apoli.registry.ApoliRegistries;
 import io.github.apace100.calio.data.SerializableData;
 import net.minecraft.entity.Entity;
 import net.minecraft.registry.Registry;
+import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.util.Pair;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
@@ -17,6 +19,9 @@ public class SquareActions {
 		registerEntity(AirwalkEntityAction.getFactory());
 		registerEntity(new ActionFactory<>(Squarepowered.id("airwalk_stop"), new SerializableData(),
 				AirwalkEntityAction::delete));
+		registerEntity(new ActionFactory<>(Squarepowered.id("end_localize"), new SerializableData(), ((instance, entity) -> {
+			if(entity instanceof ServerPlayerEntity player) LocalizationHandler.end(player);
+		})));
 		registerEntity(WorldStructureAction.getCreateFactory());
 		registerEntity(WorldStructureAction.getDeleteFactory());
 		registerEntity(TelekinesActions.getEndFactory());

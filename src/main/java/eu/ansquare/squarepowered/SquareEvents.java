@@ -2,6 +2,7 @@ package eu.ansquare.squarepowered;
 
 import eu.ansquare.sbd.BlockDataApi;
 import eu.ansquare.squarepowered.cca.MultiInventoryComponent;
+import eu.ansquare.squarepowered.util.LocalizationHandler;
 import net.fabricmc.fabric.api.event.player.AttackBlockCallback;
 import net.fabricmc.fabric.api.event.player.PlayerBlockBreakEvents;
 import net.fabricmc.fabric.api.event.player.UseBlockCallback;
@@ -11,6 +12,7 @@ import net.minecraft.item.FluidModificationItem;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.math.BlockPos;
+import org.quiltmc.qsl.lifecycle.api.event.ServerTickEvents;
 
 public class SquareEvents {
 	public static void init(){
@@ -20,6 +22,9 @@ public class SquareEvents {
 				if(MultiInventoryComponent.isNoDrop(player) && (player.getStackInHand(hand).getItem() instanceof BlockItem || player.getStackInHand(hand).getItem() instanceof FluidModificationItem))  BlockDataApi.setBoolean(pos, world, "no_drop", true);
 			}
 			return ActionResult.PASS;
+		});
+		ServerTickEvents.END.register(server -> {
+			LocalizationHandler.tick();
 		});
 	}
 }

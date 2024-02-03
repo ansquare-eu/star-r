@@ -5,6 +5,7 @@ import eu.ansquare.squarepowered.action.SquareActions;
 import eu.ansquare.squarepowered.actionscreen.SquareActionScreens;
 import eu.ansquare.squarepowered.block.SquareBlocks;
 import eu.ansquare.squarepowered.client.SquarepoweredClient;
+import eu.ansquare.squarepowered.condition.SquareConditions;
 import eu.ansquare.squarepowered.item.SquareItems;
 import eu.ansquare.squarepowered.power.SquarePowers;
 import eu.ansquare.squarepowered.util.editation.SquareEditations;
@@ -47,6 +48,7 @@ public class Squarepowered implements ModInitializer {
 		SquareBlocks.init();
 		SquarePowers.init();
 		SquareActions.init();
+		SquareConditions.init();
 		SquareWorldStructures.init();
 		SquareActionScreens.init();
 		SquareNetworking.initC2S();
