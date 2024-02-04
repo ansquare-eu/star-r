@@ -187,8 +187,10 @@
   "power.starr.localizator/teleport_others.description": "Point at an entity when toggling on and your powers will teleport it instead of you.",
   "power.starr.localizator/teleport_others.name": "Teleport others",
 
-  "power.starr.beewoman/anger_bees.description": "Send bees at an entity",
+  "power.starr.beewoman/anger_bees.description": "Send nearby bees at an entity",
   "power.starr.beewoman/anger_bees.name": "Anger bees",
   "power.starr.beewoman/shoot_honey.description": "Shoot a ball of honey that slows players down",
-  "power.starr.beewoman/shoot_honey.name": "Shoot honey"
+  "power.starr.beewoman/shoot_honey.name": "Shoot honey",
+  "power.starr.beewoman/launch_bee.description": "Launch a bee. If aiming at an entity, the bee will attack it",
+  "power.starr.beewoman/launch_bee.name": "Launch a bee"
 }

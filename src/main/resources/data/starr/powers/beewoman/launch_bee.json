@@ -1,0 +1,41 @@
+{
+  "type": "origins:active_self",
+  "entity_action": {
+    "type": "origins:raycast",
+    "distance": 16,
+    "block": true,
+    "entity": true,
+    "shape_type": "visual",
+    "fluid_handling": "any",
+    "bientity_action": {
+      "type": "origins:and",
+      "actions": [
+        {
+          "type": "origins:actor_action",
+          "action": {
+            "type": "origins:fire_projectile",
+            "entity_type": "minecraft:bee"
+          }
+        },
+        {
+          "type": "origins:delay",
+          "ticks": 2,
+          "action": {
+            "type": "starr:aggravate_from",
+            "range": 2,
+            "entity_type": "minecraft:bee"
+          }
+        }
+
+      ]
+    },
+    "miss_action": {
+      "type": "origins:fire_projectile",
+      "entity_type": "minecraft:bee"
+    }
+  },
+  "key": {
+    "key": "key.origins.primary_active",
+    "continuous": false
+  }
+}

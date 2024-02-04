@@ -1,7 +1,8 @@
 {
   "powers": [
-    "starr:beewoman/anger_bees",
-    "starr:beewoman/shoot_honey"
+    "starr:beewoman/launch_bee",
+    "starr:beewoman/shoot_honey",
+    "starr:beewoman/anger_bees"
   ],
   "icon":"starr:honey_ball",
   "impact":3
