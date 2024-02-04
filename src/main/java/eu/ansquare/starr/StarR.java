@@ -24,7 +24,7 @@ public class StarR implements ModInitializer {
 	}
 	public static final GameRules.Key<GameRules.BooleanRule> EXCLUSIVE_SUPERDUDES =
 			GameRuleRegistry.register("exclusive_superdudes", GameRules.Category.PLAYER, GameRuleFactory.createBooleanRule(true));
-	//Seeds -867254401229485070
+	//Seeds -867254401229485070, -1938553003148629779
 	@Override
 	public void onInitialize(ModContainer mod) {
 		LOGGER.info("Hello Quilt world from {}!", mod.metadata().name());
