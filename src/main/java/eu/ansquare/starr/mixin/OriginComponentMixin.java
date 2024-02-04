@@ -1,7 +1,8 @@
-package eu.ansquare.starr.mixin.square;
+package eu.ansquare.starr.mixin;
 
 import eu.ansquare.squarepowered.Squarepowered;
 import eu.ansquare.squarepowered.worlddata.GlobalSuperdudeData;
+import eu.ansquare.starr.StarR;
 import io.github.apace100.origins.Origins;
 import io.github.apace100.origins.component.OriginComponent;
 import io.github.apace100.origins.component.PlayerOriginComponent;
@@ -25,8 +26,8 @@ public interface OriginComponentMixin {
 	@Inject(method = "onChosen", at = @At("HEAD"), remap = false, cancellable = true)
 	private static void squarepowered_onSetOrigin(PlayerEntity player, boolean hadOriginBefore, CallbackInfo ci){
 		if(player.getWorld() instanceof ServerWorld world){
-			if(world.getGameRules().getBoolean(Squarepowered.EXCLUSIVE_SUPERDUDES)){
-				Identifier identifier = ModComponents.ORIGIN.get(player).getOrigin(OriginLayers.getLayer(Squarepowered.id("superdude"))).getIdentifier();
+			if(world.getGameRules().getBoolean(StarR.EXCLUSIVE_SUPERDUDES)){
+				Identifier identifier = ModComponents.ORIGIN.get(player).getOrigin(OriginLayers.getLayer(StarR.id("superdude"))).getIdentifier();
 				if(GlobalSuperdudeData.putOrReplace(world.getServer(), player.getUuid(), identifier)) {}
 			}
 		}

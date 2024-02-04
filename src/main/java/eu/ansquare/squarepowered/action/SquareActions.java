@@ -5,6 +5,7 @@ import eu.ansquare.squarepowered.util.LocalizationHandler;
 import io.github.apace100.apoli.power.factory.action.ActionFactory;
 import io.github.apace100.apoli.registry.ApoliRegistries;
 import io.github.apace100.calio.data.SerializableData;
+import io.github.apace100.calio.data.SerializableDataTypes;
 import net.minecraft.entity.Entity;
 import net.minecraft.registry.Registry;
 import net.minecraft.server.network.ServerPlayerEntity;
@@ -41,6 +42,8 @@ public class SquareActions {
 		registerBiEntity(OpenActionScreenAction.getAddTaskFactory());
 		registerEntity(SetInventoryAction.getFactory());
 		registerEntity(TpToDimensionAction.getFactory());
+		registerBiEntity(AggravateActions.getFromFactory());
+		registerEntity(AggravateActions.getAroundFactory());
 	}
 	private static void registerEntity(ActionFactory<Entity> actionFactory) {
 		Registry.register(ApoliRegistries.ENTITY_ACTION, actionFactory.getSerializerId(), actionFactory);

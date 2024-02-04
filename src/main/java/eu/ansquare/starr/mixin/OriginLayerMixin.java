@@ -1,7 +1,8 @@
-package eu.ansquare.starr.mixin.square;
+package eu.ansquare.starr.mixin;
 
 import eu.ansquare.squarepowered.Squarepowered;
 import eu.ansquare.squarepowered.worlddata.GlobalSuperdudeData;
+import eu.ansquare.starr.StarR;
 import io.github.apace100.origins.component.PlayerOriginComponent;
 import io.github.apace100.origins.origin.Origin;
 import io.github.apace100.origins.origin.OriginLayer;
@@ -25,8 +26,8 @@ public abstract class OriginLayerMixin {
 	@Inject(method = "contains(Lio/github/apace100/origins/origin/Origin;Lnet/minecraft/entity/player/PlayerEntity;)Z", at = @At("HEAD"), cancellable = true)
 	public void squarepowered_onSetOrigin(Origin origin, PlayerEntity playerEntity, CallbackInfoReturnable<Boolean> cir){
 		if(playerEntity.getWorld() instanceof ServerWorld world){
-			if(world.getGameRules().getBoolean(Squarepowered.EXCLUSIVE_SUPERDUDES)){
-				if(identifier.equals(Squarepowered.id("superdude"))){
+			if(world.getGameRules().getBoolean(StarR.EXCLUSIVE_SUPERDUDES)){
+				if(identifier.equals(StarR.id("superdude"))){
 					if(GlobalSuperdudeData.isTaken(world.getServer(), origin.getIdentifier())){
 						cir.setReturnValue(false);
 					}

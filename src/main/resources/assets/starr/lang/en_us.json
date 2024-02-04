@@ -104,6 +104,8 @@
   "origin.starr.brain.name": "Brain",
   "origin.starr.localizator.description": "Localizator is a superhero who can find players. Designed by ReadyRoad",
   "origin.starr.localizator.name": "Localizator",
+  "origin.starr.beewoman.description": "Beewoman is a superhero who bee. Designed by ReadyRoad",
+  "origin.starr.beewoman.name": "Beewoman",
 
   "POWERS": "POWERS",
   "power.starr.shieldboy/forcefield.description": "A green forcefield to protect you from enemies",
@@ -183,5 +185,10 @@
   "power.starr.localizator/teleportation_save.description": "Teleport to a point you have previously saved",
   "power.starr.localizator/teleportation_save.name": "Saved point teleportation",
   "power.starr.localizator/teleport_others.description": "Point at an entity when toggling on and your powers will teleport it instead of you.",
-  "power.starr.localizator/teleport_others.name": "Teleport others"
+  "power.starr.localizator/teleport_others.name": "Teleport others",
+
+  "power.starr.beewoman/anger_bees.description": "Send bees at an entity",
+  "power.starr.beewoman/anger_bees.name": "Anger bees",
+  "power.starr.beewoman/shoot_honey.description": "Shoot a ball of honey that slows players down",
+  "power.starr.beewoman/shoot_honey.name": "Shoot honey"
 }

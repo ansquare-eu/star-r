@@ -4,7 +4,10 @@ import eu.ansquare.starr.blocks.ModBlocks;
 import eu.ansquare.starr.entity.ModEntities;
 import eu.ansquare.starr.items.ModItemGroups;
 import eu.ansquare.starr.items.ModItems;
+import net.fabricmc.fabric.api.gamerule.v1.GameRuleFactory;
+import net.fabricmc.fabric.api.gamerule.v1.GameRuleRegistry;
 import net.minecraft.util.Identifier;
+import net.minecraft.world.GameRules;
 import org.quiltmc.loader.api.ModContainer;
 import org.quiltmc.qsl.base.api.entrypoint.ModInitializer;
 import org.slf4j.Logger;
@@ -19,7 +22,8 @@ public class StarR implements ModInitializer {
 	public static Identifier id(String path){
 		return new Identifier(MODID, path);
 	}
-
+	public static final GameRules.Key<GameRules.BooleanRule> EXCLUSIVE_SUPERDUDES =
+			GameRuleRegistry.register("exclusive_superdudes", GameRules.Category.PLAYER, GameRuleFactory.createBooleanRule(true));
 	//Seeds -867254401229485070
 	@Override
 	public void onInitialize(ModContainer mod) {

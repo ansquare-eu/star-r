@@ -1,0 +1,13 @@
+{
+  "type": "origins:fire_projectile",
+  "entity_type": "starr:honey_ball",
+  "cooldown": 50,
+  "count": 1,
+  "speed": 3,
+  "divergence": 1,
+  "key": "key.origins.secondary_active",
+  "hud_render": {
+    "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_01.png",
+    "bar_index": 0
+  }
+}

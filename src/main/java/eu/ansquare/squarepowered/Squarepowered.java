@@ -24,8 +24,7 @@ public class Squarepowered implements ModInitializer {
 	public static final Logger LOGGER = LoggerFactory.getLogger("Squarepowered");
 	public static final String MODID = StarR.MODID;
 
-	public static final GameRules.Key<GameRules.BooleanRule> EXCLUSIVE_SUPERDUDES =
-			GameRuleRegistry.register("exsclusive_superdudes", GameRules.Category.PLAYER, GameRuleFactory.createBooleanRule(true));
+
 	public static Identifier id(String path){
 		return StarR.id(path);
 	}
