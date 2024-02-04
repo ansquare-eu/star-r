@@ -22,13 +22,12 @@ public abstract class OriginLayerMixin {
 	private Identifier identifier;
 
 
-	@Inject(method = "contains(Lio/github/apace100/origins/origin/Origin;Lnet/minecraft/entity/player/PlayerEntity;)Z", at = @At("HEAD"), remap = false, cancellable = true)
+	@Inject(method = "contains(Lio/github/apace100/origins/origin/Origin;Lnet/minecraft/entity/player/PlayerEntity;)Z", at = @At("HEAD"), cancellable = true)
 	public void squarepowered_onSetOrigin(Origin origin, PlayerEntity playerEntity, CallbackInfoReturnable<Boolean> cir){
 		if(playerEntity.getWorld() instanceof ServerWorld world){
 			if(world.getGameRules().getBoolean(Squarepowered.EXCLUSIVE_SUPERDUDES)){
 				if(identifier.equals(Squarepowered.id("superdude"))){
 					if(GlobalSuperdudeData.isTaken(world.getServer(), origin.getIdentifier())){
-						Squarepowered.log("mr log sky", 1);
 						cir.setReturnValue(false);
 					}
 				}

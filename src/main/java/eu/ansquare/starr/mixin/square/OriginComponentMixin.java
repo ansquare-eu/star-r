@@ -27,7 +27,7 @@ public interface OriginComponentMixin {
 		if(player.getWorld() instanceof ServerWorld world){
 			if(world.getGameRules().getBoolean(Squarepowered.EXCLUSIVE_SUPERDUDES)){
 				Identifier identifier = ModComponents.ORIGIN.get(player).getOrigin(OriginLayers.getLayer(Squarepowered.id("superdude"))).getIdentifier();
-				if(GlobalSuperdudeData.putOrReplace(world.getServer(), player.getUuid(), identifier)) Squarepowered.log("yes", 2);
+				if(GlobalSuperdudeData.putOrReplace(world.getServer(), player.getUuid(), identifier)) {}
 			}
 		}
 	}
