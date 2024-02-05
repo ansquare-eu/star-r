@@ -1,6 +1,5 @@
 package eu.ansquare.starr.entity;
 
-import eu.ansquare.starr.entity.projectile.ReturningProjectileEntity;
 import eu.ansquare.starr.items.ModItems;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.projectile.PersistentProjectileEntity;

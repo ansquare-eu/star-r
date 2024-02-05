@@ -1,4 +1,4 @@
-package eu.ansquare.starr.entity.projectile;
+package eu.ansquare.starr.entity;
 
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.player.PlayerEntity;

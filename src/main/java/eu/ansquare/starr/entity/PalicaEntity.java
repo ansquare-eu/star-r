@@ -1,12 +1,10 @@
 package eu.ansquare.starr.entity;
 
-import eu.ansquare.starr.entity.projectile.ReturningProjectileEntity;
 import eu.ansquare.starr.items.ModItems;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.data.DataTracker;
 import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.data.TrackedDataHandlerRegistry;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.PersistentProjectileEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
