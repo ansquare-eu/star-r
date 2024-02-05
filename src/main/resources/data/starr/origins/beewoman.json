@@ -1,5 +1,6 @@
 {
   "powers": [
+    "starr:powered_flight",
     "starr:beewoman/launch_bee",
     "starr:beewoman/shoot_honey",
     "starr:beewoman/anger_bees"

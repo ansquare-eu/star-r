@@ -138,9 +138,9 @@
   "power.starr.captain_r/teleportation_save.name": "Saved point teleportation",
   "power.starr.captain_r/laser.description": "A laser to fry your enemies",
   "power.starr.captain_r/laser.name": "Laser",
-  "power.starr.captain_r/propel_2.description": "Fly without any elytra. Right click while empty handed to propel yourself!",
-  "power.starr.captain_r/propel_2.name": "Powered flight",
 
+  "power.starr.powered_flight.description": "Fly without any elytra. Right click while empty handed to propel yourself!",
+  "power.starr.powered_flight.name": "Powered flight",
   "power.starr.flight.description": "Fly without any elytra",
   "power.starr.flight.name": "Flight",
   "power.starr.prevent_freezing.description": "No longer freeze in powdered snow",
