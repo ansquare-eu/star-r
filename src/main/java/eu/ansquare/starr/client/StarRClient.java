@@ -14,7 +14,6 @@ import eu.ansquare.starr.entity.ModEntities;
 import eu.ansquare.starr.entity.model.BoyshieldEntityModel;
 import eu.ansquare.starr.entity.model.PalicaEntityModel;
 import eu.ansquare.starr.entity.render.BoyshieldEntityRenderer;
-import eu.ansquare.starr.entity.render.LaserEntityRenderer;
 import eu.ansquare.starr.entity.render.PalicaEntityRenderer;
 import eu.ansquare.starr.items.GetItemTypes;
 import eu.ansquare.starr.items.ModItems;
@@ -46,9 +45,6 @@ public class StarRClient implements ClientModInitializer {
 		EntityModelLayerRegistry.registerModelLayer(BoyshieldEntityModel.LAYER_LOCATION, BoyshieldEntityModel::getTexturedModelData);
 		EntityRendererRegistry.register(ModEntities.BOYSHIELD, (context) -> {
 			return new BoyshieldEntityRenderer<>(context);
-		});
-		EntityRendererRegistry.register(ModEntities.LASER, (context) -> {
-			return new LaserEntityRenderer(context);
 		});
 		EntityRendererRegistry.register(ModEntities.HONEYBALL, (context) ->
 				new FlyingItemEntityRenderer(context));

@@ -15,7 +15,6 @@ public class ModEntities {
 	private static final Map<EntityType, Identifier> ENTITIES = new LinkedHashMap();
 
 	public static final EntityType PALICA = createEntity("palica", QuiltEntityTypeBuilder.<PalicaEntity>create().entityFactory(PalicaEntity::new).setDimensions(EntityDimensions.fixed(0.2f, 1f)).build());
-	public static final EntityType LASER = createEntity("laser", QuiltEntityTypeBuilder.<LaserEntity>create().entityFactory(LaserEntity::new).setDimensions(EntityDimensions.fixed(0.2f, 1f)).build());
 	public static final EntityType BOYSHIELD = createEntity("boyshield", QuiltEntityTypeBuilder.<BoyshieldEntity>create().entityFactory(BoyshieldEntity::new).setDimensions(EntityDimensions.fixed(0.2f, 1f)).build());
 	public static final EntityType HONEYBALL = createEntity("honey_ball", QuiltEntityTypeBuilder.<HoneyballEntity>create().entityFactory(HoneyballEntity::new).setDimensions(EntityDimensions.fixed(0.25F, 0.25F)).maxBlockTrackingRange(4).trackingTickInterval(10).build());
 	public static final EntityType SLIMEBALL = createEntity("slime_ball", QuiltEntityTypeBuilder.<SlimeballEntity>create().entityFactory(SlimeballEntity::new).setDimensions(EntityDimensions.fixed(0.25F, 0.25F)).maxBlockTrackingRange(4).trackingTickInterval(10).build());
