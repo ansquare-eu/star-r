@@ -1,6 +1,7 @@
 {
   "powers": [
     "starr:hidden_no_fall",
+    "starr:mantisman/dash",
     "starr:mantisman/jump_boost",
     "starr:mantisman/strength",
     "starr:mantisman/speed"

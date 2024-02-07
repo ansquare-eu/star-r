@@ -1,0 +1,12 @@
+{
+  "type": "origins:active_self",
+  "entity_action": {
+    "type": "origins:add_velocity",
+    "space": "local",
+    "z": 2
+  },
+  "key": {
+    "key": "key.origins.primary_active",
+    "continuous": false
+  }
+}
