@@ -5,9 +5,8 @@
     "starr:skier/freeze_ray",
     "starr:skier/freeze_water",
     "starr:skier/jump_boost",
-    "starr:skier/creative_flight",
-    "starr:skier/speed"
-
+    "starr:skier/speed",
+    "starr:skier/creative_flight"
   ],
   "icon": "minecraft:packed_ice",
   "impact": 3

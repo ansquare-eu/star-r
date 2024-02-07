@@ -4,7 +4,8 @@
     "starr:captain_r/laser",
     "starr:captain_r/telekinesis",
     "starr:captain_r/teleportation_location",
-    "starr:captain_r/teleportation_save"
+    "starr:captain_r/teleportation_save",
+    "starr:hidden_no_fall"
   ],
   "icon":"starr:cape",
   "impact":3

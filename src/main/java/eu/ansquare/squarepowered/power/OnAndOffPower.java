@@ -20,11 +20,12 @@ public class OnAndOffPower extends TogglePower {
 	private final Consumer<Entity> entityActionOn;
 	private final Consumer<Entity> entityActionOff;
 
-	public OnAndOffPower(PowerType<?> type, LivingEntity entity, Consumer<Entity> onAction, Consumer<Entity> offAction) {
-		super(type, entity, false, true);
+	public OnAndOffPower(PowerType<?> type, LivingEntity entity, Consumer<Entity> onAction, Consumer<Entity> offAction, boolean activeDefault) {
+		super(type, entity, activeDefault, true);
 		this.entityActionOn = onAction;
 		this.entityActionOff = offAction;
 	}
+
 	@Override
 	public void onUse() {
 		super.onUse();
@@ -37,12 +38,14 @@ public class OnAndOffPower extends TogglePower {
 				new SerializableData()
 						.add("on_action", ApoliDataTypes.ENTITY_ACTION)
 						.add("off_action", ApoliDataTypes.ENTITY_ACTION)
-						.add("key", ApoliDataTypes.BACKWARDS_COMPATIBLE_KEY, new Active.Key()),
+						.add("key", ApoliDataTypes.BACKWARDS_COMPATIBLE_KEY, new Active.Key())
+						.add("active_by_default", SerializableDataTypes.BOOLEAN, false),
 				data ->
 						(type, player) -> {
 							OnAndOffPower power = new OnAndOffPower(type, player,
 									(ActionFactory<Entity>.Instance)data.get("on_action"),
-									(ActionFactory<Entity>.Instance)data.get("off_action"));
+									(ActionFactory<Entity>.Instance)data.get("off_action"),
+									data.getBoolean("active_by_default"));
 							power.setKey(data.get("key"));
 							return power;
 						})

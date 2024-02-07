@@ -3,7 +3,7 @@
   "on_action": {
     "type": "origins:apply_effect",
     "effect": {
-      "effect": "minecraft:jump_boost",
+      "effect": "minecraft:speed",
       "duration": -1,
       "amplifier": 2,
       "is_ambient": false,
@@ -13,9 +13,9 @@
   },
   "off_action": {
     "type": "origins:clear_effect",
-    "effect": "minecraft:jump_boost"
+    "effect": "minecraft:speed"
   },
-  "active_by_default": false,
+  "active_by_default": true,
   "key": {
     "key": "key.origins.4_active"
   }

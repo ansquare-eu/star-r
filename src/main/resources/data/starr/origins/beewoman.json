@@ -3,7 +3,8 @@
     "starr:powered_flight",
     "starr:beewoman/launch_bee",
     "starr:beewoman/shoot_honey",
-    "starr:beewoman/anger_bees"
+    "starr:beewoman/anger_bees",
+    "starr:hidden_no_fall"
   ],
   "icon":"starr:honey_ball",
   "impact":3
