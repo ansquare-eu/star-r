@@ -201,5 +201,7 @@
   "power.starr.mantisman/speed.description": "Run around real fast.",
   "power.starr.mantisman/speed.name": "Speed",
   "power.starr.mantisman/strength.description": "Attack stronger.",
-  "power.starr.mantisman/strength.name": "Powerful forearms"
+  "power.starr.mantisman/strength.name": "Powerful forearms",
+  "power.starr.mantisman/dash.description": "Leap at an entity.",
+  "power.starr.mantisman/dash.name": "Dash"
 }

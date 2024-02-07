@@ -44,6 +44,7 @@ public class SquareActions {
 		registerEntity(TpToDimensionAction.getFactory());
 		registerBiEntity(AggravateActions.getFromFactory());
 		registerEntity(AggravateActions.getAroundFactory());
+		registerBiEntity(LaunchTowardsAction.getFactory());
 	}
 	private static void registerEntity(ActionFactory<Entity> actionFactory) {
 		Registry.register(ApoliRegistries.ENTITY_ACTION, actionFactory.getSerializerId(), actionFactory);

@@ -18,6 +18,7 @@ public abstract class ReturningProjectileEntity extends PersistentProjectileEnti
 
 		if(this.getOwner() != null){
 			this.setVelocity(this.getOwner().getPos().subtract(this.getEyePos()).normalize().multiply(2));
+			velocityModified = true;
 			this.inGround = false;
 			this.untilremove = 20;
 		} else {this.remove(RemovalReason.DISCARDED);

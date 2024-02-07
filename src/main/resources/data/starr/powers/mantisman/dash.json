@@ -1,9 +1,17 @@
 {
   "type": "origins:active_self",
   "entity_action": {
-    "type": "origins:add_velocity",
-    "space": "local",
-    "z": 2
+    "type": "origins:raycast",
+    "distance": 16,
+    "block": true,
+    "entity": true,
+    "shape_type": "visual",
+    "fluid_handling": "any",
+    "bientity_action": {
+      "type": "starr:launch_to",
+      "speed": 2,
+      "rotate": true
+    }
   },
   "key": {
     "key": "key.origins.primary_active",
