@@ -57,7 +57,7 @@ public class ModItems {
 	public static final Item FORCESWORD = createItem("forcesword", new SwordItem(MEGASWORD_MATERIALS, 20, 1, new QuiltItemSettings().maxCount(1)), ModItemGroups.STARR_WEAPONS);
 	public static final Item BOYSHIELD = createItem("boyshield", new BoyshieldItem(new QuiltItemSettings().maxCount(1)), ModItemGroups.STARR_WEAPONS);
 	public static final Item MEGASWORD = createItem("megasword", new SwordItem(MEGASWORD_MATERIALS, 20, 1, new QuiltItemSettings().maxCount(1)), ModItemGroups.STARR_WEAPONS);
-	public static final Item WHITE_SKI = createItem("white_ski", new WearableItem(new QuiltItemSettings().maxCount(2), "textures/wearable/ski/white.png", () -> new SkiModel(MinecraftClient.getInstance().getEntityModelLoader().getModelPart(SkiModel.LAYER_LOCATION)), ((stack, abstractClientPlayerEntityPlayerEntityModel, abstractClientPlayerEntity, slotReference) -> {
+	public static final WearableItem WHITE_SKI = createItem("white_ski", new WearableItem(new QuiltItemSettings().maxCount(2), "textures/wearable/ski/white.png", () -> new SkiModel(MinecraftClient.getInstance().getEntityModelLoader().getModelPart(SkiModel.LAYER_LOCATION)), ((stack, abstractClientPlayerEntityPlayerEntityModel, abstractClientPlayerEntity, slotReference) -> {
 		if (slotReference.inventory().getSlotType().getName().equalsIgnoreCase("left_shoe")) {
 			if (abstractClientPlayerEntity.isInSneakingPose() && !abstractClientPlayerEntityPlayerEntityModel.riding && !abstractClientPlayerEntity.isSwimming()) {
 				stack.translate(0.0F, 0.0F, 0.25F);

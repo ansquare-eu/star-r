@@ -32,10 +32,7 @@ public class SquarepoweredClient implements ClientModInitializer {
 	@Override
 	public void onInitializeClient(ModContainer mod) {
 		initKeyBinds();
-		HandledScreens.register(SquareActionScreens.TELEPORT_SCREEN, LocationTeleportScreen::new);
-		HandledScreens.register(SquareActionScreens.SAVE_TELEPORT_SCREEN, SaveTeleportScreen::new);
-		HandledScreens.register(SquareActionScreens.LOCALIZE_SCREEN, LocalizeScreen::new);
-		HandledScreens.register(SquareActionScreens.WORLD_EDIT_SCREEN, WorldEditScreen::new);
+		SquareActionScreens.clientInit();
 	}
 	private void initKeyBinds(){
 		powerKeybind3 = new KeyBind("key.origins.3_active", InputUtil.Type.KEYSYM, GLFW.GLFW_KEY_M, "category.origins");
