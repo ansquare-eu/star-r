@@ -7,7 +7,6 @@
       "ScreenHandlerMixin",
       "square.PlayerEntityMixn",
       "square.ServerPlayerEntityMixn",
-      "square.ServerPlayerInteractionManagerAccessor",
       "square.ServerPlayNetworkHandlerMixin"
       ,
       "square.LivingEntityMixin",
@@ -17,7 +16,6 @@
       "square.ItemEntityMixin",
       "square.LockableContainerBlockEntityMixin",
       "square.HorseBaseEntityMixin",
-      "square.PistonBlockMixin",
       "square.EntityMixin",
       "square.ItemFrameEntityMixin",
       "ItemMixin",

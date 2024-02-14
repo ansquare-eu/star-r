@@ -51,10 +51,6 @@
 			{
 				"id": "origins",
 				"versions": ">=1.10.0"
-			},
-			{
-				"id": "sbd",
-				"versions": ">=1.0.0"
 			}
 		]
 	},

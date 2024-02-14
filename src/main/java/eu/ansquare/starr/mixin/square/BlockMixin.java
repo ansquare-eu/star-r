@@ -28,20 +28,13 @@ public class BlockMixin {
 	@Inject(method = "dropStack(Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/item/ItemStack;)V", at = @At("HEAD"), cancellable = true)
 	private static void onGetDroppedStacks(World world, BlockPos pos, ItemStack stack, CallbackInfo ci){
 		if(BlockDataApi.getBoolean(pos, world, "no_drop")){
-			BlockDataApi.setBoolean(pos, world, "no_drop", false);
 			ci.cancel();
 		}
 	}
 	@Inject(method = "dropStack(Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/util/math/Direction;Lnet/minecraft/item/ItemStack;)V", at = @At("HEAD"), cancellable = true)
 	private static void onGetDroppedStacksTwo(World world, BlockPos pos, Direction direction, ItemStack stack, CallbackInfo ci){
 		if(BlockDataApi.getBoolean(pos, world, "no_drop")){
-			BlockDataApi.setBoolean(pos, world, "no_drop", false);
 			ci.cancel();
 		}
-	}
-	@Inject(method = "afterBreak",at = @At("TAIL"), cancellable = true)
-	public void onAfterBreak(World world, PlayerEntity player, BlockPos pos, BlockState state, BlockEntity blockEntity, ItemStack stack, CallbackInfo ci){
-		//TODO move to SBD
-		BlockDataApi.setBoolean(pos, world, "no_drop", false);
 	}
 }
