@@ -36,7 +36,7 @@ public class ModBlocks {
 		BLOCKS.keySet().forEach(item -> Registry.register(Registries.BLOCK, BLOCKS.get(item), item));
 		BLOCKITEMS.keySet().forEach(item -> Registry.register(Registries.ITEM, BLOCKITEMS.get(item), item));
 	}
-    public static final TintedBlock FORCEFIELD = createBlock("forcefield", new TintedBlock(QuiltBlockSettings.create().nonOpaque().dropsNothing().strength(-1.0F, 3600000.0F).pistonBehavior(PistonBehavior.IGNORE), 0x00FF00));
+    public static final TintedBlock FORCEFIELD = createBlock("forcefield", new TintedBlock(QuiltBlockSettings.create().nonOpaque().dropsNothing().strength(-1.0F, 3600000.0F).pistonBehavior(PistonBehavior.IGNORE), true, 0x00FF00));
 	public static final Block TV = createBlockAndItem("tv", new TvBlock(QuiltBlockSettings.create().pistonBehavior(PistonBehavior.IGNORE).nonOpaque()), ItemGroups.FUNCTIONAL_BLOCKS, ModItemGroups.STARR_BLOCKS);
 	public static final Block KUFOR = createBlockAndItem("kufor", new RandomKuforBlock(QuiltBlockSettings.create().pistonBehavior(PistonBehavior.IGNORE).nonOpaque(), new ItemConvertible[]{Blocks.COMMAND_BLOCK, Blocks.CHAIN_COMMAND_BLOCK, Blocks.REPEATING_COMMAND_BLOCK, Blocks.STRUCTURE_BLOCK, Blocks.JIGSAW, Blocks.STRUCTURE_VOID, Blocks.DRAGON_EGG}), ItemGroups.FUNCTIONAL_BLOCKS, ModItemGroups.STARR_BLOCKS);
 
